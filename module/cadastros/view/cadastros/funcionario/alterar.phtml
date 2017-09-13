@@ -1,0 +1,84 @@
+ <div class="container theme-showcase" role="main" style="margin-bottom:10px;padding:0px;">
+      <button type="button" class="btn btn-default" onclick="location.href='<?= $this->url('novoFuncionario'); ?>'" style="float: right;">
+      <img src="<?php echo $this->basePath('img/novo.png') ?>" alt="Novo">
+      Novo funcionario</button>
+
+    <ol class="breadcrumb" style="margin-bottom: 0px;">
+      <li><a href="<?= $this->url('home'); ?>">Home</a></li>
+      <li><a href="<?= $this->url('listarFuncionario'); ?>">Funcionários</a></li>
+      <li class="active">Alterar</li>
+    </ol>
+  </div>
+
+    <div class="container theme-showcase" role="main">
+      <div class="row">
+          <div class="panel panel-default">
+          <div class="panel-heading">
+              <h3 class="panel-title">Alterar funcionário</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                  <?php echo $this->partial('form/generic', array('form'=> $formFuncionario, 'route'=> '')) ?>
+
+            </div>
+          </div>
+      </div>
+    </div>
+    </div>
+    <?php if($funcionario['lider'] == 'N'): ?>
+    <!-- GESTOR -->
+    <div class="container theme-showcase" role="main">
+      <div class="row">
+          <div class="panel panel-danger">
+          <div class="panel-heading">
+              <h3 class="panel-title">Vincular gestor</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                  <?php echo $this->partial('form/generic', array('form'=> $formGestor, 'route'=> '')) ?>
+
+            </div>
+          </div>
+      </div>
+    </div>
+    </div>
+
+
+    <div class="container theme-showcase" role="main">
+      <div class="row">
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+              <h3 class="panel-title">Gestores vinculados</h3>
+            </div>
+            <div class="panel-body">
+              <?php if($gestores->count() > 0): ?>
+                <table class="table">
+                  <tr>
+                    <th style="text-align: center">Gestor</th>
+                    <th style="text-align: center">Ações</th>
+                </tr>
+                <?php foreach($gestores as $gestor): ?>
+                <tr>
+                  <td style="text-align: center"><?= $gestor['nome_gestor']; ?></td>
+                  <td style="text-align: center;">
+                    <img src="<?= $this->basePath('img/deletar.png'); ?>" title="Editar" 
+                    onclick="location.href='<?= $this->url('deletarGestor', array('idGestor' => $gestor['id'], 'idFuncionario' => $funcionario['id'])); ?>'" style="cursor: pointer;">
+                  </td>
+                </tr>
+                <?php endforeach; ?>
+              </table>
+            <?php else: ?>
+              <div class="alert alert-info">Nenhum gestor encontrado!</div>
+            <?php endif; ?>
+            </div>
+          </div>
+        </div>
+      </div>
+    <?php endif; ?>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#data_inicio").mask("99/99/9999");
+        $("#data_nascimento").mask("99/99/9999");
+        $("#data_saida").mask("99/99/9999");
+      });
+    </script>

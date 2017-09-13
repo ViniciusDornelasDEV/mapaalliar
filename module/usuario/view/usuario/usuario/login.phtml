@@ -1,0 +1,10 @@
+<div class="container theme-showcase" role="main" style="">
+
+            <img id="profile-img" class="img-responsive center-block" src="<?php echo $this->basePath('img/logo_login.png'); ?>" />
+            <p id="profile-name" class="profile-name-card"></p>
+</div>
+<div class="container theme-showcase" role="main" style="">
+	<div class="card card-container">
+		<?php echo $this->partial('form/login', array('form'=> $form, 'route'=> '')) ?>
+	</div>
+</div>

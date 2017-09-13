@@ -1,0 +1,120 @@
+<?php echo $this->doctype(); ?>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <?php echo $this->headTitle('Mapa Alliar')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+
+<?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+                ->prependStylesheet($this->basePath() . '/css/bootstrap.css')
+                ->prependStylesheet($this->basePath() . '/css/backgrounds.css')
+                ->prependStylesheet($this->basePath() . '/css/layout.css')
+                ->prependStylesheet($this->basePath() . '/css/menu.css'); ?>
+
+
+                <?php echo $this->headScript()
+            ->prependFile($this->basePath() . '/js/bootbox.min.js')
+            ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+            ->prependFile($this->basePath() . '/js/jquery.maskedinput.min.js')
+            ->prependFile($this->basePath() . '/js/funcoes.js')
+            ->prependFile($this->basePath() . '/js/jquery.js'); 
+
+
+    $rota = explode("\\", $this->getHelperPluginManager()->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getParam('controller'));
+?>
+
+    </head>
+    <body class="ng-scope">
+        <div id="sb-site">
+            <div id="page-wrapper">
+                <div id="page-header" class="bg-gradient-9">
+                    <div id="header-logo" class="logo-bg">
+                        <img src="<?= $this->basePath('img/logo.png'); ?>" style="margin-top:5px;">
+                    </div>
+                    <div id="header-nav-left">
+                        <div id="page-title" style="position:absolute;margin-top:10px;margin-left:20px;">
+                            <h2 style="color:#fff">MAPA</h2>
+                            <p style="color:#fff">METODOLOGIA ADMINISTRAÇÃO DE PESSOAL ALLIAR</p>
+                        </div>                        
+                    </div>
+                    <div id="header-nav-right">
+                        <a href="#" class="hdr-btn" id="fullscreen-btn" title="Fullscreen">
+                            <i class="glyph-icon icon-arrows-alt"></i>
+                        </a>
+                    </div>
+                </div>                
+
+                <div style="height: 891px;" id="page-sidebar">
+                    <div style="height: 891px;" class="scroll-sidebar">
+
+
+                        <nav class="navbar navbar-default sidebar" style="width:100%;" role="navigation">
+                            <div class="container-fluid">
+                            <div class="navbar-header">
+                              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                              </button>      
+                            </div>
+                            <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+                              <ul class="nav navbar-nav" style="width:100%;">
+                                <li class="<?= $rota[0] == 'Application' ? 'active' : ''; ?>"><a href="<?= $this->url('home'); ?>">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a></li>
+                                <li class="dropdown <?= $rota[0] == 'Cadastros' ? 'open' : ''; ?>">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cadastros 
+                                        <span class="caret"></span>
+                                        <span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span>
+                                    </a>
+                                    <ul class="dropdown-menu forAnimate" role="menu">
+                                        <li class="<?= $rota[2] == 'Empresa' ? 'active' : ''; ?>"><a href="<?= $this->url('listarEmpresa'); ?>">Empresa</a></li>
+                                        <li class="<?= $rota[2] == 'Area' ? 'active' : ''; ?>"><a href="<?= $this->url('listarArea'); ?>">Área</a></li>
+                                        <li class="<?= $rota[2] == 'Setor' ? 'active' : ''; ?>"><a href="<?= $this->url('listarSetor') ?>">Setor</a></li>
+                                        <li class="<?= $rota[2] == 'Funcao' ? 'active' : ''; ?>"><a href="<?= $this->url('listarFuncao'); ?>">Função</a></li>
+                                        <li class="<?= $rota[2] == 'Funcionario' ? 'active' : ''; ?>"><a href="<?= $this->url('listarFuncionario'); ?>">Funcionário</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="<?= $rota[0] == 'Usuario' ? 'active' : ''; ?>"><a href="<?= $this->url('usuario'); ?>">Usuários<span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a></li>         
+                                
+                                <li><a href="<?= $this->url('logout'); ?>">Sair<span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a></li>         
+                                
+                              </ul>
+                            </div>
+                          </div>
+                        </nav>
+
+
+                    </div>
+                </div>
+
+        <div id="page-content-wrapper">
+            <div id="page-content" style="margin-top: 0px; min-height: 874px;"> 
+                <div class="container theme-showcase" role="main" style="margin-top:100px;padding: 0px;">
+                    <?= $this->flashMessenger()->render('error', array('alert', 'alert-danger')) ?>   
+
+                    <?= $this->flashMessenger()->render('warning', array('alert',  'alert-warning')) ?>
+                    
+                    <?= $this->flashMessenger()->render('success', array('alert',  'alert-success')) ?>
+                </div>
+        
+        <?php echo $this->content; ?>
+
+
+
+  </div>            
+        </div>
+
+
+    <?php echo $this->inlineScript() ?>
+
+
+
+</div>
+</div>
+</body>
+</html>

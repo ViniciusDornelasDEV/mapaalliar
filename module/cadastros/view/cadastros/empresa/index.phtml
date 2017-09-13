@@ -1,0 +1,50 @@
+    <?php echo $this->partial('form/pesquisa', array('form'=> $formPesquisa, 'route'=> '')) ?>
+
+    <div class="container theme-showcase" role="main" style="margin-bottom:10px;padding:0px;">
+       <button type="button" class="btn btn-default" onclick="location.href='<?= $this->url('novoEmpresa'); ?>'" style="float: right;">
+      <img src="<?php echo $this->basePath('img/novo.png') ?>" alt="Novo">
+      Nova empresa</button>
+
+      
+    </div>
+    <div class="container theme-showcase" role="main">
+      <div class="row">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Listagem de empresas</h3>
+            </div>
+            <div class="panel-body">
+              <?php if($empresas->count() > 0): ?>
+                <table class="table">
+                  <tr>
+                    <th style="text-align: center">Nome da empresa</th>
+                    <th style="text-align: center">Responsável</th>
+                    <th style="text-align: center">Ações</th>
+                </tr>
+                <?php foreach($empresas as $empresa): ?>
+                <tr>
+                  <td style="text-align: center"><?= $empresa['nome']; ?></td>
+                  <td style="text-align: center"><?= $empresa['responsavel']; ?></td>
+                  <td style="text-align: center;">
+                    <img src="<?= $this->basePath('img/editar.png'); ?>" title="Editar" 
+                    onclick="location.href='<?= $this->url('alterarEmpresa', array('id' => $empresa['id'])); ?>'" style="cursor: pointer;">
+                  </td>
+                </tr>
+                <?php endforeach; ?>
+              </table>
+            <?php else: ?>
+              <div class="alert alert-info">Nenhuma empresa encontrada!</div>
+            <?php endif; ?>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container theme-showcase" style="margin-top:0px;" role="main">
+        <div style="float:right;">
+          <?php echo $this->paginationControl($empresas,
+                                        'Sliding',
+                                        'view/paginator', array('route' => 'listarEmpresa')); 
+          ?>
+        </div>
+      </div>

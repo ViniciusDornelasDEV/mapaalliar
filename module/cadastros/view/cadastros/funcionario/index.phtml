@@ -1,0 +1,62 @@
+    <?php echo $this->partial('form/pesquisa', array('form'=> $formPesquisa, 'route'=> '')) ?>
+
+    <div class="container theme-showcase" role="main" style="margin-bottom:10px;padding:0px;">
+       <button type="button" class="btn btn-default" onclick="location.href='<?= $this->url('novoFuncionario'); ?>'" style="float: right;">
+      <img src="<?php echo $this->basePath('img/novo.png') ?>" alt="Novo">
+      Novo funcionário</button>
+    </div>
+    <div class="container theme-showcase" role="main">
+      <div class="row">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Listagem de funcionários</h3>
+            </div>
+            <div class="panel-body">
+              <?php if($funcionarios->count() > 0): ?>
+                <table class="table">
+                  <tr>
+                    <th style="text-align: center">Matrícula</th>
+                    <th style="text-align: center">Nome</th>
+                    <th style="text-align: center">Empresa</th>
+                    <th style="text-align: center">Unidade</th>
+                    <th style="text-align: center">Área</th>
+                    <th style="text-align: center">Setor</th>
+                    <th style="text-align: center">Função</th>
+                    <th style="text-align: center">Tipo de contratação</th>
+                    <th style="text-align: center">Tipo de contrato</th>
+                    <th style="text-align: center">Ações</th>
+                </tr>
+                <?php foreach($funcionarios as $funcionario): ?>
+                <tr>
+                  <td style="text-align: center"><?= $funcionario['matricula']; ?></td>
+                  <td style="text-align: center"><?= $funcionario['nome']; ?></td>
+                  <td style="text-align: center"><?= $funcionario['nome_empresa']; ?></td>
+                  <td style="text-align: center"><?= $funcionario['nome_unidade']; ?></td>
+                  <td style="text-align: center"><?= $funcionario['nome_area']; ?></td>
+                  <td style="text-align: center"><?= $funcionario['nome_setor']; ?></td>
+                  <td style="text-align: center"><?= $funcionario['nome_funcao']; ?></td>
+                  <td style="text-align: center"><?= $funcionario['tipo_contratacao']; ?></td>
+                  <td style="text-align: center"><?= $funcionario['tipo_contrato']; ?></td>
+                  <td style="text-align: center;">
+                    <img src="<?= $this->basePath('img/editar.png'); ?>" title="Editar" 
+                    onclick="location.href='<?= $this->url('alterarFuncionario', array('id' => $funcionario['id'])); ?>'" style="cursor: pointer;">
+                  </td>
+                </tr>
+                <?php endforeach; ?>
+              </table>
+            <?php else: ?>
+              <div class="alert alert-info">Nenhum funcionário encontrado!</div>
+            <?php endif; ?>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container theme-showcase" style="margin-top:0px;" role="main">
+        <div style="float:right;">
+          <?php echo $this->paginationControl($funcionarios,
+                                        'Sliding',
+                                        'view/paginator', array('route' => 'listarFuncionario')); 
+          ?>
+        </div>
+      </div>
