@@ -1,0 +1,71 @@
+    <?php echo $this->partial('form/pesquisa', array('form'=> $formPesquisa, 'route'=> '')) ?>
+
+    <div class="container theme-showcase" role="main" style="margin-bottom:10px;padding:0px;">
+      <button type="button" class="btn btn-default" onclick="location.href='<?= $this->url('novoSubstituicao'); ?>'" style="float: right;">
+      <img src="<?php echo $this->basePath('img/novo.png') ?>" alt="Novo">
+      Nova substituição programada</button>
+
+      
+    </div>
+    <div class="container theme-showcase" role="main">
+      <div class="row">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Listagem de substituições programadas</h3>
+            </div>
+            <div class="panel-body">
+              <?php if($substituicoes->count() > 0): ?>
+                <table class="table">
+                  <tr>
+                    <th style="text-align: center">Funcionário</th>
+                    <th style="text-align: center">Unidade</th>
+                    <th style="text-align: center">Área</th>
+                    <th style="text-align: center">Setor</th>
+                    <th style="text-align: center">Função</th>
+                    <th style="text-align: center">Data do desligamento</th>
+                    <th style="text-align: center">Vaga aberta no RH</th>
+                    <th style="text-align: center">Vaga encerrada</th>
+                    <th style="text-align: center">Ações</th>
+                </tr>
+                <?php foreach($substituicoes as $substituicao): ?>
+                <tr>
+                  <td style="text-align: center"><?= $substituicao['nome_funcionario']; ?></td>
+                  <td style="text-align: center"><?= $substituicao['nome_unidade']; ?></td>
+                  <td style="text-align: center"><?= $substituicao['nome_area']; ?></td>
+                  <td style="text-align: center"><?= $substituicao['nome_setor']; ?></td>
+                  <td style="text-align: center"><?= $substituicao['nome_funcao']; ?></td>
+                  <td style="text-align: center"><?= $substituicao['data_desligamento']; ?></td>
+                  <td style="text-align: center"><?= $substituicao['vaga_rh']; ?></td>
+                  <td style="text-align: center"><?= $substituicao['encerrada']; ?></td>
+            
+                  <td style="text-align: center;">
+                    <img src="<?= $this->basePath('img/editar.png'); ?>" title="Editar" 
+                    onclick="location.href='<?= $this->url('alterarSubstituicao', array('id' => $substituicao['id'])); ?>'" style="cursor: pointer;">
+
+                  </td>
+                </tr>
+                <?php endforeach; ?>
+              </table>
+            <?php else: ?>
+              <div class="alert alert-info">Nenhuma substituição programada encontrada!</div>
+            <?php endif; ?>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container theme-showcase" style="margin-top:0px;" role="main">
+        <div style="float:right;">
+          <?php echo $this->paginationControl($substituicoes,
+                                        'Sliding',
+                                        'view/paginator', array('route' => 'listarSubstituicao')); 
+          ?>
+        </div>
+      </div>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#inicio").mask("99/99/9999");
+        $("#fim").mask("99/99/9999");
+      });
+    </script>

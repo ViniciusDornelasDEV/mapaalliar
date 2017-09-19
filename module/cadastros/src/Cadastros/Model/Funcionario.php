@@ -82,6 +82,10 @@ class Funcionario Extends BaseTable {
                     $select->where(array('tb_funcionario.lider' => $params['lider']));
                 }
 
+                if(!empty($params['lider_imediato'])){
+                    $select->where(array('tb_funcionario.lider_imediato' => $params['lider_imediato']));
+                }
+
 
             }
             
@@ -100,7 +104,7 @@ class Funcionario Extends BaseTable {
             $select->join(
                     array('e' => 'tb_empresa'),
                     'e.id = u.empresa',
-                    array('nome_empresa' => 'nome')
+                    array('nome_empresa' => 'nome', 'id_empresa' => 'id')
                 );
 
             $select->join(

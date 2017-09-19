@@ -11,6 +11,9 @@ return  array(
         'application',
         'usuario',
         'cadastros',
+        'mensal',
+        'adminpessoal',
+        'diario',
         'ZF2Excel'
     ),
     'module_listener_options' => array(

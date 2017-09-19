@@ -26,6 +26,12 @@ class IndexController extends AbstractActionController
         return new ViewModel();
     }
 
+    public function indexgestorAction(){
+        $this->layout('layout/gestor');
+        
+        return new ViewModel();
+    }
+
     public function downloadAction(){
     	$sessao = new Container();
         $fileName = $sessao->arquivo;

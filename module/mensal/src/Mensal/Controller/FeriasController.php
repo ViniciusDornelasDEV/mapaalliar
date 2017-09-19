@@ -8,115 +8,134 @@ use Zend\View\Model\ViewModel;
 use Zend\Paginator\Paginator;
 use Zend\Paginator\Adapter\ArrayAdapter;
 
-
+use Mensal\Form\PesquisarFerias as formPesquisa;
+use Mensal\Form\Ferias as formFerias;
+use Mensal\Form\AlterarFerias as formAlterarFerias;
 
 class FeriasController extends BaseController
 {
     private $campos = array(
-            'Nome da empresa'           => 'nome',
-            'Responsável da empresa'    => 'responsavel',
-            'Nome da unidade'           => 'nome_unidade',
-            'Responsável da unidade'    => 'nome_responsavel'
+            'Nome da área'          => 'nome_area',
+            'Nome do setor'         => 'nome_setor',
+            'Nome da função'        => 'nome_funcao',
+            'Nome do funcionário'   => 'nome_funcionario',
+            'Início'                => 'data_inicio',
+            'Fim'                   => 'data_fim'
         );
 
     public function indexAction(){
-    	$serviceEmpresa = $this->getServiceLocator()->get('Empresa');
-            
-        $formPesquisa = new formPesquisa('frmEmpresa');
+        $this->layout('layout/gestor');
+    	$serviceFerias = $this->getServiceLocator()->get('Ferias');
+        
+        $usuario = $this->getServiceLocator()->get('session')->read();
+        $formPesquisa = new formPesquisa('frmFerias', $this->getServiceLocator(), $usuario);
 
     	$formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $empresas = $serviceEmpresa->getEmpresas($this->sessao->parametros);
-        
+        $ferias = $serviceFerias->getFerias($this->sessao->parametros)->toArray();
+        foreach ($ferias as $key => $feria) {
+            $ferias[$key]['data_inicio'] = $formPesquisa->converterData($feria['data_inicio']);
+            $ferias[$key]['data_fim'] = $formPesquisa->converterData($feria['data_fim']);
+        }
+
         if($this->getRequest()->isPost()){
             $dados = $this->getRequest()->getPost();
             if(isset($dados->exportar)){
-                parent::gerarExcel($this->campos, $serviceEmpresa->getEmpresasAndUnidades($this->sessao->parametros), 'Empresa');
+                parent::gerarExcel($this->campos, $ferias, 'Férias');
             }
         }
         
-        $paginator = new Paginator(new ArrayAdapter($empresas->toArray()));
+        $paginator = new Paginator(new ArrayAdapter($ferias));
         $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(5);
         
         return new ViewModel(array(
-                                'empresas'      => $paginator,
+                                'ferias'        => $paginator,
                                 'formPesquisa'  => $formPesquisa
                             ));
     }
 
     public function novoAction(){
-        $formEmpresa = new formEmpresa('frmEmpresa');
+        $this->layout('layout/gestor');
+        $usuario = $this->getServiceLocator()->get('session')->read();
+        $formFerias = new formFerias('frmFerias', $this->getServiceLocator(), $usuario);
 
         if($this->getRequest()->isPost()){
-            $formEmpresa->setData($this->getRequest()->getPost());
-            if($formEmpresa->isValid()){
-                $idEmpresa = $this->getServiceLocator()->get('Empresa')->insert($formEmpresa->getData());
-                $this->flashMessenger()->addSuccessMessage('Empresa incluída com sucesso!');
-                return $this->redirect()->toRoute('alterarEmpresa', array('id' => $idEmpresa));
+            $formFerias->setData($this->getRequest()->getPost());
+            if($formFerias->isValid()){
+                $idFerias = $this->getServiceLocator()->get('Ferias')->insert($formFerias->getData());
+                $this->flashMessenger()->addSuccessMessage('Férias incluída com sucesso!');
+                return $this->redirect()->toRoute('alterarFerias', array('id' => $idFerias));
             }
         }
-        return new ViewModel(array('formEmpresa' => $formEmpresa));
+        return new ViewModel(array('formFerias' => $formFerias));
     }
 
     public function alterarAction(){
-        $idEmpresa = $this->params()->fromRoute('id');
-        $serviceEmpresa = $this->getServiceLocator()->get('Empresa');
-        $formEmpresa = new formEmpresa('frmEmpresa');
+        $this->layout('layout/gestor');
+        $idFerias = $this->params()->fromRoute('id');
+        $serviceFerias = $this->getServiceLocator()->get('Ferias');
 
-        $empresa = $serviceEmpresa->getRecord($idEmpresa);
-        if(!$empresa){
-            $this->flashMessenger()->addWarningMessage('Empresa não encontrada!');
-            return $this->redirect()->toRoute('listarEmpresa');
+        $usuario = $this->getServiceLocator()->get('session')->read();
+        $formFerias = new formAlterarFerias('frmFerias', $this->getServiceLocator(), $usuario);
+
+        $ferias = $serviceFerias->getRecord($idFerias);
+        if(!$ferias){
+            $this->flashMessenger()->addWarningMessage('Férias não encontrada!');
+            return $this->redirect()->toRoute('listarFerias');
         }
 
-        $formEmpresa->setData($empresa);
+        $formFerias->setData($ferias);
         
-        $formUnidade = new formUnidade('frmUnidade');
-        $idUnidade = $this->params()->fromRoute('unidade');
-        $serviceUnidade = $this->getServiceLocator()->get('Unidade');
-        if($idUnidade){
-            $formUnidade->setData($serviceUnidade->getRecord($idUnidade));
-        }
-
         if($this->getRequest()->isPost()){
-            $dados = $this->getRequest()->getPost();
-            //UNIDADE
-            if(isset($dados['unidade'])){
-                $formUnidade->setData($dados);
-                if($formUnidade->isValid()){
-                    $dados = $formUnidade->getData();
-                    if($idUnidade){
-                        //update
-                        $serviceUnidade->update($dados, array('id' => $idUnidade));
-                        $this->flashMessenger()->addSuccessMessage('Unidade alterada com sucesso!');
-                    }else{
-                        //insert
-                        $dados['empresa'] = $idEmpresa;
-                        $idUnidade = $serviceUnidade->insert($dados);
-                        $this->flashMessenger()->addSuccessMessage('Unidade inserida com sucesso!');
-                    }
-                    return $this->redirect()->toRoute('alterarEmpresa', array('id' => $idEmpresa));
-                }
-            }else{
-                //EMPRESA
-                $formEmpresa->setData($dados);
-                if($formEmpresa->isValid()){
-                    $serviceEmpresa->update($formEmpresa->getData(), array('id' => $idEmpresa));
-                    $this->flashMessenger()->addSuccessMessage('Empresa alterada com sucesso!');
-                    return $this->redirect()->toRoute('alterarEmpresa', array('id' => $idEmpresa));
-                }
+            $formFerias->setData($this->getRequest()->getPost());
+            if($formFerias->isValid()){
+                $dados = $formFerias->getData();
+                unset($dados['funcionario']);
+                $serviceFerias->update($dados, array('id' => $idFerias));
+                $this->flashMessenger()->addSuccessMessage('Férias alterada com sucesso!');
+                return $this->redirect()->toRoute('alterarFerias', array('id' => $idFerias));
             }
         }
 
         
-        $unidades = $serviceUnidade->getRecords($idEmpresa, 'empresa');
         return new ViewModel(array(
-            'formEmpresa'   => $formEmpresa,
-            'formUnidade'   => $formUnidade,
-            'empresa'       => $empresa,
-            'unidades'      => $unidades
+            'formFerias'    => $formFerias
             ));
+    }
+
+    public function deletarferiasAction(){
+        $this->layout('layout/gestor');
+        $idFerias = $this->params()->fromRoute('id');
+        $serviceFerias = $this->getServiceLocator()->get('Ferias');
+        
+        $ferias = $serviceFerias->getRecord($idFerias);
+        if(strtotime($ferias['data_inicio']) < strtotime(date('Y-m-d'))){
+            $this->flashMessenger()->addWarningMessage('Não é possível excluir férias em andamento ou já cumprida!');
+            return $this->redirect()->toRoute('listarFerias');
+        }
+
+        if($serviceFerias->delete(array('id' => $idFerias))){
+            $this->flashMessenger()->addSuccessMessage('Férias excluída com sucesso!');
+        }else{
+            $this->flashMessenger()->adddErrorMessage('Ocorreu algum erro ao excluir férias!');
+        }
+
+        return $this->redirect()->toRoute('listarFerias');
+    }
+
+    public function carregarfuncionarioAction(){
+        $params = $this->getRequest()->getPost();
+        //instanciar form
+        $usuario = $this->getServiceLocator()->get('session')->read();
+        $formFerias = new formFerias('frmFerias', $this->getServiceLocator(), $usuario);
+
+        $funcionarios = $formFerias->setFuncionarioByFuncao($params->funcao, $usuario['funcionario']);
+        
+        $view = new ViewModel();
+        $view->setTerminal(true);
+        $view->setVariables(array('funcionarios' => $funcionarios));
+        return $view;
     }
 
 

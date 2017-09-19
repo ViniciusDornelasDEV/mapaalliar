@@ -682,6 +682,24 @@ abstract class Base extends Form {
          }
     }
     
+    public function dataAmericana($Data){
+        @$TipoData = stristr($Data, "/");
+        if($TipoData != false){
+            $Texto = explode("/",$Data);
+            return $Texto[2]."-".$Texto[1]."-".$Texto[0];
+        }
+        return $Data;
+    }
+
+    public function dataBrasil($Data){
+        @$TipoData = stristr($Data, "-");
+        if($TipoData != false){
+            $Texto = explode("-",$Data);
+            return $Texto[2]."/".$Texto[1]."/".$Texto[0];
+        }
+        return $Data;
+    }
+
     private function ConverteData($Data){
         @$TipoData = stristr($Data, "/");
         if($TipoData != false){

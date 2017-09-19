@@ -1,9 +1,9 @@
     <?php echo $this->partial('form/pesquisa', array('form'=> $formPesquisa, 'route'=> '')) ?>
 
     <div class="container theme-showcase" role="main" style="margin-bottom:10px;padding:0px;">
-       <button type="button" class="btn btn-default" onclick="location.href='<?= $this->url('novoEmpresa'); ?>'" style="float: right;">
+       <button type="button" class="btn btn-default" onclick="location.href='<?= $this->url('novoFerias'); ?>'" style="float: right;">
       <img src="<?php echo $this->basePath('img/novo.png') ?>" alt="Novo">
-      Nova empresa</button>
+      Novas férias</button>
 
       
     </div>
@@ -11,29 +11,44 @@
       <div class="row">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h3 class="panel-title">Listagem de empresas</h3>
+              <h3 class="panel-title">Listagem de férias</h3>
             </div>
             <div class="panel-body">
-              <?php if($empresas->count() > 0): ?>
+              <?php if($ferias->count() > 0): ?>
                 <table class="table">
                   <tr>
-                    <th style="text-align: center">Nome da empresa</th>
-                    <th style="text-align: center">Responsável</th>
+                    <th style="text-align: center">status</th>
+                    <th style="text-align: center">Área</th>
+                    <th style="text-align: center">Setor</th>
+                    <th style="text-align: center">Função</th>
+                    <th style="text-align: center">Funcionário</th>
+                    <th style="text-align: center">Início</th>
+                    <th style="text-align: center">Fim</th>
                     <th style="text-align: center">Ações</th>
                 </tr>
-                <?php foreach($empresas as $empresa): ?>
+                <?php foreach($ferias as $feria): ?>
                 <tr>
-                  <td style="text-align: center"><?= $empresa['nome']; ?></td>
-                  <td style="text-align: center"><?= $empresa['responsavel']; ?></td>
+                  <?php 
+                    $cor = $this->farol($this->converterData($feria['data_inicio']), $this->converterData($feria['data_fim']));
+                  ?>
+                  <td style="text-align: center"><img src="<?= $this->basePath($cor); ?>"></td>
+                  <td style="text-align: center"><?= $feria['nome_area']; ?></td>
+                  <td style="text-align: center"><?= $feria['nome_setor']; ?></td>
+                  <td style="text-align: center"><?= $feria['nome_funcao']; ?></td>
+                  <td style="text-align: center"><?= $feria['nome_funcionario']; ?></td>
+                  <td style="text-align: center"><?= $feria['data_inicio']; ?></td>
+                  <td style="text-align: center"><?= $feria['data_fim']; ?></td>
                   <td style="text-align: center;">
                     <img src="<?= $this->basePath('img/editar.png'); ?>" title="Editar" 
-                    onclick="location.href='<?= $this->url('alterarEmpresa', array('id' => $empresa['id'])); ?>'" style="cursor: pointer;">
+                    onclick="location.href='<?= $this->url('alterarFerias', array('id' => $feria['id'])); ?>'" style="cursor: pointer;">
+                    
+
                   </td>
                 </tr>
                 <?php endforeach; ?>
               </table>
             <?php else: ?>
-              <div class="alert alert-info">Nenhuma empresa encontrada!</div>
+              <div class="alert alert-info">Nenhuma férias encontrada!</div>
             <?php endif; ?>
             </div>
           </div>
@@ -42,9 +57,18 @@
 
       <div class="container theme-showcase" style="margin-top:0px;" role="main">
         <div style="float:right;">
-          <?php echo $this->paginationControl($empresas,
+          <?php echo $this->paginationControl($ferias,
                                         'Sliding',
-                                        'view/paginator', array('route' => 'listarEmpresa')); 
+                                        'view/paginator', array('route' => 'listarFerias')); 
           ?>
         </div>
       </div>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#inicio_inicio").mask("99/99/9999");
+        $("#inicio_fim").mask("99/99/9999");
+        $("#fim_inicio").mask("99/99/9999");
+        $("#fim_fim").mask("99/99/9999");
+      });
+    </script>

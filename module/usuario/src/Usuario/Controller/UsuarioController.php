@@ -92,16 +92,9 @@ class UsuarioController extends BaseController
                     $sessao->acl = $this->criarAutorizacao();
                     
                     if($user['id_usuario_tipo'] == 2){
-                        return $this->redirect()->toRoute('listarCompetencias');
+                        return $this->redirect()->toRoute('homeGestor');
                     }
 
-                    if($user['id_usuario_tipo'] == 3){
-                        return $this->redirect()->toRoute('listaCompetenciaGestor');
-                    }
-
-                    if($user['id_usuario_tipo'] == 4){
-                        return $this->redirect()->toRoute('listaCompetenciaAbertaRevisor');
-                    }
 
                     return $this->redirect()->toRoute('home');
                     
@@ -269,6 +262,19 @@ class UsuarioController extends BaseController
     }
 
     public function novoAction(){
+        $idFuncionario = $this->params()->fromRoute('funcionario');
+        if($idFuncionario){
+            $funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($idFuncionario);
+            if(!$funcionario){
+                $this->flashMessenger()->addWarningMessage('Funcionário não encontrado!');
+                return $this->redirect()->toRoute('usuario');
+            }
+
+            if($funcionario['lider'] == 'N'){
+                $this->flashMessenger()->addWarningMessage('Apenas líder pode realizar login no sistema!');
+                return $this->redirect()->toRoute('usuario');
+            }
+        }
         $formUsuario = new usuarioForm('frmUsuario', $this->getServiceLocator());
         //caso venha um post salvar
         if($this->getRequest()->isPost()){
@@ -282,6 +288,12 @@ class UsuarioController extends BaseController
                 $bcrypt = new Bcrypt();
                 $dados = $formUsuario->getData();
                 $dados['senha'] = $bcrypt->create($dados['senha']);
+                $dados['id_usuario_tipo'] = 1;
+                if($idFuncionario){
+                    $dados['id_usuario_tipo'] = 2;
+                    $dados['funcionario'] = $idFuncionario;
+                }
+
                 $result = $serviceUsuario->insert($dados);
                 if($result){
                     

@@ -13,7 +13,7 @@
      * @param array $fields
      * @return void
      */
-   public function __construct($name, $serviceLocator)
+   public function __construct($name, $serviceLocator, $cadastro = false)
     {
         if($serviceLocator)
            $this->setServiceLocator($serviceLocator);
@@ -21,7 +21,7 @@
         parent::__construct($name);      
 
         //matricula
-        $this->genericTextInput('matricula', '* Matrícula:', true, 'Númeroda matrícula');
+        $this->genericTextInput('matricula', '* Matrícula:', true, 'Número da matrícula');
 
         //nome
         $this->genericTextInput('nome', '* Nome:', true, 'Nome do funcionário');
@@ -67,7 +67,7 @@
         $this->_addDropdown('lider', '* líder:', true, array('' => '--', 'S' => 'Sim', 'N' => 'Não'));
 
         //email
-        $this->addEmailElement('email', 'Email', false);
+        $this->addEmailElement('emailh xc', 'Email', false);
 
         //data_nascimento
         $this->genericTextInput('data_nascimento', 'Data de nascimento:', false);
@@ -143,6 +143,15 @@
 
             //Setando valores
             $this->get('unidade')->setAttribute('options', $unidades);
+        }
+
+        if(isset($dados['lider']) && ($dados['lider'] == 'N')){
+            //carregar lideres da unidade
+            $funcionarios = $this->serviceLocator->get('Funcionario')->getFuncionarios(array('lider' => 'S', 'unidade' => $dados['unidade']));
+            $funcionarios = $this->prepareForDropDown($funcionarios, array('id', 'nome'));
+
+            //Setando valores
+            $this->get('lider_imediato')->setAttribute('options', $funcionarios);
         }
 
 

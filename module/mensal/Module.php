@@ -1,5 +1,5 @@
 <?php
-namespace mensal;
+namespace Mensal;
 
 use Zend\Db\TableGateway\TableGateway;
 use Application\Model\BaseTable;

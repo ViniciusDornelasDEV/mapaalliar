@@ -39,6 +39,29 @@ return array(
                     ),
                 ),
             ),
+            'deletarFerias' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/ferias/deletar[/:id]',
+                    'constraints' => array(
+                        'id'        => '[0-9]+'
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Mensal\Controller\Ferias',
+                        'action'     => 'deletarferias',
+                    ),
+                ),
+            ),
+            'carregarFuncionario' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/carregar/funcionario',
+                    'defaults' => array(
+                        'controller' => 'Mensal\Controller\Ferias',
+                        'action'     => 'carregarfuncionario',
+                    ),
+                ),
+            ),
 
            
 
@@ -55,7 +78,7 @@ return array(
             __DIR__ . '/../view',
         ),
         'template_map' => array(
-
+            'layout/gestor'           => __DIR__ . '/../view/layout/layoutGestor.phtml',
         ),
     ),
 );

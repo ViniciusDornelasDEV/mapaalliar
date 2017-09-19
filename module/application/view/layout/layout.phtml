@@ -66,11 +66,11 @@
                               <ul class="nav navbar-nav" style="width:100%;">
                                 <li class="<?= $rota[0] == 'Application' ? 'active' : ''; ?>"><a href="<?= $this->url('home'); ?>">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a></li>
                                 <li class="dropdown <?= $rota[0] == 'Cadastros' ? 'open' : ''; ?>">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cadastros 
+                                    <a href="#" style="background-color:#f2dede;" class="dropdown-toggle" data-toggle="dropdown">Cadastros 
                                         <span class="caret"></span>
                                         <span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span>
                                     </a>
-                                    <ul class="dropdown-menu forAnimate" role="menu">
+                                    <ul style="background-color:#f2dede;" class="dropdown-menu forAnimate" role="menu">
                                         <li class="<?= $rota[2] == 'Empresa' ? 'active' : ''; ?>"><a href="<?= $this->url('listarEmpresa'); ?>">Empresa</a></li>
                                         <li class="<?= $rota[2] == 'Area' ? 'active' : ''; ?>"><a href="<?= $this->url('listarArea'); ?>">Área</a></li>
                                         <li class="<?= $rota[2] == 'Setor' ? 'active' : ''; ?>"><a href="<?= $this->url('listarSetor') ?>">Setor</a></li>
@@ -79,7 +79,8 @@
                                     </ul>
                                 </li>
 
-                                <li class="<?= $rota[0] == 'Usuario' ? 'active' : ''; ?>"><a href="<?= $this->url('usuario'); ?>">Usuários<span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a></li>         
+
+                                <li class="<?= $rota[0] == 'Usuario' ? 'active' : ''; ?>" style="background-color:#fcf8e3;"><a href="<?= $this->url('usuario'); ?>">Usuários<span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a></li>         
                                 
                                 <li><a href="<?= $this->url('logout'); ?>">Sair<span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a></li>         
                                 

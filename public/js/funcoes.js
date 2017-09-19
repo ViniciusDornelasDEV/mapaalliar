@@ -54,6 +54,20 @@ function carregarLider(unidade){
     });
 }
 
+function carregarFuncionario(funcao){
+    $('#funcao').attr('disabled', 'disabled');
+    var data = {funcao: funcao};
+    $.ajax({
+        type: "POST",
+        url: "/carregar/funcionario",
+        data: data,
+        success: function(html) {
+            $('#funcionario').html(html);
+            $('#funcao').removeAttr('disabled');       
+        }
+    });
+}
+
 function carregarRevisor(empresa){
     $('#empresa').attr('disabled', 'disabled');
     var data = {empresa: empresa};
@@ -64,6 +78,20 @@ function carregarRevisor(empresa){
         success: function(html) {
             $('#revisor').html(html);
             $('#empresa').removeAttr('disabled');       
+        }
+    });
+}
+
+function CarregarFuncionariosByUnidade(unidade){
+    $('#unidade').attr('disabled', 'disabled');
+    var data = {unidade: unidade};
+    $.ajax({
+        type: "POST",
+        url: "/ajudas/carregarfuncionario",
+        data: data,
+        success: function(html) {
+            $('#funcionario').html(html);
+            $('#unidade').removeAttr('disabled');       
         }
     });
 }

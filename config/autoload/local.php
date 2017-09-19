@@ -11,8 +11,8 @@ return array(
         'password'      => ''
     ),
 	/*'db'   => array(
-        'dsn' => 'mysql:dbname=bd_9boxrh;host=bd_9boxrh.mysql.dbaas.com.br',
-        'username'      => 'bd_9boxrh',
+        'dsn' => 'mysql:dbname=mapa_alliar;host=mapa_alliar.mysql.dbaas.com.br',
+        'username'      => 'mapa_alliar',
         'password'      => 'sqlyt4da51241'
     ),*/
 );

@@ -39,9 +39,9 @@ return array(
             'usuarioNovo' => array(
                 'type' => 'Zend\Mvc\Router\Http\Segment',
                 'options' => array(
-                    'route'    => '/usuario/novo[/:id]',
+                    'route'    => '/usuario/novo[/:funcionario]',
                     'constraints' => array(
-                        'id'     => '[0-9]+',
+                        'funcionario'     => '[0-9]+',
                     ),
                     'defaults' => array(
                         'controller' => 'Usuario\Controller\Usuario',

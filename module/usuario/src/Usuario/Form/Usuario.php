@@ -25,14 +25,14 @@
         $this->genericTextInput('login', '* Login', true, 'Login');
         
         //Tipo de usuário
-        $serviceTipoUsuario = $this->serviceLocator->get('UsuarioTipo');
+        /*$serviceTipoUsuario = $this->serviceLocator->get('UsuarioTipo');
         $tipos = $serviceTipoUsuario->fetchAll(array('id', 'perfil'), 'perfil');
 
         if(!$tipos){
             $tipos = array();
         }
         $tipos = $this->prepareForDropDown($tipos, array('id', 'perfil'));
-        $this->_addDropdown('id_usuario_tipo', '* Tipo de usuário: ', true, $tipos, 'exibirCliente(this.value);');
+        $this->_addDropdown('id_usuario_tipo', '* Tipo de usuário: ', true, $tipos, 'exibirCliente(this.value);');*/
 
         $this->_addPassword('senha', '* Senha: ', 'Senha');
         

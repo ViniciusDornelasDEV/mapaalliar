@@ -120,11 +120,21 @@ class FuncionarioController extends BaseController
         //pesquisar gestores vinculados
         $gestores = $serviceGestor->getGestoresByFuncionario($idFuncionario);
         
+        $usuario = false;
+        if($funcionario['lider'] == 'S'){
+            //pesquisar usuário
+            $usuario = $this->getServiceLocator()->get('Usuario')->getRecord($funcionario['id'], 'funcionario');
+            if(!$usuario){
+                $usuario = 'I';
+            }
+        }
+
         return new ViewModel(array(
             'formFuncionario'   => $formFuncionario,
             'formGestor'        => $formGestor,
             'gestores'          => $gestores,
-            'funcionario'       => $funcionario
+            'funcionario'       => $funcionario,
+            'usuario'           => $usuario
             ));
     }
 

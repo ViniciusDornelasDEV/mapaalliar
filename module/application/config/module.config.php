@@ -20,6 +20,16 @@ return array(
                     ),
                 ),
             ),
+            'homeGestor' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/gestor',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Index',
+                        'action'     => 'indexgestor',
+                    ),
+                ),
+            ),
             'download' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
@@ -84,6 +94,7 @@ return array(
          'converterData' => 'Application\Helper\Converterdata',
          'caracterVazio' => 'Application\Helper\Caractervazio',
          'status'        => 'Application\Helper\Status',
+         'farol'        => 'Application\Helper\Farol',
       ),
    ),
     // Placeholder for console routes
