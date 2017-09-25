@@ -66,11 +66,11 @@
                               <ul class="nav navbar-nav" style="width:100%;">
                                 <li class="<?= $rota[0] == 'Application' ? 'active' : ''; ?>"><a href="<?= $this->url('home'); ?>">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a></li>
                                 <li class="dropdown <?= $rota[0] == 'Cadastros' ? 'open' : ''; ?>">
-                                    <a href="#" style="background-color:#f2dede;" class="dropdown-toggle" data-toggle="dropdown">Cadastros 
+                                    <a href="#" style="background-color:#DEB887;" class="dropdown-toggle" data-toggle="dropdown">Cadastros 
                                         <span class="caret"></span>
                                         <span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span>
                                     </a>
-                                    <ul style="background-color:#f2dede;" class="dropdown-menu forAnimate" role="menu">
+                                    <ul style="background-color:#DEB887;" class="dropdown-menu forAnimate" role="menu">
                                         <li class="<?= $rota[2] == 'Empresa' ? 'active' : ''; ?>"><a href="<?= $this->url('listarEmpresa'); ?>">Empresa</a></li>
                                         <li class="<?= $rota[2] == 'Area' ? 'active' : ''; ?>"><a href="<?= $this->url('listarArea'); ?>">Área</a></li>
                                         <li class="<?= $rota[2] == 'Setor' ? 'active' : ''; ?>"><a href="<?= $this->url('listarSetor') ?>">Setor</a></li>
@@ -78,6 +78,69 @@
                                         <li class="<?= $rota[2] == 'Funcionario' ? 'active' : ''; ?>"><a href="<?= $this->url('listarFuncionario'); ?>">Funcionário</a></li>
                                     </ul>
                                 </li>
+
+
+                                <li class="dropdown <?= $rota[0] == 'Mensal' ? 'open' : ''; ?>">
+                                    <a href="#" style="background-color:#f2dede;" class="dropdown-toggle" data-toggle="dropdown">Mensal 
+                                        <span class="caret"></span>
+                                        <span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span>
+                                    </a>
+                                    <ul class="dropdown-menu forAnimate" role="menu" style="background-color:#f2dede;">
+                                        <li class=""><a href="" onclick="alert('A fazer');">Premissas</a></li>
+                                        <li class=""><a href="" onclick="alert('A fazer');">Simulador</a></li>
+                                        <li class="<?= $rota[2] == 'Ferias' ? 'active' : ''; ?>"><a href="<?= $this->url('listarFeriasAdmin'); ?>">Férias</a></li>
+                                    </ul>
+                                </li> 
+
+                                <li class="dropdown <?= $rota[0] == 'Semanal' ? 'open' : ''; ?>">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color:#d9edf7;">Semanal 
+                                        <span class="caret"></span>
+                                        <span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span>
+                                    </a>
+                                    <ul class="dropdown-menu forAnimate" role="menu" style="background-color:#d9edf7;">
+                                        <li class="<?= $rota[2] == 'Organizacaoequipes' ? 'active' : ''; ?>"><a href="<?= $this->url('pesquisarEquipes'); ?>">Organização de equipes</a></li>
+                                        <li class="<?= $rota[2] == 'Escala' ? 'active' : ''; ?>"><a href="<?= $this->url('listarEscalas'); ?>">Escalas</a></li>
+                                    </ul>
+                                </li> 
+
+                                <li class="dropdown <?= $rota[0] == 'Adminpessoal' ? 'open' : ''; ?>">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color:#dff0d8;">Diário - Admin. pessoal 
+                                        <span class="caret"></span>
+                                        <span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span>
+                                    </a>
+                                    <ul class="dropdown-menu forAnimate" role="menu" style="background-color:#dff0d8;">
+                                        <li class="<?= $rota[2] == 'Acoes' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAcoesDisciplinaresAdmin'); ?>">Ações disciplinares</a></li>
+                                        <li class="<?= $rota[2] == 'Desempenho' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAvaliacoesDesempenhoAdmin'); ?>">Avaliações de desempenho</a></li>
+                                    </ul>
+                                </li>  
+
+                                <li class="dropdown <?= $rota[0] == 'Diario' ? 'open' : ''; ?>">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color:#fcf8e3;">Diário - Controle de operação 
+                                        <span class="caret"></span>
+                                        <span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span>
+                                    </a>
+                                    <ul class="dropdown-menu forAnimate" role="menu" style="background-color:#fcf8e3;">
+                                        <li class="<?= $rota[2] == 'Ausencia' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAusenciaAdmin'); ?>">Controle de ausência</a></li>
+                                        <li class="<?= $rota[2] == 'Ajuda' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAjuda'); ?>">Ajudas</a></li>
+                                        <li class="<?= $rota[2] == 'Substituicao' ? 'active' : ''; ?>"><a href="<?= $this->url('listarSubstituicaoAdmin'); ?>">Substituição programada</a></li>
+
+                                        <li class="<?= $rota[2] == 'Contratacao' ? 'active' : ''; ?>"><a href="<?= $this->url('listarContratacaoAdmin'); ?>">Contratações</a></li>
+                                        <li class="<?= $rota[2] == 'Banco' ? 'active' : ''; ?>"><a href="<?= $this->url('listarBancoHorasAdmin'); ?>">Banco de horas</a></li>
+                                    </ul>
+                                </li>  
+
+                                <li class="dropdown <?= $rota[0] == 'Avaliacoes' ? 'open' : ''; ?>">
+                                    <a href="#" style="background-color:#FFE1FF;" class="dropdown-toggle" data-toggle="dropdown">Avaliações 
+                                        <span class="caret"></span>
+                                        <span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span>
+                                    </a>
+                                    <ul style="background-color:#FFE1FF;" class="dropdown-menu forAnimate" role="menu">
+                                        <li class="<?= $action[0] == 'indexavaliacaoresponder' || $action[0] == 'novoavaliacao' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAvaliacoesResponder'); ?>">Responder avaliações</a></li>
+                                        <li class="<?= $action[0] == 'indexavaliacaorespondida' || $action[0] == 'visualizaravaliacao' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAvaliacoesRespondidas'); ?>">Visualizar avaliações</a></li>
+                                    </ul>
+                                </li>
+
+                                
 
 
                                 <li class="<?= $rota[0] == 'Usuario' ? 'active' : ''; ?>" style="background-color:#fcf8e3;"><a href="<?= $this->url('usuario'); ?>">Usuários<span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a></li>         

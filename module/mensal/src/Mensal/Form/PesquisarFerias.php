@@ -14,7 +14,7 @@ use Application\Form\Base as BaseForm;
      * @param array $fields
      * @return void
      */
-   public function __construct($name, $serviceLocator, $usuario)
+   public function __construct($name, $serviceLocator)
     {
         if($serviceLocator)
            $this->setServiceLocator($serviceLocator);

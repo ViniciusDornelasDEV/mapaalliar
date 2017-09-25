@@ -14,6 +14,8 @@ return  array(
         'mensal',
         'adminpessoal',
         'diario',
+        'avaliacoes',
+        'semanal',
         'ZF2Excel'
     ),
     'module_listener_options' => array(

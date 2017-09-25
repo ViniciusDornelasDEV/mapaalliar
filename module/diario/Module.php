@@ -45,6 +45,12 @@ class Module
                     $updates->setServiceLocator($sm);
                     return $updates;
                 },
+                'BancoHoras' => function($sm) {
+                    $tableGateway = new TableGateway('tb_banco_horas', $sm->get('db_adapter_main'));
+                    $updates = new Model\Banco($tableGateway);
+                    $updates->setServiceLocator($sm);
+                    return $updates;
+                },
 
                 
             ),

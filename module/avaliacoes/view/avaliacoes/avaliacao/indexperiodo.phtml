@@ -1,0 +1,70 @@
+    <?php echo $this->partial('form/pesquisa', array('form'=> $formPesquisa, 'route'=> '', 'notExcel' => '')) ?>
+
+    <div class="container theme-showcase" role="main" style="margin-bottom:10px;padding:0px;">
+      <button type="button" class="btn btn-default" onclick="location.href='<?= $this->url('novoPeriodo'); ?>'" style="float: right;">
+      <img src="<?php echo $this->basePath('img/novo.png') ?>" alt="Novo">
+      Novo período de avaliação</button>
+
+      
+    </div>
+    <div class="container theme-showcase" role="main">
+      <div class="row">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Listagem de períodos de avaliação</h3>
+            </div>
+            <div class="panel-body">
+              <?php if($periodos->count() > 0): ?>
+                <table class="table">
+                  <tr>
+                    <th style="text-align: center">Área</th>
+                    <th style="text-align: center">Setor</th>
+                    <th style="text-align: center">Início</th>
+                    <th style="text-align: center">Fim</th>
+                    <th style="text-align: center">Período</th>
+                    <th style="text-align: center">Referência</th>
+                    <th style="text-align: center">Ações</th>
+                </tr>
+                <?php foreach($periodos as $periodo): ?>
+                <tr>
+                  <td style="text-align: center"><?= $periodo['nome_area']; ?></td>
+                  <td style="text-align: center"><?= $periodo['nome_setor']; ?></td>
+                  <td style="text-align: center"><?= $this->converterData($periodo['data_inicio']); ?></td>
+                  <td style="text-align: center"><?= $this->converterData($periodo['data_fim']); ?></td>
+                  <td style="text-align: center">
+                    <?= $this->converterData($periodo['referencia_inicio']).' a '.$this->converterData($periodo['referencia_fim']); ?>
+                  </td>
+                  <td style="text-align: center"><?= $periodo['nome_referencia']; ?></td>
+
+                  <td style="text-align: center;">
+                    <img src="<?= $this->basePath('img/editar.png'); ?>" title="Editar" 
+                    onclick="location.href='<?= $this->url('alterarPeriodo', array('id' => $periodo['id'])); ?>'" style="cursor: pointer;">
+
+                  </td>
+                </tr>
+                <?php endforeach; ?>
+              </table>
+            <?php else: ?>
+              <div class="alert alert-info">Nenhum período de avaliação encontrado!</div>
+            <?php endif; ?>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container theme-showcase" style="margin-top:0px;" role="main">
+        <div style="float:right;">
+          <?php echo $this->paginationControl($periodos,
+                                        'Sliding',
+                                        'view/paginator', array('route' => 'listarPeriodo')); 
+          ?>
+        </div>
+      </div>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#inicio").mask("99/99/9999");
+        $("#fim").mask("99/99/9999");
+        
+      });
+    </script>

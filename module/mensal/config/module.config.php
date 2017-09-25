@@ -62,6 +62,43 @@ return array(
                     ),
                 ),
             ),
+            //ADMIN
+            'listarFeriasAdmin' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/admin/ferias[/:page]',
+                    'constraints' => array(
+                        'page'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Mensal\Controller\Ferias',
+                        'action'     => 'indexadmin',
+                    ),
+                ),
+            ),
+            'novoFeriasAdmin' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/admin/ferias/novo',
+                    'defaults' => array(
+                        'controller' => 'Mensal\Controller\Ferias',
+                        'action'     => 'novoadmin',
+                    ),
+                ),
+            ),
+            'alterarFeriasAdmin' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/admin/ferias/alterar[/:id]',
+                    'constraints' => array(
+                        'id'        => '[0-9]+'
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Mensal\Controller\Ferias',
+                        'action'     => 'alteraradmin',
+                    ),
+                ),
+            ),
 
            
 

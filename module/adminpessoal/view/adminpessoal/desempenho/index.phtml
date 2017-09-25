@@ -17,6 +17,7 @@
               <?php if($avaliacoes->count() > 0): ?>
                 <table class="table">
                   <tr>
+                    <th style="text-align: center">Status</th>
                     <th style="text-align: center">Área</th>
                     <th style="text-align: center">Setor</th>
                     <th style="text-align: center">Função</th>
@@ -28,6 +29,10 @@
                 </tr>
                 <?php foreach($avaliacoes as $avaliacao): ?>
                 <tr>
+                  <?php 
+                    $cor = $this->farol($this->converterData($avaliacao['data']), $this->converterData($avaliacao['data_proximo_feedback']));
+                  ?>
+                  <td style="text-align: center"><img src="<?= $this->basePath($cor); ?>"></td>
                   <td style="text-align: center"><?= $avaliacao['nome_area']; ?></td>
                   <td style="text-align: center"><?= $avaliacao['nome_setor']; ?></td>
                   <td style="text-align: center"><?= $avaliacao['nome_funcao']; ?></td>

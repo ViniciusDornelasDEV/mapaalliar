@@ -17,6 +17,7 @@
               <?php if($ajudas->count() > 0): ?>
                 <table class="table">
                   <tr>
+                    <th style="text-align: center">Status</th>
                     <th style="text-align: center">Matrícula</th>
                     <th style="text-align: center">Funcionário</th>
                     <th style="text-align: center">Unidade de origem</th>
@@ -28,6 +29,10 @@
                 </tr>
                 <?php foreach($ajudas as $ajuda): ?>
                 <tr>
+                  <?php 
+                    $cor = $this->farol($this->converterData($ajuda['data_inicio']), $this->converterData($ajuda['data_fim']));
+                  ?>
+                  <td style="text-align: center"><img src="<?= $this->basePath($cor); ?>"></td>
                   <td style="text-align: center"><?= $ajuda['matricula']; ?></td>
                   <td style="text-align: center"><?= $ajuda['nome_funcionario']; ?></td>
                   <td style="text-align: center"><?= $ajuda['nome_unidade']; ?></td>

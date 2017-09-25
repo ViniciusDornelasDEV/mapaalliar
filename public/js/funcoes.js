@@ -54,6 +54,7 @@ function carregarLider(unidade){
     });
 }
 
+
 function carregarFuncionario(funcao){
     $('#funcao').attr('disabled', 'disabled');
     var data = {funcao: funcao};

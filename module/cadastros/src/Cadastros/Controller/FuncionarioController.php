@@ -11,6 +11,7 @@ use Zend\Paginator\Adapter\ArrayAdapter;
 use Cadastros\Form\PesquisarFuncionario as formPesquisa;
 use Cadastros\Form\Funcionario as formFuncionario;
 use Cadastros\Form\VincularGestor as formGestor;
+use Cadastros\Form\AlterarFuncionario as formAlterarFuncionario;
 
 class FuncionarioController extends BaseController
 {
@@ -90,7 +91,8 @@ class FuncionarioController extends BaseController
             return $this->redirect()->toRoute('listarFuncionario');
         }
 
-        $formFuncionario = new formFuncionario('frmFuncionario', $this->getServiceLocator());
+        $formFuncionario = new formAlterarFuncionario('frmFuncionario', $this->getServiceLocator(), $funcionario);
+
         $formFuncionario->setData($funcionario);
         $serviceGestor = $this->getServiceLocator()->get('FuncionarioGestor');
         $formGestor = new formGestor('frmGestor', $this->getServiceLocator(), $funcionario);

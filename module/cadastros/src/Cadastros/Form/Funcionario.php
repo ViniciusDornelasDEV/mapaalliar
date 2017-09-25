@@ -60,11 +60,20 @@
         $periodos = array('' => '-- Selecione --', 'Manhã' => 'Manhã', 'Tarde' => 'Tarde', 'Noite' => 'Noite');
         $this->_addDropdown('periodo_trabalho', '* Período de trabalho:', true, $periodos);
 
+        //inicio_turno
+        $this->genericTextInput('inicio_turno', '* Início da jornada:', true);
+
+        //fim_turno
+        $this->genericTextInput('fim_turno', '* Fim da jornada:', true);
+
         //lider_imediato
         $this->_addDropdown('lider_imediato', 'Líder imediato:', false, array('' => 'Selecione uma unidade'));
 
         //lider
         $this->_addDropdown('lider', '* líder:', true, array('' => '--', 'S' => 'Sim', 'N' => 'Não'));
+
+        //numero_rp
+        $this->genericTextInput('numero_rp', 'Número da RP:', false);
 
         //email
         $this->addEmailElement('emailh xc', 'Email', false);
@@ -72,8 +81,6 @@
         //data_nascimento
         $this->genericTextInput('data_nascimento', 'Data de nascimento:', false);
 
-        //data_saida
-        $this->genericTextInput('data_saida', 'Data de saída:', false);
 
         $this->setAttributes(array(
             'class'  => 'form-inline'
@@ -113,13 +120,8 @@
 
     public function setData($dados){
         $dados['data_inicio'] = parent::converterData($dados['data_inicio']);
-
-
         $dados['data_nascimento'] = parent::converterData($dados['data_nascimento']);
 
-        if(!empty($dados['data_saida'])){
-            $dados['data_saida'] = parent::converterData($dados['data_saida']);
-        }
         
         if(isset($dados['area']) && !empty($dados['area'])){
             $setores = $this->serviceLocator->get('Setor')->getSetores(array('area' => $dados['area']));
@@ -149,7 +151,6 @@
             //carregar lideres da unidade
             $funcionarios = $this->serviceLocator->get('Funcionario')->getFuncionarios(array('lider' => 'S', 'unidade' => $dados['unidade']));
             $funcionarios = $this->prepareForDropDown($funcionarios, array('id', 'nome'));
-
             //Setando valores
             $this->get('lider_imediato')->setAttribute('options', $funcionarios);
         }

@@ -39,6 +39,44 @@ return array(
                     ),
                 ),
             ),
+            //admin
+            'listarAcoesDisciplinaresAdmin' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/admin/acoesdisciplinares[/:page]',
+                    'constraints' => array(
+                        'page'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Adminpessoal\Controller\Acoes',
+                        'action'     => 'indexadmin',
+                    ),
+                ),
+            ),
+            'novoAcoesDisciplinaresAdmin' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/admin/acoesdisciplinares/novo',
+                    'defaults' => array(
+                        'controller' => 'Adminpessoal\Controller\Acoes',
+                        'action'     => 'novoadmin',
+                    ),
+                ),
+            ),
+            'alterarAcoesDisciplinaresAdmin' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/admin/acoesdisciplinares/alterar[/:id]',
+                    'constraints' => array(
+                        'id'        => '[0-9]+'
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Adminpessoal\Controller\Acoes',
+                        'action'     => 'alteraradmin',
+                    ),
+                ),
+            ),
+
             //AVALIAÇÃO DE DESEMPENHO
             'listarAvaliacoesDesempenho' => array(
                 'type' => 'Zend\Mvc\Router\Http\Segment',

@@ -244,6 +244,17 @@ return array(
                 ),
             ),
 
+            'carregarSubstituicao' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/substituicao/carregar',
+                    'defaults' => array(
+                        'controller' => 'Cadastros\Controller\Funcionario',
+                        'action'     => 'carregarsubstituicao',
+                    ),
+                ),
+            ),
+
 
 
         ),

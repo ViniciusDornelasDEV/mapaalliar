@@ -180,5 +180,24 @@ abstract class BaseController extends AbstractActionController {
         return $this->redirect()->toRoute('download');
 
     }
+
+    public function uploadImagem($arquivos, $caminho, $dados){
+        if(!file_exists($caminho)){
+            mkdir($caminho);
+        }
+        
+
+        foreach ($arquivos as $nomeArquivo => $arquivo) {
+            if(!empty($arquivo['tmp_name'])){
+                $extensao = $this->getExtensao($arquivo['name']);
+                $nomeArquivoServer = 'arquivo'.date('dhsi');
+                if(move_uploaded_file($arquivo['tmp_name'], $caminho.'/'.$nomeArquivoServer.'.'.$extensao)){
+                    $dados[$nomeArquivo] = $caminho.'/'.$nomeArquivoServer.'.'.$extensao;
+                }
+            }
+        }
+
+        return $dados;
+    }
     
 }

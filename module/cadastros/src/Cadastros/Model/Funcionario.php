@@ -86,6 +86,11 @@ class Funcionario Extends BaseTable {
                     $select->where(array('tb_funcionario.lider_imediato' => $params['lider_imediato']));
                 }
 
+                //não exibir este funcionario
+                if(!empty($params['funcionario'])){
+                    $select->where->notEqualTo('tb_funcionario.id', $params['funcionario']);
+                }
+
 
             }
             
@@ -144,6 +149,76 @@ class Funcionario Extends BaseTable {
 
 
         });
+    }
+
+    public function getFuncionariosAvaliacaoAberta($periodo, $idGestor){
+        return $this->getTableGateway()->select(function($select) use ($periodo, $idGestor) {
+            $select->join(
+                    array('f' => 'tb_funcao'),
+                    'f.id = tb_funcionario.funcao',
+                    array('nome_funcao' => 'nome', 'setor')
+                );
+
+            $select->join(
+                    array('s' => 'tb_setor'),
+                    's.id = f.setor',
+                    array('nome_setor' => 'nome', 'area')
+                );
+
+            $select->join(
+                    array('a' => 'tb_area'),
+                    's.area = a.id',
+                    array('nome_area' => 'nome')
+                );
+
+            $select->join(
+                    array('fg' => 'tb_funcionario_gestor'),
+                    'fg.funcionario = tb_funcionario.id',
+                    array(),
+                    'LEFT'
+                );
+
+            $select->join(
+                    array('av' => 'tb_avaliacao'),
+                    new Expression('av.funcionario = tb_funcionario.id AND av.periodo = ?', $periodo['id']),
+                    array(),
+                    'LEFT'
+                );
+
+            $select->where
+                    ->nest
+                        ->equalTo('tb_funcionario.lider_imediato', $idGestor)
+                        ->or
+                        ->equalTo('fg.gestor', $idGestor)
+                    ->unnest;
+
+            $select->where('av.id IS NULL');
+            $select->where(array('f.setor' => $periodo['setor'], 'tb_funcionario.ativo = "S"'));
+
+
+        });
+    }
+
+    public function getFuncionarioGestor($idFuncionario, $idGestor){
+        return $this->getTableGateway()->select(function($select) use ($idFuncionario, $idGestor) {
+
+            $select->join(
+                    array('fg' => 'tb_funcionario_gestor'),
+                    'fg.funcionario = tb_funcionario.id',
+                    array(),
+                    'LEFT'
+                );
+
+            $select->where
+                    ->nest
+                        ->equalTo('tb_funcionario.lider_imediato', $idGestor)
+                        ->or
+                        ->equalTo('fg.gestor', $idGestor)
+                    ->unnest;
+
+            $select->where(array('tb_funcionario.id' => $idFuncionario));
+
+        })->current();
     }
 
 

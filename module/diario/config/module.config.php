@@ -123,6 +123,80 @@ return array(
                     ),
                 ),
             ),
+            //CONTRATACAO
+            'listarContratacao' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/contratacoes[/:page]',
+                    'constraints' => array(
+                        'page'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Diario\Controller\Contratacao',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
+            'novoContratacao' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/contratacoes/novo',
+                    'defaults' => array(
+                        'controller' => 'Diario\Controller\Contratacao',
+                        'action'     => 'novo',
+                    ),
+                ),
+            ),
+            'alterarContratacao' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/contratacoes/alterar[/:id]',
+                    'constraints' => array(
+                        'id'        => '[0-9]+'
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Diario\Controller\Contratacao',
+                        'action'     => 'alterar',
+                    ),
+                ),
+            ),
+            //Banco de horas
+            'listarBancoHoras' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/bancohoras[/:page]',
+                    'constraints' => array(
+                        'page'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Diario\Controller\Banco',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
+            'novoBancoHoras' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/bancohoras/novo',
+                    'defaults' => array(
+                        'controller' => 'Diario\Controller\Banco',
+                        'action'     => 'novo',
+                    ),
+                ),
+            ),
+            'deletarBancoHoras' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/bancohoras/deletar[/:id]',
+                    'constraints' => array(
+                        'id'        => '[0-9]+'
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Diario\Controller\Banco',
+                        'action'     => 'deletar',
+                    ),
+                ),
+            ),
            
 
 
@@ -133,6 +207,8 @@ return array(
             'Diario\Controller\Ausencia' => 'Diario\Controller\AusenciaController',
             'Diario\Controller\Ajuda' => 'Diario\Controller\AjudaController',
             'Diario\Controller\Substituicao' => 'Diario\Controller\SubstituicaoController',
+            'Diario\Controller\Contratacao' => 'Diario\Controller\ContratacaoController',
+            'Diario\Controller\Banco' => 'Diario\Controller\BancoController'
         ),
     ),
     'view_manager' => array(

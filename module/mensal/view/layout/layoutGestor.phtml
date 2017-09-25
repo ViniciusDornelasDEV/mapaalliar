@@ -25,6 +25,9 @@
 
 
     $rota = explode("\\", $this->getHelperPluginManager()->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getParam('controller'));
+
+    $action = explode("\\", $this->getHelperPluginManager()->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getParam('action'));
+    
 ?>
 
     </head>
@@ -84,8 +87,8 @@
                                         <span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span>
                                     </a>
                                     <ul class="dropdown-menu forAnimate" role="menu" style="background-color:#d9edf7;">
-                                        <li class=""><a href="" onclick="alert('A fazer');">Organização de equipes</a></li>
-                                        <li class=""><a href="" onclick="alert('A fazer');">Escalas</a></li>
+                                        <li class="<?= $rota[2] == 'Organizacaoequipes' ? 'active' : ''; ?>"><a href="<?= $this->url('pesquisarEquipes'); ?>">Organização de equipes</a></li>
+                                        <li class="<?= $rota[2] == 'Escala' ? 'active' : ''; ?>"><a href="<?= $this->url('listarEscalas'); ?>">Escalas</a></li>
                                     </ul>
                                 </li> 
 
@@ -110,11 +113,21 @@
                                         <li class="<?= $rota[2] == 'Ajuda' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAjuda'); ?>">Ajudas</a></li>
                                         <li class="<?= $rota[2] == 'Substituicao' ? 'active' : ''; ?>"><a href="<?= $this->url('listarSubstituicao'); ?>">Substituição programada</a></li>
 
-                                        <li class="<?= $rota[2] == 'Desempenho' ? 'active' : ''; ?>"><a href="">Contratações</a></li>
-                                        <li class="<?= $rota[2] == 'Desempenho' ? 'active' : ''; ?>"><a href="" onclick="alert('Pedir p/ Diogoplanilha de banco de horas!');">Banco de horas</a></li>
+                                        <li class="<?= $rota[2] == 'Contratacao' ? 'active' : ''; ?>"><a href="<?= $this->url('listarContratacao'); ?>">Contratações</a></li>
+                                        <li class="<?= $rota[2] == 'Banco' ? 'active' : ''; ?>"><a href="<?= $this->url('listarBancoHoras'); ?>">Banco de horas</a></li>
                                     </ul>
                                 </li>  
 
+                                <li class="dropdown <?= $rota[0] == 'Avaliacoes' ? 'open' : ''; ?>">
+                                    <a href="#" style="background-color:#FFE1FF;" class="dropdown-toggle" data-toggle="dropdown">Avaliações 
+                                        <span class="caret"></span>
+                                        <span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span>
+                                    </a>
+                                    <ul style="background-color:#FFE1FF;" class="dropdown-menu forAnimate" role="menu">
+                                        <li class="<?= $action[0] == 'indexavaliacaoresponder' || $action[0] == 'novoavaliacao' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAvaliacoesResponder'); ?>">Responder avaliações</a></li>
+                                        <li class="<?= $action[0] == 'indexavaliacaorespondida' || $action[0] == 'visualizaravaliacao' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAvaliacoesRespondidas'); ?>">Visualizar avaliações</a></li>
+                                    </ul>
+                                </li>
                                 
                                 <li><a href="<?= $this->url('logout'); ?>">Sair<span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a></li>         
                                 
@@ -129,7 +142,7 @@
 
         <div id="page-content-wrapper">
             <div id="page-content" style="margin-top: 0px; min-height: 874px;"> 
-                <div class="container theme-showcase" role="main" style="margin-top:100px;padding: 0px;">
+                <div class="container theme-showcase" role="main" style="padding: 0px;">
                     <?= $this->flashMessenger()->render('error', array('alert', 'alert-danger')) ?>   
 
                     <?= $this->flashMessenger()->render('warning', array('alert',  'alert-warning')) ?>

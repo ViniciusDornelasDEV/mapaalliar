@@ -48,9 +48,10 @@
                 <img src="<?= $this->basePath('img/limpar.png'); ?>"> Limpar
               </button>
 
-              <button type="submit" class="btn btn-success" name="exportar"  style="float: right;margin-right: 10px;">
-              <img src="img/excel.png" alt="Exportar">
-                
+              <?php if(!isset($notExcel)): ?>
+                <button type="submit" class="btn btn-success" name="exportar"  style="float: right;margin-right: 10px;">
+                <img src="img/excel.png" alt="Exportar">
+              <?php endif; ?>
               </button>
 
             </div>

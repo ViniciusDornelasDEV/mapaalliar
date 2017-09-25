@@ -521,6 +521,53 @@ abstract class Base extends Form {
         
         
     }
+
+    public function addFileInput($name, $label, $required = false, $minWidth = false, $maxWidth = false, $minHeight = false, $maxHeight = false) {
+          $this->add(array(
+            'required'=> $required,
+            'name' => $name,
+            'type' => 'File',
+            'options' => array(
+                'label' => $label,
+            ),
+            'attributes' => array(
+                    'id' => $name,
+                    'class' => 'filestyle',
+                )
+        )); 
+          
+        $imageSize = array();
+        
+        if($minWidth)
+            $imageSize['minWidth'] = $minWidth;
+        
+        if($maxWidth)
+            $imageSize['maxWidth'] = $maxWidth;
+        
+        if($minHeight)
+            $imageSize['minHeight'] = $minHeight;
+          
+          
+        $this->inputFilterArray[$name] = array(
+            'name' => $name,
+            'allow_empty'=> true,
+            'validators'=>array(
+                array(
+                        'name'=>'filesize',
+                        'options'=> array('max'=> 8388608, 'empty'=>true)
+                    ),
+                array(
+                    'name'=> 'filemimetype',
+                    //'options'=> array('mimeType'=> array('image/png', 'image/jpeg'), 'magicFile'=> false) 
+                ), 
+                array(
+                    'name'=> 'fileimagesize',
+                    'options'=> $imageSize
+                )
+            )
+        );   
+                  
+    }
     
     public function addImageFileInput($name, $label, $required = false, $minWidth = false, $maxWidth = false, $minHeight = false, $maxHeight = false) {
           $this->add(array(

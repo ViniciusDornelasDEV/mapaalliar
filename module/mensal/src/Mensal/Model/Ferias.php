@@ -17,6 +17,19 @@ class Ferias Extends BaseTable {
                 );
 
             $select->join(
+                    array('u' => 'tb_empresa_unidade'),
+                    'u.id = f.unidade',
+                    array('nome_unidade' => 'nome')
+                );
+
+            $select->join(
+                    array('e' => 'tb_empresa'),
+                    'e.id = u.empresa',
+                    array('nome_empresa' => 'nome')
+                );
+
+
+            $select->join(
                     array('func' => 'tb_funcao'),
                     'func.id = f.funcao',
                     array('nome_funcao' => 'nome')
@@ -60,6 +73,14 @@ class Ferias Extends BaseTable {
 
                 if(!empty($params['fim_inicio']) && !empty($params['fim_fim'])){
                     $select->where->between('data_fim', $params['fim_inicio'], $params['fim_fim']);
+                }
+
+                if(!empty($params['empresa'])){
+                    $select->where(array('e.id' => $params['empresa']));
+                }
+
+                if(!empty($params['unidade'])){
+                    $select->where(array('u.id' => $params['unidade']));
                 }
 
             }

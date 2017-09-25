@@ -11,6 +11,8 @@ use Zend\Paginator\Adapter\ArrayAdapter;
 use Mensal\Form\PesquisarFerias as formPesquisa;
 use Mensal\Form\Ferias as formFerias;
 use Mensal\Form\AlterarFerias as formAlterarFerias;
+use Mensal\Form\PesquisarFeriasAdmin as formPesquisaAdmin;
+use Mensal\Form\FeriasAdmin as formFeriasAdmin;
 
 class FeriasController extends BaseController
 {
@@ -25,10 +27,10 @@ class FeriasController extends BaseController
 
     public function indexAction(){
         $this->layout('layout/gestor');
-    	$serviceFerias = $this->getServiceLocator()->get('Ferias');
+        $serviceFerias = $this->getServiceLocator()->get('Ferias');
         
         $usuario = $this->getServiceLocator()->get('session')->read();
-        $formPesquisa = new formPesquisa('frmFerias', $this->getServiceLocator(), $usuario);
+        $formPesquisa = new formPesquisa('frmFerias', $this->getServiceLocator());
 
     	$formPesquisa = parent::verificarPesquisa($formPesquisa);
         $ferias = $serviceFerias->getFerias($this->sessao->parametros)->toArray();
@@ -136,6 +138,83 @@ class FeriasController extends BaseController
         $view->setTerminal(true);
         $view->setVariables(array('funcionarios' => $funcionarios));
         return $view;
+    }
+
+    //ADMIN
+    public function indexadminAction(){
+        $serviceFerias = $this->getServiceLocator()->get('Ferias');
+        
+        $formPesquisa = new formPesquisaAdmin('frmFerias', $this->getServiceLocator());
+
+        $formPesquisa = parent::verificarPesquisa($formPesquisa);
+        $ferias = $serviceFerias->getFerias($this->sessao->parametros)->toArray();
+        foreach ($ferias as $key => $feria) {
+            $ferias[$key]['data_inicio'] = $formPesquisa->converterData($feria['data_inicio']);
+            $ferias[$key]['data_fim'] = $formPesquisa->converterData($feria['data_fim']);
+        }
+
+        if($this->getRequest()->isPost()){
+            $dados = $this->getRequest()->getPost();
+            if(isset($dados->exportar)){
+                parent::gerarExcel($this->campos, $ferias, 'Férias');
+            }
+        }
+        
+        $paginator = new Paginator(new ArrayAdapter($ferias));
+        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setItemCountPerPage(10);
+        $paginator->setPageRange(5);
+        
+        return new ViewModel(array(
+                                'ferias'        => $paginator,
+                                'formPesquisa'  => $formPesquisa
+                            ));
+    }
+
+    public function novoadminAction(){
+        $usuario = $this->getServiceLocator()->get('session')->read();
+        $formFerias = new formFeriasAdmin('frmFerias', $this->getServiceLocator());
+
+        if($this->getRequest()->isPost()){
+            $formFerias->setData($this->getRequest()->getPost());
+            if($formFerias->isValid()){
+                $idFerias = $this->getServiceLocator()->get('Ferias')->insert($formFerias->getData());
+                $this->flashMessenger()->addSuccessMessage('Férias incluída com sucesso!');
+                return $this->redirect()->toRoute('alterarFeriasAdmin', array('id' => $idFerias));
+            }
+        }
+        return new ViewModel(array('formFerias' => $formFerias));
+    }
+
+    public function alteraradminAction(){
+        $idFerias = $this->params()->fromRoute('id');
+        $serviceFerias = $this->getServiceLocator()->get('Ferias');
+
+        $formFerias = new formAlterarFerias('frmFerias', $this->getServiceLocator());
+
+        $ferias = $serviceFerias->getRecord($idFerias);
+        if(!$ferias){
+            $this->flashMessenger()->addWarningMessage('Férias não encontrada!');
+            return $this->redirect()->toRoute('listarFeriasAdmin');
+        }
+
+        $formFerias->setData($ferias);
+        
+        if($this->getRequest()->isPost()){
+            $formFerias->setData($this->getRequest()->getPost());
+            if($formFerias->isValid()){
+                $dados = $formFerias->getData();
+                unset($dados['funcionario']);
+                $serviceFerias->update($dados, array('id' => $idFerias));
+                $this->flashMessenger()->addSuccessMessage('Férias alterada com sucesso!');
+                return $this->redirect()->toRoute('alterarFeriasAdmin', array('id' => $idFerias));
+            }
+        }
+
+        
+        return new ViewModel(array(
+            'formFerias'    => $formFerias
+            ));
     }
 
 

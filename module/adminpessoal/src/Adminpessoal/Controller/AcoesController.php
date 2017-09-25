@@ -115,5 +115,90 @@ class AcoesController extends BaseController
             ));
     }
 
+
+    //ADMIN
+    public function indexadminAction(){
+        
+        $serviceAcoes = $this->getServiceLocator()->get('AcaoDisciplinar');
+        
+        $usuario = $this->getServiceLocator()->get('session')->read();
+        $formPesquisa = new formPesquisaAdmin('frmAcoes', $this->getServiceLocator());
+
+        $formPesquisa = parent::verificarPesquisa($formPesquisa);
+        $acoes = $serviceAcoes->getAcoes($this->sessao->parametros)->toArray();
+        
+        foreach ($acoes as $key => $acao) {
+            $acoes[$key]['data'] = $formPesquisa->converterData($acao['data']);
+        }
+
+        if($this->getRequest()->isPost()){
+            $dados = $this->getRequest()->getPost();
+            if(isset($dados->exportar)){
+                /*if(isset($this->sessao->parametros)){
+                    $this->sessao->parametros['inicio'] = $formPesquisa->converterData($this->sessao->parametros['inicio']);
+                    $this->sessao->parametros['fim'] = $formPesquisa->converterData($this->sessao->parametros['fim']);
+                }
+
+                $acoes = $serviceAcoes->getAcoes($this->sessao->parametros)->toArray();*/
+                parent::gerarExcel($this->campos, $acoes, 'Ações');
+            }
+        }
+        
+        $paginator = new Paginator(new ArrayAdapter($acoes));
+        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setItemCountPerPage(10);
+        $paginator->setPageRange(5);
+        
+        return new ViewModel(array(
+                                'acoes'         => $paginator,
+                                'formPesquisa'  => $formPesquisa
+                            ));
+    }
+
+    public function novoadminAction(){
+        $formAcao = new formAcaoAdmin('frmAcao', $this->getServiceLocator());
+
+        if($this->getRequest()->isPost()){
+            $formAcao->setData($this->getRequest()->getPost());
+            if($formAcao->isValid()){
+                $idAacao = $this->getServiceLocator()->get('AcaoDisciplinar')->insert($formAcao->getData());
+                $this->flashMessenger()->addSuccessMessage('Ação disciplinar incluída com sucesso!');
+                return $this->redirect()->toRoute('alterarAcoesDisciplinaresAdmin', array('id' => $idAacao));
+            }
+        }
+        return new ViewModel(array('formAcao' => $formAcao));
+    }
+
+    public function alteraradminAction(){
+        $idAcao = $this->params()->fromRoute('id');
+        $serviceAcao = $this->getServiceLocator()->get('AcaoDisciplinar');
+
+        $formAcao = new formAlterarAcao('frmAcao', $this->getServiceLocator());
+
+        $acao = $serviceAcao->getRecord($idAcao);
+        if(!$acao){
+            $this->flashMessenger()->addWarningMessage('Ação disciplinar não encontrada!');
+            return $this->redirect()->toRoute('listarAcoesDisciplinaresAdmin');
+        }
+
+        $formAcao->setData($acao);
+        
+        if($this->getRequest()->isPost()){
+            $formAcao->setData($this->getRequest()->getPost());
+            if($formAcao->isValid()){
+                $dados = $formAcao->getData();
+                unset($dados['funcionario']);
+                $serviceAcao->update($dados, array('id' => $idAcao));
+                $this->flashMessenger()->addSuccessMessage('Ação disciplinar alterada com sucesso!');
+                return $this->redirect()->toRoute('alterarAcoesDisciplinaresAdmin', array('id' => $idAcao));
+            }
+        }
+
+        
+        return new ViewModel(array(
+            'formAcao'    => $formAcao
+            ));
+    }
+
 }
 
