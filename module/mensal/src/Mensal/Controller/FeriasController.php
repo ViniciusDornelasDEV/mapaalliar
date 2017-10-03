@@ -33,7 +33,7 @@ class FeriasController extends BaseController
         $formPesquisa = new formPesquisa('frmFerias', $this->getServiceLocator());
 
     	$formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $ferias = $serviceFerias->getFerias($this->sessao->parametros)->toArray();
+        $ferias = $serviceFerias->getFerias($this->sessao->parametros, $usuario['funcionario'])->toArray();
         foreach ($ferias as $key => $feria) {
             $ferias[$key]['data_inicio'] = $formPesquisa->converterData($feria['data_inicio']);
             $ferias[$key]['data_fim'] = $formPesquisa->converterData($feria['data_fim']);

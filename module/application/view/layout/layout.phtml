@@ -25,6 +25,10 @@
 
 
     $rota = explode("\\", $this->getHelperPluginManager()->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getParam('controller'));
+
+    $action = explode("\\", $this->getHelperPluginManager()->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getParam('action'));
+
+    $usuario = $this->getHelperPluginManager()->getServiceLocator()->get('session')->read();
 ?>
 
     </head>
@@ -42,9 +46,10 @@
                         </div>                        
                     </div>
                     <div id="header-nav-right">
-                        <a href="#" class="hdr-btn" id="fullscreen-btn" title="Fullscreen">
-                            <i class="glyph-icon icon-arrows-alt"></i>
-                        </a>
+                        <p style="color:#fff">
+                            <img src="<?= $this->basePath('img/usuario.png'); ?>"> 
+                            <?= $usuario['nome'] ?>
+                        </p>
                     </div>
                 </div>                
 
@@ -86,7 +91,7 @@
                                         <span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span>
                                     </a>
                                     <ul class="dropdown-menu forAnimate" role="menu" style="background-color:#f2dede;">
-                                        <li class=""><a href="" onclick="alert('A fazer');">Premissas</a></li>
+                                        <li class=""><a href="<?= $this->url('menuPremissasAdmin'); ?>">Premissas</a></li>
                                         <li class=""><a href="" onclick="alert('A fazer');">Simulador</a></li>
                                         <li class="<?= $rota[2] == 'Ferias' ? 'active' : ''; ?>"><a href="<?= $this->url('listarFeriasAdmin'); ?>">Férias</a></li>
                                     </ul>
@@ -121,10 +126,8 @@
                                     </a>
                                     <ul class="dropdown-menu forAnimate" role="menu" style="background-color:#fcf8e3;">
                                         <li class="<?= $rota[2] == 'Ausencia' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAusenciaAdmin'); ?>">Controle de ausência</a></li>
-                                        <li class="<?= $rota[2] == 'Ajuda' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAjuda'); ?>">Ajudas</a></li>
+                                        <li class="<?= $rota[2] == 'Ajuda' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAjudaAdmin'); ?>">Ajudas</a></li>
                                         <li class="<?= $rota[2] == 'Substituicao' ? 'active' : ''; ?>"><a href="<?= $this->url('listarSubstituicaoAdmin'); ?>">Substituição programada</a></li>
-
-                                        <li class="<?= $rota[2] == 'Contratacao' ? 'active' : ''; ?>"><a href="<?= $this->url('listarContratacaoAdmin'); ?>">Contratações</a></li>
                                         <li class="<?= $rota[2] == 'Banco' ? 'active' : ''; ?>"><a href="<?= $this->url('listarBancoHorasAdmin'); ?>">Banco de horas</a></li>
                                     </ul>
                                 </li>  
@@ -135,8 +138,8 @@
                                         <span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span>
                                     </a>
                                     <ul style="background-color:#FFE1FF;" class="dropdown-menu forAnimate" role="menu">
-                                        <li class="<?= $action[0] == 'indexavaliacaoresponder' || $action[0] == 'novoavaliacao' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAvaliacoesResponder'); ?>">Responder avaliações</a></li>
-                                        <li class="<?= $action[0] == 'indexavaliacaorespondida' || $action[0] == 'visualizaravaliacao' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAvaliacoesRespondidas'); ?>">Visualizar avaliações</a></li>
+                                        <li class="<?= $action[0] == 'indexavaliacaoresponder' || $action[0] == 'novoavaliacao' ? 'active' : ''; ?>"><a href="<?= $this->url('listarPeriodo'); ?>">Períodos de avaliação</a></li>
+                                        <li class="<?= $action[0] == 'indexavaliacaorespondida' || $action[0] == 'visualizaravaliacao' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAvaliacoesRespondidasAdmin'); ?>">Visualizar avaliações</a></li>
                                     </ul>
                                 </li>
 

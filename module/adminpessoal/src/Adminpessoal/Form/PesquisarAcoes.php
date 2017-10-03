@@ -37,13 +37,6 @@ use Application\Form\Base as BaseForm;
 
     }
 
-    public function setData($dados){
-        //$dados['inicio'] = parent::converterData($dados['inicio']);
-        //$dados['fim'] = parent::converterData($dados['fim']);
-
-        parent::setData($dados);
-    }
-
     public function getData($flag = 17){
         $dados = parent::getData();
         $dados['inicio'] = parent::converterData($dados['inicio']);

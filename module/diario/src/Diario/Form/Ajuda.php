@@ -60,7 +60,7 @@ use Application\Form\Base as BaseForm;
     public function setData($dados){
         $dados['data_inicio'] = parent::converterData($dados['data_inicio']);
         $dados['data_fim'] = parent::converterData($dados['data_fim']);
-        
+
         if(isset($dados['unidade']) && !empty($dados['unidade'])){
             //carregar funcionarios da unidade
             $funcionarios = $this->serviceLocator->get('Funcionario')->getRecordsFromArray(array('ativo' => 'S', 'unidade' => $dados['unidade']));

@@ -114,6 +114,43 @@ return array(
                     ),
                 ),
             ),
+            //admin
+            'listarAvaliacoesDesempenhoAdmin' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/admin/avaliacoesdesempenho[/:page]',
+                    'constraints' => array(
+                        'page'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Adminpessoal\Controller\Desempenho',
+                        'action'     => 'indexadmin',
+                    ),
+                ),
+            ),
+            'novoAvaliacoesDesempenhoAdmin' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/admin/avaliacoesdesempenho/novo',
+                    'defaults' => array(
+                        'controller' => 'Adminpessoal\Controller\Desempenho',
+                        'action'     => 'novoadmin',
+                    ),
+                ),
+            ),
+            'alterarAvaliacoesDesempenhoAdmin' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/admin/avaliacoesdesempenho/alterar[/:id]',
+                    'constraints' => array(
+                        'id'        => '[0-9]+'
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Adminpessoal\Controller\Desempenho',
+                        'action'     => 'alteraradmin',
+                    ),
+                ),
+            ),
 
            
 

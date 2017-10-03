@@ -1,0 +1,27 @@
+  <div class="container theme-showcase" role="main" style="margin-bottom:10px;padding:0px;">
+
+    <ol class="breadcrumb" style="margin-bottom: 0px;">
+      <li><a href="<?= $this->url('home'); ?>">Home</a></li>
+      <li><a href="<?= $this->url('listarAvaliacoesRespondidasAdmin'); ?>">Avaliações em aberto</a></li>
+      <li class="active">Visualizar avaliação</li>
+    </ol>
+  </div>
+<div class="container theme-showcase" role="main" style="margin-bottom:10px;padding:0px;">
+
+                <div class="panel">
+                    <div class="panel-body">
+                        <h2 style="" class="title-hero">
+                            Avaliação de desempenho - <?= strtoupper($avaliacao['nome_referencia']); ?> 
+                            (<?= $this->converterData($avaliacao['referencia_inicio']) ?> a <?= $this->converterData($avaliacao['referencia_fim']) ?>)
+                        </h2>                                
+                            <h3 style="" class="title-hero">
+                                <?= $avaliacao['nome_empresa'] ?> - <?= $avaliacao['nome_unidade'] ?>
+                            </h3>
+                            <h3 style="" class="title-hero">
+                                <?= $avaliacao['nome_setor'] ?> - <?= $avaliacao['nome_funcionario'] ?>
+                            </h3>
+                            <?php echo $this->partial('form/avaliacao', array('form'=> $formAvaliacao, 'nova'=> 'listarAvaliacoesRespondidasAdmin')) ?>           
+                    </div>
+                </div>
+        </div>
+

@@ -14,6 +14,8 @@ use Avaliacoes\Form\AlterarPeriodo as formPeriodoAlterar;
 
 use Avaliacoes\Form\Avaliacao as formAvaliacao;
 use Avaliacoes\Form\PesquisarAvaliacao as formPesquisaAvaliacao;
+use Avaliacoes\Form\PesquisarAvaliacaoAdmin as formPesquisaAvaliacaoAdmin;
+
 class AvaliacaoController extends BaseController
 {
 
@@ -207,6 +209,47 @@ class AvaliacaoController extends BaseController
                 'formAvaliacao' =>  $formAvaliacao,
                 'avaliacao'     =>  $avaliacao,
                 'funcionario'   =>  $funcionario
+            ));
+    }
+
+
+    //admin
+    public function indexavaliacaorespondidaadminAction(){
+        $serviceAvaliacoes = $this->getServiceLocator()->get('Avaliacao');
+        
+        $formPesquisa = new formPesquisaAvaliacaoAdmin('frmPesquisa', $this->getServiceLocator());
+        $formPesquisa = parent::verificarPesquisa($formPesquisa);
+
+        $avaliacoes = $serviceAvaliacoes->getAvaliacoes($this->sessao->parametros)->toArray();
+        
+        $paginator = new Paginator(new ArrayAdapter($avaliacoes));
+        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setItemCountPerPage(10);
+        $paginator->setPageRange(5);
+        
+        return new ViewModel(array(
+                                'avaliacoes'        => $paginator,
+                                'formPesquisa'  => $formPesquisa
+                            ));
+
+    }
+
+    public function visualizaravaliacaoadminAction(){
+        $idAvaliacao = $this->params()->fromRoute('id');
+        $avaliacao = $this->getServiceLocator()->get('Avaliacao')->getAvaliacao($idAvaliacao);
+
+        if(!$avaliacao){
+            $this->flashMessenger()->addWarningMessage('Avaliação não encontrada!');
+            return $this->redirect()->toRoute('listarAvaliacoesRespondidasAdmin');
+        }
+
+        $formAvaliacao = new formAvaliacao('frmAvaliacao');
+        $formAvaliacao->setData($avaliacao);
+        $formAvaliacao->desabilitarCampos();
+        
+        return new ViewModel(array(
+                'formAvaliacao' =>  $formAvaliacao,
+                'avaliacao'     =>  $avaliacao,
             ));
     }
 

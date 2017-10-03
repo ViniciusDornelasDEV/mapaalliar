@@ -33,6 +33,18 @@ class Module
                     $updates->setServiceLocator($sm);
                     return $updates;
                 },
+                'EscalasFuncionario' => function($sm) {
+                    $tableGateway = new TableGateway('tb_escala_funcionario', $sm->get('db_adapter_main'));
+                    $updates = new Model\EscalaFuncionario($tableGateway);
+                    $updates->setServiceLocator($sm);
+                    return $updates;
+                },
+                'FuncionarioEscala' => function($sm) {
+                    $tableGateway = new TableGateway('tb_funcionario', $sm->get('db_adapter_main'));
+                    $updates = new Model\Funcionario($tableGateway);
+                    $updates->setServiceLocator($sm);
+                    return $updates;
+                },
             ),
             'invokables' => array(
                 'ImageService' => 'Imagine\Gd\Imagine',

@@ -45,9 +45,13 @@ return array(
                 ),
             ),
             'visualizarEquipes' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'type' => 'Zend\Mvc\Router\Http\Segment',
                 'options' => array(
-                    'route'    => '/organizacao-equipes/novo',
+                    'route'    => '/organizacao-equipes/novo[/:mes][/:ano]',
+                    'constraints' => array(
+                        'mes'     => '[0-9]+',
+                        'ano'     => '[0-9]+',
+                    ),
                     'defaults' => array(
                         'controller' => 'Semanal\Controller\Organizacaoequipes',
                         'action'     => 'visualizar',

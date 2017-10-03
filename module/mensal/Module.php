@@ -22,7 +22,6 @@ class Module
         );
     }
 
-    // Add this method:
     public function getServiceConfig() {
         return array(
             'factories' => array(
@@ -30,6 +29,30 @@ class Module
                 'Ferias' => function($sm) {
                     $tableGateway = new TableGateway('tb_ferias', $sm->get('db_adapter_main'));
                     $updates = new Model\Ferias($tableGateway);
+                    $updates->setServiceLocator($sm);
+                    return $updates;
+                },
+                'Nps' => function($sm) {
+                    $tableGateway = new TableGateway('tb_nps', $sm->get('db_adapter_main'));
+                    $updates = new Model\Nps($tableGateway);
+                    $updates->setServiceLocator($sm);
+                    return $updates;
+                },
+                'Evolucao' => function($sm) {
+                    $tableGateway = new TableGateway('tb_evolucao', $sm->get('db_adapter_main'));
+                    $updates = new Model\Evolucao($tableGateway);
+                    $updates->setServiceLocator($sm);
+                    return $updates;
+                },
+                'Tme' => function($sm) {
+                    $tableGateway = new TableGateway('tb_tme', $sm->get('db_adapter_main'));
+                    $updates = new Model\Tme($tableGateway);
+                    $updates->setServiceLocator($sm);
+                    return $updates;
+                },
+                'Qmatic' => function($sm) {
+                    $tableGateway = new TableGateway('tb_qmatic', $sm->get('db_adapter_main'));
+                    $updates = new Model\Qmatic($tableGateway);
                     $updates->setServiceLocator($sm);
                     return $updates;
                 },

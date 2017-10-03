@@ -197,6 +197,157 @@ return array(
                     ),
                 ),
             ),
+
+
+            //ADMIN
+            //CONTROLE DE AUSENCIA
+            'listarAusenciaAdmin' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/admin/ausencias[/:page]',
+                    'constraints' => array(
+                        'page'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Diario\Controller\Ausencia',
+                        'action'     => 'indexadmin',
+                    ),
+                ),
+            ),
+            'novoAusenciaAdmin' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/admin/ausencias/novo',
+                    'defaults' => array(
+                        'controller' => 'Diario\Controller\Ausencia',
+                        'action'     => 'novoadmin',
+                    ),
+                ),
+            ),
+            'alterarAusenciaAdmin' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/admin/ausencias/alterar[/:id]',
+                    'constraints' => array(
+                        'id'        => '[0-9]+'
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Diario\Controller\Ausencia',
+                        'action'     => 'alteraradmin',
+                    ),
+                ),
+            ),
+            //CONTROLE DE AJUDAS
+            'listarAjudaAdmin' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/admin/ajudas[/:page]',
+                    'constraints' => array(
+                        'page'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Diario\Controller\Ajuda',
+                        'action'     => 'indexadmin',
+                    ),
+                ),
+            ),
+            'novoAjudaAdmin' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/admin/ajudas/novo',
+                    'defaults' => array(
+                        'controller' => 'Diario\Controller\Ajuda',
+                        'action'     => 'novoadmin',
+                    ),
+                ),
+            ),
+            'alterarAjudaAdmin' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/admin/ajudas/alterar[/:id]',
+                    'constraints' => array(
+                        'id'        => '[0-9]+'
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Diario\Controller\Ajuda',
+                        'action'     => 'alteraradmin',
+                    ),
+                ),
+            ),
+            //SUBSTITUIÇÃO PROGRAMADA
+            'listarSubstituicaoAdmin' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/admin/substituicoes[/:page]',
+                    'constraints' => array(
+                        'page'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Diario\Controller\Substituicao',
+                        'action'     => 'indexadmin',
+                    ),
+                ),
+            ),
+            'novoSubstituicaoAdmin' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/admin/substituicoes/novo',
+                    'defaults' => array(
+                        'controller' => 'Diario\Controller\Substituicao',
+                        'action'     => 'novoadmin',
+                    ),
+                ),
+            ),
+            'alterarSubstituicaoAdmin' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/admin/substituicoes/alterar[/:id]',
+                    'constraints' => array(
+                        'id'        => '[0-9]+'
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Diario\Controller\Substituicao',
+                        'action'     => 'alteraradmin',
+                    ),
+                ),
+            ),
+            //Banco de horas
+            'listarBancoHorasAdmin' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/admin/bancohoras[/:page]',
+                    'constraints' => array(
+                        'page'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Diario\Controller\Banco',
+                        'action'     => 'indexadmin',
+                    ),
+                ),
+            ),
+            'novoBancoHorasAdmin' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/admin/bancohoras/novo',
+                    'defaults' => array(
+                        'controller' => 'Diario\Controller\Banco',
+                        'action'     => 'novoadmin',
+                    ),
+                ),
+            ),
+            'deletarBancoHorasAdmin' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/admin/bancohoras/deletar[/:id]',
+                    'constraints' => array(
+                        'id'        => '[0-9]+'
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Diario\Controller\Banco',
+                        'action'     => 'deletaradmin',
+                    ),
+                ),
+            ),
            
 
 

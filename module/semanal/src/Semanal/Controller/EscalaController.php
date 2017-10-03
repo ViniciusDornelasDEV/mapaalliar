@@ -56,9 +56,52 @@ class EscalaController extends BaseController
     public function novoAction(){
         $this->layout('layout/gestor');
         $idEscala = $this->params()->fromRoute('id');
-        var_dump($idEscala);
-        die();
-        return new ViewModel();
+        $usuario = $this->getServiceLocator()->get('session')->read();
+        $serviceEscala = $this->getServiceLocator()->get('Escala');
+        
+        $serviceFuncionario = $this->getServiceLocator()->get('FuncionarioEscala');
+        $funcionario = $serviceFuncionario->getRecord($usuario['funcionario']);
+        $escala = $serviceEscala->getEscala($idEscala, $funcionario['unidade']);
+        
+        if($this->getRequest()->isPost()){
+            $dados = $this->getRequest()->getPost();
+            if($this->getServiceLocator()->get('EscalasFuncionario')->salvarEscalas($dados, $escala)){
+                $this->flashMessenger()->addSuccessMessage('Escala salva com sucesso!');
+            }else{
+                $this->flashMessenger()->addErrorMessage('Ocorreu algum erro ao salvar escala!');
+            }
+            return $this->redirect()->toRoute('novoEscala', array('id' => $idEscala));
+        }
+
+        //escalas do funcionario
+        $escalas = $serviceFuncionario->getFuncionariosEscala($escala, $usuario['funcionario'])->toArray();
+
+        $ultimoDia = date("t", mktime(0,0,0,$escala['mes'],'01',$escala['ano']));   
+        
+        $funcionarios = $serviceFuncionario->getFuncionariosGestor($usuario['funcionario'], $escala['setor']);
+
+        $preparedArray = array();
+        foreach ($funcionarios as $funcionario) {
+            $preparedArray[$funcionario['id']] = $funcionario;
+            for ($dia=1; $dia <= $ultimoDia; $dia++) { 
+                $preparedArray[$funcionario['id']]['dias'][$dia] = false;
+            }
+        }
+
+        //popular escalas marcadas
+        foreach ($escalas as $escala2) {
+            //descobrir dia
+            if(!empty($escala2['data_escala'])){
+                $data = explode('-', $escala2['data_escala']);
+                $data = intval($data['2']);
+                $preparedArray[$escala2['id']]['dias'][$data] = true;
+            }
+        }
+
+        return new ViewModel(array(
+                'escala'        => $escala,
+                'escalas'       => $preparedArray
+            ));
     }
 
 

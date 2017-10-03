@@ -8,12 +8,19 @@ use Zend\Db\Sql\Predicate\Expression;
 
 class Ferias Extends BaseTable {
 
-    public function getFerias($params = false){
-        return $this->getTableGateway()->select(function($select) use ($params) {
+    public function getFerias($params = false, $idGestor = false){
+        return $this->getTableGateway()->select(function($select) use ($params, $idGestor) {
             $select->join(
                     array('f' => 'tb_funcionario'),
                     'f.id = funcionario',
                     array('nome_funcionario' => 'nome')
+                );
+
+            $select->join(
+                    array('fg' => 'tb_funcionario_gestor'),
+                    'fg.funcionario = f.id',
+                    array(),
+                    'LEFT'
                 );
 
             $select->join(
@@ -48,7 +55,14 @@ class Ferias Extends BaseTable {
                 );
 
 
-
+            if($idGestor){
+                $select->where
+                        ->nest
+                            ->equalTo('f.lider_imediato', $idGestor)
+                            ->or
+                            ->equalTo('fg.gestor', $idGestor)
+                        ->unnest;
+            }
 
             if($params){
             	if(!empty($params['matricula'])){

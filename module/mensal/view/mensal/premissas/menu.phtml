@@ -1,0 +1,85 @@
+<div class="container theme-showcase" role="main" style="margin-bottom:10px;"> 
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Premissas</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row" style="margin-top:20px;">
+              <div class="col-sm-6">
+                
+              <button type="button" style="width:100%;" onclick="location.href='<?= $this->url('listarContratacao'); ?>';" class="btn btn-default">
+                  <img src="<?= $this->basePath('img/people.png'); ?>" style="width:32px;height:32px;">
+                  HC GERAL
+              </button>
+                                
+
+              </div>
+
+              <div class="col-sm-6">
+                  <button type="button" class="btn btn-default" onclick="location.href='<?= $this->url('visualizarNps'); ?>'" style="width:100%;">
+                  <img src="<?= $this->basePath('img/grafico.png'); ?>" alt="Salvar" style="width:32px;height:32px;">
+                  NPS
+                </button>
+              </div>
+        </div>
+
+         <div class="row" style="margin-top:20px;">
+              <div class="col-sm-6">
+                
+              <button type="button" style="width:100%;" onclick="location.href='<?= $this->url('visualizarTma'); ?>'" class="btn btn-default">
+                  <img src="<?= $this->basePath('img/smiley.png'); ?>" style="width:32px;height:32px;">
+                  TMA
+              </button>
+                                
+
+              </div>
+
+              <div class="col-sm-6">
+                  <button type="button" class="btn btn-default" onclick="location.href='<?= $this->url('visualizarEvolucao'); ?>'" style="width:100%;">
+                  <img src="<?= $this->basePath('img/medalha.png'); ?>" alt="Salvar" style="width:32px;height:32px;">
+                  EVOLUÇÃO SIGA
+                </button>
+              </div>
+        </div>
+
+        <div class="row" style="margin-top:20px;">
+              <div class="col-sm-6">
+                
+              <button type="button" style="width:100%;" onclick="location.href='<?= $this->url('visualizarTme'); ?>'" class="btn btn-default">
+                  <img src="<?= $this->basePath('img/cronometro.png'); ?>" style="width:32px;height:32px;">
+                  TME
+              </button>
+                                
+
+              </div>
+
+              <div class="col-sm-6">
+                  <button type="button" class="btn btn-default" onclick="location.href='<?= $this->url('listarAvaliacoesResponder'); ?>'" style="width:100%;">
+                  <img src="<?= $this->basePath('img/alvo.png'); ?>" alt="Salvar" style="width:32px;height:32px;">
+                  AVALIAÇÃO DE DESEMPENHO
+                </button>
+              </div>
+        </div>
+
+        <div class="row" style="margin-top:20px;">
+              <div class="col-sm-6">
+                
+                <a href="<?= $this->basePath($qmatic['caminho_arquivo']); ?>" download>
+                  <button type="button" style="width:100%;" class="btn btn-default">
+                      <img src="<?= $this->basePath('img/codigoBarras.png'); ?>" style="width:32px;height:32px;">
+                      QMATIC
+                  </button>
+                </a>
+                                
+              </div>
+
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+   

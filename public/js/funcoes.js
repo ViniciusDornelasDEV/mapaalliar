@@ -40,6 +40,20 @@ function carregarUnidade(empresa, tipo){
     });
 }
 
+function carregarUnidadeDestino(empresa, tipo){
+    $('#empresa').attr('disabled', 'disabled');
+    var data = {empresa: empresa, tipo: tipo};
+    $.ajax({
+        type: "POST",
+        url: "/unidade/carregar",
+        data: data,
+        success: function(html) {
+            $('#unidade_destino').html(html);
+            $('#empresa').removeAttr('disabled');       
+        }
+    });
+}
+
 function carregarLider(unidade){
     $('#unidade').attr('disabled', 'disabled');
     var data = {unidade: unidade};
@@ -246,4 +260,12 @@ function canvasToPng(nomeImagem){
           });
       }
     });
+}
+
+function check(id){
+    if($(id).is(':checked')){
+        $(id).prop('checked', false);
+    }else{
+        $(id).prop('checked', true);
+    }
 }

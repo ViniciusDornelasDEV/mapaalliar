@@ -13,6 +13,9 @@ use Adminpessoal\Form\PesquisarAcoes as formPesquisa;
 use Adminpessoal\Form\Acoes as formAcao;
 use Adminpessoal\Form\AlterarAcoes as formAlterarAcao;
 
+use Adminpessoal\Form\PesquisarAcoesAdmin as formPesquisaAdmin;
+use Adminpessoal\Form\AcoesAdmin as formAcaoAdmin;
+
 class AcoesController extends BaseController
 {
     private $campos = array(
@@ -36,7 +39,7 @@ class AcoesController extends BaseController
         $formPesquisa = new formPesquisa('frmAcoes', $this->getServiceLocator(), $usuario);
 
     	$formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $acoes = $serviceAcoes->getAcoes($this->sessao->parametros)->toArray();
+        $acoes = $serviceAcoes->getAcoes($this->sessao->parametros, $usuario['funcionario'])->toArray();
         
         foreach ($acoes as $key => $acao) {
             $acoes[$key]['data'] = $formPesquisa->converterData($acao['data']);

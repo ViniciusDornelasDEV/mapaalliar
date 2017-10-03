@@ -12,6 +12,9 @@ use Zend\Session\Container;
 use Diario\Form\PesquisarAjuda as formPesquisa;
 use Diario\Form\Ajuda as formAjuda;
 
+use Diario\Form\PesquisarAjudaAdmin as formPesquisaAdmin;
+use Diario\Form\AjudaAdmin as formAjudaAdmin;
+
 class AjudaController extends BaseController
 {
     private $campos = array(
@@ -37,7 +40,7 @@ class AjudaController extends BaseController
         $formPesquisa = new formPesquisa('frmAjuda', $this->getServiceLocator(), $usuario);
 
     	$formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $ajudas = $serviceAjuda->getAjudas($this->sessao->parametros)->toArray();
+        $ajudas = $serviceAjuda->getAjudas($this->sessao->parametros, $usuario['funcionario'])->toArray();
         
         foreach ($ajudas as $key => $ajuda) {
             $ajudas[$key]['data_inicio'] = $formPesquisa->converterData($ajuda['data_inicio']);
@@ -125,6 +128,86 @@ class AjudaController extends BaseController
         $view->setTerminal(true);
         $view->setVariables(array('funcionario' => $funcionarios));
         return $view;
+    }
+
+
+    //admin
+    public function indexadminAction(){
+        $serviceAjuda = $this->getServiceLocator()->get('Ajuda');
+        
+        $formPesquisa = new formPesquisaAdmin('frmAjuda', $this->getServiceLocator());
+
+        $formPesquisa = parent::verificarPesquisa($formPesquisa);
+        $ajudas = $serviceAjuda->getAjudas($this->sessao->parametros)->toArray();
+        
+        foreach ($ajudas as $key => $ajuda) {
+            $ajudas[$key]['data_inicio'] = $formPesquisa->converterData($ajuda['data_inicio']);
+            $ajudas[$key]['data_fim'] = $formPesquisa->converterData($ajuda['data_fim']);
+        }
+
+        if($this->getRequest()->isPost()){
+            $dados = $this->getRequest()->getPost();
+            if(isset($dados->exportar)){
+                parent::gerarExcel($this->campos, $ajudas, 'Ajuda');
+            }
+        }
+        
+        $paginator = new Paginator(new ArrayAdapter($ajudas));
+        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setItemCountPerPage(10);
+        $paginator->setPageRange(5);
+        
+        return new ViewModel(array(
+                                'ajudas'         => $paginator,
+                                'formPesquisa'  => $formPesquisa
+                            ));
+    }
+
+    public function novoadminAction(){
+        $formAjuda = new formAjudaAdmin('frmAjuda', $this->getServiceLocator());
+
+        if($this->getRequest()->isPost()){
+            $formAjuda->setData($this->getRequest()->getPost());
+            if($formAjuda->isValid()){
+                $dados = $formAjuda->getData();
+                $idAjuda = $this->getServiceLocator()->get('Ajuda')->insert($dados);
+                $this->flashMessenger()->addSuccessMessage('Ajuda inserida com sucesso!');
+                return $this->redirect()->toRoute('alterarAjudaAdmin', array('id' => $idAjuda));
+            }
+        }
+        return new ViewModel(array('formAjuda' => $formAjuda));
+    }
+
+    public function alteraradminAction(){
+        $idAjuda = $this->params()->fromRoute('id');
+        $serviceAjuda = $this->getServiceLocator()->get('Ajuda');
+
+        $formAjuda = new formAjudaAdmin('frmAjuda', $this->getServiceLocator());
+
+        $ajuda = $serviceAjuda->getAjuda($idAjuda);
+        if(!$ajuda){
+            $this->flashMessenger()->addWarningMessage('Ajuda não encontrada!');
+            return $this->redirect()->toRoute('listarAjudaAdmin');
+        }
+
+        $formAjuda->setData($ajuda);
+        
+        
+        if($this->getRequest()->isPost()){
+            $formAjuda->setData($this->getRequest()->getPost());
+            if($formAjuda->isValid()){
+                $dados = $formAjuda->getData();
+                unset($dados['funcionario']);
+                $serviceAjuda->update($dados, array('id' => $idAjuda));
+                $this->flashMessenger()->addSuccessMessage('Ajuda alterada com sucesso!');
+                return $this->redirect()->toRoute('alterarAjudaAdmin', array('id' => $idAjuda));
+            }
+        }
+
+        
+        return new ViewModel(array(
+            'formAjuda'    => $formAjuda
+            ));
     }
 
 }

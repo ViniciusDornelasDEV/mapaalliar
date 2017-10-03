@@ -1,0 +1,51 @@
+ <div class="container theme-showcase" role="main" style="margin-bottom:10px;padding:0px;">
+
+    <ol class="breadcrumb" style="margin-bottom: 0px;">
+      <li><a href="<?= $this->url('home'); ?>">Home</a></li>
+      <li><a href="<?= $this->url('menuPremissas'); ?>">Menu premissas</a></li>
+      <li class="active">NPS</li>
+    </ol>
+  </div>
+
+    <div class="container theme-showcase" role="main">
+      <div class="row">
+          <div class="panel panel-default">
+          <div class="panel-heading">
+              <h3 class="panel-title">NPS  = Net promoters score</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-sm-2">
+
+                    </div>
+                    <div class="col-sm-8">
+                      <h3>É uma ferrramenta que mede o índice de satisfação do cliente e a % de clientes defratores e promotores da imagem da empresa.</h3>
+                    </div>
+                    <div class="col-sm-2">
+
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-3">
+
+                    </div>
+                    <div class="col-sm-6">
+                      <img src="<?= $this->basePath('img/nps.png') ?>">
+                      <h3>
+                      NPS = <span style="color:#009447;">promotores <?= $nps['promotores'] ?>%</span> 
+                      - <span style="color:#d00000;">defratores <?= $nps['defratores'] ?>%</span> = 
+                      <?= $nps['promotores'] - $nps['defratores'] ?>% 
+                      </h3>
+                    </div>
+                    <div class="col-sm-3">
+
+                    </div>
+                  </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    </div>
+

@@ -28,6 +28,7 @@
 
     $action = explode("\\", $this->getHelperPluginManager()->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getParam('action'));
     
+    $usuario = $this->getHelperPluginManager()->getServiceLocator()->get('session')->read();
 ?>
 
     </head>
@@ -45,9 +46,10 @@
                         </div>                        
                     </div>
                     <div id="header-nav-right">
-                        <a href="#" class="hdr-btn" id="fullscreen-btn" title="Fullscreen">
-                            <i class="glyph-icon icon-arrows-alt"></i>
-                        </a>
+                        <p style="color:#fff">
+                            <img src="<?= $this->basePath('img/usuario.png'); ?>"> 
+                            <?= $usuario['nome'] ?>
+                        </p>
                     </div>
                 </div>                
 
@@ -60,9 +62,6 @@
                             <div class="navbar-header">
                               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
                                 <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
                               </button>      
                             </div>
                             <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
@@ -75,7 +74,7 @@
                                         <span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span>
                                     </a>
                                     <ul class="dropdown-menu forAnimate" role="menu" style="background-color:#f2dede;">
-                                        <li class=""><a href="" onclick="alert('A fazer');">Premissas</a></li>
+                                        <li class=""><a href="<?= $this->url('menuPremissas'); ?>">Premissas</a></li>
                                         <li class=""><a href="" onclick="alert('A fazer');">Simulador</a></li>
                                         <li class="<?= $rota[2] == 'Ferias' ? 'active' : ''; ?>"><a href="<?= $this->url('listarFerias'); ?>">Férias</a></li>
                                     </ul>

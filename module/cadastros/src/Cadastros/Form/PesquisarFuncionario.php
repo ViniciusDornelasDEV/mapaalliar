@@ -83,10 +83,13 @@ public function setFuncaoBySetor($idSetor){
     }
 
     public function setData($dados){
-        $dados['data_inicio'] = parent::converterData($dados['data_inicio']);
+        if(isset($dados['data_inicio']) && !empty($dados['data_inicio'])){
+            $dados['data_inicio'] = parent::converterData($dados['data_inicio']);
+        }
 
-
-        $dados['data_nascimento'] = parent::converterData($dados['data_nascimento']);
+        if(isset($dados['data_nascimento']) && !empty($dados['data_nascimento'])){
+            $dados['data_nascimento'] = parent::converterData($dados['data_nascimento']);
+        }
 
         if(!empty($dados['data_saida'])){
             $dados['data_saida'] = parent::converterData($dados['data_saida']);

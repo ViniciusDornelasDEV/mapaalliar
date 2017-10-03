@@ -14,7 +14,7 @@ use Application\Form\Base as BaseForm;
      * @param array $fields
      * @return void
      */
-   public function __construct($name, $serviceLocator, $usuario)
+   public function __construct($name, $serviceLocator, $usuario = false)
     {
         if($serviceLocator)
            $this->setServiceLocator($serviceLocator);
@@ -22,7 +22,11 @@ use Application\Form\Base as BaseForm;
         parent::__construct($name);  
 
         //funcionário
-        $funcionarios = $this->serviceLocator->get('Funcionario')->getFuncionarios(array('lider_imediato' => $usuario['funcionario']));
+        $params = false;
+        if($usuario){
+            $params = array('lider_imediato' => $usuario['funcionario']);
+        }
+        $funcionarios = $this->serviceLocator->get('Funcionario')->getFuncionarios($params);
         
         $funcionarios = $this->prepareForDropDown($funcionarios, array('id', 'nome'));
         $this->_addDropdown('funcionario', '* Funcionário:', false, $funcionarios);        

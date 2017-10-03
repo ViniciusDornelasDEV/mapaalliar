@@ -94,6 +94,33 @@ return array(
                     ),
                 ),
             ),
+           //admin
+           'listarAvaliacoesRespondidasAdmin' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/admin/avaliacoes/respondidas[/:page]',
+                    'constraints' => array(
+                        'page'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Avaliacoes\Controller\Avaliacao',
+                        'action'     => 'indexavaliacaorespondidaadmin',
+                    ),
+                ),
+            ),
+           'visualizarAvaliacaoAdmin' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/admin/avaliacoes/visualizar[/:id]',
+                    'constraints' => array(
+                        'id'        => '[0-9]+'
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Avaliacoes\Controller\Avaliacao',
+                        'action'     => 'visualizaravaliacaoadmin',
+                    ),
+                ),
+            ),
 
            
 

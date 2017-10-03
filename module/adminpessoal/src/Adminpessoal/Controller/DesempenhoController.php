@@ -13,6 +13,9 @@ use Adminpessoal\Form\PesquisarDesempenho as formPesquisa;
 use Adminpessoal\Form\Desempenho as formDesempenho;
 use Adminpessoal\Form\AlterarDesempenho as formAlterarDesempenho;
 
+use Adminpessoal\Form\PesquisarDesempenhoAdmin as formPesquisaAdmin;
+use Adminpessoal\Form\DesempenhoAdmin as formDesempenhoAdmin;
+
 class DesempenhoController extends BaseController
 {
     private $campos = array(
@@ -37,7 +40,7 @@ class DesempenhoController extends BaseController
         $formPesquisa = new formPesquisa('frmDesempenho', $this->getServiceLocator(), $usuario);
 
     	$formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $avaliacoes = $serviceDesempenho->getAvaliacoes($this->sessao->parametros)->toArray();
+        $avaliacoes = $serviceDesempenho->getAvaliacoes($this->sessao->parametros, $usuario['funcionario'])->toArray();
         
         foreach ($avaliacoes as $key => $avaliacao) {
             $avaliacoes[$key]['data'] = $formPesquisa->converterData($avaliacao['data']);
@@ -102,6 +105,85 @@ class DesempenhoController extends BaseController
                 $serviceDesempenho->update($dados, array('id' => $idDesempenho));
                 $this->flashMessenger()->addSuccessMessage('Avaliação de desempenho alterada com sucesso!');
                 return $this->redirect()->toRoute('alterarAvaliacoesDesempenho', array('id' => $idDesempenho));
+            }
+        }
+
+        
+        return new ViewModel(array(
+            'formDesempenho'    => $formDesempenho
+            ));
+    }
+
+    //ADMIN
+    public function indexadminAction(){
+        $serviceDesempenho = $this->getServiceLocator()->get('AvaliacaoDesempenho');
+        
+        $formPesquisa = new formPesquisaAdmin('frmDesempenho', $this->getServiceLocator());
+
+        $formPesquisa = parent::verificarPesquisa($formPesquisa);
+        $avaliacoes = $serviceDesempenho->getAvaliacoes($this->sessao->parametros)->toArray();
+        
+        foreach ($avaliacoes as $key => $avaliacao) {
+            $avaliacoes[$key]['data'] = $formPesquisa->converterData($avaliacao['data']);
+            $avaliacoes[$key]['data_proximo_feedback'] = $formPesquisa->converterData($avaliacao['data_proximo_feedback']);
+        }
+
+        if($this->getRequest()->isPost()){
+            $dados = $this->getRequest()->getPost();
+            if(isset($dados->exportar)){
+                parent::gerarExcel($this->campos, $avaliacoes, 'AvaliacoesDesempenho');
+            }
+        }
+        
+        $paginator = new Paginator(new ArrayAdapter($avaliacoes));
+        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setItemCountPerPage(10);
+        $paginator->setPageRange(5);
+        
+        return new ViewModel(array(
+                                'avaliacoes'         => $paginator,
+                                'formPesquisa'  => $formPesquisa
+                            ));
+    }
+
+    public function novoadminAction(){
+        $formDesempenho = new formDesempenhoAdmin('frmDesempenho', $this->getServiceLocator());
+
+        if($this->getRequest()->isPost()){
+            $formDesempenho->setData($this->getRequest()->getPost());
+            if($formDesempenho->isValid()){
+                $idDesempenho = $this->getServiceLocator()->get('AvaliacaoDesempenho')->insert($formDesempenho->getData());
+                $this->flashMessenger()->addSuccessMessage('Avaliação de desempenho inserida com sucesso!');
+                return $this->redirect()->toRoute('alterarAvaliacoesDesempenhoAdmin', array('id' => $idDesempenho));
+            }
+        }
+        return new ViewModel(array('formDesempenho' => $formDesempenho));
+    }
+
+    public function alteraradminAction(){
+        $this->layout('layout/gestor');
+        $idDesempenho = $this->params()->fromRoute('id');
+        $serviceDesempenho = $this->getServiceLocator()->get('AvaliacaoDesempenho');
+
+        $usuario = $this->getServiceLocator()->get('session')->read();
+        $formDesempenho = new formAlterarDesempenho('frmDesempenho', $this->getServiceLocator());
+
+        $desempenho = $serviceDesempenho->getRecord($idDesempenho);
+        if(!$desempenho){
+            $this->flashMessenger()->addWarningMessage('Avaliação de desempenho não encontrada!');
+            return $this->redirect()->toRoute('listarAvaliacoesDesempenho');
+        }
+
+        $formDesempenho->setData($desempenho);
+        
+        if($this->getRequest()->isPost()){
+            $formDesempenho->setData($this->getRequest()->getPost());
+            if($formDesempenho->isValid()){
+                $dados = $formDesempenho->getData();
+                unset($dados['funcionario']);
+                $serviceDesempenho->update($dados, array('id' => $idDesempenho));
+                $this->flashMessenger()->addSuccessMessage('Avaliação de desempenho alterada com sucesso!');
+                return $this->redirect()->toRoute('alterarAvaliacoesDesempenhoAdmin', array('id' => $idDesempenho));
             }
         }
 
