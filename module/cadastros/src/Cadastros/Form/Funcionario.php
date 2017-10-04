@@ -66,6 +66,15 @@
         //fim_turno
         $this->genericTextInput('fim_turno', '* Fim da jornada:', true);
 
+        //ccusto
+        $this->genericTextInput('ccusto', '* Centro de custo:', true);
+        
+        //desc_ccusto
+        $this->genericTextInput('desc_ccusto', '* Descrição centro de custo:', true);
+        
+        //horario
+        $this->genericTextInput('horario', '* Horário:', true);
+        
         //lider_imediato
         $this->_addDropdown('lider_imediato', 'Líder imediato:', false, array('' => 'Selecione uma unidade'));
 
@@ -98,10 +107,15 @@
         return $funcoes;
     }
 
-    public function setUnidadeByEmpresa($idEmpresa){
+    public function setUnidadeByEmpresa($idEmpresa, $todos = false){
         //buscar unidades
         $unidades = $this->serviceLocator->get('Unidade')->getRecords($idEmpresa, 'empresa', array('*'), 'nome');
-        $unidades = $this->prepareForDropDown($unidades, array('id', 'nome'));
+        
+        $preparedArray = array('' => '-- selecione --');
+        if($todos != 'F'){
+            $preparedArray['T'] = 'Todos';
+        }
+        $unidades = $this->prepareForDropDown($unidades, array('id', 'nome'), $preparedArray);
 
         //Setando valores
         $unidades = $this->get('unidade')->setAttribute('options', $unidades);

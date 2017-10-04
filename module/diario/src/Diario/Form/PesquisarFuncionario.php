@@ -38,13 +38,8 @@
         //funcao
         $this->_addDropdown('funcao', 'Função:', false, array('' => 'Selecione um setor'));
 
-        //tipo_contratacao
-        /*$tiposContratacao = array('' => '-- Selecione --', 'Interna' => 'Interna', 'Externa' => 'Externa');
-        $this->_addDropdown('tipo_contratacao', 'Tipo de contratação:', false, $tiposContratacao);
-        
-        //tipo_contrato
-        $tiposContrato = array('' => '-- Selecione --', 'Contrato' => 'Contrato', 'CLT' => 'CLT');
-        $this->_addDropdown('tipo_contrato', 'Tipo de contrato:', false, $tiposContrato);*/
+        //ativo
+        $this->_addDropdown('ativo', 'Ativo:', false, array('' => '--', 'S' => 'Ativo', 'N' => 'Inativo'));
 
         $this->setAttributes(array(
             'class'  => 'form-inline'

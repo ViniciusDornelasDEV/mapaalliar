@@ -27,6 +27,9 @@ class FuncionarioController extends BaseController
             'Tipo de contrato'      => 'tipo_contrato',
             'Data de início'        => 'data_inicio',
             'Período de trabalho'   => 'periodo_trabalho',
+            'Centro de custo'       =>  'ccusto',
+            'Descrição c. custo'    =>  'desc_ccusto',
+            'Horário'               =>  'horario',
             'Líder imediato'        =>  'nome_lider',
             'Líder'                 =>  'lider',
             'Email'                 =>  'email',
@@ -176,7 +179,7 @@ class FuncionarioController extends BaseController
         }else{
             $formFuncionario = new formPesquisa('frmFuncionario', $this->getServiceLocator());
         }
-        $unidade = $formFuncionario->setUnidadeByEmpresa($params->empresa);
+        $unidade = $formFuncionario->setUnidadeByEmpresa($params->empresa, $params->todos);
         
         $view = new ViewModel();
         $view->setTerminal(true);

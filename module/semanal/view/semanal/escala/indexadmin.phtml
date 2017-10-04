@@ -1,0 +1,8 @@
+<?php echo $this->partial('form/pesquisa', array('form'=> $formPesquisa, 'route'=> '', 'notExcel' => '')) ?>
+
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#mes_ano").mask("99/9999");
+      });
+    </script>

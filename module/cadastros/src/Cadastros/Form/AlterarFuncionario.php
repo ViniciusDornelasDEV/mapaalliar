@@ -66,6 +66,15 @@
         //fim_turno
         $this->genericTextInput('fim_turno', '* Fim da jornada:', true);
 
+        //ccusto
+        $this->genericTextInput('ccusto', '* Centro de custo:', true);
+        
+        //desc_ccusto
+        $this->genericTextInput('desc_ccusto', '* Descrição centro de custo:', true);
+        
+        //horario
+        $this->genericTextInput('horario', '* Horário:', true);
+
         //lider_imediato
         $this->_addDropdown('lider_imediato', 'Líder imediato:', false, array('' => 'Selecione uma unidade'));
 

@@ -7,7 +7,7 @@ use Zend\Db\TableGateway\TableGateway;
 use Zend\Db\Sql\Predicate\Expression;
 
 class Funcionario Extends BaseTable {
-	public function getFuncionariosEscala($escala, $idGestor){
+	public function getFuncionariosEscala($escala, $idGestor = false){
         return $this->getTableGateway()->select(function($select) use ($escala, $idGestor) {
             $select->join(
                     array('f' => 'tb_funcao'),
@@ -41,12 +41,15 @@ class Funcionario Extends BaseTable {
                     'LEFT'
                 );
 
-            $select->where
-                    ->nest
-                        ->equalTo('tb_funcionario.lider_imediato', $idGestor)
-                        ->or
-                        ->equalTo('fg.gestor', $idGestor)
-                    ->unnest;
+            if($idGestor){
+                $select->where
+                        ->nest
+                            ->equalTo('tb_funcionario.lider_imediato', $idGestor)
+                            ->or
+                            ->equalTo('fg.gestor', $idGestor)
+                        ->unnest;
+                
+            }
 
             $select->where
                     ->nest
@@ -55,7 +58,7 @@ class Funcionario Extends BaseTable {
                         ->isNull('ef.escala')
                     ->unnest;
 
-            $select->where(array('s.id' => $escala['setor']));
+            $select->where(array('s.id' => $escala['setor'], 'tb_funcionario.unidade' => $escala['unidade']));
 
 
             $select->order('ef.data, tb_funcionario.nome');
@@ -63,8 +66,8 @@ class Funcionario Extends BaseTable {
         });
     }
 
-    public function getFuncionariosGestor($idGestor, $idSetor){
-        return $this->getTableGateway()->select(function($select) use ($idGestor, $idSetor) {
+    public function getFuncionariosGestor($idGestor, $idSetor, $unidade = false){
+        return $this->getTableGateway()->select(function($select) use ($idGestor, $idSetor, $unidade) {
             $select->join(
                     array('f' => 'tb_funcao'),
                     'f.id = tb_funcionario.funcao',
@@ -89,15 +92,20 @@ class Funcionario Extends BaseTable {
                     array(),
                     'LEFT'
                 );
+            if($idGestor){
+                $select->where
+                        ->nest
+                            ->equalTo('tb_funcionario.lider_imediato', $idGestor)
+                            ->or
+                            ->equalTo('fg.gestor', $idGestor)
+                        ->unnest;
+            }
 
-            $select->where
-                    ->nest
-                        ->equalTo('tb_funcionario.lider_imediato', $idGestor)
-                        ->or
-                        ->equalTo('fg.gestor', $idGestor)
-                    ->unnest;
+            if($unidade){
+                $select->where(array('tb_funcionario.unidade' => $unidade));
+            }
 
-            $select->where(array('s.id' => $idSetor));
+            $select->where(array('s.id' => $idSetor, 'tb_funcionario.ativo' => 'S'));
 
             $select->order('nome');
         });

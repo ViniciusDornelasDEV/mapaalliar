@@ -26,9 +26,9 @@ function carregarFuncao(setor, tipo){
     });
 }
 
-function carregarUnidade(empresa, tipo){
+function carregarUnidade(empresa, tipo, todos = "F"){
     $('#empresa').attr('disabled', 'disabled');
-    var data = {empresa: empresa, tipo: tipo};
+    var data = {empresa: empresa, tipo: tipo, todos: todos};
     $.ajax({
         type: "POST",
         url: "/unidade/carregar",

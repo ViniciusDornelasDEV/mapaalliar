@@ -1,11 +1,11 @@
 <?php
-	$diasSemana = array('D', 'S', 'T', 'Q', 'Q', 'S', 'S');
-	$ultimoDia = date("t", mktime(0,0,0,$escala['mes'],'01',$escala['ano']));	
+  $diasSemana = array('D', 'S', 'T', 'Q', 'Q', 'S', 'S');
+  $ultimoDia = date("t", mktime(0,0,0,$escala['mes'],'01',$escala['ano'])); 
 ?>
 
     <ol class="breadcrumb" style="margin-bottom: 0px;">
       <li><a href="<?= $this->url('home'); ?>">Home</a></li>
-      <li><a href="<?= $this->url('listarEscalas'); ?>">Pesquisar escala</a></li>
+      <li><a href="<?= $this->url('listarEscalasAdmin'); ?>">Pesquisar escala</a></li>
       <li class="active">Preencher</li>
     </ol>
 
@@ -25,40 +25,40 @@
                 </tr>
                 <tr>
                     <th style="text-align: center; background-color:#305496; color:#ffffff;" colspan="4"></th>
-	            	<?php 
-		            	$numeroDia = date('w', strtotime($escala['ano'].'-'.$escala['mes'].'-'.'01'));
-		            	
-		            	for ($i=1; $i <= $ultimoDia; $i++) : ?>
-		            		<th style="text-align: center; background-color: #bfbfbf;"><?= $diasSemana[$numeroDia]; ?></th>
-		            		<?php
-		            			if($numeroDia == 6){
-		            				$numeroDia = 0;
-		            			}else{
-		            				$numeroDia++;
-		            			}
-		            		?>		
+                <?php 
+                  $numeroDia = date('w', strtotime($escala['ano'].'-'.$escala['mes'].'-'.'01'));
+                  
+                  for ($i=1; $i <= $ultimoDia; $i++) : ?>
+                    <th style="text-align: center; background-color: #bfbfbf;"><?= $diasSemana[$numeroDia]; ?></th>
+                    <?php
+                      if($numeroDia == 6){
+                        $numeroDia = 0;
+                      }else{
+                        $numeroDia++;
+                      }
+                    ?>    
 
-            		<?php endfor; ?>
+                <?php endfor; ?>
                 </tr>
-            	<tr>
-              		<td style="text-align: center; background-color:#305496; color:#ffffff;">Nome</td>
-              		<td style="text-align: center; background-color:#305496; color:#ffffff;">Cargo</td>
-              		<td style="text-align: center; background-color:#305496; color:#ffffff;">Horário</td>
-              		<td style="text-align: center; background-color:#305496; color:#ffffff;">C.HORÁRIA</td>
-              		<?php 
-              			for ($i=1; $i <= $ultimoDia; $i++) {
-              				echo '<td style="text-align: center; background-color: #bfbfbf;">'.$i.'</td>';
-              			}
-              		?>
-              	</tr>
-              	<?php foreach ($escalas as $escalaFunc): ?>
-              		<tr>
-	              		<td style="text-align: center"><?= $escalaFunc['nome'] ?></td>
-	              		<td style="text-align: center"><?= $escalaFunc['nome_funcao'] ?></td>
-	              		<td style="text-align: center"><?= substr($escalaFunc['inicio_turno'], 0, -3).' - '.substr($escalaFunc['fim_turno'], 0, -3) ?></td>
-	              		<td style="text-align: center">C.HORÁRIA</td>
-	              		<?php 
-	              			foreach ($escalaFunc['dias'] as $dia => $value) {
+              <tr>
+                  <td style="text-align: center; background-color:#305496; color:#ffffff;">Nome</td>
+                  <td style="text-align: center; background-color:#305496; color:#ffffff;">Cargo</td>
+                  <td style="text-align: center; background-color:#305496; color:#ffffff;">Horário</td>
+                  <td style="text-align: center; background-color:#305496; color:#ffffff;">C.HORÁRIA</td>
+                  <?php 
+                    for ($i=1; $i <= $ultimoDia; $i++) {
+                      echo '<td style="text-align: center; background-color: #bfbfbf;">'.$i.'</td>';
+                    }
+                  ?>
+                </tr>
+                <?php foreach ($escalas as $escalaFunc): ?>
+                  <tr>
+                    <td style="text-align: center"><?= $escalaFunc['nome'] ?></td>
+                    <td style="text-align: center"><?= $escalaFunc['nome_funcao'] ?></td>
+                    <td style="text-align: center"><?= substr($escalaFunc['inicio_turno'], 0, -3).' - '.substr($escalaFunc['fim_turno'], 0, -3) ?></td>
+                    <td style="text-align: center">C.HORÁRIA</td>
+                    <?php 
+                      foreach ($escalaFunc['dias'] as $dia => $value) {
                         $numeroDia = date('w', strtotime($escala['ano'].'-'.$escala['mes'].'-'.$dia));
                         
                         //ausencia
@@ -83,14 +83,14 @@
                               <input '.$checked.' type="checkbox" name="'.$escalaFunc['id'].'-'.$dia.'" id="'.$escalaFunc['id'].'-'.$dia.'">
                             </td>';
                         }else{
-	              				 echo '<td style="text-align: center;">
+                         echo '<td style="text-align: center;">
                               <input '.$checked.' type="checkbox" name="'.$escalaFunc['id'].'-'.$dia.'" id="'.$escalaFunc['id'].'-'.$dia.'">
                             </td>';
                         }
-	              			}
-	              		?>
-              		</tr>
-              	<?php endforeach; ?>
+                      }
+                    ?>
+                  </tr>
+                <?php endforeach; ?>
             </table>
 
             <table style="border:none;">

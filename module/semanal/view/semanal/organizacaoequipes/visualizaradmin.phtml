@@ -1,0 +1,108 @@
+    <ol class="breadcrumb" style="margin-bottom: 0px;">
+      <li><a href="<?= $this->url('home'); ?>">Home</a></li>
+      <li><a href="<?= $this->url('pesquisarEquipesAdmin'); ?>">Pesquisar organização de equipes</a></li>
+      <li class="active">Visualizar equipes</li>
+    </ol>
+
+      <div class="row">
+          <div class="panel panel-default">
+          <div class="panel-heading">
+              <h3 class="panel-title">Organização de equipes</h3>
+            </div>
+            <div class="panel-body">
+              <?php if(count($equipes) == 0): ?>
+                <div class="alert alert-info">Nenhuma área encontrada!</div>
+              <?php else: ?>
+                <div class="row">
+                <?php 
+                  $coluna = 1;
+                  foreach ($equipes as $equipe):
+                    if($coluna > 2){
+                      echo '</div>';
+                      $coluna = 1;
+                    }
+                ?>
+                  <div class="col-sm-6">
+                    <table class="table">
+                      <tr>
+                        <th></th>
+                        <th colspan="4" style="background-color:#002060;color:#ffffff;">HC TOTAL</th>
+                        <th style="background-color:#ff0000;color:#ffffff;"><?= $equipe['total'] ?></th>
+                      </tr> 
+                      <tr>
+                        <th></th>
+                        <th style="text-align: center;background-color:#002060;color:#ffffff;">Cargo</th>
+                        <th style="text-align: center;background-color:#002060;color:#ffffff;">Centro de custo</th>
+                        <th style="text-align: center;background-color:#002060;color:#ffffff;">Período</th>
+                        <th style="text-align: center;background-color:#002060;color:#ffffff;">Qtd. Total</th>
+                        <th style="text-align: center;background-color:#002060;color:#ffffff;">Parcial</th>
+                      </tr>
+                      <?php 
+                      $setor = true;
+                      foreach ($equipe['funcao'] as $funcao) : 
+                          if($setor):
+                            $setor = false;
+                        ?>
+                        <tr>
+                          <td rowspan="<?= count($equipe['funcao']); ?>" style="background-color:#b4c6e7;text-align: center;">
+                            <?php 
+                              for ($i=0; $i < strlen($equipe['nome_setor']); $i++) { 
+                                echo $equipe['nome_setor'][$i].'<br>';
+                              }
+                            ?>
+                          </td>
+                          <td style="text-align: center;"><?= $funcao['nome_funcao'] ?></td>
+                          <td style="text-align: center;"></td>
+                          <td style="text-align: center;">
+                            Manhã<br>
+                            Tarde<br>
+                            Noite<br>
+                          </td>
+                          <td style="text-align: center;">
+                            <?= $funcao['M'] ?><br>
+                            <?= $funcao['T'] ?><br>
+                            <?= $funcao['N'] ?>
+                          </td>
+                          <td style="text-align: center;"><?= $funcao['qtd_funcao'] ?></td>
+                        </tr>
+
+                      <?php else: ?>
+                        <tr>
+                          <td style="text-align: center;"><?= $funcao['nome_funcao'] ?></td>
+                          <td style="text-align: center;"></td>
+                          <td style="text-align: center;">
+                            Manhã<br>
+                            Tarde<br>
+                            Noite<br>
+                          </td>
+                          <td style="text-align: center;">
+                            <?= $funcao['M'] ?><br>
+                            <?= $funcao['T'] ?><br>
+                            <?= $funcao['N'] ?>
+                          </td>
+                          <td style="text-align: center;"><?= $funcao['qtd_funcao'] ?></td>
+                        </tr>
+                      <?php endif; ?>
+                    <?php endforeach; ?>
+                    </table>
+                  </div>
+
+              <?php 
+                $coluna++;
+                endforeach; 
+              ?>
+              </div>                  
+              </div>
+
+              <?php endif; ?>
+      </div>
+    </div>
+
+<style type="text/css">
+
+  table, th, td {
+      border: 1px solid black;
+  }
+
+
+</style>

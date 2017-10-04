@@ -103,5 +103,23 @@ class Ferias Extends BaseTable {
         }); 
     }
 
+    public function getFeriasFuncionarioToEscala($idFuncionario, $mes, $ano){
+        //ultimo dia do mes
+        return $this->getTableGateway()->select(function($select) use ($idFuncionario, $mes, $ano) {
+            $ultimoDia = date("t", mktime(0,0,0,$mes,'01',$ano));
+            $inicio = $ano.'-'.$mes.'-01';
+            $fim = $ano.'-'.$mes.'-'.$ultimoDia;
+            
+            $select->where
+                        ->nest
+                            ->between('data_inicio', $inicio, $fim)
+                            ->or
+                            ->between('data_fim', $inicio, $fim)
+                        ->unnest;
+            $select->where(array('funcionario' => $idFuncionario));
+
+        })->current();
+    }
+
 
 }

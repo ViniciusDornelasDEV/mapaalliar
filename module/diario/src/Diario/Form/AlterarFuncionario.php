@@ -59,6 +59,15 @@
         //fim_turno
         $this->genericTextInput('fim_turno', '* Fim da jornada:', true);
 
+        //ccusto
+        $this->genericTextInput('ccusto', '* Centro de custo:', true);
+        
+        //desc_ccusto
+        $this->genericTextInput('desc_ccusto', '* Descrição centro de custo:', true);
+        
+        //horario
+        $this->genericTextInput('horario', '* Horário:', true);
+        
         //numero_rp
         $this->genericTextInput('numero_rp', 'Número da RP:', false);
 

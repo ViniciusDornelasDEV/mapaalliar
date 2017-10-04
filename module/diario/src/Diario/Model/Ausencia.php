@@ -91,5 +91,17 @@ class Ausencia Extends BaseTable {
         }); 
     }
 
+    public function getAusenciaFuncionarioToEscala($idFuncionario, $mes, $ano){
+        //ultimo dia do mes
+        return $this->getTableGateway()->select(function($select) use ($idFuncionario, $mes, $ano) {
+            $ultimoDia = date("t", mktime(0,0,0,$mes,'01',$ano));
+            $inicio = $ano.'-'.$mes.'-01';
+            $fim = $ano.'-'.$mes.'-'.$ultimoDia;
+            
+            $select->where->addPredicate(new Expression('(data >= '.$inicio.' OR data <= '.$fim.')'));
 
+            $select->where(array('funcionario' => $idFuncionario));
+
+        });
+    }
 }

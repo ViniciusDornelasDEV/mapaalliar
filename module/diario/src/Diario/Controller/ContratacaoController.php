@@ -27,6 +27,9 @@ class ContratacaoController extends BaseController
             'Tipo de contrato'      => 'tipo_contrato',
             'Data de início'        => 'data_inicio',
             'Período de trabalho'   => 'periodo_trabalho',
+            'Centro de custo'       =>  'ccusto',
+            'Descrição c. custo'    =>  'desc_ccusto',
+            'Horário'               =>  'horario',
             'Líder imediato'        =>  'nome_lider',
             'Líder'                 =>  'lider',
             'Email'                 =>  'email',
@@ -92,6 +95,7 @@ class ContratacaoController extends BaseController
                 $gestor = $serviceFuncionario->getRecord($usuario['funcionario']);
                 $dados = $formFuncionario->getData();
                 $dados['unidade'] = $gestor['unidade'];
+                $dados['lider_imediato'] = $usuario['funcionario'];
                 
                 $idFuncionario = $serviceFuncionario->insert($dados);
                 $this->flashMessenger()->addSuccessMessage('Contratação incluída com sucesso!');
@@ -117,11 +121,17 @@ class ContratacaoController extends BaseController
         $formFuncionario->setData($funcionario);
 
         if($this->getRequest()->isPost()){
-            $dados = $this->getRequest()->getPost();
             //alterar funcionario
-            $formFuncionario->setData($dados);
+            $formFuncionario->setData($this->getRequest()->getPost());
             if($formFuncionario->isValid()){
-                $serviceFuncionario->update($formFuncionario->getData(), array('id' => $idFuncionario));
+                $dados = $formFuncionario->getData();
+                if(!empty($dados['data_saida'])){
+                    $dados['ativo'] = 'N';
+                }else{
+                    $dados['ativo'] = 'S';
+                }
+                
+                $serviceFuncionario->update($dados, array('id' => $idFuncionario));
                 $this->flashMessenger()->addSuccessMessage('Contratação alterada com sucesso!');
             }
             return $this->redirect()->toRoute('alterarContratacao', array('id' => $idFuncionario));

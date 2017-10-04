@@ -17,6 +17,7 @@
               <?php if($substituicoes->count() > 0): ?>
                 <table class="table">
                   <tr>
+                    <th style="text-align: center">Status</th>
                     <th style="text-align: center">Funcionário</th>
                     <th style="text-align: center">Unidade</th>
                     <th style="text-align: center">Área</th>
@@ -29,6 +30,10 @@
                 </tr>
                 <?php foreach($substituicoes as $substituicao): ?>
                 <tr>
+                  <?php 
+                    $cor = $this->farolStatus($this->converterData($substituicao['data_desligamento']));
+                  ?>
+                  <td style="text-align: center"><img src="<?= $this->basePath($cor); ?>"></td>
                   <td style="text-align: center"><?= $substituicao['nome_funcionario']; ?></td>
                   <td style="text-align: center"><?= $substituicao['nome_unidade']; ?></td>
                   <td style="text-align: center"><?= $substituicao['nome_area']; ?></td>

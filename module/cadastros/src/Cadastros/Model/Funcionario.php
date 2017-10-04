@@ -91,6 +91,9 @@ class Funcionario Extends BaseTable {
                     $select->where->notEqualTo('tb_funcionario.id', $params['funcionario']);
                 }
 
+                if(!empty($params['ativo'])){
+                    $select->where(array('tb_funcionario.ativo' => $params['ativo']));
+                }
 
             }
             

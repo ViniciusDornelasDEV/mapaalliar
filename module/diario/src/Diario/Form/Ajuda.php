@@ -84,7 +84,7 @@ use Application\Form\Base as BaseForm;
 
     public function setFuncionarioByUnidade($idUnidade){
         //buscar funcionarios
-        $funcionarios = $this->serviceLocator->get('Funcionario')->getRecordsFromArray(array('ativo' => 'S', 'unidade' => $idUnidade));
+        $funcionarios = $this->serviceLocator->get('Funcionario')->getRecordsFromArray(array('ativo' => 'S', 'unidade' => $idUnidade), 'nome');
         $funcionarios = $this->prepareForDropDown($funcionarios, array('id', 'nome'));
 
         //Setando valores

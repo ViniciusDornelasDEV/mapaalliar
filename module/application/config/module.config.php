@@ -95,6 +95,7 @@ return array(
          'caracterVazio' => 'Application\Helper\Caractervazio',
          'status'        => 'Application\Helper\Status',
          'farol'        => 'Application\Helper\Farol',
+         'farolStatus'  => 'Application\Helper\FarolStatus',
       ),
    ),
     // Placeholder for console routes
