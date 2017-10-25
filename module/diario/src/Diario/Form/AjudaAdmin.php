@@ -27,7 +27,7 @@ use Application\Form\NovoAdmin as BaseForm;
         $this->_addDropdown('empresa', '* Empresa:', true, $empresas, 'carregarUnidade(this.value, "C");carregarUnidadeDestino(this.value, "C");');
 
         //unidade
-        $this->_addDropdown('unidade', '* Unidade:', true, array('' => 'Selecione uma empresa'), 'CarregarFuncionariosByUnidade(this.value);');
+        $this->_addDropdown('unidade', '* Unidade de suporte:', true, array('' => 'Selecione uma empresa'), 'CarregarFuncionariosByUnidade(this.value);');
         
         //funcionario
         $this->_addDropdown('funcionario', '* Funcionário:', true, array('' => 'Selecione uma unidade'));

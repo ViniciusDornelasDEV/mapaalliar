@@ -46,8 +46,11 @@ use Application\Form\Base as BaseForm;
         $this->_addDropdown('vaga_rh', '* Vaga aberta RH:', true, array('' => '--', 'S' => 'Sim', 'N' => 'Não'));
 
         //encerrada
-        $this->_addDropdown('encerrada', '* Vaga encerrada:', true, array('' => '--', 'S' => 'Sim', 'N' => 'Não'));
+        $this->_addDropdown('encerrada', '* Vaga Substituida:', true, array('' => '--', 'S' => 'Sim', 'N' => 'Não'));
 
+        //numero_rp
+        $this->genericTextInput('numero_rp', '* Número da RP:', true);
+        
         $this->setAttributes(array(
             'role'   => 'form'
         ));

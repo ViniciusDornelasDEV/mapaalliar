@@ -34,7 +34,7 @@ class Escala Extends BaseTable {
             $select->join(
                     array('f' => 'tb_funcionario'),
                     'f.id = ef.funcionario',
-                    array('id_funcionario' => 'id', 'periodo_trabalho')
+                    array('id_funcionario' => 'id', 'periodo_trabalho', 'ccusto')
                 );
 
             $select->join(

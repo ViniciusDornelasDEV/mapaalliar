@@ -2,7 +2,7 @@
 
  namespace Mensal\Form;
  
-use Mensal\Form\Premissas as BaseForm;
+use Application\Form\Base as BaseForm;
  
  class Evolucao extends BaseForm
  {
@@ -19,7 +19,15 @@ use Mensal\Form\Premissas as BaseForm;
         if($serviceLocator)
            $this->setServiceLocator($serviceLocator);
 
-        parent::__construct($name, $serviceLocator);  
+        parent::__construct($name);  
+
+        //empresa
+        $empresas = $this->serviceLocator->get('Empresa')->getRecordsFromArray(array(), 'nome');
+        $empresas = $this->prepareForDropDown($empresas, array('id', 'nome'), array('' => '-- selecione --', 'T' => 'Todos'));
+        $this->_addDropdown('empresa', '* Empresa:', true, $empresas, 'carregarUnidade(this.value, "P", "T");');
+
+        //unidade
+        $this->_addDropdown('unidade', 'Unidade:', false, array('' => 'Selecione uma empresa'));
 
 
         //ouro

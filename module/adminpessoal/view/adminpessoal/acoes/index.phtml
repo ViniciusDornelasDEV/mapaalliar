@@ -17,6 +17,7 @@
               <?php if($acoes->count() > 0): ?>
                 <table class="table">
                   <tr>
+                    <th style="text-align: center">Status</th>
                     <th style="text-align: center">Área</th>
                     <th style="text-align: center">Setor</th>
                     <th style="text-align: center">Função</th>
@@ -27,6 +28,18 @@
                 </tr>
                 <?php foreach($acoes as $acao): ?>
                 <tr>
+                  <?php 
+                    if($acao['id_tipo_acao'] == 1){
+                      $tipo = 'img/verde.png';
+                    }else{
+                      if($acao['id_tipo_acao'] == 2 || $acao['id_tipo_acao'] == 3)  {
+                        $tipo = 'img/amarelo.png';
+                      }else{
+                        $tipo = 'img/vermelho.png';
+                      }
+                    }
+                  ?>
+                  <td style="text-align: center"><img src="<?= $this->basePath($tipo); ?>"></td> 
                   <td style="text-align: center"><?= $acao['nome_area']; ?></td>
                   <td style="text-align: center"><?= $acao['nome_setor']; ?></td>
                   <td style="text-align: center"><?= $acao['nome_funcao']; ?></td>

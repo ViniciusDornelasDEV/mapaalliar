@@ -30,7 +30,26 @@
                 <?php foreach($avaliacoes as $avaliacao): ?>
                 <tr>
                   <?php 
-                    $cor = $this->farol($this->converterData($avaliacao['data']), $this->converterData($avaliacao['data_proximo_feedback']));
+                    if($avaliacao['feedback_realizado'] == 'S'){
+                      //VERDE
+                      $cor = 'img/verde.png';
+                    }else{
+                      $dataAvaliacao = strtotime($this->converterData($avaliacao['data_proximo_feedback']));
+                      if($dataAvaliacao < strtotime(date('Y-m-d'))){
+                        //vermelho
+                        $cor = 'img/vermelho.png';
+                      }else{
+                        if($dataAvaliacao >= strtotime(date('Y-m-d')) 
+                          && $dataAvaliacao <= strtotime(date('Y-m-d', strtotime("+3 days",strtotime(date('Y-m-d')))))){
+                          //amarelo
+                          $cor = 'img/amarelo.png';
+                        }else{
+                          //cinza
+                          $cor = 'img/cinza.png';
+                        }
+                      }
+                      
+                    }
                   ?>
                   <td style="text-align: center"><img src="<?= $this->basePath($cor); ?>"></td>
                   <td style="text-align: center"><?= $avaliacao['nome_area']; ?></td>

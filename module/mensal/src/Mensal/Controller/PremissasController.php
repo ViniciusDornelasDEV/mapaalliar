@@ -10,9 +10,16 @@ use Zend\Paginator\Adapter\ArrayAdapter;
 
 use Mensal\Form\PesquisarPremissas as formPesquisa;
 use Mensal\Form\Nps as formNps;
+use Mensal\Form\NpsAlterar as formNpsAlterar;
 use Mensal\Form\Evolucao as formEvolucao;
+use Mensal\Form\EvolucaoAlterar as formEvolucaoAlterar;
 use Mensal\Form\Tme as formTme;
+use Mensal\Form\TmeAlterar as formTmeAlterar;
 use Mensal\Form\Qmatic as formQmatic;
+use Mensal\Form\QmaticAlterar as formQmaticAlterar;
+
+use Mensal\Form\Tma as formTma;
+use Mensal\Form\TmaAndar as formTmaAndar;
 
 class PremissasController extends BaseController
 {
@@ -52,7 +59,11 @@ class PremissasController extends BaseController
     public function cadastrarnpsAction(){
         $idNps = $this->params()->fromRoute('id');
         $serviceNps = $this->getServiceLocator()->get('Nps');
-        $formNps = new formNps('frmNps', $this->getServiceLocator());
+        if($idNps){
+            $formNps = new formNpsAlterar('frmNps', $this->getServiceLocator());
+        }else{
+            $formNps = new formNps('frmNps', $this->getServiceLocator());
+        }
         $nps = false;
         $operacao = 'Inserir';
         if($idNps){
@@ -68,12 +79,13 @@ class PremissasController extends BaseController
                     //alterar
                     $serviceNps->update($formNps->getData(), array('id' => $idNps));
                     $this->flashMessenger()->addSuccessMessage('NPS alterado com sucesso!');
+                    return $this->redirect()->toRoute('cadastrarNps', array('id' => $idNps));
                 }else{
                     //cadastrar
                     $idNps = $serviceNps->insert($formNps->getData());
                     $this->flashMessenger()->addSuccessMessage('NPS inserido com sucesso!');
+                    return $this->redirect()->toRoute('listarNps');
                 }
-                return $this->redirect()->toRoute('cadastrarNps', array('id' => $idNps));
             }
         }
 
@@ -90,15 +102,107 @@ class PremissasController extends BaseController
     }
 
     public function listartmaAction(){
+        $serviceTma = $this->getServiceLocator()->get('Tma');
+            
+        $formPesquisa = new formPesquisa('frmPesquisa', $this->getServiceLocator());
 
+        $formPesquisa = parent::verificarPesquisa($formPesquisa);
+        $tma = $serviceTma->getDados($this->sessao->parametros)->toArray();
+        
+        
+        $paginator = new Paginator(new ArrayAdapter($tma));
+        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setItemCountPerPage(10);
+        $paginator->setPageRange(5);
+        
+        return new ViewModel(array(
+                                'tmas'           => $paginator,
+                                'formPesquisa'  => $formPesquisa
+                            ));
     }
 
     public function cadastrartmaAction(){
+        $formTma = new formTma('frmTma', $this->getServiceLocator());
 
+        if($this->getRequest()->isPost()){
+            $formTma->setData($this->getRequest()->getPost());
+            if($formTma->isValid()){
+                $idTma = $this->getServiceLocator()->get('Tma')->insert($formTma->getData());
+                return $this->redirect()->toRoute('alterarTma', array('id' => $idTma));
+            }
+        }
+
+        return new ViewModel(array('formTma' => $formTma));
+    }
+
+    public function alterartmaAction(){
+        $idTma = $this->params()->fromRoute('id');
+        $idAndar = $this->params()->fromRoute('andar');
+
+        $serviceTma = $this->getServiceLocator()->get('Tma');
+        $tma = $serviceTma->getDado($idTma);
+
+        if(!$tma){
+            $this->flashMessenger()->addWarningMessage('TMA não encontrado!');
+            return $this->redirect()->toRoute('listarTma');
+        }
+        $formTma = new formTma('frmTma', $this->getServiceLocator());
+        $formTma->setData($tma);
+
+        $serviceTmaAndar = $this->getServiceLocator()->get('TmaAndar');
+        $andar = $serviceTmaAndar->getRecord($idAndar);
+        $formAndar = new formTmaAndar('frmAndar');
+        if($andar){
+            $formAndar->setData($andar);
+        }
+
+        if($this->getRequest()->isPost()){
+            $dados = $this->getRequest()->getPost();
+            if(isset($dados['unidade'])){
+                //tma
+                $formTma->setData($dados);
+                if($formTma->isValid()){
+                    $serviceTma->update($formTma->getData(), array('id' => $idTma));
+                    $this->flashMessenger()->addSuccessMessage('Tma alterado com sucesso!');
+                    return $this->redirect()->toRoute('alterarTma', array('id' => $idTma));
+                }
+            }else{
+                //andar
+                $formAndar->setData($dados);
+                if($formAndar->isValid()){
+                    $dados = $formAndar->getData();
+                    $dados['tma'] = $idTma;
+                    if($idAndar){
+                        //alterar
+                        $serviceTmaAndar->update($dados, array('id' => $idAndar));
+                        $this->flashMessenger()->addSuccessMessage('Andar alterado com sucesso!');
+                    }else{
+                        //inserir
+                        $serviceTmaAndar->insert($dados);
+                        $this->flashMessenger()->addSuccessMessage('Andar inserido com sucesso!');
+                    }
+                    return $this->redirect()->toRoute('alterarTma', array('id' => $idTma));
+                }
+            }
+        }
+
+        $andares = $serviceTmaAndar->getRecords($idTma, 'tma');
+        return new ViewModel(array(
+                'formTma'       => $formTma,
+                'formAndar'     => $formAndar,
+                'andares'       => $andares,
+                'tma'           => $tma
+            ));
     }
 
     public function visualizartmaAction(){
+        $this->layout('layout/gestor');
+        $usuario = $this->getServiceLocator()->get('session')->read();
+        $funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($usuario['funcionario']);
 
+        $andares = $this->getServiceLocator()->get('Tma')->getAndares($funcionario['unidade'])->toArray();
+        
+        return new ViewModel(array('andares' => $andares));
     }
 
     public function listarevolucaoAction(){
@@ -124,7 +228,11 @@ class PremissasController extends BaseController
     public function cadastrarevolucaoAction(){
         $idEvolucao = $this->params()->fromRoute('id');
         $serviceEvolucao = $this->getServiceLocator()->get('Evolucao');
-        $formEvolucao = new formEvolucao('frmEvolucao', $this->getServiceLocator());
+        if($idEvolucao){
+            $formEvolucao = new formEvolucaoAlterar('frmEvolucao', $this->getServiceLocator());
+        }else{
+            $formEvolucao = new formEvolucao('frmEvolucao', $this->getServiceLocator());   
+        }
         $evolucao = false;
         $operacao = 'Inserir';
         if($idEvolucao){
@@ -140,12 +248,13 @@ class PremissasController extends BaseController
                     //alterar
                     $serviceEvolucao->update($formEvolucao->getData(), array('id' => $idEvolucao));
                     $this->flashMessenger()->addSuccessMessage('Evolução alterada com sucesso!');
+                    return $this->redirect()->toRoute('cadastrarEvolucao', array('id' => $idEvolucao));
                 }else{
                     //cadastrar
                     $idEvolucao = $serviceEvolucao->insert($formEvolucao->getData());
                     $this->flashMessenger()->addSuccessMessage('Evolução inserida com sucesso!');
+                    return $this->redirect()->toRoute('listarEvolucao');
                 }
-                return $this->redirect()->toRoute('cadastrarEvolucao', array('id' => $idEvolucao));
             }
         }
 
@@ -184,7 +293,12 @@ class PremissasController extends BaseController
     public function cadastrartmeAction(){
         $idTme = $this->params()->fromRoute('id');
         $serviceTme = $this->getServiceLocator()->get('Tme');
-        $formTme = new formTme('frmTme', $this->getServiceLocator());
+        if($idTme){
+            $formTme = new formTmeAlterar('frmTme', $this->getServiceLocator());
+        }else{
+            $formTme = new formTme('frmTme', $this->getServiceLocator());   
+        }
+
         $tme = false;
         $operacao = 'Inserir';
         if($idTme){
@@ -209,13 +323,14 @@ class PremissasController extends BaseController
                             //alterar
                             $serviceTme->update($dados, array('id' => $idTme));
                             $this->flashMessenger()->addSuccessMessage('TME alterada com sucesso!');
+                            return $this->redirect()->toRoute('cadastrarTme', array('id' => $idTme));
                         }else{
                             //cadastrar
                             $idTme = $serviceTme->insert($dados);
                             $this->flashMessenger()->addSuccessMessage('TME inserida com sucesso!');
+                            return $this->redirect()->toRoute('listarTme');
                         }
 
-                        return $this->redirect()->toRoute('cadastrarTme', array('id' => $idTme));
                         
                     }else{
                         $formTme->setData($dados);
@@ -261,7 +376,11 @@ class PremissasController extends BaseController
     public function cadastrarqmaticAction(){
         $idQmatic = $this->params()->fromRoute('id');
         $serviceQmatic = $this->getServiceLocator()->get('Qmatic');
-        $formQmatic = new formQmatic('frmQmatic', $this->getServiceLocator());
+        if($idQmatic){
+            $formQmatic = new formQmaticAlterar('frmQmatic', $this->getServiceLocator());
+        }else{
+            $formQmatic = new formQmatic('frmQmatic', $this->getServiceLocator());
+        }
         $qmatic = false;
         $operacao = 'Inserir';
         if($idQmatic){
@@ -286,13 +405,14 @@ class PremissasController extends BaseController
                             //alterar
                             $serviceQmatic->update($dados, array('id' => $idQmatic));
                             $this->flashMessenger()->addSuccessMessage('Qmatic alterada com sucesso!');
+                            return $this->redirect()->toRoute('cadastrarQmatic', array('id' => $idQmatic));
                         }else{
                             //cadastrar
                             $idQmatic = $serviceQmatic->insert($dados);
                             $this->flashMessenger()->addSuccessMessage('Qmatic inserida com sucesso!');
+                            return $this->redirect()->toRoute('listarQmatic');
                         }
 
-                        return $this->redirect()->toRoute('cadastrarQmatic', array('id' => $idQmatic));
                         
                     }else{
                         $formQmatic->setData($dados);

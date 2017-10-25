@@ -82,11 +82,11 @@ class Ferias Extends BaseTable {
                 }
 
                 if(!empty($params['inicio_inicio']) && !empty($params['inicio_fim'])){
-                    $select->where->between('data_inicio', $params['inicio_inicio'], $params['inicio_fim']);
+                    $select->where->between('tb_ferias.data_inicio', $params['inicio_inicio'], $params['inicio_fim']);
                 }
 
                 if(!empty($params['fim_inicio']) && !empty($params['fim_fim'])){
-                    $select->where->between('data_fim', $params['fim_inicio'], $params['fim_fim']);
+                    $select->where->between('tb_ferias.data_fim', $params['fim_inicio'], $params['fim_fim']);
                 }
 
                 if(!empty($params['empresa'])){
@@ -99,7 +99,7 @@ class Ferias Extends BaseTable {
 
             }
             
-            $select->order('data_inicio DESC, f.nome');
+            $select->order('tb_ferias.data_inicio DESC, f.nome');
         }); 
     }
 

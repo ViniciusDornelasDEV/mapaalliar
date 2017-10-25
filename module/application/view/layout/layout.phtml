@@ -13,10 +13,14 @@
                 ->prependStylesheet($this->basePath() . '/css/bootstrap.css')
                 ->prependStylesheet($this->basePath() . '/css/backgrounds.css')
                 ->prependStylesheet($this->basePath() . '/css/layout.css')
-                ->prependStylesheet($this->basePath() . '/css/menu.css'); ?>
+                ->prependStylesheet($this->basePath() . '/css/menu.css')
+                ->prependStylesheet($this->basePath() . '/css/fullcalendar.css'); ?>
 
 
                 <?php echo $this->headScript()
+            ->prependFile($this->basePath() . '/js/fullcalendar/pt-br.js')
+            ->prependFile($this->basePath() . '/js/fullcalendar.js')
+            ->prependFile($this->basePath() . '/js/moment.js')
             ->prependFile($this->basePath() . '/js/bootbox.min.js')
             ->prependFile($this->basePath() . '/js/bootstrap.min.js')
             ->prependFile($this->basePath() . '/js/jquery.maskedinput.min.js')
@@ -183,5 +187,13 @@
 
 </div>
 </div>
+
+<script type="text/javascript">
+
+    $('#bs-sidebar-navbar-collapse-1').on('hide.bs.dropdown', function () {
+        return false;
+    });
+</script>
+
 </body>
 </html>

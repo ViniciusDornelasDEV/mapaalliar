@@ -36,7 +36,8 @@ class OrganizacaoequipesController extends BaseController
         
         //pesquisar todas as escalas deste período da unidade logado
         $usuario = $this->getServiceLocator()->get('session')->read();
-        $funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($usuario['funcionario']);
+        $serviceFuncionario = $this->getServiceLocator()->get('Funcionario');
+        $funcionario = $serviceFuncionario->getRecord($usuario['funcionario']);
             
         $escalas = $this->getServiceLocator()->get('Escala')->getEscalasEquipes($mes, $ano, $funcionario['unidade']);
         
@@ -50,6 +51,9 @@ class OrganizacaoequipesController extends BaseController
             $preparedArray[$idSetor] = array();
             $preparedArray[$idSetor]['nome_setor'] = strtoupper($escala['nome_setor']);
             $preparedArray[$idSetor]['total'] = 0;
+            
+            $total = $serviceFuncionario->getFuncionariosSetor($idSetor, $funcionario['unidade']); 
+            $preparedArray[$idSetor]['total_real'] = $total['total'];
           }
 
           //inicializar dados da funcao
@@ -58,6 +62,7 @@ class OrganizacaoequipesController extends BaseController
             $preparedArray[$idSetor]['funcao'][$escala['id_funcao']] = array();
             $preparedArray[$idSetor]['funcao'][$escala['id_funcao']]['nome_funcao'] = $escala['nome_funcao'];
             $preparedArray[$idSetor]['funcao'][$escala['id_funcao']]['qtd_funcao'] = 0;
+            $preparedArray[$idSetor]['funcao'][$escala['id_funcao']]['ccusto'] = $escala['ccusto'];
             $preparedArray[$idSetor]['funcao'][$escala['id_funcao']]['M'] = 0;
             $preparedArray[$idSetor]['funcao'][$escala['id_funcao']]['T'] = 0;
             $preparedArray[$idSetor]['funcao'][$escala['id_funcao']]['N'] = 0;
@@ -108,7 +113,7 @@ class OrganizacaoequipesController extends BaseController
 
         //pesquisar todas as escalas deste período da unidade logado    
         $escalas = $this->getServiceLocator()->get('Escala')->getEscalasEquipes($mes, $ano, $idUnidade);
-        
+        $serviceFuncionario = $this->getServiceLocator()->get('Funcionario');
         
         $preparedArray = array();
         $idSetor = false;
@@ -119,6 +124,10 @@ class OrganizacaoequipesController extends BaseController
             $preparedArray[$idSetor] = array();
             $preparedArray[$idSetor]['nome_setor'] = strtoupper($escala['nome_setor']);
             $preparedArray[$idSetor]['total'] = 0;
+
+            //pesquisar numer ototoal de funcionarios do setor
+            $total = $serviceFuncionario->getFuncionariosSetor($idSetor, $idUnidade); 
+            $preparedArray[$idSetor]['total_real'] = $total['total'];
           }
 
           //inicializar dados da funcao
@@ -127,6 +136,7 @@ class OrganizacaoequipesController extends BaseController
             $preparedArray[$idSetor]['funcao'][$escala['id_funcao']] = array();
             $preparedArray[$idSetor]['funcao'][$escala['id_funcao']]['nome_funcao'] = $escala['nome_funcao'];
             $preparedArray[$idSetor]['funcao'][$escala['id_funcao']]['qtd_funcao'] = 0;
+            $preparedArray[$idSetor]['funcao'][$escala['id_funcao']]['ccusto'] = $escala['ccusto'];
             $preparedArray[$idSetor]['funcao'][$escala['id_funcao']]['M'] = 0;
             $preparedArray[$idSetor]['funcao'][$escala['id_funcao']]['T'] = 0;
             $preparedArray[$idSetor]['funcao'][$escala['id_funcao']]['N'] = 0;

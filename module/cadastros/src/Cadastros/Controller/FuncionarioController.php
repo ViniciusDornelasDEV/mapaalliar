@@ -12,6 +12,7 @@ use Cadastros\Form\PesquisarFuncionario as formPesquisa;
 use Cadastros\Form\Funcionario as formFuncionario;
 use Cadastros\Form\VincularGestor as formGestor;
 use Cadastros\Form\AlterarFuncionario as formAlterarFuncionario;
+use Cadastros\Form\ImportarFuncionario as formImportacao;
 
 class FuncionarioController extends BaseController
 {
@@ -179,6 +180,7 @@ class FuncionarioController extends BaseController
         }else{
             $formFuncionario = new formPesquisa('frmFuncionario', $this->getServiceLocator());
         }
+
         $unidade = $formFuncionario->setUnidadeByEmpresa($params->empresa, $params->todos);
         
         $view = new ViewModel();
@@ -197,6 +199,39 @@ class FuncionarioController extends BaseController
         $view->setTerminal(true);
         $view->setVariables(array('lider' => $lideres));
         return $view;
+    }
+
+    public function importarfuncionariosAction(){
+        $formImportacao = new formImportacao('frmImportar', $this->getServiceLocator());
+
+        if($this->getRequest()->isPost()){
+            $files = $this->getRequest()->getfiles()->toArray();
+            $dados = $this->getRequest()->getPost();
+
+            if(isset($files['arquivo'])){
+                if(!empty($files['arquivo']['name'])){
+                    //salvar
+                    $dir = 'public/arquivos/funcionarios';
+                    $dados = $this->uploadImagem($files, $dir, $dados);
+                    
+                    $inputFileType = \PHPExcel_IOFactory::identify($dados['arquivo']);
+                    $objReader = \PHPExcel_IOFactory::createReader($inputFileType);
+                    $objPHPExcel = $objReader->load($dados['arquivo']);
+                    $sheet = $objPHPExcel->getSheet(0); 
+                    $highestRow = $sheet->getHighestRow(); 
+
+                    $res = $this->getServiceLocator()->get('Funcionario')->importar($sheet, $highestRow, $dados);
+                    if($res){
+                        $this->flashMessenger()->addSuccessMessage('Funcionários importados com sucesso!');
+                    }else{
+                        $this->flashMessenger()->addWarningMessage('Ocorreu algum erro ao importar funcionários, por favor tente novamente!');
+                    }
+                    return $this->redirect()->toRoute('importarFuncionario');
+                }
+            }
+        }
+
+        return new ViewModel(array('form' => $formImportacao));
     }
 
 

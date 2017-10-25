@@ -90,7 +90,7 @@ class UsuarioController extends BaseController
                     //Create acl config
                     $sessao = new Container();
                     $sessao->acl = $this->criarAutorizacao();
-                    
+                  
                     if($user['id_usuario_tipo'] == 2){
                         return $this->redirect()->toRoute('homeGestor');
                     }

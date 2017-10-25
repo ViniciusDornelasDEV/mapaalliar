@@ -31,9 +31,23 @@
                 <?php foreach($substituicoes as $substituicao): ?>
                 <tr>
                   <?php 
-                    $cor = $this->farolStatus($this->converterData($substituicao['data_desligamento']));
+                    if($substituicao['vaga_rh'] == 'Não' && $substituicao['encerrada'] == 'Não'){
+                      $farol = 'img/cinza.png';
+                    }
+
+                    if($substituicao['vaga_rh'] == 'Não' && $substituicao['encerrada'] == 'Sim'){
+                      $farol = 'img/vermelho.png';
+                    }
+
+                    if($substituicao['vaga_rh'] == 'Sim' && $substituicao['encerrada'] == 'Não'){
+                      $farol = 'img/amarelo.png';
+                    }
+
+                    if($substituicao['vaga_rh'] == 'Sim' && $substituicao['encerrada'] == 'Sim'){
+                      $farol = 'img/verde.png';
+                    }
                   ?>
-                  <td style="text-align: center"><img src="<?= $this->basePath($cor); ?>"></td>
+                  <td style="text-align: center"><img src="<?= $this->basePath($farol); ?>"></td>
                   <td style="text-align: center"><?= $substituicao['nome_funcionario']; ?></td>
                   <td style="text-align: center"><?= $substituicao['nome_unidade']; ?></td>
                   <td style="text-align: center"><?= $substituicao['nome_area']; ?></td>

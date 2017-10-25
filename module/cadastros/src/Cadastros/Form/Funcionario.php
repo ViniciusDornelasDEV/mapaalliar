@@ -112,7 +112,7 @@
         $unidades = $this->serviceLocator->get('Unidade')->getRecords($idEmpresa, 'empresa', array('*'), 'nome');
         
         $preparedArray = array('' => '-- selecione --');
-        if($todos != 'F'){
+        if($todos == 'T'){
             $preparedArray['T'] = 'Todos';
         }
         $unidades = $this->prepareForDropDown($unidades, array('id', 'nome'), $preparedArray);

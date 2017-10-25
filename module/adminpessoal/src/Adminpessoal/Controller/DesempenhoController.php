@@ -53,7 +53,6 @@ class DesempenhoController extends BaseController
                 parent::gerarExcel($this->campos, $avaliacoes, 'AvaliacoesDesempenho');
             }
         }
-        
         $paginator = new Paginator(new ArrayAdapter($avaliacoes));
         $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
         $paginator->setItemCountPerPage(10);
@@ -161,7 +160,6 @@ class DesempenhoController extends BaseController
     }
 
     public function alteraradminAction(){
-        $this->layout('layout/gestor');
         $idDesempenho = $this->params()->fromRoute('id');
         $serviceDesempenho = $this->getServiceLocator()->get('AvaliacaoDesempenho');
 

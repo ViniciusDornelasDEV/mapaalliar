@@ -8,12 +8,12 @@ use Zend\Db\Sql\Predicate\Expression;
 
 class Funcionario Extends BaseTable {
 
-    public function getFuncionarios($params = false){
-        return $this->getTableGateway()->select(function($select) use ($params) {
+    public function getFuncionarios($params = false, $idGestor = false){
+        return $this->getTableGateway()->select(function($select) use ($params, $idGestor) {
             $select->join(
                     array('u' => 'tb_empresa_unidade'),
                     'unidade = u.id',
-                    array('nome_unidade' => 'nome')
+                    array('nome_unidade' => 'nome', 'id_unidade' => 'id')
                 );
 
             $select->join(
@@ -47,6 +47,21 @@ class Funcionario Extends BaseTable {
                     'LEFT'
                 );
 
+            $select->join(
+                    array('fg' => 'tb_funcionario_gestor'),
+                    'fg.funcionario = tb_funcionario.id',
+                    array(),
+                    'LEFT'
+                );
+
+            if($idGestor){
+                $select->where
+                        ->nest
+                            ->equalTo('tb_funcionario.lider_imediato', $idGestor)
+                            ->or
+                            ->equalTo('fg.gestor', $idGestor)
+                        ->unnest;
+            }
 
 
             if($params){
@@ -195,9 +210,15 @@ class Funcionario Extends BaseTable {
                         ->equalTo('fg.gestor', $idGestor)
                     ->unnest;
 
-            $select->where('av.id IS NULL');
-            $select->where(array('f.setor' => $periodo['setor'], 'tb_funcionario.ativo = "S"'));
+            $select->where
+                    ->nest
+                        ->isNull('av.id')
+                        ->or
+                        ->equalTo('av.enviado', 'N')
+                    ->unnest;
 
+            //$select->where('av.id IS NULL');
+            $select->where(array('f.setor' => $periodo['setor'], 'tb_funcionario.ativo = "S"'));
 
         });
     }
@@ -222,6 +243,148 @@ class Funcionario Extends BaseTable {
             $select->where(array('tb_funcionario.id' => $idFuncionario));
 
         })->current();
+    }
+
+    public function getFuncionariosSetor($idSetor, $idUnidade){
+        return $this->getTableGateway()->select(function($select) use ($idSetor, $idUnidade) {
+            $select->columns(array(
+                    'total' => new Expression('COUNT(tb_funcionario.id)')
+                ));
+
+            $select->join(
+                    array('f' => 'tb_funcao'),
+                    'f.id = tb_funcionario.funcao',
+                    array('nome_funcao' => 'nome', 'setor')
+                );
+
+            $select->join(
+                    array('s' => 'tb_setor'),
+                    's.id = f.setor',
+                    array('nome_setor' => 'nome', 'area')
+                );
+
+            $select->where(array('s.id' => $idSetor, 'unidade' => $idUnidade));
+
+        })->current();
+    }
+
+    public function importar($objExcel, $maiorLinha, $dados){
+        $adapter = $this->getTableGateway()->getAdapter();
+        $connection = $adapter->getDriver()->getConnection();
+        $connection->beginTransaction();
+
+        try {
+            $tbArea = new TableGateway('tb_area', $adapter);
+            $tbSetor = new TableGateway('tb_setor', $adapter);
+            $tbFuncao = new TableGateway('tb_funcao', $adapter);
+            $tbGerente = new TableGateway('tb_funcionario_gestor', $adapter);
+            for ($row = 2; $row <= $maiorLinha; $row++){ 
+                $rowData = $objExcel->rangeToArray('A'.$row.':'.'X'.$row,
+                                                NULL,
+                                                true,
+                                                true,
+                                                false);
+
+
+                $rowData = $rowData[0];
+
+                //pesquisar área
+                $area = $tbArea->select(array('nome' => $rowData[16]))->current();
+                
+                if(!$area){
+                    $tbArea->insert(array('nome' => $rowData[16], 'responsavel' => 'N/A'));
+                    $idArea = $tbArea->getLastInsertValue();
+                }else{
+                    $idArea = $area['id'];
+                }
+                //pesquisar setor
+                $setor = $tbSetor->select(array('nome' => $rowData[17]))->current();
+                if(!$setor){
+                    $tbSetor->insert(array('nome' => $rowData[17], 'area' => $idArea));
+                    $idSetor = $tbSetor->getLastInsertValue();
+                }else{
+                    $idSetor = $setor['id'];
+                }
+
+                //pesquisar funcao
+                $funcao = $tbFuncao->select(array('nome' => $rowData[4]))->current();
+                if(!$funcao){
+                    $tbFuncao->insert(array('nome' => $rowData[4], 'setor' => $idSetor));
+                    $idFuncao = $tbFuncao->getLastInsertValue();
+                }else{
+                    $idFuncao = $funcao['id'];
+                }
+
+                //pesquisar lider imediato
+                $lider = $this->getRecord($rowData[15], 'nome');
+                $idLider = '';
+                if($lider){
+                    $idLider = $lider['id'];
+                }
+                //pesquisar funcionário da unidade por matricula
+                $dadosFuncionario = array(
+                        'matricula'         => $rowData[1],
+                        'nome'              => $rowData[2],
+                        'unidade'           => $dados['unidade'],
+                        'funcao'            => $idFuncao,
+                        'tipo_contratacao'  => 'Interna',
+                        'tipo_contrato'     => str_replace(' ', '', $rowData[22]),
+                        'data_inicio'       => $this->ConverteData($rowData[5]),
+                        'periodo_trabalho'  => $rowData[19],
+                        'inicio_turno'      => $rowData[20],
+                        'fim_turno'         => $rowData[21],
+                        'lider_imediato'    => $idLider,
+                        'lider'             => 'N',
+                        'ccusto'            => $rowData[6],
+                        'desc_ccusto'       => $rowData[7],
+                        'horario'           => $rowData[14]
+                    );
+                $funcionario = $this->getRecord($rowData[1], 'matricula');
+                if($funcionario){
+                    //update
+                    $this->update($dadosFuncionario, array('id' => $funcionario['id']));
+                    $idFuncionario = $funcionario['id'];
+                }else{
+                    //insert
+                    $idFuncionario = $this->insert($dadosFuncionario);
+                }
+
+                //pesquisar e inserir gerente
+                $gerente = $this->getRecord($rowData[13], 'nome');
+                $idGerente = '';
+                if($gerente){
+                    $idGerente = $gerente['id'];
+                    $funcionarioGerente = $tbGerente->select(array('gestor' => $idGerente, 'funcionario' => $idFuncionario))->current();
+                    
+                    if(!$funcionarioGerente){
+                        $tbGerente->insert(array('gestor' => $idGerente, 'funcionario' => $idFuncionario));
+                        $idArea = $tbArea->getLastInsertValue();
+                    }
+                }
+
+
+
+            }
+
+            $connection->commit();
+            return true;
+        } catch (Exception $e) {
+            $connection->rollback();
+            return false;
+        }
+        $connection->rollback();
+        return false;
+    }
+
+    private function ConverteData($Data){
+        @$TipoData = stristr($Data, "/");
+        if($TipoData != false){
+            $Texto = explode("/",$Data);
+            return $Texto[2]."-".$Texto[1]."-".$Texto[0];
+        }else{
+            $Texto = explode("-",$Data);
+            return $Texto[2]."/".$Texto[1]."/".$Texto[0];
+         }
     }
 
 

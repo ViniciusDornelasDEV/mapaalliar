@@ -31,9 +31,9 @@ return array(
                 ),
             ),
             'download' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'type' => 'Zend\Mvc\Router\Http\Segment',
                 'options' => array(
-                    'route'    => '/download',
+                    'route'    => '/download[/:id][/:service][/:campo]',
                     'defaults' => array(
                         'controller' => 'Application\Controller\Index',
                         'action'     => 'download',

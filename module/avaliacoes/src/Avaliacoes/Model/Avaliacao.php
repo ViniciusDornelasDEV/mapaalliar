@@ -68,6 +68,8 @@ class Avaliacao Extends BaseTable {
                         ->unnest;
             }
 
+            $select->where(array('enviado' => 'S'));
+
             $select->order('pa.referencia_inicio DESC');
 
             if($params){

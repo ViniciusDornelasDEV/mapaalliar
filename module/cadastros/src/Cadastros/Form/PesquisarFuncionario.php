@@ -72,10 +72,16 @@ public function setFuncaoBySetor($idSetor){
         return $funcoes;
     }
 
-    public function setUnidadeByEmpresa($idEmpresa){
+    public function setUnidadeByEmpresa($idEmpresa, $todos = false){
         //buscar unidades
         $unidades = $this->serviceLocator->get('Unidade')->getRecords($idEmpresa, 'empresa', array('*'), 'nome');
-        $unidades = $this->prepareForDropDown($unidades, array('id', 'nome'));
+
+        $preparedArray = array('' => '-- selecione --');
+        if($todos == 'T'){
+            $preparedArray['T'] = 'Todos';
+        }
+
+        $unidades = $this->prepareForDropDown($unidades, array('id', 'nome'), $preparedArray);
 
         //Setando valores
         $unidades = $this->get('unidade')->setAttribute('options', $unidades);

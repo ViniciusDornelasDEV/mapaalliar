@@ -39,6 +39,11 @@ use Application\Form\Base as BaseForm;
         $funcionarios = $this->prepareForDropDown($funcionarios, array('id', 'nome'));
         $this->_addDropdown('funcionario', '* Funcionário:', true, $funcionarios);        
 
+        //tipo
+        $tipos = $this->serviceLocator->get('AcaoDisciplinarTipo')->getRecordsFromArray(array(), 'nome');
+        $tipos = $this->prepareForDropDown($tipos, array('id', 'nome'));
+        $this->_addDropdown('tipo', '* Tipo de ação:', true, $tipos);
+        
         //data_inicio
         $this->genericTextInput('data', '* Data:', true);
 

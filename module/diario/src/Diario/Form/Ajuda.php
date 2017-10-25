@@ -25,7 +25,7 @@ use Application\Form\Base as BaseForm;
         $funcionario = $this->serviceLocator->get('Funcionario')->getFuncionario($usuario['funcionario']);
         $unidades = $this->serviceLocator->get('Unidade')->getRecordsFromArray(array('empresa' => $funcionario['id_empresa']), 'nome');
         $unidades = $this->prepareForDropDown($unidades, array('id', 'nome'));
-        $this->_addDropdown('unidade', '* Unidade:', true, $unidades, 'CarregarFuncionariosByUnidade(this.value);');
+        $this->_addDropdown('unidade', '* Unidade de suporte:', true, $unidades, 'CarregarFuncionariosByUnidade(this.value);');
 
         //funcionario
         $this->_addDropdown('funcionario', '* Funcionário:', true, array('' => 'Selecione uma unidade'));

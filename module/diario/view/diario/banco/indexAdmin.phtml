@@ -30,7 +30,7 @@
                   <td style="text-align: center"><?= $banco['nome_unidade']; ?></td>
                   <td style="text-align: center"><?= $this->converterData($banco['inicio']); ?></td>
                   <td style="text-align: center"><?= $this->converterData($banco['fim']); ?></td>
-                  <td style="text-align: center"><a href="<?= $this->basePath($banco['caminho']); ?>" download><img src="<?= $this->basePath('img/download.png') ?>"> Download do arquivo</a></td>
+                  <td style="text-align: center"><a href="<?= $this->url('download', array('id' => $banco['id'], 'service' => 'BancoHoras', 'campo' => 'caminho')); ?>"><img src="<?= $this->basePath('img/download.png') ?>"> Download do arquivo</a></td>
                   
                   <td style="text-align: center;">
                     <img src="<?= $this->basePath('img/deletar.png'); ?>" title="Deletar" style="cursor: pointer;" onclick="alerta('<?= $this->url('deletarBancoHoras', array('id' => $banco['id'])); ?>', 'deletar');">

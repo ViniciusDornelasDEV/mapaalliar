@@ -27,6 +27,8 @@ use Application\Form\NovoAdmin as BaseForm;
         //data_inicio
         $this->genericTextInput('data', '* Data:', true);
 
+        //motivo
+        $this->genericTextInput('motivo', 'Motivo da ausência:', false);
 
         $this->setAttributes(array(
             'role'   => 'form'

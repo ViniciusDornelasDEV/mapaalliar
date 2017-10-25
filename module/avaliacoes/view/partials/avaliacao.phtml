@@ -562,8 +562,14 @@
 <hr>
 <?php if($nova === true): ?>
 <div class="row form-group">
-    <div class="col-sm-12">
-            <button type="submit" style="width:100%;" class="btn btn-danger">
+    <div class="col-sm-6">
+            <button name="salvar" type="submit" style="width:100%;" class="btn btn-success">
+                <img src="<?= $this->basePath('img/salvar64.png');?>"> 
+                Salvar avaliação
+            </button>
+    </div>
+    <div class="col-sm-6">
+            <button type="submit" name="enviar" id="enviar" style="width:100%;" class="btn btn-danger">
                 <img src="<?= $this->basePath('img/confirmar.png');?>"> 
                 Enviar avaliação
             </button>

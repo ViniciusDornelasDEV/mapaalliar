@@ -26,8 +26,13 @@
                     <table class="table">
                       <tr>
                         <th></th>
-                        <th colspan="4" style="background-color:#002060;color:#ffffff;">HC TOTAL</th>
-                        <th style="background-color:#ff0000;color:#ffffff;"><?= $equipe['total'] ?></th>
+                        <th colspan="3" style="background-color:#002060;color:#ffffff;">HC TOTAL</th>
+                        <th style="background-color:#002060;color:#ffffff;"><?= $equipe['total_real'] ?></th>
+                        <?php if($equipe['total_real'] == $equipe['total']): ?>
+                          <th style="background-color:#2E8B57;color:#ffffff;"><?= $equipe['total'] ?></th>
+                        <?php else: ?>
+                          <th style="background-color:#ff0000;color:#ffffff;"><?= $equipe['total'] ?></th>
+                        <?php endif; ?>
                       </tr> 
                       <tr>
                         <th></th>
@@ -52,7 +57,7 @@
                             ?>
                           </td>
                           <td style="text-align: center;"><?= $funcao['nome_funcao'] ?></td>
-                          <td style="text-align: center;"></td>
+                          <td style="text-align: center;"><?= $funcao['ccusto'] ?></td>
                           <td style="text-align: center;">
                             Manhã<br>
                             Tarde<br>

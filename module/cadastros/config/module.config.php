@@ -199,6 +199,16 @@ return array(
                     ),
                 ),
             ),
+            'importarFuncionario' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/funcionario/importar',
+                    'defaults' => array(
+                        'controller' => 'Cadastros\Controller\Funcionario',
+                        'action'     => 'importarfuncionarios',
+                    ),
+                ),
+            ),
             'deletarGestor' => array(
                 'type' => 'Zend\Mvc\Router\Http\Segment',
                 'options' => array(

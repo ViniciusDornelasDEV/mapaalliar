@@ -171,15 +171,26 @@ return array(
                 ),
             ),
             'cadastrarTma' => array(
-                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
-                    'route'    => '/premissas/tma/cadastrar[/:page]',
-                    'constraints' => array(
-                        'page'        => '[0-9]+'
-                    ),
+                    'route'    => '/premissas/tma/cadastrar',
                     'defaults' => array(
                         'controller' => 'Mensal\Controller\Premissas',
                         'action'     => 'cadastrartma',
+                    ),
+                ),
+            ),
+            'alterarTma' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/premissas/tma/alterar[/:id][/:andar]',
+                    'constraints' => array(
+                        'id'        => '[0-9]+',
+                        'andar'        => '[0-9]+'
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Mensal\Controller\Premissas',
+                        'action'     => 'alterartma',
                     ),
                 ),
             ),

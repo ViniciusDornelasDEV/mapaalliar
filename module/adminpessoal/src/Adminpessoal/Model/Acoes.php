@@ -53,6 +53,13 @@ class Acoes Extends BaseTable {
                     array('nome_area' => 'nome')
                 );
 
+            $select->join(
+                    array('at' => 'tb_acoes_disciplinares_tipo'),
+                    'at.id = tb_acoes_disciplinares.tipo',
+                    array('nome_tipo' => 'nome', 'id_tipo_acao' => 'id')
+                );
+
+
             if($idGestor){
                 $select->where
                         ->nest

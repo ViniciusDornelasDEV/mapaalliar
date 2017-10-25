@@ -56,6 +56,18 @@ class Module
                     $updates->setServiceLocator($sm);
                     return $updates;
                 },
+                'Tma' => function($sm) {
+                    $tableGateway = new TableGateway('tb_tma', $sm->get('db_adapter_main'));
+                    $updates = new Model\Tma($tableGateway);
+                    $updates->setServiceLocator($sm);
+                    return $updates;
+                },
+                'TmaAndar' => function($sm) {
+                    $tableGateway = new TableGateway('tb_tma_andar', $sm->get('db_adapter_main'));
+                    $updates = new BaseTable($tableGateway);
+                    $updates->setServiceLocator($sm);
+                    return $updates;
+                },
             ),
             'invokables' => array(
                 'ImageService' => 'Imagine\Gd\Imagine',

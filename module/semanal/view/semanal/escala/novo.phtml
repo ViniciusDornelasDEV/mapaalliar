@@ -9,12 +9,7 @@
       <li class="active">Preencher</li>
     </ol>
 
-      <div class="row">
-          <div class="panel panel-default">
-          <div class="panel-heading">
               <h3 class="panel-title">Preencher escala</h3>
-            </div>
-            <div class="panel-body">
             <?php if(count($escalas) == 0): ?>
               <div class="alert alert-info">NÃO EXISTE FUNCIONÁRIO VINCULADO PARA ESTE GESTOR!</div>
             <?php else: ?>
@@ -51,6 +46,9 @@
               			}
               		?>
               	</tr>
+                <?php 
+                  $nomesBotao = array();
+                ?>
               	<?php foreach ($escalas as $escalaFunc): ?>
               		<tr>
 	              		<td style="text-align: center"><?= $escalaFunc['nome'] ?></td>
@@ -87,6 +85,7 @@
                               <input '.$checked.' type="checkbox" name="'.$escalaFunc['id'].'-'.$dia.'" id="'.$escalaFunc['id'].'-'.$dia.'">
                             </td>';
                         }
+                        $nomesBotao[] = $escalaFunc['id'].'-'.$dia;
 	              			}
 	              		?>
               		</tr>
@@ -106,12 +105,16 @@
                 Salvar
               </button>
 
+              <button type="button" class="btn btn-danger" style="float: right;margin-right: 10px;" onClick="selecionarTodos();">
+                <img src="<?= $this->basePath('img/assigntome.png'); ?>" alt="Salvar">
+                Selecionar todos
+              </button>
+
             </form>
             <?php endif; ?>
-           </div>
-      </div>
-    </div>
+         
 
+    
 <style type="text/css">
 table {
     border-collapse: collapse;
@@ -121,3 +124,11 @@ table, th, td {
     border: 1px solid black;
 }
 </style>
+
+<script type="text/javascript">
+  function selecionarTodos(){
+    <?php foreach ($nomesBotao as $nome) : ?>
+      $('<?php echo "#".$nome; ?>').attr('checked', 'checked');
+    <?php endforeach; ?>
+  }
+</script>

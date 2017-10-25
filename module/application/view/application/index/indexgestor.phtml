@@ -1,0 +1,141 @@
+<div class="container theme-showcase" role="main" style="margin-bottom:10px;padding:0px;">
+  
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Ausências do mês</h3>
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+              <div id='ausencias'></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Funcionários de férias</h3>
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+              <div id='ferias'></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Ações disciplinares</h3>
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+              <div id='acoes'></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Ajudas</h3>
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+              <div id='ajudas'></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    
+    $('#ausencias').fullCalendar({
+      header: {
+        left: '',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay'
+      },
+      defaultDate: '<?= date("Y-m-d") ?>',
+      defaultView: 'month',
+      editable: true,
+      events: [
+        <?php foreach ($ausencias as $ausencia) : ?>
+          {
+            title: '<?= $ausencia["nome_funcionario"] ?>',
+            start: '<?= $ausencia["data"] ?>'
+          },
+        <?php endforeach; ?>
+      ]
+    });
+
+    $('#ferias').fullCalendar({
+      header: {
+        left: '',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay'
+      },
+      defaultDate: '<?= date("Y-m-d") ?>',
+      defaultView: 'month',
+      editable: true,
+      events: [
+        <?php foreach ($ferias as $feria) : ?>
+          {
+            title: '<?= $feria["nome_funcionario"] ?>',
+            start: '<?= $feria["data_inicio"] ?>',
+            end:   '<?php echo date("Y-m-d", strtotime("+1 days",strtotime($feria["data_fim"]))); ?>'
+          },
+        <?php endforeach; ?>
+      ]
+    });
+
+    $('#acoes').fullCalendar({
+      header: {
+        left: '',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay'
+      },
+      defaultDate: '<?= date("Y-m-d") ?>',
+      defaultView: 'month',
+      editable: true,
+      events: [
+        <?php foreach ($acoes as $acao) : ?>
+          {
+            title: '<?= $acao["nome_funcionario"] ?>',
+            start: '<?= $acao["data"] ?>'
+          },
+        <?php endforeach; ?>
+      ]
+    });
+
+
+    $('#ajudas').fullCalendar({
+      header: {
+        left: '',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay'
+      },
+      defaultDate: '<?= date("Y-m-d") ?>',
+      defaultView: 'month',
+      editable: true,
+      events: [
+        <?php foreach ($ajudas as $ajuda) : ?>
+          {
+            title: '<?= $ajuda["nome_funcionario"] ?>',
+            start: '<?= $ajuda["data_inicio"] ?>',
+            end:   '<?php echo date("Y-m-d", strtotime("+1 days",strtotime($ajuda["data_fim"]))); ?>'
+          },
+        <?php endforeach; ?>
+      ]
+    });
+    
+  });
+</script>

@@ -65,7 +65,7 @@
         <div class="row" style="margin-top:20px;">
               <div class="col-sm-6">
                 
-                <a href="<?= $this->basePath($qmatic['caminho_arquivo']); ?>" download>
+                <a href="<?= $this->url('download', array('id' => $qmatic['id'], 'service' => 'Qmatic', 'campo' => 'caminho_arquivo')); ?>">
                   <button type="button" style="width:100%;" class="btn btn-default">
                       <img src="<?= $this->basePath('img/codigoBarras.png'); ?>" style="width:32px;height:32px;">
                       QMATIC

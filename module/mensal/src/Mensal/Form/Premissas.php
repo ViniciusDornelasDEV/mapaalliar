@@ -25,17 +25,10 @@ use Application\Form\Base as BaseForm;
         $empresas = $this->serviceLocator->get('Empresa')->getRecordsFromArray(array(), 'nome');
 
         $preparedArray = array('' => '-- selecione --');
-        if($todos){
-            $preparedArray['T'] = 'Todos';
-        }
-
+        
         $empresas = $this->prepareForDropDown($empresas, array('id', 'nome'), $preparedArray);
 
-        if($todos){
-            $this->_addDropdown('empresa', '* Empresa:', true, $empresas, 'carregarUnidade(this.value, "C", "T");');
-        }else{
-            $this->_addDropdown('empresa', '* Empresa:', true, $empresas, 'carregarUnidade(this.value, "C");');
-        }
+        $this->_addDropdown('empresa', '* Empresa:', true, $empresas, 'carregarUnidade(this.value, "C");');
 
         //unidade
         $this->_addDropdown('unidade', '* Unidade:', true, array('' => 'Selecione uma empresa'));

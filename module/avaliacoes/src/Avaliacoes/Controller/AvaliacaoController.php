@@ -157,12 +157,17 @@ class AvaliacaoController extends BaseController
         $serviceAvaliacao = $this->getServiceLocator()->get('Avaliacao');
         $avaliacao = $serviceAvaliacao->getRecordFromArray(array('funcionario' => $funcionario['id'], 'periodo' => $idReferencia));
         if($avaliacao){
-            $this->flashMessenger()->addWarningMessage('Já existe uma avaliação para este funcionário!');
-            return $this->redirect()->toRoute('listarAvaliacoesResponder');   
+            if($avaliacao['enviado'] == 'S'){
+                $this->flashMessenger()->addWarningMessage('Já existe uma avaliação para este funcionário!');
+                return $this->redirect()->toRoute('listarAvaliacoesResponder');   
+            }
+
+            $formAvaliacao->setData($avaliacao);
         }
 
         if($this->getRequest()->isPost()){
-            $formAvaliacao->setData($this->getRequest()->getPost());
+            $dados2 = $this->getRequest()->getPost();
+            $formAvaliacao->setData($dados2);
             if($formAvaliacao->isValid()){
                 $dados = $formAvaliacao->getData();
                 $dados['funcionario'] = $funcionario['id'];
@@ -170,8 +175,17 @@ class AvaliacaoController extends BaseController
 
                 $dados['responsavel'] = $usuario['funcionario'];
 
-                $serviceAvaliacao->insert($dados);
-                $this->flashMessenger()->addSuccessMessage('Avaliação inserida com sucesso!');
+                if(isset($dados2['enviar'])){
+                    $dados['enviado'] = 'S';
+                }
+                
+                if($avaliacao){
+                    $this->flashMessenger()->addSuccessMessage('Avaliação alterada com sucesso!');
+                    $serviceAvaliacao->update($dados, array('id' => $avaliacao['id']));
+                }else{    
+                    $this->flashMessenger()->addSuccessMessage('Avaliação inserida com sucesso!');
+                    $serviceAvaliacao->insert($dados);
+                }
                 return $this->redirect()->toRoute('listarAvaliacoesResponder');
             }
         }

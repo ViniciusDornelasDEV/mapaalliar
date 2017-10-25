@@ -52,9 +52,8 @@ class ContratacaoController extends BaseController
         if(!$this->sessao->parametros){
             $this->sessao->parametros = array();
         }
-        $this->sessao->parametros['lider_imediato'] = $usuario['funcionario'];
 
-        $funcionarios = $serviceFuncionario->getFuncionarios($this->sessao->parametros)->toArray();
+        $funcionarios = $serviceFuncionario->getFuncionarios($this->sessao->parametros, $usuario['funcionario'])->toArray();
         
         foreach ($funcionarios as $key => $funcionario) {
             $funcionarios[$key]['data_inicio'] = $formPesquisa->converterData($funcionario['data_inicio']);

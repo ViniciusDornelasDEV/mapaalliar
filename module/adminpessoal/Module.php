@@ -33,6 +33,12 @@ class Module
                     $updates->setServiceLocator($sm);
                     return $updates;
                 },
+                'AcaoDisciplinarTipo' => function($sm) {
+                    $tableGateway = new TableGateway('tb_acoes_disciplinares_tipo', $sm->get('db_adapter_main'));
+                    $updates = new BaseTable($tableGateway);
+                    $updates->setServiceLocator($sm);
+                    return $updates;
+                },
                 'AvaliacaoDesempenho' => function($sm) {
                     $tableGateway = new TableGateway('tb_avaliacao_desempenho', $sm->get('db_adapter_main'));
                     $updates = new Model\Desempenho($tableGateway);

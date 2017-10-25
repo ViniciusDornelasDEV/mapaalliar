@@ -41,6 +41,9 @@ use Application\Form\NovoAdmin as BaseForm;
         //plano_acao
         $this->genericTextArea('plano_acao', '* Plano de ação:', true);
 
+        //feedback_realizado
+        $this->_addDropdown('feedback_realizado', '* Feedback realizado:', true, array('N' => 'Não', 'S' => 'Sim'));
+
         $this->setAttributes(array(
             'role'   => 'form'
         ));
