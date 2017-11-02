@@ -21,6 +21,8 @@ use Mensal\Form\QmaticAlterar as formQmaticAlterar;
 use Mensal\Form\Tma as formTma;
 use Mensal\Form\TmaAndar as formTmaAndar;
 
+use Mensal\Form\Equipes as formEquipe;
+
 class PremissasController extends BaseController
 {
     public function menuAction(){
@@ -429,6 +431,68 @@ class PremissasController extends BaseController
     public function visualizarqmaticAction(){
         
     }
+
+    public function indexorganizacaoequipesAction(){
+        $serviceEquipes = $this->getServiceLocator()->get('Equipe');
+            
+        $formPesquisa = new formPesquisa('frmPesquisa', $this->getServiceLocator());
+
+        $formPesquisa = parent::verificarPesquisa($formPesquisa);
+        $equipes = $serviceEquipes->getDados($this->sessao->parametros)->toArray();
+        
+        
+        $paginator = new Paginator(new ArrayAdapter($equipes));
+        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setItemCountPerPage(10);
+        $paginator->setPageRange(5);
+        
+        return new ViewModel(array(
+                                'equipes'           => $paginator,
+                                'formPesquisa'  => $formPesquisa
+                            ));
+    }
+
+    public function novoorganizacaoequipesAction(){
+        $formEquipe = new formEquipe('formEquipe', $this->getServiceLocator());
+
+        if($this->getRequest()->isPost()){
+            $dados = $this->getRequest()->getPost();
+            $formEquipe->setData($dados);
+            if($formEquipe->isValid()){
+                $idEquipe = $this->getServiceLocator()->get('Equipe')->insert($formEquipe->getData());
+                $this->flashMessenger()->addSuccessMessage('Parâmetros de equipe inserido com sucesso!');
+                return $this->redirect()->toRoute('editarorganizacaoequipes', array('id' => $idEquipe));
+            }
+        }
+
+        return new ViewModel(array('formEquipe' => $formEquipe));
+    }
+
+    public function editarorganizacaoequipesAction(){
+        $formEquipe = new formEquipe('formEquipe', $this->getServiceLocator());
+        $serviceEquipe = $this->getServiceLocator()->get('Equipe');
+        $idEquipe = $this->params()->fromRoute('id');
+        $equipe = $serviceEquipe->getDado($idEquipe);
+        if(!$equipe){
+            $this->flashMessenger()->addWarningMessage('Equipe não encontrada!');
+            return $this->redirect()->toRoute('listarPremissasEquipes');
+        }
+
+        $formEquipe->setData($equipe);
+
+        if($this->getRequest()->isPost()){
+            $dados = $this->getRequest()->getPost();
+            $formEquipe->setData($dados);
+            if($formEquipe->isValid()){
+                $serviceEquipe->update($formEquipe->getData(), array('id' => $idEquipe));
+                $this->flashMessenger()->addSuccessMessage('Parâmetros de equipe alterado com sucesso!');
+                return $this->redirect()->toRoute('editarorganizacaoequipes', array('id' => $idEquipe));
+            }
+        }
+
+        return new ViewModel(array('formEquipe' => $formEquipe));
+    }
+
 
 
 }

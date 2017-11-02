@@ -1,0 +1,58 @@
+    <?php echo $this->partial('form/pesquisa', array('form'=> $formPesquisa, 'route'=> '')) ?>
+
+    <div class="container theme-showcase" role="main" style="margin-bottom:10px;padding:0px;">
+       <button type="button" class="btn btn-default" onclick="location.href='<?= $this->url('novoPremissasEquipes'); ?>'" style="float: right;">
+      <img src="<?php echo $this->basePath('img/novo.png') ?>" alt="Novo">
+      Novo parâmetro de equipes</button>
+
+      
+    </div>
+    <div class="container theme-showcase" role="main">
+      <div class="row">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Listagem de parâmetros</h3>
+            </div>
+            <div class="panel-body">
+              <?php if($equipes->count() > 0): ?>
+                <table class="table">
+                  <tr>
+                    <th style="text-align: center">Setor</th>
+                    <th style="text-align: center">Empresa</th>
+                    <th style="text-align: center">Unidade</th>
+                    <th style="text-align: center">Manhã</th>
+                    <th style="text-align: center">Tarde</th>
+                    <th style="text-align: center">Noite</th>
+                    <th style="text-align: center">Ações</th>
+                </tr>
+                <?php foreach($equipes as $equipe): ?>
+                <tr>
+                  <td style="text-align: center"><?= $equipe['nome_setor']; ?></td>
+                  <td style="text-align: center"><?= $equipe['nome_empresa']; ?></td>
+                  <td style="text-align: center"><?= $equipe['nome_unidade']; ?></td>
+                  <td style="text-align: center"><?= $equipe['manha']; ?></td>
+                  <td style="text-align: center"><?= $equipe['tarde']; ?></td>
+                  <td style="text-align: center"><?= $equipe['noite']; ?></td>
+                  <td style="text-align: center;">
+                    <img src="<?= $this->basePath('img/editar.png'); ?>" title="Editar" 
+                    onclick="location.href='<?= $this->url('editarorganizacaoequipes', array('id' => $equipe['id'])); ?>'" style="cursor: pointer;">
+                  </td>
+                </tr>
+                <?php endforeach; ?>
+              </table>
+            <?php else: ?>
+              <div class="alert alert-info">Nenhum parâmetro de equipe encontrado!</div>
+            <?php endif; ?>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container theme-showcase" style="margin-top:0px;" role="main">
+        <div style="float:right;">
+          <?php echo $this->paginationControl($equipes,
+                                        'Sliding',
+                                        'view/paginator', array('route' => 'listarArea')); 
+          ?>
+        </div>
+      </div>

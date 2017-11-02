@@ -115,10 +115,9 @@ class IndexController extends AbstractActionController
             ));
     }
 
-    public function downloadAction(){
-    	$service = $this->params()->fromRoute('service');
+    /*public function downloadAction(){
+        $service = $this->params()->fromRoute('service');
         $data = $this->getServiceLocator()->get($service)->getRecord($this->params()->fromRoute('id'));
-
         $fileName = $data[$this->params()->fromRoute('campo')];
         if(!is_file($fileName)) {
             //Não foi possivel encontrar o arquivo
@@ -135,7 +134,30 @@ class IndexController extends AbstractActionController
             ->addHeaderLine('Content-Disposition', 'attachment; filename="' . $fileName . '"')
             ->addHeaderLine('Content-Length', strlen($fileContents));
         return $this->response;
+    }*/
+
+        public function downloadAction(){
+        $sessao = new Container();
+        $fileName = $sessao->offsetGet('arquivo');
+
+        
+        if(!is_file($fileName)) {
+            //Não foi possivel encontrar o arquivo
+            return false;
+        }
+        $fileContents = file_get_contents($fileName);
+
+        $response = $this->getResponse();
+        $response->setContent($fileContents);
+
+        $headers = $response->getHeaders();
+        $headers->clearHeaders()
+            ->addHeaderLine('Content-Type', 'whatever your content type is')
+            ->addHeaderLine('Content-Disposition', 'attachment; filename="' . $fileName . '"')
+            ->addHeaderLine('Content-Length', strlen($fileContents));
+        return $this->response;
     }
+
 
 
 }

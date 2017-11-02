@@ -287,7 +287,12 @@ class Funcionario Extends BaseTable {
 
 
                 $rowData = $rowData[0];
+                $rowData[1] = str_replace(' ', '', $rowData[1]);
 
+                if(empty($rowData[2])){
+                    continue;
+                }
+                
                 //pesquisar área
                 $area = $tbArea->select(array('nome' => $rowData[16]))->current();
                 

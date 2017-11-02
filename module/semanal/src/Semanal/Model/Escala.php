@@ -49,6 +49,13 @@ class Escala Extends BaseTable {
                     array('nome_setor' => 'nome', 'id_setor' => 'id')
                 );
 
+            $select->join(
+                    array('e' => 'tb_equipes'),
+                    new Expression('e.setor = s.id AND e.unidade = ?', $idUnidade),
+                    array('manha', 'tarde', 'noite'),
+                    'LEFT'
+                );
+
             $select->where(array('tb_escala.unidade' => $idUnidade, 'mes' => $mes, 'ano' => $ano));
             $select->group('f.id');
             $select->order('s.nome, func.nome'); 

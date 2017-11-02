@@ -316,6 +316,44 @@ return array(
                 ),
             ),  
 
+
+            'listarPremissasEquipes' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/premissas/equipes/listar[/:page]',
+                    'constraints' => array(
+                        'page'        => '[0-9]+'
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Mensal\Controller\Premissas',
+                        'action'     => 'indexorganizacaoequipes',
+                    ),
+                ),
+            ),
+            'novoPremissasEquipes' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/premissas/equipes/novo',
+                    'defaults' => array(
+                        'controller' => 'Mensal\Controller\Premissas',
+                        'action'     => 'novoorganizacaoequipes',
+                    ),
+                ),
+            ),
+            'editarorganizacaoequipes' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/premissas/equipes/alterar[/:id]',
+                    'constraints' => array(
+                        'id'        => '[0-9]+'
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Mensal\Controller\Premissas',
+                        'action'     => 'editarorganizacaoequipes',
+                    ),
+                ),
+            ),
+
            
 
 

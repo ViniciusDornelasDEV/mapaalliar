@@ -66,6 +66,9 @@ class OrganizacaoequipesController extends BaseController
             $preparedArray[$idSetor]['funcao'][$escala['id_funcao']]['M'] = 0;
             $preparedArray[$idSetor]['funcao'][$escala['id_funcao']]['T'] = 0;
             $preparedArray[$idSetor]['funcao'][$escala['id_funcao']]['N'] = 0;
+            $preparedArray[$idSetor]['funcao'][$escala['id_funcao']]['IM'] = $escala['manha'];
+            $preparedArray[$idSetor]['funcao'][$escala['id_funcao']]['IT'] = $escala['tarde'];
+            $preparedArray[$idSetor]['funcao'][$escala['id_funcao']]['IN'] = $escala['noite'];
             
           }
 
@@ -140,6 +143,9 @@ class OrganizacaoequipesController extends BaseController
             $preparedArray[$idSetor]['funcao'][$escala['id_funcao']]['M'] = 0;
             $preparedArray[$idSetor]['funcao'][$escala['id_funcao']]['T'] = 0;
             $preparedArray[$idSetor]['funcao'][$escala['id_funcao']]['N'] = 0;
+            $preparedArray[$idSetor]['funcao'][$escala['id_funcao']]['IM'] = $escala['manha'];
+            $preparedArray[$idSetor]['funcao'][$escala['id_funcao']]['IT'] = $escala['tarde'];
+            $preparedArray[$idSetor]['funcao'][$escala['id_funcao']]['IN'] = $escala['noite'];
             
           }
 

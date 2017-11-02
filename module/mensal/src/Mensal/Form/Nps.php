@@ -31,10 +31,10 @@ use Application\Form\Base as BaseForm;
  
 
         //promotores
-        $this->genericTextInput('promotores', '* Promotores:', true);
+        $this->genericTextInput('promotores', '* NPS da Unidade:', true);
         
         //defratores
-        $this->genericTextInput('defratores', '* Defratores:', true);
+        $this->genericTextInput('defratores', '* Meta:', true);
         
         $this->setAttributes(array(
             'role'   => 'form'

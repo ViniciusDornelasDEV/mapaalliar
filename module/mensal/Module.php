@@ -68,6 +68,12 @@ class Module
                     $updates->setServiceLocator($sm);
                     return $updates;
                 },
+                'Equipe' => function($sm) {
+                    $tableGateway = new TableGateway('tb_equipes', $sm->get('db_adapter_main'));
+                    $updates = new Model\Equipe($tableGateway);
+                    $updates->setServiceLocator($sm);
+                    return $updates;
+                },
             ),
             'invokables' => array(
                 'ImageService' => 'Imagine\Gd\Imagine',
