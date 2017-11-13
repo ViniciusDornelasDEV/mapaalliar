@@ -190,7 +190,7 @@
             $this->get('unidade')->setAttribute('options', $unidades);
         }
 
-        if(isset($dados['lider']) && ($dados['lider'] == 'N')){
+        if(isset($dados['lider'])){
             //carregar lideres da unidade
             $funcionarios = $this->serviceLocator->get('Funcionario')->getFuncionarios(array('lider' => 'S', 'unidade' => $dados['unidade']));
             $funcionarios = $this->prepareForDropDown($funcionarios, array('id', 'nome'));
