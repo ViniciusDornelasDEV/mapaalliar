@@ -10,7 +10,7 @@ use Zend\Paginator\Adapter\ArrayAdapter;
 
 use Semanal\Form\PesquisarEscala as formPesquisa;
 use Semanal\Form\PesquisarEscalaAdmin as formPesquisaAdmin;
-
+use Semanal\Form\ArquivoEscala as formArquivo;
 class EscalaController extends BaseController
 {
 
@@ -66,12 +66,27 @@ class EscalaController extends BaseController
         
         if($this->getRequest()->isPost()){
             $dados = $this->getRequest()->getPost();
-            if($this->getServiceLocator()->get('EscalasFuncionario')->salvarEscalas($dados, $escala)){
-                $this->flashMessenger()->addSuccessMessage('Escala salva com sucesso!');
+            $files = $this->getRequest()->getfiles()->toArray();
+
+            if(isset($files['caminho_arquivo'])){
+                //salvar arquivo
+                if(!empty($files['caminho_arquivo']['name'])){
+                    $dir = 'public/arquivos/escala';
+                    $dados = $this->uploadImagem($files, $dir, $dados);
+                    $serviceEscala->update(array('caminho_arquivo' => $dados['caminho_arquivo']), array('id' => $idEscala));
+                    $this->flashMessenger()->addSuccessMessage('Arquivo vinculado com sucesso!');
+                }
+                
+                return $this->redirect()->toRoute('novoEscala', array('id' => $idEscala));
             }else{
-                $this->flashMessenger()->addErrorMessage('Ocorreu algum erro ao salvar escala!');
+                if($this->getServiceLocator()->get('EscalasFuncionario')->salvarEscalas($dados, $escala)){
+                    $this->flashMessenger()->addSuccessMessage('Escala salva com sucesso!');
+                }else{
+                    $this->flashMessenger()->addErrorMessage('Ocorreu algum erro ao salvar escala!');
+                }
+                return $this->redirect()->toRoute('novoEscala', array('id' => $idEscala));
             }
-            return $this->redirect()->toRoute('novoEscala', array('id' => $idEscala));
+
         }
 
         //escalas do funcionario
@@ -127,9 +142,12 @@ class EscalaController extends BaseController
             }
         }
 
+        $formArquivo = new formArquivo('formArquivo');
+
         return new ViewModel(array(
                 'escala'        => $escala,
-                'escalas'       => $preparedArray
+                'escalas'       => $preparedArray,
+                'formArquivo'   => $formArquivo
             ));
     }
 
@@ -182,12 +200,26 @@ class EscalaController extends BaseController
         
         if($this->getRequest()->isPost()){
             $dados = $this->getRequest()->getPost();
-            if($this->getServiceLocator()->get('EscalasFuncionario')->salvarEscalas($dados, $escala)){
-                $this->flashMessenger()->addSuccessMessage('Escala salva com sucesso!');
+            $files = $this->getRequest()->getfiles()->toArray();
+
+            if(isset($files['caminho_arquivo'])){
+                //salvar arquivo
+                if(!empty($files['caminho_arquivo']['name'])){
+                    $dir = 'public/arquivos/escala';
+                    $dados = $this->uploadImagem($files, $dir, $dados);
+                    $serviceEscala->update(array('caminho_arquivo' => $dados['caminho_arquivo']), array('id' => $idEscala));
+                    $this->flashMessenger()->addSuccessMessage('Arquivo vinculado com sucesso!');
+                }
+                
+                return $this->redirect()->toRoute('novoEscalaAdmin', array('id' => $idEscala, 'unidade' => $idUnidade));
             }else{
-                $this->flashMessenger()->addErrorMessage('Ocorreu algum erro ao salvar escala!');
+                if($this->getServiceLocator()->get('EscalasFuncionario')->salvarEscalas($dados, $escala)){
+                    $this->flashMessenger()->addSuccessMessage('Escala salva com sucesso!');
+                }else{
+                    $this->flashMessenger()->addErrorMessage('Ocorreu algum erro ao salvar escala!');
+                }
+                return $this->redirect()->toRoute('novoEscalaAdmin', array('id' => $idEscala, 'unidade' => $idUnidade));
             }
-            return $this->redirect()->toRoute('novoEscalaAdmin', array('id' => $idEscala, 'unidade' => $idUnidade));
         }
 
         //escalas do funcionario
@@ -242,10 +274,58 @@ class EscalaController extends BaseController
                 $preparedArray[$escala2['id']]['dias'][$data] = 'E';
             }
         }
+
+        $formArquivo = new formArquivo('formArquivo');
+
         return new ViewModel(array(
                 'escala'        => $escala,
-                'escalas'       => $preparedArray
+                'escalas'       => $preparedArray,
+                'formArquivo'   => $formArquivo
             ));
+    }
+
+    public function replicarescalaAction(){
+        $mes = $this->params()->fromRoute('mes');
+        $ano = $this->params()->fromRoute('ano');
+        $setor = $this->params()->fromRoute('setor');
+        $unidade = $this->params()->fromRoute('unidade');
+
+        //validar se usuário é da unidade
+        $usuario = $this->getServiceLocator()->get('session')->read();
+        if($usuario['id_usuario_tipo'] == 2){
+            $funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($usuario['funcionario']);
+            $unidade = $funcionario['unidade'];
+        }
+
+        //pesquisar escala do mes anterior
+        $mesAnterior = $mes-1;
+        $anoAnterior = $ano;
+        if($mes == '01'){
+            $mesAnterior = 12;
+            $anoAnterior = $ano-1;
+        }
+
+        $serviceEscala = $this->getServiceLocator()->get('Escala');
+        $escalaAnterior = $serviceEscala->getRecordFromArray(array('setor' => $setor, 'unidade' => $unidade, 'mes' => $mesAnterior, 'ano' => $anoAnterior));
+        $escala = $serviceEscala->getRecordFromArray(array('setor' => $setor, 'unidade' => $unidade, 'mes' => $mes, 'ano' => $ano));
+        if(!$escala){
+            $idEscala = $serviceEscala->insert(array('setor' => $setor, 'unidade' => $unidade, 'mes' => $mes, 'ano' => $ano));
+            $escala = $serviceEscala->getRecordFromArray(array('setor' => $setor, 'unidade' => $unidade, 'mes' => $mes, 'ano' => $ano));
+        }
+
+        //replicar dados
+        $serviceEscalaFuncionario = $this->getServiceLocator()->get('EscalasFuncionario');
+        $result = $serviceEscalaFuncionario->replicarEscala($escalaAnterior, $escala);
+        if($result){
+            $this->flashMessenger()->addSuccessMessage('Escala replicada com sucesso!');
+        }else{
+            $this->flashMessenger()->addErrorMessage('Ocorreu algum erro ao replicar escala, por favor tente novamente!');
+        }
+
+        if($usuario['id_usuario_tipo'] == 2){
+            return $this->redirect()->toRoute('novoEscala', array('id' => $escala['id']));
+        }
+        return $this->redirect()->toRoute('novoEscalaAdmin', array('id' => $escala['id'], 'unidade' => $unidade));
     }
 
 

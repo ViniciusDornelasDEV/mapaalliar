@@ -23,7 +23,7 @@ use Application\Form\Base as BaseForm;
 
         //unidade
         $funcionario = $this->serviceLocator->get('Funcionario')->getFuncionario($usuario['funcionario']);
-        $unidades = $this->serviceLocator->get('Unidade')->getRecordsFromArray(array('empresa' => $funcionario['id_empresa']), 'nome');
+        $unidades = $this->serviceLocator->get('Unidade')->getRecordsFromArray(array('empresa' => $funcionario['id_empresa'], 'ativo' => 'S'), 'nome');
         $unidades = $this->prepareForDropDown($unidades, array('id', 'nome'));
         $this->_addDropdown('unidade', '* Unidade de suporte:', true, $unidades, 'CarregarFuncionariosByUnidade(this.value);');
 
@@ -43,7 +43,7 @@ use Application\Form\Base as BaseForm;
         $this->genericTextInput('hora_fim', '* Hora de término:', true);
 
         //area
-        $areas = $this->serviceLocator->get('Area')->getRecordsFromArray(array(), 'nome');
+        $areas = $this->serviceLocator->get('Area')->getRecordsFromArray(array('ativo' => 'S'), 'nome');
         
         $areas = $this->prepareForDropDown($areas, array('id', 'nome'));
         $this->_addDropdown('area', '* Área de atuação:', true, $areas, 'carregarSetor(this.value, "C");');

@@ -17,12 +17,14 @@
                   <tr>
                     <th style="text-align: center">Nome do setor</th>
                     <th style="text-align: center">Nome da função</th>
+                    <th style="text-align: center">Status</th>
                     <th style="text-align: center">Ações</th>
                 </tr>
                 <?php foreach($funcoes as $funcao): ?>
                 <tr>
                   <td style="text-align: center"><?= $funcao['nome_setor']; ?></td>
                   <td style="text-align: center"><?= $funcao['nome']; ?></td>
+                  <td style="text-align: center"><?= $this->status($funcao['ativo']); ?></td>
                   <td style="text-align: center;">
                     <img src="<?= $this->basePath('img/editar.png'); ?>" title="Editar" 
                     onclick="location.href='<?= $this->url('alterarFuncao', array('id' => $funcao['id'])); ?>'" style="cursor: pointer;">

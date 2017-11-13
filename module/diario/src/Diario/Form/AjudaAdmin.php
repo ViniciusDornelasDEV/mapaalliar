@@ -22,7 +22,7 @@ use Application\Form\NovoAdmin as BaseForm;
         parent::__construct($name, $serviceLocator);  
 
         //empresa
-        $empresas = $this->serviceLocator->get('Empresa')->getRecordsFromArray(array(), 'nome');
+        $empresas = $this->serviceLocator->get('Empresa')->getRecordsFromArray(array('ativo' => 'S'), 'nome');
         $empresas = $this->prepareForDropDown($empresas, array('id', 'nome'));
         $this->_addDropdown('empresa', '* Empresa:', true, $empresas, 'carregarUnidade(this.value, "C");carregarUnidadeDestino(this.value, "C");');
 
@@ -47,7 +47,7 @@ use Application\Form\NovoAdmin as BaseForm;
         $this->genericTextInput('hora_fim', '* Hora de término:', true);
 
         //area
-        $areas = $this->serviceLocator->get('Area')->getRecordsFromArray(array(), 'nome');
+        $areas = $this->serviceLocator->get('Area')->getRecordsFromArray(array('ativo' => 'S'), 'nome');
         
         $areas = $this->prepareForDropDown($areas, array('id', 'nome'));
         $this->_addDropdown('area', '* Área de atuação:', true, $areas, 'carregarSetor(this.value, "C");');

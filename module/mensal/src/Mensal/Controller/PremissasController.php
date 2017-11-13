@@ -23,6 +23,9 @@ use Mensal\Form\TmaAndar as formTmaAndar;
 
 use Mensal\Form\Equipes as formEquipe;
 
+use Mensal\Form\Mira as formMira;
+use Mensal\Form\MiraAlterar as formMiraAlterar;
+
 class PremissasController extends BaseController
 {
     public function menuAction(){
@@ -493,6 +496,91 @@ class PremissasController extends BaseController
         return new ViewModel(array('formEquipe' => $formEquipe));
     }
 
+    public function listarmiraAction(){
+        $serviceMira = $this->getServiceLocator()->get('Mira');
+            
+        $formPesquisa = new formPesquisa('frmPesquisa', $this->getServiceLocator());
+
+        $formPesquisa = parent::verificarPesquisa($formPesquisa);
+        $miras = $serviceMira->getDados($this->sessao->parametros)->toArray();
+        
+        
+        $paginator = new Paginator(new ArrayAdapter($miras));
+        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setItemCountPerPage(10);
+        $paginator->setPageRange(5);
+        
+        return new ViewModel(array(
+                                'miras'           => $paginator,
+                                'formPesquisa'  => $formPesquisa
+                            ));
+    }
+
+    public function cadastrarmiraAction(){
+        $idMira = $this->params()->fromRoute('id');
+        $serviceMira = $this->getServiceLocator()->get('Mira');
+        if($idMira){
+            $formMira = new formMiraAlterar('frmMira', $this->getServiceLocator());
+        }else{
+            $formMira = new formMira('frmMira', $this->getServiceLocator());
+        }
+        $mira = false;
+        $operacao = 'Inserir';
+        if($idMira){
+            $mira = $serviceMira->getDado($idMira);
+            $formMira->setData($mira);
+            $operacao = 'Alterar';
+        }
+
+        if($this->getRequest()->isPost()){
+            $formMira->setData($this->getRequest()->getPost());
+            if($formMira->isValid()){
+
+                $dados = $formMira->getData();
+
+                $files = $this->getRequest()->getfiles()->toArray();
+                if(isset($files['imagem_1'])){
+                    if(!empty($files['imagem_1']['name'])){
+                        //salvar
+                        $dir = 'public/arquivos/mira';
+                        $dados = $this->uploadImagem($files, $dir, $dados);
+                        
+                        if($idMira){
+                            //alterar
+                            $serviceMira->update($dados, array('id' => $idMira));
+                            $this->flashMessenger()->addSuccessMessage('MIRA alterada com sucesso!');
+                            return $this->redirect()->toRoute('cadastrarMira', array('id' => $idMira));
+                        }else{
+                            //cadastrar
+                            $idMira = $serviceMira->insert($dados);
+                            $this->flashMessenger()->addSuccessMessage('MIRA inserida com sucesso!');
+                            return $this->redirect()->toRoute('listarMira');
+                        }
+
+                        
+                    }else{
+                        $formMira->setData($dados);
+                        $this->flashMessenger()->addErrorMessage('Por favor insira um arquivo!');
+                    }
+
+                }
+            }
+        }
+
+        return new ViewModel(array('form' => $formMira, 'operacao' => $operacao, 'mira' => $mira));
+    }
+
+    public function visualizarmiraAction(){
+        $usuario = $this->getServiceLocator()->get('session')->read();
+        $funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($usuario['funcionario']);
+
+        //pesquisar MIRA
+        $mira = $this->getServiceLocator()->get('Mira')->getRecord($funcionario['unidade'], 'unidade');
+
+        return new ViewModel(array(
+                'mira'  =>  $mira
+            ));
+    }
 
 
 }

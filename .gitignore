@@ -20,3 +20,4 @@ LICENSE.txt
 .gitmodules
 config/autoload/aws.local.php
 data/baseDadosDefault.sql
+public/arquivos/

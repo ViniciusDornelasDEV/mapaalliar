@@ -186,14 +186,15 @@ abstract class BaseController extends AbstractActionController {
             mkdir($caminho);
         }
         
-
         foreach ($arquivos as $nomeArquivo => $arquivo) {
             if(!empty($arquivo['tmp_name'])){
                 $extensao = $this->getExtensao($arquivo['name']);
-                $nomeArquivoServer = 'arquivo'.date('dhsi');
+                $nomeArquivoServer = 'arquivo'.date('dhsi').$nomeArquivo;
                 if(move_uploaded_file($arquivo['tmp_name'], $caminho.'/'.$nomeArquivoServer.'.'.$extensao)){
                     $dados[$nomeArquivo] = $caminho.'/'.$nomeArquivoServer.'.'.$extensao;
                 }
+            }else{
+                unset($dados[$nomeArquivo]);
             }
         }
 

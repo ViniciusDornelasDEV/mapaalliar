@@ -27,7 +27,7 @@
         $this->genericTextInput('nome', '* Nome:', true, 'Nome do funcionário');
      
         //area    
-        $areas = $this->serviceLocator->get('Area')->getRecordsFromArray(array(), 'nome');
+        $areas = $this->serviceLocator->get('Area')->getRecordsFromArray(array('ativo' => 'S'), 'nome');
         
         $areas = $this->prepareForDropDown($areas, array('id', 'nome'));
         $this->_addDropdown('area', '* Área:', true, $areas, 'carregarSetor(this.value, "C");');
@@ -86,7 +86,7 @@
         //substituicao_de
         $substituicoes = $this->serviceLocator
                             ->get('Funcionario')
-                            ->getFuncionarios(array('unidade' => $funcionario['unidade'], 'funcionario' => $funcionario['id']));
+                            ->getFuncionarios(array('unidade' => $funcionario['unidade'], 'funcionario' => $funcionario['id'], 'ativo' => 'S'));
         $substituicoes = $this->prepareForDropDown($substituicoes, array('id', 'nome'));
         $this->_addDropdown('substituicao_de', 'Substituição de:', false, $substituicoes);
 

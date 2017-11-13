@@ -34,7 +34,7 @@ use Application\Form\Base as BaseForm;
         $this->_addDropdown('funcao', 'Função:', false, array('' => 'Selecione um setor'), 'carregarFuncionario(this.value);');
 
         //funcionário
-        $funcionarios = $this->serviceLocator->get('Funcionario')->getFuncionarios(array('lider_imediato' => $usuario['funcionario']));
+        $funcionarios = $this->serviceLocator->get('Funcionario')->getFuncionarios(array('lider_imediato' => $usuario['funcionario'], 'ativo' => 'S'));
         
         $funcionarios = $this->prepareForDropDown($funcionarios, array('id', 'nome'));
         $this->_addDropdown('funcionario', '* Funcionário:', true, $funcionarios);        

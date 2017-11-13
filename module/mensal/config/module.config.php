@@ -354,6 +354,43 @@ return array(
                 ),
             ),
 
+            'listarMira' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/premissas/mira/listar[/:page]',
+                    'constraints' => array(
+                        'page'        => '[0-9]+'
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Mensal\Controller\Premissas',
+                        'action'     => 'listarmira',
+                    ),
+                ),
+            ),
+            'cadastrarMira' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/premissas/mira/cadastrar[/:id]',
+                    'constraints' => array(
+                        'id'        => '[0-9]+'
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Mensal\Controller\Premissas',
+                        'action'     => 'cadastrarmira',
+                    ),
+                ),
+            ),
+            'visualizarMira' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/premissas/mira/visualizar',
+                    'defaults' => array(
+                        'controller' => 'Mensal\Controller\Premissas',
+                        'action'     => 'visualizarmira',
+                    ),
+                ),
+            ), 
+
            
 
 

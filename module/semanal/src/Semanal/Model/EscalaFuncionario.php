@@ -33,4 +33,30 @@ class EscalaFuncionario Extends BaseTable {
         return false;
     }
 
+    public function replicarEscala($escalaAnterior, $escala){
+        $adapter = $this->getTableGateway()->getAdapter();
+        $connection = $adapter->getDriver()->getConnection();
+        $connection->beginTransaction();
+        try {
+            $this->delete(array('escala' => $escala['id']));
+            
+            //pesquisar escalas do mes anterior
+            $escalaAnterior = $this->getRecords($escalaAnterior['id'], 'escala');
+            foreach ($escalaAnterior as $anterior) {
+                $data = explode('-', $anterior['data']);
+                $data = $escala['ano'].'-'.$escala['mes'].'-'.$data[2];
+                $this->insert(array('escala' => $escala['id'], 'funcionario' => $anterior['funcionario'], 'data' => $data));
+            }
+
+
+            $connection->commit();
+            return true;
+        } catch (Exception $e) {
+            $connection->rollback();
+            return false;
+        }
+        $connection->rollback();
+        return false;
+    }
+
 }

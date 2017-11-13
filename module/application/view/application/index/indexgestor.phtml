@@ -1,10 +1,11 @@
-<div class="container theme-showcase" role="main" style="margin-bottom:10px;padding:0px;">
-  
+<?php echo $this->partial('form/pesquisa', array('form'=> $formPesquisa, 'route'=> '', 'notExcel' => '')) ?>
+
+<div class="container theme-showcase" role="main" style="margin-bottom:10px;padding:0px;">  
   <div class="row">
     <div class="col-sm-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Ausências do mês</h3>
+          <h3 class="panel-title">Ausências do mês (De <?= $this->converterData($inicio); ?> até <?= $this->converterData($fim); ?>)</h3>
         </div>
         <div class="panel-body">
           <div class="form-group">
@@ -16,7 +17,7 @@
     <div class="col-sm-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Funcionários de férias</h3>
+          <h3 class="panel-title">Funcionários de férias (De <?= $this->converterData($inicio); ?> até <?= $this->converterData($fim); ?>)</h3>
         </div>
         <div class="panel-body">
           <div class="form-group">
@@ -31,7 +32,7 @@
     <div class="col-sm-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Ações disciplinares</h3>
+          <h3 class="panel-title">Ações disciplinares (De <?= $this->converterData($inicio); ?> até <?= $this->converterData($fim); ?>)</h3>
         </div>
         <div class="panel-body">
           <div class="form-group">
@@ -43,7 +44,7 @@
     <div class="col-sm-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Ajudas</h3>
+          <h3 class="panel-title">Ajudas (De <?= $this->converterData($inicio); ?> até <?= $this->converterData($fim); ?>)</h3>
         </div>
         <div class="panel-body">
           <div class="form-group">
@@ -139,3 +140,11 @@
     
   });
 </script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#inicio").mask("99/99/9999");
+        
+        $("#fim").mask("99/99/9999");
+      });
+    </script>

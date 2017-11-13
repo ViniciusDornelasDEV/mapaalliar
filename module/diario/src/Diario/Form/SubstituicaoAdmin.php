@@ -35,7 +35,7 @@ use Application\Form\NovoAdmin as BaseForm;
         $this->_addDropdown('encerrada', '* Vaga Substituida:', true, array('' => '--', 'S' => 'Sim', 'N' => 'Não'));
 
         //numero_rp
-        $this->genericTextInput('numero_rp', '* Número da RP:', true);
+        $this->genericTextInput('numero_rp', 'Número da RP:', false);
 
         $this->setAttributes(array(
             'role'   => 'form'

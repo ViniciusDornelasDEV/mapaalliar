@@ -56,7 +56,7 @@ class Escala Extends BaseTable {
                     'LEFT'
                 );
 
-            $select->where(array('tb_escala.unidade' => $idUnidade, 'mes' => $mes, 'ano' => $ano));
+            $select->where(array('tb_escala.unidade' => $idUnidade, 'f.unidade' => $idUnidade, 'mes' => $mes, 'ano' => $ano));
             $select->group('f.id');
             $select->order('s.nome, func.nome'); 
 

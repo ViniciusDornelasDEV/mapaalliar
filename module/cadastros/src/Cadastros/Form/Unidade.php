@@ -24,6 +24,7 @@ use Application\Form\Base as BaseForm;
 
         $this->genericTextInput('responsavel', '* Responsável:', true, 'Nome do responsável');
         
+        $this->_addDropdown('ativo', 'Ativo:', false, array('' => '--', 'S' => 'Ativo', 'N' => 'Inativo'));
         
         $this->setAttributes(array(
             'role'   => 'form'

@@ -25,13 +25,13 @@ use Application\Form\Base as BaseForm;
         $areas = $this->serviceLocator->get('Area')->getRecordsFromArray(array(), 'nome');
         
         $areas = $this->prepareForDropDown($areas, array('id', 'nome'));
-        $this->_addDropdown('area', 'Área:', false, $areas, 'carregarSetor(this.value, "P");');
+        $this->_addDropdown('area', '* Área:', true, $areas, 'carregarSetor(this.value, "P");');
 
         //setor
-        $this->_addDropdown('setor', 'Setor:', false, array('' => 'Selecione uma área'));
+        $this->_addDropdown('setor', '* Setor:', true, array('' => 'Selecione uma área'));
 
         //mes e ano
-        $this->genericTextInput('mes_ano', 'Mês/ano:', false);
+        $this->genericTextInput('mes_ano', '* Mês/ano:', true);
 
         $this->setAttributes(array(
             'role'   => 'form'

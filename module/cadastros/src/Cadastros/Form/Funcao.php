@@ -33,6 +33,8 @@
         //nome
         $this->genericTextInput('nome', '* Função:', true, 'Nome da função');
 
+        $this->_addDropdown('ativo', 'Ativo:', false, array('' => '--', 'S' => 'Ativo', 'N' => 'Inativo'));
+        
         $this->setAttributes(array(
             'class'  => 'form-inline'
         ));

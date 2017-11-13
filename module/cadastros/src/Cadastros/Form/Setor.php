@@ -28,6 +28,8 @@ use Application\Form\Base as BaseForm;
         $areas = $this->prepareForDropDown($areas, array('id', 'nome'));
         $this->_addDropdown('area', '* Área:', true, $areas);
         
+        $this->_addDropdown('ativo', 'Ativo:', false, array('' => '--', 'S' => 'Ativo', 'N' => 'Inativo'));
+        
         $this->setAttributes(array(
             'role'   => 'form'
         ));

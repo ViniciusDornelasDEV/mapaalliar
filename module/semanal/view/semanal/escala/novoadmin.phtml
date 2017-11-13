@@ -74,11 +74,11 @@
                           $checked = 'CHECKED';
                         }
                         if($numeroDia == 0 || $numeroDia == 6){
-                          echo '<td style="text-align: center; background-color: #bfbfbf;">
+                          echo '<td style="text-align: center; background-color: #bfbfbf;" onclick="check(\'#'.$escalaFunc['id'].'-'.$dia.'\');">
                               <input '.$checked.' type="checkbox" name="'.$escalaFunc['id'].'-'.$dia.'" id="'.$escalaFunc['id'].'-'.$dia.'">
                             </td>';
                         }else{
-                         echo '<td style="text-align: center;">
+                         echo '<td style="text-align: center;" onclick="check(\'#'.$escalaFunc['id'].'-'.$dia.'\');">
                               <input '.$checked.' type="checkbox" name="'.$escalaFunc['id'].'-'.$dia.'" id="'.$escalaFunc['id'].'-'.$dia.'">
                             </td>';
                         }
@@ -101,12 +101,41 @@
                 Salvar
               </button>
 
-              <button type="button" class="btn btn-danger" style="float: right;margin-right: 10px;" onClick="selecionarTodos();">
+              <button type="button" class="btn btn-warning" style="float: right;margin-right: 10px;" onClick="selecionarTodos();">
                 <img src="<?= $this->basePath('img/assigntome.png'); ?>" alt="Salvar">
                 Selecionar todos
               </button>
 
+              <button type="button" class="btn btn-danger" style="float: right;margin-right: 10px;" onClick="mensagem('<?= $this->url('replicarEscala', array('mes' => $escala['mes'], 'ano' => $escala['ano'], 'setor' => $escala['setor'], 'unidade' => $escala['unidade'])); ?>', 'Atenção: esta opção irá deletar todos os dados deste mês e replicar os dados do mês anterior, confirma a operação?');">
+                <img src="<?= $this->basePath('img/copy.png'); ?>" alt="Salvar">
+                Replicar do mês anterior
+              </button>
+
             </form>
+
+            <div class="container theme-showcase" role="main">
+            </div>
+            <br>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h3 class="panel-title">Vincular arquivo</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                      <?php if(!empty($escala['caminho_arquivo'])): ?>
+                      <a href="<?= $this->url('download', array('id' => $escala['id'], 'service' => 'Escala', 'campo' => 'caminho_arquivo')); ?>">
+                        <button type="button" style="width:100%;" class="btn btn-info">
+                            <img src="<?= $this->basePath('img/download32.png'); ?>" style="width:32px;height:32px;">
+                            Download do arquivo
+                        </button>
+                      </a>
+                    <?php endif; ?>
+
+                      <?php echo $this->partial('form/generic', array('form'=> $formArquivo, 'route'=> '')) ?>
+
+                </div>
+              </div>
+            </div>
             <?php endif; ?>
       
 

@@ -19,12 +19,14 @@
                   <tr>
                     <th style="text-align: center">Nome da empresa</th>
                     <th style="text-align: center">Responsável</th>
+                    <th style="text-align: center">Status</th>
                     <th style="text-align: center">Ações</th>
                 </tr>
                 <?php foreach($empresas as $empresa): ?>
                 <tr>
                   <td style="text-align: center"><?= $empresa['nome']; ?></td>
                   <td style="text-align: center"><?= $empresa['responsavel']; ?></td>
+                  <td style="text-align: center"><?= $this->status($empresa['ativo']); ?></td>
                   <td style="text-align: center;">
                     <img src="<?= $this->basePath('img/editar.png'); ?>" title="Editar" 
                     onclick="location.href='<?= $this->url('alterarEmpresa', array('id' => $empresa['id'])); ?>'" style="cursor: pointer;">

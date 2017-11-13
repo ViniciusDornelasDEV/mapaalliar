@@ -103,6 +103,23 @@
         $substituicoes = $this->prepareForDropDown($substituicoes, array('id', 'nome'));
         $this->_addDropdown('substituicao_de', 'Substituição de:', false, $substituicoes);
 
+        //cpf
+        $this->genericTextInput('cpf', 'CPF:', false);
+
+        //login_qmatic
+        $this->genericTextInput('login_qmatic', 'Login QMATIC:', false);
+
+        //login_pleres
+        $this->genericTextInput('login_pleres', 'Login PLERES:', false);
+
+        //login_afip
+        $this->genericTextInput('login_afip', 'Login AFIP:', false);
+        
+        //obs
+        $this->genericTextArea('obs', 'Observações: ', false);
+
+        $this->_addDropdown('ativo', 'Ativo:', false, array('' => '--', 'S' => 'Ativo', 'N' => 'Inativo'));
+        
         $this->setAttributes(array(
             'class'  => 'form-inline'
         ));

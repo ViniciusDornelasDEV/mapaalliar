@@ -57,6 +57,22 @@ return array(
                     ),
                 ),
             ),
+            'replicarEscala' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/escalas/replicar[/:mes][/:ano][/:setor][/:unidade]',
+                    'constraints' => array(
+                        'mes'        => '[0-9]+',
+                        'ano'        => '[0-9]+',
+                        'setor'      => '[0-9]+',
+                        'unidade'    => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Semanal\Controller\Escala',
+                        'action'     => 'replicarescala',
+                    ),
+                ),
+            ),
 
             //ORGANIZAÇÃO DE EQUIPES
             'pesquisarEquipes' => array(

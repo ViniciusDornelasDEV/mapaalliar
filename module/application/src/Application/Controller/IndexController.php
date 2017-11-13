@@ -18,12 +18,12 @@ use Zend\Session\Container;
 use Cliente\Form\cliente as formCliente;
 use Application\Form\Contato as formContato;
 use Application\Form\PesquisaDash as formPesquisa;
+use Application\Form\PesquisaDashGestor as formPesquisaGestor;
 
 class IndexController extends AbstractActionController
 {
     public function indexAction()
     {   
-
         $formPesquisa = new formPesquisa('frmPesquisa', $this->getServiceLocator());
         $ausencias = false;
         $ferias = false;
@@ -38,30 +38,39 @@ class IndexController extends AbstractActionController
             $empresa = $this->getServiceLocator()->get('Empresa')->getRecord($dados['empresa']);
             $unidade = $this->getServiceLocator()->get('Unidade')->getRecord($dados['unidade']);
 
-            //pegar período
-            $dataInicio = date('Y-m').'-01';
-            $dataFim = date("t", mktime(0,0,0,date('m'),'01',date('Y')));
-            $dataFim = date('Y-m').'-'.$dataFim;
-            
-            //pesquisar ausencias do mês
-            $ausencias = $this->getServiceLocator()
-                ->get('Ausencia')
-                ->getAusencias(array('inicio' => $dataInicio, 'fim'    => $dataFim, 'unidade' => $unidade['id']));
-            
-            //pesquisar funcionários de férias
-            $ferias = $this->getServiceLocator()
-                ->get('Ferias')
-                ->getFerias(array('inicio_inicio' => $dataInicio, 'inicio_fim'    => $dataFim, 'unidade' => $unidade['id']));
+            if($formPesquisa->isValid()){
+                $dados = $formPesquisa->getData();
+                //pegar período
+                if(empty($dados['inicio']) && empty($dados['fim'])){
+                    $dataInicio = date('Y-m').'-01';
+                    $dataFim = date("t", mktime(0,0,0,date('m'),'01',date('Y')));
+                    $dataFim = date('Y-m').'-'.$dataFim;
+                    
+                }else{
+                    $dataInicio = $dados['inicio'];
+                    $dataFim = $dados['fim'];
+                }
+                
+                //pesquisar ausencias do mês
+                $ausencias = $this->getServiceLocator()
+                    ->get('Ausencia')
+                    ->getAusencias(array('inicio' => $dataInicio, 'fim'    => $dataFim, 'unidade' => $unidade['id']));
+                
+                //pesquisar funcionários de férias
+                $ferias = $this->getServiceLocator()
+                    ->get('Ferias')
+                    ->getFerias(array('inicio_inicio' => $dataInicio, 'inicio_fim'    => $dataFim, 'unidade' => $unidade['id']));
 
-            //pesquisar ações disciplinares
-            $acoes = $this->getServiceLocator()
-                ->get('AcaoDisciplinar')
-                ->getAcoes(array('inicio' => $dataInicio, 'fim'    => $dataFim, 'unidade' => $unidade['id']));
+                //pesquisar ações disciplinares
+                $acoes = $this->getServiceLocator()
+                    ->get('AcaoDisciplinar')
+                    ->getAcoes(array('inicio' => $dataInicio, 'fim'    => $dataFim, 'unidade' => $unidade['id']));
 
-            //pesquisar ajudas
-            $ajudas = $this->getServiceLocator()
-                ->get('Ajuda')
-                ->getAjudas(array('inicio' => $dataInicio, 'fim' => $dataFim, 'unidade' => $unidade['id']));
+                //pesquisar ajudas
+                $ajudas = $this->getServiceLocator()
+                    ->get('Ajuda')
+                    ->getAjudas(array('inicio' => $dataInicio, 'fim' => $dataFim, 'unidade' => $unidade['id']));
+            }
 
         }
         
@@ -78,12 +87,21 @@ class IndexController extends AbstractActionController
 
     public function indexgestorAction(){
         $this->layout('layout/gestor');
-        
+        $formPesquisa = new formPesquisaGestor('formPesquisa');
         //pegar período
         $dataInicio = date('Y-m').'-01';
         $dataFim = date("t", mktime(0,0,0,date('m'),'01',date('Y')));
         $dataFim = date('Y-m').'-'.$dataFim;
         
+        if($this->getRequest()->isPost()){
+            $formPesquisa->setData($this->getRequest()->getPost());
+            if($formPesquisa->isValid()){
+                $dados = $formPesquisa->getData();
+                $dataInicio = $dados['inicio'];
+                $dataFim = $dados['fim'];
+            }
+        }
+
         //pegar usuario logado
         $usuario = $this->getServiceLocator()->get('session')->read();
 
@@ -111,11 +129,14 @@ class IndexController extends AbstractActionController
                 'ausencias' =>  $ausencias,
                 'ferias'    =>  $ferias,
                 'acoes'     =>  $acoes ,
-                'ajudas'    =>  $ajudas    
+                'ajudas'    =>  $ajudas,
+                'inicio'    =>  $dataInicio,
+                'fim'       =>  $dataFim,
+                'formPesquisa'  =>  $formPesquisa  
             ));
     }
 
-    /*public function downloadAction(){
+    public function downloadAction(){
         $service = $this->params()->fromRoute('service');
         $data = $this->getServiceLocator()->get($service)->getRecord($this->params()->fromRoute('id'));
         $fileName = $data[$this->params()->fromRoute('campo')];
@@ -134,12 +155,13 @@ class IndexController extends AbstractActionController
             ->addHeaderLine('Content-Disposition', 'attachment; filename="' . $fileName . '"')
             ->addHeaderLine('Content-Length', strlen($fileContents));
         return $this->response;
-    }*/
+    }
 
-        public function downloadAction(){
+    /*public function downloadAction(){
         $sessao = new Container();
         $fileName = $sessao->offsetGet('arquivo');
 
+        die('here!');
         
         if(!is_file($fileName)) {
             //Não foi possivel encontrar o arquivo
@@ -156,7 +178,7 @@ class IndexController extends AbstractActionController
             ->addHeaderLine('Content-Disposition', 'attachment; filename="' . $fileName . '"')
             ->addHeaderLine('Content-Length', strlen($fileContents));
         return $this->response;
-    }
+    }*/
 
 
 

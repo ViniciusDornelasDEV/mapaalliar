@@ -74,6 +74,12 @@ class Module
                     $updates->setServiceLocator($sm);
                     return $updates;
                 },
+                'Mira' => function($sm) {
+                    $tableGateway = new TableGateway('tb_mira', $sm->get('db_adapter_main'));
+                    $updates = new Model\Mira($tableGateway);
+                    $updates->setServiceLocator($sm);
+                    return $updates;
+                },
             ),
             'invokables' => array(
                 'ImageService' => 'Imagine\Gd\Imagine',

@@ -30,6 +30,7 @@
                     <th style="text-align: center">C Custo</th>
                     <th style="text-align: center">Desc centro custo</th>
                     <th style="text-align: center">Horário</th>
+                    <th style="text-align: center">Status</th>
                     <th style="text-align: center">Ações</th>
                 </tr>
                 <?php foreach($funcionarios as $funcionario): ?>
@@ -43,6 +44,7 @@
                   <td style="text-align: center"><?= $funcionario['ccusto']; ?></td>
                   <td style="text-align: center"><?= $funcionario['desc_ccusto']; ?></td>
                   <td style="text-align: center"><?= $funcionario['horario']; ?></td>
+                  <td style="text-align: center"><?= $this->status($funcionario['ativo']); ?></td>
                   <td style="text-align: center;">
                     <img src="<?= $this->basePath('img/editar.png'); ?>" title="Editar" 
                     onclick="location.href='<?= $this->url('alterarFuncionario', array('id' => $funcionario['id'])); ?>'" style="cursor: pointer;">

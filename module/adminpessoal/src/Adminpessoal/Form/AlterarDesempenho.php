@@ -22,7 +22,7 @@ use Application\Form\Base as BaseForm;
         parent::__construct($name);  
 
         //funcionário
-        $params = false;
+        $params = array('ativo' => 'S');
         if($usuario){
             $params = array('lider_imediato' => $usuario['funcionario']);
         }

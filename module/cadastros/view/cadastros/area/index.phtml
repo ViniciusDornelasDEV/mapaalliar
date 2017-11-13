@@ -19,12 +19,14 @@
                   <tr>
                     <th style="text-align: center">Nome da área</th>
                     <th style="text-align: center">Responsável</th>
+                    <th style="text-align: center">Status</th>
                     <th style="text-align: center">Ações</th>
                 </tr>
                 <?php foreach($areas as $area): ?>
                 <tr>
                   <td style="text-align: center"><?= $area['nome']; ?></td>
                   <td style="text-align: center"><?= $area['responsavel']; ?></td>
+                  <td style="text-align: center"><?= $this->status($area['ativo']); ?></td>
                   <td style="text-align: center;">
                     <img src="<?= $this->basePath('img/editar.png'); ?>" title="Editar" 
                     onclick="location.href='<?= $this->url('alterarArea', array('id' => $area['id'])); ?>'" style="cursor: pointer;">

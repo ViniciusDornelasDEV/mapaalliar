@@ -58,7 +58,7 @@ class Funcionario Extends BaseTable {
                         ->isNull('ef.escala')
                     ->unnest;
 
-            $select->where(array('s.id' => $escala['setor'], 'tb_funcionario.unidade' => $escala['unidade']));
+            $select->where(array('s.id' => $escala['setor'], 'tb_funcionario.unidade' => $escala['unidade'], 'tb_funcionario.ativo' => 'S'));
 
 
             $select->order('ef.data, tb_funcionario.nome');
