@@ -22,11 +22,10 @@ use Application\Form\Base as BaseForm;
         parent::__construct($name);  
 
         //area    
-        $areas = $this->serviceLocator->get('Area')->getRecordsFromArray(array('ativo' => 'S'), 'nome');
+        $areas = $this->serviceLocator->get('Area')->getRecordsFromArray(array(), 'nome');
         
         $areas = $this->prepareForDropDown($areas, array('id', 'nome'));
         $this->_addDropdown('area', 'Área:', false, $areas, 'carregarSetor(this.value, "C");');
-
         //setor
         $this->_addDropdown('setor', 'Setor:', false, array('' => 'Selecione uma área'), 'carregarFuncao(this.value, "C");');
 

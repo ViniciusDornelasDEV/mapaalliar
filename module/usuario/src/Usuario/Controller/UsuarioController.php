@@ -135,9 +135,6 @@ class UsuarioController extends BaseController
             }
         }
 
-        /*var_dump($sessao->postBlog);
-        die();*/
-
         return new ViewModel(array('form' => $form));
 
     }

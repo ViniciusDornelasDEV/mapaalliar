@@ -111,6 +111,11 @@
                 Replicar do mês anterior
               </button>
 
+              <button type="button" class="btn btn-default" style="float: right;margin-right: 10px;" onClick="location.href='<?= $this->url('exportarEscalaAdmin', array('escala' => $escala['id'])); ?>';">
+                <img src="<?= $this->basePath('img/excel.png'); ?>" alt="Salvar">
+                Exportar em excel
+              </button>
+
             </form>
 
             <div class="container theme-showcase" role="main">

@@ -40,6 +40,18 @@ return array(
                     ),
                 ),
             ),
+            'downloadByContainer' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/download/container',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Index',
+                        'action'     => 'downloadbycontainer',
+                    ),
+                ),
+            ),
+
+            
 
           
 

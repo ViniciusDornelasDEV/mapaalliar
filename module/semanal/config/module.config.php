@@ -74,6 +74,34 @@ return array(
                 ),
             ),
 
+            'exportarEscalaAdmin' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/escala/exportar/admin[/:escala]',
+                    'constraints' => array(
+                        'escala'     => '[0-9]+', 
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Semanal\Controller\Escala',
+                        'action'     => 'exportarescalaadmin',
+                    ),
+                ),
+            ),
+
+            'exportarEscala' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/escala/exportar[/:escala]',
+                    'constraints' => array(
+                        'escala'     => '[0-9]+', 
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Semanal\Controller\Escala',
+                        'action'     => 'exportarescala',
+                    ),
+                ),
+            ),
+
             //ORGANIZAÇÃO DE EQUIPES
             'pesquisarEquipes' => array(
                 'type' => 'Zend\Mvc\Router\Http\Segment',
@@ -129,9 +157,7 @@ return array(
                     ),
                 ),
             ),
-
-           
-
+            
 
         ),
     ),

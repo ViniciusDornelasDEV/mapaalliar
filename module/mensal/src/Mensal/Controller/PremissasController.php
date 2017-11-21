@@ -571,6 +571,7 @@ class PremissasController extends BaseController
     }
 
     public function visualizarmiraAction(){
+        $this->layout('layout/gestor');
         $usuario = $this->getServiceLocator()->get('session')->read();
         $funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($usuario['funcionario']);
 

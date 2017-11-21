@@ -328,7 +328,7 @@ class Funcionario Extends BaseTable {
                 }
                 //pesquisar funcionário da unidade por matricula
                 $dadosFuncionario = array(
-                        'matricula'         => $rowData[1],
+                        'matricula'         => $this->retirarZero($rowData[1]),
                         'nome'              => $rowData[2],
                         'unidade'           => $dados['unidade'],
                         'funcao'            => $idFuncao,
@@ -390,6 +390,14 @@ class Funcionario Extends BaseTable {
             $Texto = explode("-",$Data);
             return $Texto[2]."/".$Texto[1]."/".$Texto[0];
          }
+    }
+
+    private function retirarZero($matricula){
+        if(strcasecmp($matricula[0], "0") == 0){
+            $matricula = substr($matricula, 1);
+            return $this->retirarZero($matricula);
+        }
+        return $matricula;
     }
 
 

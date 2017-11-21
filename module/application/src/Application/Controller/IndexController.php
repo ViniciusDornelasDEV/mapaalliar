@@ -9,7 +9,7 @@
 
 namespace Application\Controller;
 
-use Zend\Mvc\Controller\AbstractActionController;
+use Application\Controller\BaseController;
 use Zend\View\Model\ViewModel;
 
 use Zend\Authentication\AuthenticationService;
@@ -20,10 +20,27 @@ use Application\Form\Contato as formContato;
 use Application\Form\PesquisaDash as formPesquisa;
 use Application\Form\PesquisaDashGestor as formPesquisaGestor;
 
-class IndexController extends AbstractActionController
+class IndexController extends BaseController
 {
+    private function retirarZero($matricula){
+        if(strcasecmp($matricula[0], "0") == 0){
+            $matricula = substr($matricula, 1);
+            return $this->retirarZero($matricula);
+        }
+        return $matricula;
+    }
+
     public function indexAction()
     {   
+       /* $serviceFuncionario = $this->getServiceLocator()->get('Funcionario');
+        $funcionarios = $serviceFuncionario->getRecordsFromArray();
+
+        foreach ($funcionarios as $funcionario) {
+            $matricula = $this->retirarZero($funcionario['matricula']);
+            echo 'UPDATE tb_funcionario SET matricula = "'.$matricula.'" WHERE id = '.$funcionario['id'].';<br>';
+        }
+        die('retirei 0 a esquerda!'); */
+
         $formPesquisa = new formPesquisa('frmPesquisa', $this->getServiceLocator());
         $ausencias = false;
         $ferias = false;
@@ -31,7 +48,8 @@ class IndexController extends AbstractActionController
         $ajudas = false;
         $empresa = false;
         $unidade = false;
-
+        $dataInicio = false;
+        $formPesquisa = parent::verificarPesquisa($formPesquisa);
         if($this->getRequest()->isPost()){
             $dados = $this->getRequest()->getPost();
             $formPesquisa->setData($dados);
@@ -81,7 +99,8 @@ class IndexController extends AbstractActionController
                 'ajudas'        =>  $ajudas,
                 'formPesquisa'  =>  $formPesquisa,
                 'empresa'       =>  $empresa,
-                'unidade'       =>  $unidade
+                'unidade'       =>  $unidade,
+                'dataInicio'    =>  $dataInicio
             ));
     }
 
@@ -157,11 +176,9 @@ class IndexController extends AbstractActionController
         return $this->response;
     }
 
-    /*public function downloadAction(){
+    public function downloadbycontainerAction(){
         $sessao = new Container();
         $fileName = $sessao->offsetGet('arquivo');
-
-        die('here!');
         
         if(!is_file($fileName)) {
             //Não foi possivel encontrar o arquivo
@@ -178,7 +195,7 @@ class IndexController extends AbstractActionController
             ->addHeaderLine('Content-Disposition', 'attachment; filename="' . $fileName . '"')
             ->addHeaderLine('Content-Length', strlen($fileContents));
         return $this->response;
-    }*/
+    }
 
 
 
