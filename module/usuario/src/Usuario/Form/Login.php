@@ -18,7 +18,7 @@
    public function __construct($name = null)
     {
         parent::__construct($name);
-        $this->genericTextInput('login', 'Email', true, 'Email');
+        $this->genericTextInput('login', 'Login', true, 'Login');
         $this->_addPassword('password', 'Password', 'Senha');
         $this->_addCheckbox('remember_me', 'Remember me', false, '');
 

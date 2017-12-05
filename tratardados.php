@@ -1,28 +1,35 @@
 <?php 
 mb_internal_encoding("iso-8859-1");
-//$conecta = mysql_connect("mysql01.timesistemas1.hospedagemdesites.ws", "timesistemas1", "sqlyt4da51241") or print (mysql_error()); 
-//mysql_select_db("timesistemas1", $conecta) or print(mysql_error()); 
-$conecta = mysql_connect("localhost", "root", "") or print (mysql_error()); 
-mysql_select_db("bd_mapa_cdb", $conecta) or print(mysql_error()); 
+$conecta = mysql_connect("mapa_alliar.mysql.dbaas.com.br", "mapa_alliar", "sqlyt4da51241") or print (mysql_error()); 
+mysql_select_db("mapa_alliar", $conecta) or print(mysql_error()); 
+//$conecta = mysql_connect("localhost", "root", "") or print (mysql_error()); 
+//mysql_select_db("bd_mapa_cdb", $conecta) or print(mysql_error()); 
 
-function retirarZero($matricula){
-    if($matricula[0] == 0){
-        $matricula = substr($matricula, 1);
-        return retirarZero($matricula);
-    }
-    return $matricula;
-}
 
-$sql = 'SELECT id, matricula FROM tb_funcionario';
+$sql = 'SELECT * FROM tb_funcionario WHERE lider = "S"';
 $funcionarios = mysql_query($sql, $conecta);
 
-while ($funcionario = mysql_fetch_array($funcionarios)) {
-    $matricula = retirarZero($funcionario['matricula']);
-    $sql = 'UPDATE tb_funcionario SET matricula = "'.$matricula.'" WHERE id = '.$funcionario['id'];
-    if(mysql_query($sql)){
-        echo "Funcionário ".$funcionario['id']." alterado"."\n";
+while ($gestor = mysql_fetch_array($funcionarios)) {
+    $sql = 'SELECT fg.* 
+            FROM tb_funcionario_gestor AS fg
+            INNER JOIN tb_funcionario AS f ON f.id = fg.funcionario 
+            WHERE fg.gestor = '.$gestor['id'].' AND f.unidade != '.$gestor['unidade'];
+    $unidades = mysql_query($sql, $conecta);
+    while ($unidade = mysql_fetch_array($unidades)) {
+        $sql = 'DELETE FROM tb_funcionario_gestor WHERE id = '.$unidade['id'];
+        if(mysql_query($sql)){
+            echo "Gestor ".$gestor['id']."\n";
+        }
     }
+
 }
+
+
+/*SELECT fg.* 
+            FROM tb_funcionario_gestor AS fg
+            INNER JOIN tb_funcionario AS f ON f.id = fg.funcionario 
+            WHERE fg.gestor = 959 AND f.unidade != 24
+            GROUP BY f.unidade
 
 //CORRIGIR ERRO DE CARACTER
 /*    var_dump($_SERVER);

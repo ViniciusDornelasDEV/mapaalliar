@@ -90,8 +90,13 @@ class UsuarioController extends BaseController
                     //Create acl config
                     $sessao = new Container();
                     $sessao->acl = $this->criarAutorizacao();
-                  
                     if($user['id_usuario_tipo'] == 2){
+                        if(empty($user['funcionario'])){
+                            $session->clear();
+                            $this->flashMessenger()->addWarningMessage('Gestor sem funcionário vinculado, por favor contate o administrador!');
+                            return $this->redirect()->toRoute('login');
+
+                        }
                         return $this->redirect()->toRoute('homeGestor');
                     }
 

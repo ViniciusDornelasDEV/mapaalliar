@@ -54,6 +54,7 @@ class Funcionario Extends BaseTable {
                     'LEFT'
                 );
 
+        
             if($idGestor){
                 $select->where
                         ->nest
@@ -62,6 +63,7 @@ class Funcionario Extends BaseTable {
                             ->equalTo('fg.gestor', $idGestor)
                         ->unnest;
             }
+            
 
 
             if($params){
@@ -113,6 +115,8 @@ class Funcionario Extends BaseTable {
             }
             
             $select->order('e.nome, u.nome, tb_funcionario.nome');
+
+            $select->group('tb_funcionario.id');
         }); 
     }
 
@@ -321,14 +325,17 @@ class Funcionario Extends BaseTable {
                 }
 
                 //pesquisar lider imediato
-                $lider = $this->getRecord($rowData[15], 'nome');
+                $lider = $this->getRecordFromArray(array('nome' => $rowData[15], 'unidade' => $dados['unidade']));
                 $idLider = '';
                 if($lider){
                     $idLider = $lider['id'];
                 }
                 //pesquisar funcionário da unidade por matricula
+                $rowData[1] = $this->retirarZero($rowData[1]);
+                $rowData[1] = str_replace(' ', '', $rowData[1]);
+                
                 $dadosFuncionario = array(
-                        'matricula'         => $this->retirarZero($rowData[1]),
+                        'matricula'         => $rowData[1],
                         'nome'              => $rowData[2],
                         'unidade'           => $dados['unidade'],
                         'funcao'            => $idFuncao,
@@ -344,7 +351,10 @@ class Funcionario Extends BaseTable {
                         'desc_ccusto'       => $rowData[7],
                         'horario'           => $rowData[14]
                     );
+
+                
                 $funcionario = $this->getRecord($rowData[1], 'matricula');
+                
                 if($funcionario){
                     //update
                     $this->update($dadosFuncionario, array('id' => $funcionario['id']));
@@ -355,7 +365,7 @@ class Funcionario Extends BaseTable {
                 }
 
                 //pesquisar e inserir gerente
-                $gerente = $this->getRecord($rowData[13], 'nome');
+                $gerente = $this->getRecordFromArray(array('nome' => $rowData[13], 'unidade' => $dados['unidade']));
                 $idGerente = '';
                 if($gerente){
                     $idGerente = $gerente['id'];

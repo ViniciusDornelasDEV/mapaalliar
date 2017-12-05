@@ -190,7 +190,7 @@ class PremissasController extends BaseController
                 }
             }
         }
-
+        
         $andares = $serviceTmaAndar->getRecords($idTma, 'tma');
         return new ViewModel(array(
                 'formTma'       => $formTma,
@@ -209,6 +209,19 @@ class PremissasController extends BaseController
         
         return new ViewModel(array('andares' => $andares));
     }
+
+    public function deletarandartmaAction(){
+        $tma = $this->params()->fromRoute('tma');
+        $andar = $this->params()->fromRoute('andar');
+        
+        if($this->getServiceLocator()->get('TmaAndar')->delete(array('id' => $andar))){
+            $this->flashMessenger()->addSuccessMessage('Item excluído com sucesso!');
+        }else{
+            $this->flashMessenger()->addErrorMessage('Ocorreu algum erro ao deletar, por favor tente novamente!');
+        }
+        return $this->redirect()->toRoute('alterarTma', array('id' => $tma));
+    }
+
 
     public function listarevolucaoAction(){
         $serviceEvolucao = $this->getServiceLocator()->get('Evolucao');
@@ -582,6 +595,8 @@ class PremissasController extends BaseController
                 'mira'  =>  $mira
             ));
     }
+
+
 
 
 }

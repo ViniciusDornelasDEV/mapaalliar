@@ -5,7 +5,7 @@
 
     <ol class="breadcrumb" style="margin-bottom: 0px;">
       <li><a href="<?= $this->url('home'); ?>">Home</a></li>
-      <li><a href="<?= $this->url('listarTme'); ?>">Lista de TMA</a></li>
+      <li><a href="<?= $this->url('listarTma'); ?>">Lista de TMA</a></li>
       <li class="active">Inserir</li>
     </ol>
   </div>
@@ -70,7 +70,8 @@
                     <img src="<?= $this->basePath('img/editar.png'); ?>" title="Editar" 
                     onclick="location.href='<?= $this->url('alterarTma', array('id' => $tma['id'], 'andar' => $andar['id'])); ?>'" style="cursor: pointer;">
                     
-
+                    <span style="margin-right:4px;"></span>  
+                    <img src="<?= $this->basePath('img/deletar.png'); ?>" title="Deletar" style="cursor: pointer;" onclick="alerta('<?= $this->url('deletarAndarTma', array('tma' => $tma['id'], 'andar' => $andar['id'])) ?>', 'deletar');">
                   </td>
                 </tr>
                 <?php endforeach; ?>

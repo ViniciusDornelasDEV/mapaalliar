@@ -32,10 +32,12 @@ class IndexController extends BaseController
 
     public function indexAction()
     {   
-       /* $serviceFuncionario = $this->getServiceLocator()->get('Funcionario');
-        $funcionarios = $serviceFuncionario->getRecordsFromArray();
+       /*$serviceFuncionario = $this->getServiceLocator()->get('FuncionarioGestor');
+        $funcionarios = $serviceFuncionario->getRecordsFromArray(array('lider' => 'S'));
 
         foreach ($funcionarios as $funcionario) {
+            //selecionar usuários que são do gestor mais de unidade diferente
+            
             $matricula = $this->retirarZero($funcionario['matricula']);
             echo 'UPDATE tb_funcionario SET matricula = "'.$matricula.'" WHERE id = '.$funcionario['id'].';<br>';
         }

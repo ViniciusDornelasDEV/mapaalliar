@@ -36,6 +36,7 @@ use Application\Form\Base as BaseForm;
 
         $this->genericTextInput('senha', 'Alterar senha: ', false, 'Nova senha');
 
+        $this->_addDropdown('ativo', 'Ativo:', true, array('S' => 'Ativo', 'N' => 'Inativo'));
         
         $this->setAttributes(array(
             'class'  => 'form-signin',

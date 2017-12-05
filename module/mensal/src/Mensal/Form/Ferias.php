@@ -55,7 +55,7 @@ use Application\Form\Base as BaseForm;
         //buscar cargos
         $funcionarios = $this->serviceLocator
                             ->get('Funcionario')
-                            ->getFuncionarios(array('lider_imediato' => $idLider, 'funcao' => $idFuncao, 'ativo' => 'S'));
+                            ->getFuncionarios(array('funcao' => $idFuncao, 'ativo' => 'S'), $idLider);
         $funcionarios = $this->prepareForDropDown($funcionarios, array('id', 'nome'));
 
         //Setando valores

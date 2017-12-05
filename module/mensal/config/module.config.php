@@ -205,6 +205,21 @@ return array(
                 ),
             ),  
 
+            'deletarAndarTma' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/premissas/tma/deletar[/:tma][/:andar]',
+                    'constraints' => array(
+                        'tma'        => '[0-9]+',
+                        'andar'        => '[0-9]+'
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Mensal\Controller\Premissas',
+                        'action'     => 'deletarandartma',
+                    ),
+                ),
+            ),
+            
             'listarEvolucao' => array(
                 'type' => 'Zend\Mvc\Router\Http\Segment',
                 'options' => array(
@@ -390,7 +405,7 @@ return array(
                     ),
                 ),
             ), 
-
+            
            
 
 
