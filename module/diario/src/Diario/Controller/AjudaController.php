@@ -39,8 +39,9 @@ class AjudaController extends BaseController
         $usuario = $this->getServiceLocator()->get('session')->read();
         $formPesquisa = new formPesquisa('frmAjuda', $this->getServiceLocator(), $usuario);
 
-    	$formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $ajudas = $serviceAjuda->getAjudas($this->sessao->parametros, $usuario['funcionario'])->toArray();
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+    	$formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+        $ajudas = $serviceAjuda->getAjudas($this->sessao->parametros[$rota], $usuario['funcionario'])->toArray();
         
         foreach ($ajudas as $key => $ajuda) {
             $ajudas[$key]['data_inicio'] = $formPesquisa->converterData($ajuda['data_inicio']);
@@ -137,8 +138,9 @@ class AjudaController extends BaseController
         
         $formPesquisa = new formPesquisaAdmin('frmAjuda', $this->getServiceLocator());
 
-        $formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $ajudas = $serviceAjuda->getAjudas($this->sessao->parametros)->toArray();
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+        $ajudas = $serviceAjuda->getAjudas($this->sessao->parametros[$rota])->toArray();
         
         foreach ($ajudas as $key => $ajuda) {
             $ajudas[$key]['data_inicio'] = $formPesquisa->converterData($ajuda['data_inicio']);

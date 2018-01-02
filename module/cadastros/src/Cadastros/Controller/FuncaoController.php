@@ -25,8 +25,9 @@ class FuncaoController extends BaseController
         
         $formPesquisa = new formPesquisa('frmFuncao', $this->getServiceLocator());
 
-        $formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $funcoes = $serviceFuncao->getFuncoes($this->sessao->parametros)->toArray();
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+        $funcoes = $serviceFuncao->getFuncoes($this->sessao->parametros[$rota])->toArray();
         
         if($this->getRequest()->isPost()){
             $dados = $this->getRequest()->getPost();

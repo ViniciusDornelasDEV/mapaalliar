@@ -24,8 +24,9 @@ class AvaliacaoController extends BaseController
         
         $formPesquisa = new formPesquisaPeriodo('frmPilha', $this->getServiceLocator());
 
-        $formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $periodos = $servicePilha->getAvaliacoes($this->sessao->parametros)->toArray();
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+        $periodos = $servicePilha->getAvaliacoes($this->sessao->parametros[$rota])->toArray();
         
         $paginator = new Paginator(new ArrayAdapter($periodos));
         $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
@@ -116,10 +117,11 @@ class AvaliacaoController extends BaseController
         $serviceAvaliacoes = $this->getServiceLocator()->get('Avaliacao');
         
         $formPesquisa = new formPesquisaAvaliacao('frmPesquisa', $this->getServiceLocator());
-        $formPesquisa = parent::verificarPesquisa($formPesquisa);
-
+        
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
         $usuario = $this->getServiceLocator()->get('session')->read();
-        $avaliacoes = $serviceAvaliacoes->getAvaliacoes($this->sessao->parametros, $usuario['funcionario'])->toArray();
+        $avaliacoes = $serviceAvaliacoes->getAvaliacoes($this->sessao->parametros[$rota], $usuario['funcionario'])->toArray();
         
         $paginator = new Paginator(new ArrayAdapter($avaliacoes));
         $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
@@ -232,9 +234,10 @@ class AvaliacaoController extends BaseController
         $serviceAvaliacoes = $this->getServiceLocator()->get('Avaliacao');
         
         $formPesquisa = new formPesquisaAvaliacaoAdmin('frmPesquisa', $this->getServiceLocator());
-        $formPesquisa = parent::verificarPesquisa($formPesquisa);
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
 
-        $avaliacoes = $serviceAvaliacoes->getAvaliacoes($this->sessao->parametros)->toArray();
+        $avaliacoes = $serviceAvaliacoes->getAvaliacoes($this->sessao->parametros[$rota])->toArray();
         
         $paginator = new Paginator(new ArrayAdapter($avaliacoes));
         $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));

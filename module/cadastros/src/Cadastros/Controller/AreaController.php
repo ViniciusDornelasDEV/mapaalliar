@@ -17,14 +17,16 @@ class AreaController extends BaseController
             'Nome da área'           => 'nome',
             'Responsável da área'    => 'responsavel'
         );
+    public $rota;
 
     public function indexAction(){
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
         $serviceArea = $this->getServiceLocator()->get('Area');
             
         $formPesquisa = new formPesquisa('frmArea');
-
-        $formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $areas = $serviceArea->getAreas($this->sessao->parametros)->toArray();
+        $formPesquisa = $this->verificarPesquisa($formPesquisa, $rota);
+        
+        $areas = $serviceArea->getAreas($this->sessao->parametros[$rota])->toArray();
         
         if($this->getRequest()->isPost()){
             $dados = $this->getRequest()->getPost();

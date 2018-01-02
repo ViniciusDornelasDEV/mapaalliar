@@ -45,7 +45,8 @@ class ContratacaoController extends BaseController
         
         $formPesquisa = new formPesquisa('frmFuncionario', $this->getServiceLocator());
 
-        $formPesquisa = parent::verificarPesquisa($formPesquisa);
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
         
         $usuario = $this->getServiceLocator()->get('session')->read();
         
@@ -53,7 +54,7 @@ class ContratacaoController extends BaseController
             $this->sessao->parametros = array();
         }
 
-        $funcionarios = $serviceFuncionario->getFuncionarios($this->sessao->parametros, $usuario['funcionario'])->toArray();
+        $funcionarios = $serviceFuncionario->getFuncionarios($this->sessao->parametros[$rota], $usuario['funcionario'])->toArray();
         
         foreach ($funcionarios as $key => $funcionario) {
             $funcionarios[$key]['data_inicio'] = $formPesquisa->converterData($funcionario['data_inicio']);

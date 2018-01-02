@@ -23,12 +23,14 @@ class EmpresaController extends BaseController
         );
 
     public function indexAction(){
-    	$serviceEmpresa = $this->getServiceLocator()->get('Empresa');
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+        $serviceEmpresa = $this->getServiceLocator()->get('Empresa');
             
         $formPesquisa = new formPesquisa('frmEmpresa');
 
-    	$formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $empresas = $serviceEmpresa->getEmpresas($this->sessao->parametros);
+        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+        
+        $empresas = $serviceEmpresa->getEmpresas($this->sessao->parametros[$rota]);
         
         if($this->getRequest()->isPost()){
             $dados = $this->getRequest()->getPost();

@@ -43,8 +43,9 @@ class FuncionarioController extends BaseController
         
         $formPesquisa = new formPesquisa('frmFuncionario', $this->getServiceLocator());
 
-        $formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $funcionarios = $serviceFuncionario->getFuncionarios($this->sessao->parametros)->toArray();
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+        $funcionarios = $serviceFuncionario->getFuncionarios($this->sessao->parametros[$rota])->toArray();
         
         foreach ($funcionarios as $key => $funcionario) {
             $funcionarios[$key]['data_inicio'] = $formPesquisa->converterData($funcionario['data_inicio']);

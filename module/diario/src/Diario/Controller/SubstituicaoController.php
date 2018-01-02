@@ -35,9 +35,10 @@ class SubstituicaoController extends BaseController
         
         $formPesquisa = new formPesquisa('frmSubstituicao', $this->getServiceLocator());
 
-    	$formPesquisa = parent::verificarPesquisa($formPesquisa);
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+    	$formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
         $usuario = $this->getServiceLocator()->get('session')->read();
-        $substituicoes = $serviceSubstituicao->getSubstituicoes($this->sessao->parametros, $usuario['funcionario'])->toArray();
+        $substituicoes = $serviceSubstituicao->getSubstituicoes($this->sessao->parametros[$rota], $usuario['funcionario'])->toArray();
         
         foreach ($substituicoes as $key => $substituicao) {
             $substituicoes[$key]['data_desligamento'] = $formPesquisa->converterData($substituicao['data_desligamento']);
@@ -121,8 +122,9 @@ class SubstituicaoController extends BaseController
         
         $formPesquisa = new formPesquisaAdmin('frmSubstituicao', $this->getServiceLocator());
 
-        $formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $substituicoes = $serviceSubstituicao->getSubstituicoes($this->sessao->parametros)->toArray();
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+        $substituicoes = $serviceSubstituicao->getSubstituicoes($this->sessao->parametros[$rota])->toArray();
         
         foreach ($substituicoes as $key => $substituicao) {
             $substituicoes[$key]['data_desligamento'] = $formPesquisa->converterData($substituicao['data_desligamento']);

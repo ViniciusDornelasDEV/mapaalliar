@@ -51,7 +51,9 @@ class IndexController extends BaseController
         $empresa = false;
         $unidade = false;
         $dataInicio = false;
-        $formPesquisa = parent::verificarPesquisa($formPesquisa);
+
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
         if($this->getRequest()->isPost()){
             $dados = $this->getRequest()->getPost();
             $formPesquisa->setData($dados);

@@ -38,8 +38,9 @@ class AcoesController extends BaseController
         $usuario = $this->getServiceLocator()->get('session')->read();
         $formPesquisa = new formPesquisa('frmAcoes', $this->getServiceLocator(), $usuario);
 
-    	$formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $acoes = $serviceAcoes->getAcoes($this->sessao->parametros, $usuario['funcionario'])->toArray();
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+    	$formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+        $acoes = $serviceAcoes->getAcoes($this->sessao->parametros[$rota], $usuario['funcionario'])->toArray();
         
         foreach ($acoes as $key => $acao) {
             $acoes[$key]['data'] = $formPesquisa->converterData($acao['data']);
@@ -127,8 +128,9 @@ class AcoesController extends BaseController
         $usuario = $this->getServiceLocator()->get('session')->read();
         $formPesquisa = new formPesquisaAdmin('frmAcoes', $this->getServiceLocator());
 
-        $formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $acoes = $serviceAcoes->getAcoes($this->sessao->parametros)->toArray();
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+        $acoes = $serviceAcoes->getAcoes($this->sessao->parametros[$rota])->toArray();
         
         foreach ($acoes as $key => $acao) {
             $acoes[$key]['data'] = $formPesquisa->converterData($acao['data']);

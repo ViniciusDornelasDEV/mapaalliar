@@ -46,8 +46,9 @@ class PremissasController extends BaseController
             
         $formPesquisa = new formPesquisa('frmPesquisa', $this->getServiceLocator());
 
-        $formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $nps = $serviceNps->getDados($this->sessao->parametros)->toArray();
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+        $nps = $serviceNps->getDados($this->sessao->parametros[$rota])->toArray();
         
         
         $paginator = new Paginator(new ArrayAdapter($nps));
@@ -111,8 +112,9 @@ class PremissasController extends BaseController
             
         $formPesquisa = new formPesquisa('frmPesquisa', $this->getServiceLocator());
 
-        $formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $tma = $serviceTma->getDados($this->sessao->parametros)->toArray();
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+        $tma = $serviceTma->getDados($this->sessao->parametros[$rota])->toArray();
         
         
         $paginator = new Paginator(new ArrayAdapter($tma));
@@ -228,8 +230,9 @@ class PremissasController extends BaseController
             
         $formPesquisa = new formPesquisa('frmPesquisa', $this->getServiceLocator());
 
-        $formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $evolucao = $serviceEvolucao->getDados($this->sessao->parametros)->toArray();
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+        $evolucao = $serviceEvolucao->getDados($this->sessao->parametros[$rota])->toArray();
         
         
         $paginator = new Paginator(new ArrayAdapter($evolucao));
@@ -293,8 +296,9 @@ class PremissasController extends BaseController
             
         $formPesquisa = new formPesquisa('frmPesquisa', $this->getServiceLocator());
 
-        $formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $tme = $serviceTme->getDados($this->sessao->parametros)->toArray();
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+        $tme = $serviceTme->getDados($this->sessao->parametros[$rota])->toArray();
         
         
         $paginator = new Paginator(new ArrayAdapter($tme));
@@ -376,8 +380,9 @@ class PremissasController extends BaseController
             
         $formPesquisa = new formPesquisa('frmPesquisa', $this->getServiceLocator());
 
-        $formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $qmatic = $serviceQmatic->getDados($this->sessao->parametros)->toArray();
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+        $qmatic = $serviceQmatic->getDados($this->sessao->parametros[$rota])->toArray();
         
         
         $paginator = new Paginator(new ArrayAdapter($qmatic));
@@ -453,8 +458,9 @@ class PremissasController extends BaseController
             
         $formPesquisa = new formPesquisa('frmPesquisa', $this->getServiceLocator());
 
-        $formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $equipes = $serviceEquipes->getDados($this->sessao->parametros)->toArray();
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+        $equipes = $serviceEquipes->getDados($this->sessao->parametros[$rota])->toArray();
         
         
         $paginator = new Paginator(new ArrayAdapter($equipes));
@@ -514,8 +520,9 @@ class PremissasController extends BaseController
             
         $formPesquisa = new formPesquisa('frmPesquisa', $this->getServiceLocator());
 
-        $formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $miras = $serviceMira->getDados($this->sessao->parametros)->toArray();
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+        $miras = $serviceMira->getDados($this->sessao->parametros[$rota])->toArray();
         
         
         $paginator = new Paginator(new ArrayAdapter($miras));

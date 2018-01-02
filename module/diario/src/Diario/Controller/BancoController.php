@@ -93,8 +93,9 @@ class BancoController extends BaseController
         
         $formPesquisa = new formPesquisa('frmAusencia', $this->getServiceLocator());
 
-        $formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $bancos = $serviceBanco->getBancos(false, $this->sessao->parametros)->toArray();
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+        $bancos = $serviceBanco->getBancos(false, $this->sessao->parametros[$rota])->toArray();
         
         $paginator = new Paginator(new ArrayAdapter($bancos));
         $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));

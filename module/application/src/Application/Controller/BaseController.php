@@ -17,7 +17,8 @@ use Zend\Session\Container;
 abstract class BaseController extends AbstractActionController {
     protected $sessao = 'sessao';
 
-    protected function verificarPesquisa($form){
+    public function verificarPesquisa($form, $rota){
+        
         $this->sessao = new Container();
         if($this->getRequest()->isPost()){
             $dados = $this->getRequest()->getPost();
@@ -27,18 +28,22 @@ abstract class BaseController extends AbstractActionController {
                 $dados = false;
             }else{
                 if(isset($dados->pesquisar)){
-                    $this->sessao->parametros = $dados;
+                    $this->sessao->parametros = array();
+                    $this->sessao->parametros[$rota] = $dados;
                 }
             }
         }
 
-        if(isset($this->sessao->parametros)) {
-            $form->setData($this->sessao->parametros);
+        if(isset($this->sessao->parametros[$rota])) {
+            $form->setData($this->sessao->parametros[$rota]);
             if($form->isValid()){
-                $this->sessao->parametros = $form->getData();
+                $this->sessao->parametros = array();
+                $this->sessao->parametros[$rota] = $form->getData();
             }
+        }            else{
+            $this->sessao->parametros = array();
+            $this->sessao->parametros[$rota] = array();
         }
-
         return $form;
     }
 

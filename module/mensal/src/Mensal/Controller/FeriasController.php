@@ -32,8 +32,9 @@ class FeriasController extends BaseController
         $usuario = $this->getServiceLocator()->get('session')->read();
         $formPesquisa = new formPesquisa('frmFerias', $this->getServiceLocator());
 
-    	$formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $ferias = $serviceFerias->getFerias($this->sessao->parametros, $usuario['funcionario'])->toArray();
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+    	$formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+        $ferias = $serviceFerias->getFerias($this->sessao->parametros[$rota], $usuario['funcionario'])->toArray();
         foreach ($ferias as $key => $feria) {
             $ferias[$key]['data_inicio'] = $formPesquisa->converterData($feria['data_inicio']);
             $ferias[$key]['data_fim'] = $formPesquisa->converterData($feria['data_fim']);
@@ -146,8 +147,9 @@ class FeriasController extends BaseController
         
         $formPesquisa = new formPesquisaAdmin('frmFerias', $this->getServiceLocator());
 
-        $formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $ferias = $serviceFerias->getFerias($this->sessao->parametros)->toArray();
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+        $ferias = $serviceFerias->getFerias($this->sessao->parametros[$rota])->toArray();
         foreach ($ferias as $key => $feria) {
             $ferias[$key]['data_inicio'] = $formPesquisa->converterData($feria['data_inicio']);
             $ferias[$key]['data_fim'] = $formPesquisa->converterData($feria['data_fim']);

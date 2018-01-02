@@ -35,8 +35,9 @@ class AusenciaController extends BaseController
         $usuario = $this->getServiceLocator()->get('session')->read();
         $formPesquisa = new formPesquisa('frmAusencia', $this->getServiceLocator(), $usuario);
 
-    	$formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $ausencias = $serviceAusencia->getAusencias($this->sessao->parametros, $usuario['funcionario'])->toArray();
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+    	$formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+        $ausencias = $serviceAusencia->getAusencias($this->sessao->parametros[$rota], $usuario['funcionario'])->toArray();
         
         foreach ($ausencias as $key => $ausencia) {
             $ausencias[$key]['data'] = $formPesquisa->converterData($ausencia['data']);
@@ -117,8 +118,9 @@ class AusenciaController extends BaseController
         
         $formPesquisa = new formPesquisaAdmin('frmAusencia', $this->getServiceLocator());
 
-        $formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $ausencias = $serviceAusencia->getAusencias($this->sessao->parametros)->toArray();
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+        $ausencias = $serviceAusencia->getAusencias($this->sessao->parametros[$rota])->toArray();
         
         foreach ($ausencias as $key => $ausencia) {
             $ausencias[$key]['data'] = $formPesquisa->converterData($ausencia['data']);

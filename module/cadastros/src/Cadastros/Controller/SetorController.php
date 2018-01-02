@@ -23,8 +23,9 @@ class SetorController extends BaseController
             
         $formPesquisa = new formPesquisa('frmSetor', $this->getServiceLocator());
 
-        $formPesquisa = parent::verificarPesquisa($formPesquisa);
-        $setores = $serviceSetor->getSetores($this->sessao->parametros)->toArray();
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+        $setores = $serviceSetor->getSetores($this->sessao->parametros[$rota])->toArray();
         
         if($this->getRequest()->isPost()){
             $dados = $this->getRequest()->getPost();
