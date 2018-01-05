@@ -160,6 +160,21 @@ return array(
                     ),
                 ),
             ),
+            'deletarGestorDiario' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/funcionario/gestor/diario/deletar[/:idGestor][/:idFuncionario]',
+                    'constraints' => array(
+                        'idGestor'     => '[0-9]+',
+                        'idFuncionario'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Diario\Controller\Contratacao',
+                        'action'     => 'deletargestor',
+                    ),
+                ),
+            ),
+
             //Banco de horas
             'listarBancoHoras' => array(
                 'type' => 'Zend\Mvc\Router\Http\Segment',

@@ -195,11 +195,9 @@ abstract class BaseController extends AbstractActionController {
                 if(move_uploaded_file($arquivo['tmp_name'], $caminho.'/'.$nomeArquivoServer.'.'.$extensao)){
                     $dados[$nomeArquivo] = $caminho.'/'.$nomeArquivoServer.'.'.$extensao;
                 }
-            }else{
-                unset($dados[$nomeArquivo]);
             }
         }
-
+    
         return $dados;
     }
     

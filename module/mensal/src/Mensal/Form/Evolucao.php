@@ -39,6 +39,9 @@ use Application\Form\Base as BaseForm;
         //bronze
         $this->genericTextInput('bronze', '* Bronze:', true);
 
+        //tipo
+        $this->_addDropdown('tipo', '* Tipo:', true, array('EVOLUÇÃO SIGA' => 'EVOLUÇÃO SIGA', 'ONA' => 'ONA'));
+
         $this->setAttributes(array(
             'role'   => 'form'
         ));

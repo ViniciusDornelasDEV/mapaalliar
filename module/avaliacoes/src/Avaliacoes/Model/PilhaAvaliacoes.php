@@ -83,5 +83,31 @@ class PilhaAvaliacoes Extends BaseTable {
         })->current(); 
     }
 
+    public function insert($dados){
+        if($dados['referencia'] == 4){
+            //transaction
+            $adapter = $this->getTableGateway()->getAdapter();
+            $connection = $adapter->getDriver()->getConnection();
+            $connection->beginTransaction();
+            try {
+                $dados['referencia'] = 1;
+                parent::insert($dados);
+
+                $dados['referencia'] = 2;
+                parent::insert($dados);
+
+                $dados['referencia'] = 3;
+                parent::insert($dados);    
+                $connection->commit();
+                return true;
+            }catch (Exception $e) {
+                $connection->rollback();
+                return false;
+            }
+        }else{
+            return parent::insert($dados);
+        }
+    }
+
 
 }

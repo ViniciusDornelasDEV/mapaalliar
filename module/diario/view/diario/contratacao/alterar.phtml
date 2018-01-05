@@ -26,6 +26,61 @@
     </div>
     </div>
 
+
+
+    <?php if($funcionario['lider'] == 'N'): ?>
+    <!-- GESTOR -->
+    <div class="container theme-showcase" role="main">
+      <div class="row">
+          <div class="panel panel-danger">
+          <div class="panel-heading">
+              <h3 class="panel-title">Vincular gestor</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                  <?php echo $this->partial('form/generic', array('form'=> $formGestor, 'route'=> '')) ?>
+
+            </div>
+          </div>
+      </div>
+    </div>
+    </div>
+
+
+    <div class="container theme-showcase" role="main">
+      <div class="row">
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+              <h3 class="panel-title">Gestores vinculados</h3>
+            </div>
+            <div class="panel-body">
+              <?php if($gestores->count() > 0): ?>
+                <table class="table">
+                  <tr>
+                    <th style="text-align: center">Gestor</th>
+                    <th style="text-align: center">Ações</th>
+                </tr>
+                <?php foreach($gestores as $gestor): ?>
+                <tr>
+                  <td style="text-align: center"><?= $gestor['nome_gestor']; ?></td>
+                  <td style="text-align: center;">
+                    <img src="<?= $this->basePath('img/deletar.png'); ?>" title="Editar" 
+                    onclick="location.href='<?= $this->url('deletarGestorDiario', array('idGestor' => $gestor['id'], 'idFuncionario' => $funcionario['id'])); ?>'" style="cursor: pointer;">
+                  </td>
+                </tr>
+                <?php endforeach; ?>
+              </table>
+            <?php else: ?>
+              <div class="alert alert-info">Nenhum gestor encontrado!</div>
+            <?php endif; ?>
+            </div>
+          </div>
+        </div>
+      </div>
+    <?php endif; ?>
+
+    
+
     <script type="text/javascript">
       $(document).ready(function() {
         $("#data_inicio").mask("99/99/9999");

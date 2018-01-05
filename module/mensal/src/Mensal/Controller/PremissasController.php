@@ -34,7 +34,12 @@ class PremissasController extends BaseController
         $funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($usuario['funcionario']);
         $qmatic = $this->getServiceLocator()->get('Qmatic')->getRecord($funcionario['unidade'], 'unidade');
 
-        return new ViewModel(array('qmatic' => $qmatic));
+        $evolucao = $this->getServiceLocator()->get('Evolucao')->getRecord($funcionario['unidade'], 'unidade');
+
+        return new ViewModel(array(
+                'qmatic'    => $qmatic,
+                'evolucao'  => $evolucao
+            ));
     }
 
     public function menuadminAction(){
@@ -134,8 +139,17 @@ class PremissasController extends BaseController
         if($this->getRequest()->isPost()){
             $formTma->setData($this->getRequest()->getPost());
             if($formTma->isValid()){
-                $idTma = $this->getServiceLocator()->get('Tma')->insert($formTma->getData());
-                return $this->redirect()->toRoute('alterarTma', array('id' => $idTma));
+                $dados = $formTma->getData();
+                $serviceTma = $this->getServiceLocator()->get('Tma');
+                $tma = $serviceTma->getRecord($dados['unidade'], 'unidade');
+                if($tma){
+                    $serviceTma->update($dados, array('id' => $tma['id']));
+                    $this->flashMessenger()->addSuccessMessage('Tma alterado com sucesso!');
+                    return $this->redirect()->toRoute('alterarTma', array('id' => $tma['id']));
+                }else{
+                    $idTma = $serviceTma->insert($dados);
+                    return $this->redirect()->toRoute('alterarTma', array('id' => $idTma));
+                }
             }
         }
 
@@ -233,8 +247,7 @@ class PremissasController extends BaseController
         $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
         $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
         $evolucao = $serviceEvolucao->getDados($this->sessao->parametros[$rota])->toArray();
-        
-        
+
         $paginator = new Paginator(new ArrayAdapter($evolucao));
         $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
         $paginator->setItemCountPerPage(10);
@@ -564,7 +577,7 @@ class PremissasController extends BaseController
                         //salvar
                         $dir = 'public/arquivos/mira';
                         $dados = $this->uploadImagem($files, $dir, $dados);
-                        
+
                         if($idMira){
                             //alterar
                             $serviceMira->update($dados, array('id' => $idMira));
@@ -579,8 +592,9 @@ class PremissasController extends BaseController
 
                         
                     }else{
-                        $formMira->setData($dados);
+                        //$formMira->setData($dados);
                         $this->flashMessenger()->addErrorMessage('Por favor insira um arquivo!');
+                        return $this->redirect()->toRoute('cadastrarMira', array('id' => $idMira));
                     }
 
                 }

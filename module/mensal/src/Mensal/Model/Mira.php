@@ -63,8 +63,8 @@ class Mira Extends BaseTable {
                             'nome'          => $dados['nome'],
                             'email'         => $dados['email'],
                             'imagem_1'      => $dados['imagem_1'],
-                            'imagem_1'      => $dados['imagem_2'],
-                            'imagem_1'      => $dados['imagem_3']
+                            'imagem_2'      => $dados['imagem_2'],
+                            'imagem_3'      => $dados['imagem_3']
                         ));
                 }
             }else{
@@ -78,8 +78,8 @@ class Mira Extends BaseTable {
                                 'nome'          => $dados['nome'],
                                 'email'         => $dados['email'],
                                 'imagem_1'      => $dados['imagem_1'],
-                                'imagem_1'      => $dados['imagem_2'],
-                                'imagem_1'      => $dados['imagem_3']
+                                'imagem_2'      => $dados['imagem_2'],
+                                'imagem_3'      => $dados['imagem_3']
                             ));
                     }
                 }else{

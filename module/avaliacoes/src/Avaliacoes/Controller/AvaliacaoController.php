@@ -47,7 +47,7 @@ class AvaliacaoController extends BaseController
             if($formPilha->isValid()){
                 $idPilha = $this->getServiceLocator()->get('PilhaAvaliacoes')->insert($formPilha->getData());
                 $this->flashMessenger()->addSuccessMessage('Período de avaliação incluído com sucesso!');
-                return $this->redirect()->toRoute('alterarPeriodo', array('id' => $idPilha));
+                return $this->redirect()->toRoute('listarPeriodo');
             }
         }
         return new ViewModel(array('formPilha' => $formPilha));

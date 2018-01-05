@@ -12,6 +12,7 @@ use Zend\Session\Container;
 use Diario\Form\PesquisarFuncionario as formPesquisa;
 use Diario\Form\Funcionario as formFuncionario;
 use Diario\Form\AlterarFuncionario as formAlterarFuncionario;
+use Cadastros\Form\VincularGestor as formGestor;
 
 class ContratacaoController extends BaseController
 {
@@ -117,29 +118,61 @@ class ContratacaoController extends BaseController
         }
 
         $formFuncionario = new formAlterarFuncionario('frmFuncionario', $this->getServiceLocator(), $funcionario);
-
         $formFuncionario->setData($funcionario);
 
+        $serviceGestor = $this->getServiceLocator()->get('FuncionarioGestor');
+        $formGestor = new formGestor('frmGestor', $this->getServiceLocator(), $funcionario);
+
         if($this->getRequest()->isPost()){
-            //alterar funcionario
-            $formFuncionario->setData($this->getRequest()->getPost());
-            if($formFuncionario->isValid()){
-                $dados = $formFuncionario->getData();
-                if(!empty($dados['data_saida'])){
-                    $dados['ativo'] = 'N';
-                }else{
-                    $dados['ativo'] = 'S';
+             $dados = $this->getRequest()->getPost();
+             if(isset($dados['gestor'])){
+                //salvar gestor
+                $formGestor->setData($dados);
+                if($formGestor->isValid()){
+                    $dados = $formGestor->getData();
+                    $dados['funcionario'] = $idFuncionario;
+                    $serviceGestor->insert($dados);
+                    $this->flashMessenger()->addSuccessMessage('Gestor vinculado com sucesso!');   
                 }
-                
-                $serviceFuncionario->update($dados, array('id' => $idFuncionario));
-                $this->flashMessenger()->addSuccessMessage('Contratação alterada com sucesso!');
+            }else{
+                //alterar funcionario
+                $formFuncionario->setData($dados);
+                if($formFuncionario->isValid()){
+                    $dados = $formFuncionario->getData();
+                    if(!empty($dados['data_saida'])){
+                        $dados['ativo'] = 'N';
+                    }else{
+                        $dados['ativo'] = 'S';
+                    }
+                    
+                    $serviceFuncionario->update($dados, array('id' => $idFuncionario));
+                    $this->flashMessenger()->addSuccessMessage('Contratação alterada com sucesso!');
+                }
+
             }
             return $this->redirect()->toRoute('alterarContratacao', array('id' => $idFuncionario));
         }
         
+        $gestores = $serviceGestor->getGestoresByFuncionario($idFuncionario);
+
         return new ViewModel(array(
-            'formFuncionario'   => $formFuncionario
+            'formFuncionario'   => $formFuncionario,
+            'funcionario'       => $funcionario,
+            'formGestor'        => $formGestor,
+            'gestores'          => $gestores,
             ));
+    }
+
+    public function deletargestorAction(){
+        $idGestor = $this->params()->fromRoute('idGestor');
+        $idFuncionario = $this->params()->fromRoute('idFuncionario');
+
+        if($this->getServiceLocator()->get('FuncionarioGestor')->delete(array('id' => $idGestor))){
+            $this->flashMessenger()->addSuccessMessage('Gestor desvinculado com sucesso!');
+        }else{
+            $this->flashMessenger()->addErrorMessage('Ocorreu algum erro ao desvincular gestor, por favor tente novamente!');
+        }
+        return $this->redirect()->toRoute('alterarContratacao', array('id' => $idFuncionario));
     }
 
 
