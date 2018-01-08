@@ -84,19 +84,19 @@ class ContratacaoController extends BaseController
 
     public function novoAction(){
         $this->layout('layout/gestor');
-        $formFuncionario = new formFuncionario('frmFuncionario', $this->getServiceLocator());
+        $serviceFuncionario = $this->getServiceLocator()->get('Funcionario');
+        
+        $usuario = $this->getServiceLocator()->get('session')->read();
+        $gestor = $serviceFuncionario->getRecord($usuario['funcionario']);
+        $formFuncionario = new formFuncionario('frmFuncionario', $this->getServiceLocator(), $gestor['unidade']);
 
 
         if($this->getRequest()->isPost()){
             $formFuncionario->setData($this->getRequest()->getPost());
             if($formFuncionario->isValid()){
-                $serviceFuncionario = $this->getServiceLocator()->get('Funcionario');
 
-                $usuario = $this->getServiceLocator()->get('session')->read();
-                $gestor = $serviceFuncionario->getRecord($usuario['funcionario']);
                 $dados = $formFuncionario->getData();
                 $dados['unidade'] = $gestor['unidade'];
-                $dados['lider_imediato'] = $usuario['funcionario'];
                 
                 $idFuncionario = $serviceFuncionario->insert($dados);
                 $this->flashMessenger()->addSuccessMessage('Contratação incluída com sucesso!');
@@ -116,7 +116,7 @@ class ContratacaoController extends BaseController
             $this->flashMessenger()->addWarningMessage('Contratação não encontrada!');
             return $this->redirect()->toRoute('listarContratacao');
         }
-
+        
         $formFuncionario = new formAlterarFuncionario('frmFuncionario', $this->getServiceLocator(), $funcionario);
         $formFuncionario->setData($funcionario);
 

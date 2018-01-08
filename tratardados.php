@@ -1,11 +1,13 @@
 <?php 
 mb_internal_encoding("iso-8859-1");
-$conecta = mysql_connect("mapa_alliar.mysql.dbaas.com.br", "mapa_alliar", "sqlyt4da51241") or print (mysql_error()); 
-mysql_select_db("mapa_alliar", $conecta) or print(mysql_error()); 
-//$conecta = mysql_connect("localhost", "root", "") or print (mysql_error()); 
-//mysql_select_db("bd_mapa_cdb", $conecta) or print(mysql_error()); 
+//$conecta = mysql_connect("mapa_alliar.mysql.dbaas.com.br", "mapa_alliar", "sqlyt4da51241") or print (mysql_error()); 
+//mysql_select_db("mapa_alliar", $conecta) or print(mysql_error()); 
+$conecta = mysql_connect("localhost", "root", "") or print (mysql_error()); 
+mysql_select_db("bd_mapa_cdb", $conecta) or print(mysql_error()); 
 
 
+
+//RETIRAR CARGOS, AREAS e SETORES 
 $sql = 'SELECT * FROM tb_funcionario WHERE lider = "S"';
 $funcionarios = mysql_query($sql, $conecta);
 

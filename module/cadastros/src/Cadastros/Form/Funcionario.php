@@ -105,7 +105,7 @@
         //obs
         $this->genericTextArea('obs', 'Observações: ', false);
 
-        $this->_addDropdown('ativo', 'Ativo:', false, array('' => '--', 'S' => 'Ativo', 'N' => 'Inativo'));
+        $this->_addDropdown('ativo', 'Ativo:', false, array('S' => 'Ativo', 'N' => 'Inativo'));
         
         $this->setAttributes(array(
             'class'  => 'form-inline'

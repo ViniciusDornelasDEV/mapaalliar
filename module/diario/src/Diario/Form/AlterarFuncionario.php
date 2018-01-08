@@ -68,6 +68,14 @@
         //horario
         $this->genericTextInput('horario', '* Horário:', true);
         
+        //lider_imediato
+        $funcionarios = $this->serviceLocator->get('Funcionario')->getFuncionarios(array('lider' => 'S', 'unidade' => $funcionario['unidade']));
+        $funcionarios = $this->prepareForDropDown($funcionarios, array('id', 'nome'));
+        $this->_addDropdown('lider_imediato', 'Líder imediato:', false, $funcionarios);
+
+        //lider
+        $this->_addDropdown('lider', '* líder:', true, array('' => '--', 'S' => 'Sim', 'N' => 'Não'));
+
         //numero_rp
         $this->genericTextInput('numero_rp', 'Número da RP:', false);
 
@@ -76,6 +84,23 @@
 
         //data_nascimento
         $this->genericTextInput('data_nascimento', 'Data de nascimento:', false);
+
+        //cpf
+        $this->genericTextInput('cpf', 'CPF:', false);
+
+        //login_qmatic
+        $this->genericTextInput('login_qmatic', 'Login QMATIC:', false);
+
+        //login_pleres
+        $this->genericTextInput('login_pleres', 'Login PLERES:', false);
+
+        //login_afip
+        $this->genericTextInput('login_afip', 'Login AFIP:', false);
+        
+        //obs
+        $this->genericTextArea('obs', 'Observações: ', false);
+
+        $this->_addDropdown('ativo', 'Ativo:', false, array('S' => 'Ativo', 'N' => 'Inativo'));
 
         //data_saida
         $this->genericTextInput('data_saida', 'Data de saída:', false);

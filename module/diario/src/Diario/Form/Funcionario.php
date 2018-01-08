@@ -13,7 +13,7 @@
      * @param array $fields
      * @return void
      */
-   public function __construct($name, $serviceLocator, $cadastro = false)
+   public function __construct($name, $serviceLocator, $idUnidade, $cadastro = false)
     {
         if($serviceLocator)
            $this->setServiceLocator($serviceLocator);
@@ -68,14 +68,43 @@
         //horario
         $this->genericTextInput('horario', '* Horário:', true);
 
+
+        //lider_imediato
+        $funcionarios = $this->serviceLocator->get('Funcionario')->getFuncionarios(array('lider' => 'S', 'unidade' => $idUnidade));
+        $funcionarios = $this->prepareForDropDown($funcionarios, array('id', 'nome'));
+        $this->_addDropdown('lider_imediato', 'Líder imediato:', false, $funcionarios);
+
+        //lider
+        $this->_addDropdown('lider', '* líder:', true, array('' => '--', 'S' => 'Sim', 'N' => 'Não'));
+
+
+
+
         //numero_rp
         $this->genericTextInput('numero_rp', 'Número da RP:', false);
 
         //email
-        $this->addEmailElement('emailh xc', 'Email', false);
+        $this->addEmailElement('email', 'Email', false);
 
         //data_nascimento
         $this->genericTextInput('data_nascimento', 'Data de nascimento:', false);
+
+        //cpf
+        $this->genericTextInput('cpf', 'CPF:', false);
+
+        //login_qmatic
+        $this->genericTextInput('login_qmatic', 'Login QMATIC:', false);
+
+        //login_pleres
+        $this->genericTextInput('login_pleres', 'Login PLERES:', false);
+
+        //login_afip
+        $this->genericTextInput('login_afip', 'Login AFIP:', false);
+        
+        //obs
+        $this->genericTextArea('obs', 'Observações: ', false);
+
+        $this->_addDropdown('ativo', 'Ativo:', false, array('S' => 'Ativo', 'N' => 'Inativo'));
 
 
         $this->setAttributes(array(
