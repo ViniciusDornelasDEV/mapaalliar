@@ -25,14 +25,13 @@
             ->prependFile($this->basePath() . '/js/bootstrap.min.js')
             ->prependFile($this->basePath() . '/js/jquery.maskedinput.min.js')
             ->prependFile($this->basePath() . '/js/funcoes.js')
-            ->prependFile($this->basePath() . '/js/jquery.js');
-
+            ->prependFile($this->basePath() . '/js/jquery.js'); 
 
 
     $rota = explode("\\", $this->getHelperPluginManager()->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getParam('controller'));
 
     $action = explode("\\", $this->getHelperPluginManager()->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getParam('action'));
-    
+
     $usuario = $this->getHelperPluginManager()->getServiceLocator()->get('session')->read();
 ?>
 
@@ -59,7 +58,7 @@
                 </div>                
 
                 <div style="height: 891px;" id="page-sidebar">
-                    <div style="height: 891px;" class="">
+                    <div style="height: 891px;" class="scroll-sidebar">
 
 
                         <nav class="navbar navbar-default sidebar" style="width:100%;" role="navigation">
@@ -67,10 +66,13 @@
                             <div class="navbar-header">
                               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
                                 <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
                               </button>      
                             </div>
                             <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-                              <ul class="nav navbar-nav" style="width:100%;">
+                              <ul class="nav navbar-nav">
                                 <li class="<?= $rota[0] == 'Application' ? 'active' : ''; ?>"><a href="<?= $this->url('homeGestor'); ?>">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a></li>
 
                                 <li class="dropdown <?= $rota[0] == 'Mensal' ? 'open' : ''; ?>">
@@ -146,7 +148,7 @@
 
         <div id="page-content-wrapper">
             <div id="page-content" style="margin-top: 0px; min-height: 874px;"> 
-                <div class="container theme-showcase" role="main" style="padding: 0px;">
+                <div class="container theme-showcase" role="main" style="margin-top:100px;padding: 0px;">
                     <?= $this->flashMessenger()->render('error', array('alert', 'alert-danger')) ?>   
 
                     <?= $this->flashMessenger()->render('warning', array('alert',  'alert-warning')) ?>
@@ -170,9 +172,11 @@
 </div>
 
 <script type="text/javascript">
+
     $('#bs-sidebar-navbar-collapse-1').on('hide.bs.dropdown', function () {
         return false;
     });
 </script>
+
 </body>
 </html>
