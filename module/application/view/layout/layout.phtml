@@ -57,11 +57,11 @@
                     </div>
                 </div>                
 
-                <div style="height: 891px;" id="page-sidebar">
-                    <div style="height: 891px;" class="scroll-sidebar">
+                <div id="page-sidebar">
+                    <div class="scroll-sidebar">
 
 
-                        <nav class="navbar navbar-default sidebar" style="width:100%;" role="navigation">
+                        <nav class="navbar navbar-default sidebar" role="navigation">
                             <div class="container-fluid">
                             <div class="navbar-header">
                               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
@@ -164,7 +164,6 @@
                 </div>
 
         <div id="page-content-wrapper">
-            <div id="page-content" style="margin-top: 0px; min-height: 874px;"> 
                 <div class="container theme-showcase" role="main" style="margin-top:100px;padding: 0px;">
                     <?= $this->flashMessenger()->render('error', array('alert', 'alert-danger')) ?>   
 
@@ -176,8 +175,7 @@
         <?php echo $this->content; ?>
 
 
-
-  </div>            
+      
         </div>
 
 
