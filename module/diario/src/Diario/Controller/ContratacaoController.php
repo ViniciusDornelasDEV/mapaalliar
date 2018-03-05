@@ -47,6 +47,8 @@ class ContratacaoController extends BaseController
         $formPesquisa = new formPesquisa('frmFuncionario', $this->getServiceLocator());
 
         $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+
+        
         $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
         
         $usuario = $this->getServiceLocator()->get('session')->read();

@@ -7,6 +7,7 @@ use Zend\View\Model\ViewModel;
 
 use Zend\Paginator\Paginator;
 use Zend\Paginator\Adapter\ArrayAdapter;
+use Zend\Session\Container;
 
 use Cadastros\Form\PesquisarFuncionario as formPesquisa;
 use Cadastros\Form\Funcionario as formFuncionario;
@@ -44,6 +45,7 @@ class FuncionarioController extends BaseController
         $formPesquisa = new formPesquisa('frmFuncionario', $this->getServiceLocator());
 
         $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+        
         $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
         $funcionarios = $serviceFuncionario->getFuncionarios($this->sessao->parametros[$rota])->toArray();
         

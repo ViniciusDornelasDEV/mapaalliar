@@ -46,6 +46,7 @@
         //funcao
         $this->_addDropdown('funcao', 'Função:', false, array('' => 'Selecione um setor'));
 
+        $this->_addDropdown('ativo', 'Ativo:', false, array('' => '--', 'S' => 'Ativo', 'N' => 'Inativo'));
         //tipo_contratacao
         /*$tiposContratacao = array('' => '-- Selecione --', 'Interna' => 'Interna', 'Externa' => 'Externa');
         $this->_addDropdown('tipo_contratacao', 'Tipo de contratação:', false, $tiposContratacao);
