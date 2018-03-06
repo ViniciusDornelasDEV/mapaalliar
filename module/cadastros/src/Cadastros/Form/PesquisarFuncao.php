@@ -38,10 +38,20 @@
         
     }
 
-    public function setSetorByArea($idArea){
+    public function setSetorByArea($idArea, $todos = 'N'){
         //buscar setores
         $setores = $this->serviceLocator->get('Setor')->getSetores(array('area' => $idArea));
-        $setores = $this->prepareForDropDown($setores, array('id', 'nome'));
+
+        $preparedArray = array('' => '-- selecione --');
+        if($todos == 'S'){
+            $preparedArray['T'] = 'Todos';
+        }
+
+        if($idArea == 'T'){
+            $preparedArray = array('T' => 'Todos');
+        }
+
+        $setores = $this->prepareForDropDown($setores, array('id', 'nome'), $preparedArray);
 
         //Setando valores
         $setores = $this->get('setor')->setAttribute('options', $setores);

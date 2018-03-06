@@ -1,3 +1,4 @@
+<div class="container theme-showcase" role="main" style="width:80%;margin-left: 15%;">
 <?php
 	$diasSemana = array('D', 'S', 'T', 'Q', 'Q', 'S', 'S');
 	$ultimoDia = date("t", mktime(0,0,0,$escala['mes'],'01',$escala['ano']));	
@@ -16,10 +17,10 @@
             <form name="frmEscala" action="" method="POST">
             <table class="table">
                   <tr>
-                    <th style="text-align: center;background-color:#333f4f;color:#ffffff;" colspan="<?php echo 4 + $ultimoDia; ?>"><?= $escala['mes'].'/'.$escala['ano'] ?></th>
+                    <th style="text-align: center;background-color:#333f4f;color:#ffffff;" colspan="<?php echo 5 + $ultimoDia; ?>"><?= $escala['mes'].'/'.$escala['ano'] ?></th>
                 </tr>
                 <tr>
-                    <th style="text-align: center; background-color:#305496; color:#ffffff;" colspan="4"></th>
+                    <th style="text-align: center; background-color:#305496; color:#ffffff;" colspan="5"></th>
 	            	<?php 
 		            	$numeroDia = date('w', strtotime($escala['ano'].'-'.$escala['mes'].'-'.'01'));
 		            	
@@ -36,6 +37,7 @@
             		<?php endfor; ?>
                 </tr>
             	<tr>
+                  <td style="text-align: center; background-color:#305496; color:#ffffff;">Registro profissional</td>
               		<td style="text-align: center; background-color:#305496; color:#ffffff;">Nome</td>
               		<td style="text-align: center; background-color:#305496; color:#ffffff;">Cargo</td>
               		<td style="text-align: center; background-color:#305496; color:#ffffff;">Horário</td>
@@ -51,6 +53,7 @@
                 ?>
               	<?php foreach ($escalas as $escalaFunc): ?>
               		<tr>
+                    <td style="text-align: center"><?= $escalaFunc['registro_profissional'] ?></td>
 	              		<td style="text-align: center"><?= $escalaFunc['nome'] ?></td>
 	              		<td style="text-align: center"><?= $escalaFunc['nome_funcao'] ?></td>
 	              		<td style="text-align: center"><?= substr($escalaFunc['inicio_turno'], 0, -3).' - '.substr($escalaFunc['fim_turno'], 0, -3) ?></td>
@@ -91,7 +94,9 @@
               		</tr>
               	<?php endforeach; ?>
             </table>
+          </div>
 
+          <div class="container theme-showcase" role="main" style="width:80%;margin-left: 15%;">
             <table style="border:none;">
               <tr style="border:none;">
                 <td style="border:none;width:30px;background-color:#dff0d8;"></td>
@@ -122,10 +127,10 @@
 
             </form>
 
-            <div class="container theme-showcase" role="main">
-            </div>
             <br>
-            
+            </div>
+
+            <div class="container theme-showcase" role="main" style="width:80%;margin-left: 15%;margin-top:10px;">            
             <div class="panel panel-default">
               <div class="panel-heading">
                   <h3 class="panel-title">Vincular arquivo</h3>
@@ -147,7 +152,7 @@
               </div>
             </div>
             <?php endif; ?>
-         
+         </div>
 
     
 <style type="text/css">

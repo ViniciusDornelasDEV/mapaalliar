@@ -1,3 +1,11 @@
+<?php if($erro): ?>
+<div class="container theme-showcase" role="main" style="margin-top:100px;padding: 0px;">
+  <div class="alert alert-danger">
+    Ocorreu algum erro, por favor tente novamente!
+  </div>
+</div>
+<?php endif; ?>
+
  <div class="container theme-showcase" role="main" style="margin-bottom:10px;padding:0px;">
       <button type="button" class="btn btn-default" onclick="location.href='<?= $this->url('novoPeriodo'); ?>'" style="float: right;">
       <img src="<?php echo $this->basePath('img/novo.png') ?>" alt="Novo">

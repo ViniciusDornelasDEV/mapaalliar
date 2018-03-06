@@ -41,16 +41,20 @@ class AvaliacaoController extends BaseController
 
     public function novoperiodoAction(){
         $formPilha = new formPeriodo('frmPilha', $this->getServiceLocator());
-
+        $erro = false;
         if($this->getRequest()->isPost()){
             $formPilha->setData($this->getRequest()->getPost());
             if($formPilha->isValid()){
-                $idPilha = $this->getServiceLocator()->get('PilhaAvaliacoes')->insert($formPilha->getData());
-                $this->flashMessenger()->addSuccessMessage('Período de avaliação incluído com sucesso!');
-                return $this->redirect()->toRoute('listarPeriodo');
+                if($this->getServiceLocator()->get('PilhaAvaliacoes')->insert($formPilha->getData())){
+                    $this->flashMessenger()->addSuccessMessage('Período de avaliação incluído com sucesso!');
+                    return $this->redirect()->toRoute('listarPeriodo');
+                }else{
+                    $erro = true;
+                    $formPilha->setData($this->getRequest()->getPost());
+                }
             }
         }
-        return new ViewModel(array('formPilha' => $formPilha));
+        return new ViewModel(array('formPilha' => $formPilha, 'erro' => $erro));
     }
 
     public function alterarperiodoAction(){

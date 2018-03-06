@@ -84,29 +84,74 @@ class PilhaAvaliacoes Extends BaseTable {
     }
 
     public function insert($dados){
-        if($dados['referencia'] == 4){
-            //transaction
-            $adapter = $this->getTableGateway()->getAdapter();
-            $connection = $adapter->getDriver()->getConnection();
-            $connection->beginTransaction();
+        $adapter = $this->getTableGateway()->getAdapter();
+        $connection = $adapter->getDriver()->getConnection();
+        $connection->beginTransaction();
+        
+        $setores = false;
+        $tbSetor = new TableGateway('tb_setor', $adapter);
+        if($dados['area'] == 'T'){
+            //pesquisar todos os setores do sistema e inserir
+            $setores = $tbSetor->select();
+        }else{
+            if($dados['setor'] == 'T'){
+                //pesquisar todos os setores da área selecionada
+                $setores = $tbSetor->select(array('area' => $dados['area']));
+            }
+        }
+        
+        if($setores){
             try {
-                $dados['referencia'] = 1;
-                parent::insert($dados);
+                foreach ($setores as $setor) {
+                    $dados['setor'] = $setor['id'];
+                    if($dados['referencia'] == 4){
+                        //transaction
+                        $dados['referencia'] = 1;
+                        parent::insert($dados);
 
-                $dados['referencia'] = 2;
-                parent::insert($dados);
+                        $dados['referencia'] = 2;
+                        parent::insert($dados);
 
-                $dados['referencia'] = 3;
-                parent::insert($dados);    
+                        $dados['referencia'] = 3;
+                        parent::insert($dados);
+
+                        $dados['referencia'] = 4;
+                    }else{
+                        parent::insert($dados);
+                    }
+                }
                 $connection->commit();
                 return true;
-            }catch (Exception $e) {
+            } catch (Exception $e) {
                 $connection->rollback();
                 return false;
             }
         }else{
-            return parent::insert($dados);
+            if($dados['referencia'] == 4){
+                //transaction
+                try {
+                    $dados['referencia'] = 1;
+                    parent::insert($dados);
+
+                    $dados['referencia'] = 2;
+                    parent::insert($dados);
+
+                    $dados['referencia'] = 3;
+                    parent::insert($dados);    
+                    $connection->commit();
+                    return true;
+                }catch (Exception $e) {
+                    $connection->rollback();
+                    return false;
+                }
+            }else{
+                parent::insert($dados);
+                $connection->commit();
+                return true;
+            }   
         }
+
+        
     }
 
 

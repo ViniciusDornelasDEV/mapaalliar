@@ -14,6 +14,7 @@ use Cadastros\Form\Funcionario as formFuncionario;
 use Cadastros\Form\VincularGestor as formGestor;
 use Cadastros\Form\AlterarFuncionario as formAlterarFuncionario;
 use Cadastros\Form\ImportarFuncionario as formImportacao;
+use Cadastros\Form\MudarGestor as formMudarGestor;
 
 class FuncionarioController extends BaseController
 {
@@ -157,6 +158,40 @@ class FuncionarioController extends BaseController
             $this->flashMessenger()->addErrorMessage('Ocorreu algum erro ao desvincular gestor, por favor tente novamente!');
         }
         return $this->redirect()->toRoute('alterarFuncionario', array('id' => $idFuncionario));
+    }
+
+    public function trocargestorAction(){
+        $formGestor = new formMudarGestor('frmGestor', $this->getServiceLocator());
+
+        if($this->getRequest()->isPost()){
+            $formGestor->setData($this->getRequest()->getPost());
+            if($formGestor->isValid()){
+                if($this->getServiceLocator()->get('Funcionario')->trocarGestor($formGestor->getData())){
+                    //sucesso!
+                    $this->flashMessenger()->addSuccessMessage('Gestor alterado com sucesso!');
+                }else{
+                    //erro!
+                    $this->flashMessenger()->addErrorMessage('Ocorreu algum erro ao alterar gestor!');
+                }
+                return $this->redirect()->toRoute('trocarGestor');
+            }
+        }
+
+        return new ViewModel(array(
+                'formGestor'    =>  $formGestor
+            ));
+    }
+
+    public function carregartrocagestorAction(){
+        $params = $this->getRequest()->getPost();
+        //instanciar form
+        $formGestor = new formMudarGestor('frmGestor', $this->getServiceLocator());
+        $lideres = $formGestor->setLiderByLider($params->gestor);
+        
+        $view = new ViewModel();
+        $view->setTerminal(true);
+        $view->setVariables(array('lider' => $lideres));
+        return $view;
     }
 
     public function carregarfuncaoAction(){

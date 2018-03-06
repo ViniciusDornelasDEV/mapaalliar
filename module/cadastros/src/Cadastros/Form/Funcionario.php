@@ -102,6 +102,9 @@
         //login_afip
         $this->genericTextInput('login_afip', 'Login AFIP:', false);
         
+        //registro_profissional
+        $this->genericTextInput('registro_profissional', 'Registro profissional:', false);
+
         //obs
         $this->genericTextArea('obs', 'Observações: ', false);
 

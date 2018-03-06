@@ -223,6 +223,17 @@ return array(
                     ),
                 ),
             ),
+            'trocarGestor' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/funcionario/gestor/mudar',
+                    'defaults' => array(
+                        'controller' => 'Cadastros\Controller\Funcionario',
+                        'action'     => 'trocargestor',
+                    ),
+                ),
+            ),
+
             'carregarFuncao' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
@@ -250,6 +261,17 @@ return array(
                     'defaults' => array(
                         'controller' => 'Cadastros\Controller\Funcionario',
                         'action'     => 'carregarlider',
+                    ),
+                ),
+            ),
+
+            'carregarTrocaGestor' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/lider/troca/carregar',
+                    'defaults' => array(
+                        'controller' => 'Cadastros\Controller\Funcionario',
+                        'action'     => 'carregartrocagestor',
                     ),
                 ),
             ),

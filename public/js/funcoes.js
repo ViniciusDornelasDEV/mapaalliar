@@ -1,6 +1,6 @@
-function carregarSetor(area, tipo){
+function carregarSetor(area, tipo, todos = "N"){
     $('#area').attr('disabled', 'disabled');
-    var data = {area: area, tipo: tipo};
+    var data = {area: area, tipo: tipo, todos: todos};
     $.ajax({
         type: "POST",
         url: "/setor/carregar",
@@ -64,6 +64,20 @@ function carregarLider(unidade){
         success: function(html) {
             $('#lider_imediato').html(html);
             $('#unidade').removeAttr('disabled');       
+        }
+    });
+}
+
+function trocarLider(gestor){
+    $('#lider_imediato').attr('disabled', 'disabled');
+    var data = {gestor: gestor};
+    $.ajax({
+        type: "POST",
+        url: "/lider/troca/carregar",
+        data: data,
+        success: function(html) {
+            $('#novo_lider').html(html);
+            $('#lider_imediato').removeAttr('disabled');       
         }
     });
 }

@@ -99,7 +99,12 @@ class FuncaoController extends BaseController
         }else{
             $formFuncao = new formPesquisa('frmFuncao', $this->getServiceLocator());
         }
-        $setor = $formFuncao->setSetorByArea($params->area);
+
+        if(isset($params->todos) && $params->todos == 'S'){
+            $setor = $formFuncao->setSetorByArea($params->area, 'S');
+        }else{
+            $setor = $formFuncao->setSetorByArea($params->area);
+        }
         
         $view = new ViewModel();
         $view->setTerminal(true);
