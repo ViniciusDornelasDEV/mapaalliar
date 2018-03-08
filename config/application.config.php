@@ -16,7 +16,8 @@ return  array(
         'diario',
         'avaliacoes',
         'semanal',
-        'ZF2Excel'
+        'ZF2Excel',
+        'DOMPDFModule'
     ),
     'module_listener_options' => array(
         'module_paths' => array(

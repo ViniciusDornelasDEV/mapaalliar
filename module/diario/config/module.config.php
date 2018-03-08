@@ -40,16 +40,29 @@ return array(
                 ),
             ),
             //CONTROLE DE AJUDAS
-            'listarAjuda' => array(
+            'ajudaSolicitada' => array(
                 'type' => 'Zend\Mvc\Router\Http\Segment',
                 'options' => array(
-                    'route'    => '/ajudas[/:page]',
+                    'route'    => '/ajudas/solicitadas[/:page]',
                     'constraints' => array(
                         'page'     => '[0-9]+',
                     ),
                     'defaults' => array(
                         'controller' => 'Diario\Controller\Ajuda',
-                        'action'     => 'index',
+                        'action'     => 'ajudasolicitada',
+                    ),
+                ),
+            ),
+            'ajudaRecebida' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/ajudas/recebidas[/:page]',
+                    'constraints' => array(
+                        'page'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Diario\Controller\Ajuda',
+                        'action'     => 'ajudarecebida',
                     ),
                 ),
             ),

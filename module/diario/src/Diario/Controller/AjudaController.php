@@ -32,15 +32,55 @@ class AjudaController extends BaseController
 
     
 
-    public function indexAction(){
+    public function ajudasolicitadaAction(){
         $this->layout('layout/gestor');
     	$serviceAjuda = $this->getServiceLocator()->get('Ajuda');
+        
+        $usuario = $this->getServiceLocator()->get('session')->read();
+        $funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($usuario['funcionario']);
+        $formPesquisa = new formPesquisa('frmAjuda', $this->getServiceLocator(), $usuario);
+
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+    	$formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+
+        //pesquisar ajudas solicitadas pela unidade do gestor
+        $this->sessao->parametros[$rota]['unidade_destino'] = $funcionario['unidade'];
+        $ajudas = $serviceAjuda->getAjudas($this->sessao->parametros[$rota])->toArray();
+        
+        foreach ($ajudas as $key => $ajuda) {
+            $ajudas[$key]['data_inicio'] = $formPesquisa->converterData($ajuda['data_inicio']);
+            $ajudas[$key]['data_fim'] = $formPesquisa->converterData($ajuda['data_fim']);
+        }
+
+        if($this->getRequest()->isPost()){
+            $dados = $this->getRequest()->getPost();
+            if(isset($dados->exportar)){
+                parent::gerarExcel($this->campos, $ajudas, 'Ajuda');
+            }
+        }
+        
+        $paginator = new Paginator(new ArrayAdapter($ajudas));
+        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setItemCountPerPage(10);
+        $paginator->setPageRange(5);
+        
+        return new ViewModel(array(
+                                'ajudas'         => $paginator,
+                                'formPesquisa'  => $formPesquisa
+                            ));
+    }
+
+    public function ajudarecebidaAction(){
+        $this->layout('layout/gestor');
+        $serviceAjuda = $this->getServiceLocator()->get('Ajuda');
         
         $usuario = $this->getServiceLocator()->get('session')->read();
         $formPesquisa = new formPesquisa('frmAjuda', $this->getServiceLocator(), $usuario);
 
         $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
-    	$formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+
+        //pesquisar ajudas solicitadas pela unidade do gestor
         $ajudas = $serviceAjuda->getAjudas($this->sessao->parametros[$rota], $usuario['funcionario'])->toArray();
         
         foreach ($ajudas as $key => $ajuda) {
@@ -96,9 +136,15 @@ class AjudaController extends BaseController
         $ajuda = $serviceAjuda->getAjuda($idAjuda);
         if(!$ajuda){
             $this->flashMessenger()->addWarningMessage('Ajuda não encontrada!');
-            return $this->redirect()->toRoute('listarAjuda');
+            return $this->redirect()->toRoute('ajudaSolicitada');
         }
 
+        //verificar se unidade destino é a mesma do gestor
+        $funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($usuario['funcionario']);
+        if($ajuda->unidade_destino != $funcionario['unidade']){
+            $this->flashMessenger()->addWarningMessage('Não é possível alterar uma ajuda solicitada por outra unidade!');
+            return $this->redirect()->toRoute('ajudaSolicitada');
+        }
         $formAjuda->setData($ajuda);
         
         if($this->getRequest()->isPost()){
@@ -141,7 +187,7 @@ class AjudaController extends BaseController
         $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
         $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
         $ajudas = $serviceAjuda->getAjudas($this->sessao->parametros[$rota])->toArray();
-        
+
         foreach ($ajudas as $key => $ajuda) {
             $ajudas[$key]['data_inicio'] = $formPesquisa->converterData($ajuda['data_inicio']);
             $ajudas[$key]['data_fim'] = $formPesquisa->converterData($ajuda['data_fim']);

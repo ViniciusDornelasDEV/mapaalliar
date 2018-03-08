@@ -94,6 +94,19 @@ return array(
                     ),
                 ),
             ),
+           'exportarAvaliacao' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/avaliacoes/exportar[/:id]',
+                    'constraints' => array(
+                        'id'        => '[0-9]+'
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Avaliacoes\Controller\Avaliacao',
+                        'action'     => 'exportaravaliacao',
+                    ),
+                ),
+            ),
            //admin
            'listarAvaliacoesRespondidasAdmin' => array(
                 'type' => 'Zend\Mvc\Router\Http\Segment',

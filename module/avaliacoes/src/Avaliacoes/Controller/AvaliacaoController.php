@@ -7,6 +7,7 @@ use Zend\View\Model\ViewModel;
 
 use Zend\Paginator\Paginator;
 use Zend\Paginator\Adapter\ArrayAdapter;
+use DOMPDFModule\View\Model\PdfModel;
 
 use Avaliacoes\Form\PesquisarPeriodo as formPesquisaPeriodo;
 use Avaliacoes\Form\Periodo as formPeriodo;
@@ -272,6 +273,45 @@ class AvaliacaoController extends BaseController
                 'formAvaliacao' =>  $formAvaliacao,
                 'avaliacao'     =>  $avaliacao,
             ));
+    }
+
+    public function exportaravaliacaoAction(){
+        $pdf = new PdfModel();
+        $pdf->setOption('filename', 'orcamento'); // Triggers PDF download, automatically appends ".pdf"
+        $pdf->setOption('paperSize', 'a4'); // Defaults to "8x11"
+        $pdf->setOption('paperOrientation', 'landscape'); // Defaults to "portrait"
+
+        //pesquisar orçamento e funcionalidades
+        $idOrcamento = $this->params()->fromRoute('id');
+        
+        //pesquisar orçamento
+        $orcamento = $this->getServiceLocator()->get('Orcamento')->getRecord($idOrcamento);
+
+        //pegar usuário logado
+        $usuario = $this->getServiceLocator()->get('session')->read();
+
+        //se for cliente e o orçamento não for da empresa dele retorna para a listagem de orçamentos
+        if($usuario['id_usuario_tipo'] != 1 && $orcamento['cliente'] != $usuario['cliente']){
+            $this->flashMessenger()->addWarningMessage('Orçamento não encontrado!');
+        }
+
+        //pesquisar funcionalidades
+        $funcionalidades = $this->getServiceLocator()->get('Funcionalidade')->getRecordsFromArray(array('orcamento' => $idOrcamento, 'ativo' => 'S'));
+
+
+        // To set view variables
+        $pdf->setVariables(array(
+            'funcionalidades'   => $funcionalidades,
+            'orcamento'         => $orcamento
+        ));
+
+        /*$view = new ViewModel(array(
+            'formOrcamento'     => $formOrcamento,
+            'funcionalidades'   => $funcionalidades,
+            'orcamento'         => $orcamento
+        ));
+        return $view;*/
+        return $pdf;
     }
 
 }

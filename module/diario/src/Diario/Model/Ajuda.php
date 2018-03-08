@@ -84,6 +84,9 @@ class Ajuda Extends BaseTable {
                     $select->where->between('tb_ajuda.data_inicio', $params['inicio'], $params['fim']);
                 }
 
+                if(isset($params['unidade_destino']) && !empty($params['unidade_destino'])){
+                    $select->where(array('unidade_destino' => $params['unidade_destino']));
+                }
 
             }
             

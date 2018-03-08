@@ -3,13 +3,22 @@
     <div class="container theme-showcase" role="main" style="margin-bottom:10px;padding:0px;">
       <button type="button" class="btn btn-default" onclick="location.href='<?= $this->url('novoAjuda'); ?>'" style="float: right;">
       <img src="<?php echo $this->basePath('img/novo.png') ?>" alt="Novo">
-      Nova ajuda</button>
+      Solicitar ajuda</button>
+
+      <button type="button" class="btn btn-info disabled" style="float: right;margin-right: 10px;">
+      <img src="<?php echo $this->basePath('img/recebida.png') ?>" alt="Ajudas enviadas">
+      Ajudas enviadas</button>
+
+      <button type="button" class="btn btn-success" onclick="location.href='<?= $this->url('ajudaSolicitada'); ?>'" style="float: right;margin-right: 10px;">
+      <img src="<?php echo $this->basePath('img/solicitada.png') ?>" alt="Ajudas requisitadas">
+      Ajudas requisitadas</button>
 
       <div style="float:left;">
         <span><img src="<?= $this->basePath('img/verde.png'); ?>"> Ajuda realizada</span>
         <span style="margin-left:5px;"><img src="<?= $this->basePath('img/amarelo.png'); ?>"> Realizando ajuda</span>
         <span style="margin-left:5px;"><img src="<?= $this->basePath('img/vermelho.png'); ?>"> Ajuda a realizar</span>
       </div>
+
     </div>
     <div class="container theme-showcase" role="main">
       <div class="row">
@@ -29,7 +38,6 @@
                     <th style="text-align: center">Início</th>
                     <th style="text-align: center">Término</th>
                     <th style="text-align: center">Horário</th>
-                    <th style="text-align: center">Ações</th>
                 </tr>
                 <?php foreach($ajudas as $ajuda): ?>
                 <tr>
@@ -45,11 +53,6 @@
                   <td style="text-align: center"><?= $ajuda['data_fim']; ?></td>
                   <td style="text-align: center"><?= $ajuda['hora_inicio'].' - '.$ajuda['hora_fim']; ?></td>
                   
-                  <td style="text-align: center;">
-                    <img src="<?= $this->basePath('img/editar.png'); ?>" title="Editar" 
-                    onclick="location.href='<?= $this->url('alterarAjuda', array('id' => $ajuda['id'])); ?>'" style="cursor: pointer;">
-
-                  </td>
                 </tr>
                 <?php endforeach; ?>
               </table>
@@ -65,7 +68,7 @@
         <div style="float:right;">
           <?php echo $this->paginationControl($ajudas,
                                         'Sliding',
-                                        'view/paginator', array('route' => 'listarAjuda')); 
+                                        'view/paginator', array('route' => 'ajudaSolicitada')); 
           ?>
         </div>
       </div>

@@ -67,9 +67,17 @@ class AusenciaController extends BaseController
         $formAusencia = new formAusencia('frmAusencia', $this->getServiceLocator(), $usuario);
 
         if($this->getRequest()->isPost()){
-            $formAusencia->setData($this->getRequest()->getPost());
+            $files = $this->getRequest()->getfiles()->toArray();
+            $dados = $this->getRequest()->getPost();
+            $formAusencia->setData($dados);
             if($formAusencia->isValid()){
-                $idAusencia = $this->getServiceLocator()->get('Ausencia')->insert($formAusencia->getData());
+                $dados = $formAusencia->getData();
+                //se tiver imagem fazer upload
+                if(isset($files['atestado'])){
+                    $dir = 'public/arquivos/ausencias';
+                    $dados = $this->uploadImagem($files, $dir, $dados);
+                }
+                $idAusencia = $this->getServiceLocator()->get('Ausencia')->insert($dados);
                 $this->flashMessenger()->addSuccessMessage('Ausência incluída com sucesso!');
                 return $this->redirect()->toRoute('alterarAusencia', array('id' => $idAusencia));
             }
@@ -96,7 +104,15 @@ class AusenciaController extends BaseController
         if($this->getRequest()->isPost()){
             $formAusencia->setData($this->getRequest()->getPost());
             if($formAusencia->isValid()){
+                $files = $this->getRequest()->getfiles()->toArray();
                 $dados = $formAusencia->getData();
+                unset($dados['atestado']);
+
+                if(isset($files['atestado']) && !empty($files['atestado']['name'])){
+                    $dir = 'public/arquivos/ausencias';
+                    $dados = $this->uploadImagem($files, $dir, $dados);
+                }
+
                 unset($dados['funcionario']);
                 $serviceAusencia->update($dados, array('id' => $idAusencia));
                 $this->flashMessenger()->addSuccessMessage('Ausência alterada com sucesso!');
@@ -132,7 +148,7 @@ class AusenciaController extends BaseController
                 parent::gerarExcel($this->campos, $ausencias, 'Ausências');
             }
         }
-        
+
         $paginator = new Paginator(new ArrayAdapter($ausencias));
         $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
         $paginator->setItemCountPerPage(10);
@@ -151,7 +167,15 @@ class AusenciaController extends BaseController
         if($this->getRequest()->isPost()){
             $formAusencia->setData($this->getRequest()->getPost());
             if($formAusencia->isValid()){
-                $idAusencia = $this->getServiceLocator()->get('Ausencia')->insert($formAusencia->getData());
+                $dados = $formAusencia->getData();
+                
+                $files = $this->getRequest()->getfiles()->toArray();
+                if(isset($files['atestado'])){
+                    $dir = 'public/arquivos/ausencias';
+                    $dados = $this->uploadImagem($files, $dir, $dados);
+                }
+
+                $idAusencia = $this->getServiceLocator()->get('Ausencia')->insert($dados);
                 $this->flashMessenger()->addSuccessMessage('Ausência incluída com sucesso!');
                 return $this->redirect()->toRoute('alterarAusenciaAdmin', array('id' => $idAusencia));
             }
@@ -179,6 +203,15 @@ class AusenciaController extends BaseController
             if($formAusencia->isValid()){
                 $dados = $formAusencia->getData();
                 unset($dados['funcionario']);
+                unset($dados['atestado']);
+
+                if(isset($files['atestado']) && !empty($files['atestado']['name'])){
+                    $dir = 'public/arquivos/ausencias';
+                    $dados = $this->uploadImagem($files, $dir, $dados);
+                }
+
+                $files = $this->getRequest()->getfiles()->toArray();
+
                 $serviceAusencia->update($dados, array('id' => $idAusencia));
                 $this->flashMessenger()->addSuccessMessage('Ausência alterada com sucesso!');
                 return $this->redirect()->toRoute('alterarAusenciaAdmin', array('id' => $idAusencia));

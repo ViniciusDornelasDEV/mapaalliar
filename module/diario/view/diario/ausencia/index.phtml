@@ -34,6 +34,11 @@
                   <td style="text-align: center"><?= $ausencia['nome_funcionario']; ?></td>
                   <td style="text-align: center"><?= $ausencia['data']; ?></td>
                   <td style="text-align: center;">
+                    <?php if(!empty($ausencia['atestado'])): ?>
+                        <img src="<?= $this->basePath('img/download.png') ?>" title="Download" onclick="location.href='<?= $this->url('download', array('id' => $ausencia['id'], 'service' => 'Ausencia', 'campo' => 'atestado')); ?>'" style="cursor: pointer;">
+                      
+                      <span style="margin-right:4px;"></span>
+                    <?php endif; ?>
                     <img src="<?= $this->basePath('img/editar.png'); ?>" title="Editar" 
                     onclick="location.href='<?= $this->url('alterarAusencia', array('id' => $ausencia['id'])); ?>'" style="cursor: pointer;">
 

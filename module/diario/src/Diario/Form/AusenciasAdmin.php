@@ -30,6 +30,12 @@ use Application\Form\NovoAdmin as BaseForm;
         //motivo
         $this->genericTextInput('motivo', 'Motivo da ausência:', false);
 
+        //cid
+        $this->genericTextInput('cid', 'CID:', false);
+        
+        //atestado
+        $this->addFileInput('atestado', 'Upload do atestado: ', false);
+        
         $this->setAttributes(array(
             'role'   => 'form'
         ));
