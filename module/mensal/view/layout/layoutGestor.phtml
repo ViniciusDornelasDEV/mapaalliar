@@ -11,6 +11,7 @@
 
 <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
                 ->prependStylesheet($this->basePath() . '/css/bootstrap.css')
+                ->prependStylesheet($this->basePath() . '/css/jquery-ui.css')
                 ->prependStylesheet($this->basePath() . '/css/backgrounds.css')
                 ->prependStylesheet($this->basePath() . '/css/layout.css')
                 ->prependStylesheet($this->basePath() . '/css/menu.css')
@@ -18,6 +19,8 @@
 
 
                 <?php echo $this->headScript()
+            ->prependFile($this->basePath() . '/js/ui.datepicker-pt-BR.js')
+            ->prependFile($this->basePath() . '/js/jquery-ui.min.js')
             ->prependFile($this->basePath() . '/js/fullcalendar/pt-br.js')
             ->prependFile($this->basePath() . '/js/fullcalendar.js')
             ->prependFile($this->basePath() . '/js/moment.js')

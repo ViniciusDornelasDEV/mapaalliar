@@ -276,10 +276,12 @@ function canvasToPng(nomeImagem){
     });
 }
 
-function check(id){
+function check(id){    
     if($(id).is(':checked')){
         $(id).prop('checked', false);
     }else{
         $(id).prop('checked', true);
     }
 }
+
+

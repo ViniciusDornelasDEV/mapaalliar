@@ -1,0 +1,20 @@
+<div class="container theme-showcase" role="main" style="margin-bottom:10px;padding:0px;">
+
+                <div class="panel">
+                    <div class="panel-body">
+                        <h2 style="" class="title-hero">
+                            Avaliação de desempenho - <?= strtoupper($avaliacao['nome_referencia']); ?> 
+                            (<?= $this->converterData($avaliacao['referencia_inicio']) ?> a <?= $this->converterData($avaliacao['referencia_fim']) ?>)
+                        </h2>                                
+                            <h3 style="" class="title-hero">
+                                <?= $avaliacao['nome_setor'] ?>
+                            </h3>
+                            <h3 style="" class="title-hero">
+                                <?= $avaliacao['nome_funcionario'] ?>
+                            </h3>
+                            <?php echo $this->partial('form/avaliacao', array('form'=> $formAvaliacao, 'nova'=> 'listarAvaliacoesRespondidas',
+                            'relatorio' => true)) ?>           
+                    </div>
+                </div>
+        </div>
+

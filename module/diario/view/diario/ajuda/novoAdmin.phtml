@@ -30,6 +30,10 @@
       $(document).ready(function() {
         $("#data_inicio").mask("99/99/9999");
         $("#data_fim").mask("99/99/9999");
+
+        $("#data_inicio").datepicker();
+        $("#data_fim").datepicker();
+
         $("#hora_inicio").mask("99:99");
         $("#hora_fim").mask("99:99");
       });

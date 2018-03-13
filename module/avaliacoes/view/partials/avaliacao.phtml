@@ -576,13 +576,15 @@
     </div>
 </div>
 <?php else: ?>
-<div class="row form-group">
-    <div class="col-sm-12">
-            <button type="button" onclick="location.href='<?= $this->url($nova); ?>'" style="width:100%;" class="btn btn-default">
-                <img src="<?= $this->basePath('img/voltar64.png');?>"> 
-                Voltar
-            </button>
-    </div>
-</div>
+    <?php if(!isset($relatorio)): ?>
+        <div class="row form-group">
+            <div class="col-sm-12">
+                    <button type="button" onclick="location.href='<?= $this->url($nova); ?>'" style="width:100%;" class="btn btn-default">
+                        <img src="<?= $this->basePath('img/voltar64.png');?>"> 
+                        Voltar
+                    </button>
+            </div>
+        </div>
+    <?php endif; ?>
 <?php endif; ?>
 <?= $this->form()->closeTag($form); ?>

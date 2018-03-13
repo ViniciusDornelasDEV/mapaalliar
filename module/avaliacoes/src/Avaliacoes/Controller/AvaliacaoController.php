@@ -277,40 +277,43 @@ class AvaliacaoController extends BaseController
 
     public function exportaravaliacaoAction(){
         $pdf = new PdfModel();
-        $pdf->setOption('filename', 'orcamento'); // Triggers PDF download, automatically appends ".pdf"
+        $pdf->setOption('filename', 'avaliacao'); // Triggers PDF download, automatically appends ".pdf"
         $pdf->setOption('paperSize', 'a4'); // Defaults to "8x11"
         $pdf->setOption('paperOrientation', 'landscape'); // Defaults to "portrait"
 
-        //pesquisar orçamento e funcionalidades
-        $idOrcamento = $this->params()->fromRoute('id');
-        
-        //pesquisar orçamento
-        $orcamento = $this->getServiceLocator()->get('Orcamento')->getRecord($idOrcamento);
+        $idAvaliacao = $this->params()->fromRoute('id');
+        $avaliacao = $this->getServiceLocator()->get('Avaliacao')->getAvaliacao($idAvaliacao);
 
-        //pegar usuário logado
         $usuario = $this->getServiceLocator()->get('session')->read();
+        if(!$avaliacao){
+            $this->flashMessenger()->addWarningMessage('Avaliação não encontrada!');
 
-        //se for cliente e o orçamento não for da empresa dele retorna para a listagem de orçamentos
-        if($usuario['id_usuario_tipo'] != 1 && $orcamento['cliente'] != $usuario['cliente']){
-            $this->flashMessenger()->addWarningMessage('Orçamento não encontrado!');
+            if($usuario['id_usuario_tipo'] == 1){
+                return $this->redirect()->toRoute('listarAvaliacoesRespondidasAdmin');
+            }else{
+                return $this->redirect()->toRoute('listarAvaliacoesResponder'); 
+            }
         }
 
-        //pesquisar funcionalidades
-        $funcionalidades = $this->getServiceLocator()->get('Funcionalidade')->getRecordsFromArray(array('orcamento' => $idOrcamento, 'ativo' => 'S'));
+        if($usuario['id_usuario_tipo'] == 2){
+            $funcionario = $this->getServiceLocator()->get('Funcionario')->getFuncionarioGestor($avaliacao['funcionario'], $usuario['funcionario']);
+            if(!$funcionario){
+                $this->flashMessenger()->addWarningMessage('Funcionário não encontrado!');
+                return $this->redirect()->toRoute('listarAvaliacoesResponder');   
+            }
+        }
 
+        $formAvaliacao = new formAvaliacao('frmAvaliacao');
+        $formAvaliacao->setData($avaliacao);
+        $formAvaliacao->desabilitarCampos();
+        
 
         // To set view variables
         $pdf->setVariables(array(
-            'funcionalidades'   => $funcionalidades,
-            'orcamento'         => $orcamento
+            'formAvaliacao' =>  $formAvaliacao,
+                'avaliacao'     =>  $avaliacao,
         ));
 
-        /*$view = new ViewModel(array(
-            'formOrcamento'     => $formOrcamento,
-            'funcionalidades'   => $funcionalidades,
-            'orcamento'         => $orcamento
-        ));
-        return $view;*/
         return $pdf;
     }
 

@@ -30,9 +30,11 @@
       $(document).ready(function() {
         $("#data_inicio").mask("99/99/9999");
         $("#data_nascimento").mask("99/99/9999");
-
         $("#inicio_turno").mask("99:99");
         $("#fim_turno").mask("99:99");
         $("#cpf").mask("999.999.999-99");
+
+        $("#data_inicio").datepicker();
+        $("#data_nascimento").datepicker();
       });
     </script>
