@@ -26,6 +26,20 @@ function carregarFuncao(setor, tipo){
     });
 }
 
+function carregarArea(idUnidade, tipo){
+    $('#unidade').attr('disabled', 'disabled');
+    var data = {idUnidade: idUnidade, tipo: tipo};
+    $.ajax({
+        type: "POST",
+        url: "/area/carregar",
+        data: data,
+        success: function(html) {
+            $('#area').html(html);
+            $('#unidade').removeAttr('disabled');       
+        }
+    });
+}
+
 function carregarUnidade(empresa, tipo, todos = "F"){
     $('#empresa').attr('disabled', 'disabled');
     var data = {empresa: empresa, tipo: tipo, todos: todos};

@@ -19,14 +19,14 @@ class EscalaController extends BaseController
     public function indexAction(){
         $this->layout('layout/gestor');
         
-        $formPesquisa = new formPesquisa('frmEscala', $this->getServiceLocator());
+		$usuario = $this->getServiceLocator()->get('session')->read();
+		$funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($usuario['funcionario']);
+        $formPesquisa = new formPesquisa('frmEscala', $this->getServiceLocator(), $funcionario['unidade']);
 
         if($this->getRequest()->isPost()){
-        	$formPesquisa->setData($this->getRequest()->getPost());
-        	if($formPesquisa->isValid()){
-        		$dados = $formPesquisa->getData();
-        		$usuario = $this->getServiceLocator()->get('session')->read();
-        		$funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($usuario['funcionario']);
+            $formPesquisa->setData($this->getRequest()->getPost());
+            if($formPesquisa->isValid()){
+                $dados = $formPesquisa->getData();
         		$dados['unidade'] = $funcionario['unidade'];
         		$mesAno = explode('/', $dados['mes_ano']);
         		$dados['mes'] = $mesAno[0];

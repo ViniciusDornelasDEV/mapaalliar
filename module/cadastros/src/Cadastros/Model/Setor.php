@@ -6,8 +6,8 @@ use Application\Model\BaseTable;
 
 class Setor Extends BaseTable {
 
-    public function getSetores($params = false){
-        return $this->getTableGateway()->select(function($select) use ($params) {
+    public function getSetores($params = false, $funcionarios = false){
+        return $this->getTableGateway()->select(function($select) use ($params, $funcionarios) {
             
             $select->join(
                     array('a' => 'tb_area'),
@@ -26,6 +26,20 @@ class Setor Extends BaseTable {
                 }
             }
             
+            if($funcionarios){
+                $select->join(
+                    array('f' => 'tb_funcao'),
+                    'f.setor = tb_setor.id',
+                    array()
+                );
+                //join com funcionarios
+                $select->join(
+                    array('fu' => 'tb_funcionario'),
+                    'fu.funcao = f.id',
+                    array()
+                );
+            }
+
             $select->order('a.nome, tb_setor.nome');
         }); 
     }

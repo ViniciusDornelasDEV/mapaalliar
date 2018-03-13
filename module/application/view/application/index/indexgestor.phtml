@@ -77,6 +77,7 @@
         <?php endforeach; ?>
       ]
     });
+    $('#ausencias').fullCalendar('gotoDate', '<?= $inicio ?>');
 
     $('#ferias').fullCalendar({
       header: {
@@ -97,6 +98,7 @@
         <?php endforeach; ?>
       ]
     });
+    $('#ferias').fullCalendar('gotoDate', '<?= $inicio ?>');
 
     $('#acoes').fullCalendar({
       header: {
@@ -116,7 +118,7 @@
         <?php endforeach; ?>
       ]
     });
-
+    $('#acoes').fullCalendar('gotoDate', '<?= $inicio ?>');
 
     $('#ajudas').fullCalendar({
       header: {
@@ -137,7 +139,7 @@
         <?php endforeach; ?>
       ]
     });
-    
+    $('#ajudas').fullCalendar('gotoDate', '<?= $inicio ?>');
   });
 </script>
 

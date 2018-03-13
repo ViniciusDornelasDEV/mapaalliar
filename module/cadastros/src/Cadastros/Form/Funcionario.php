@@ -126,6 +126,15 @@
         return $funcoes;
     }
 
+    public function setAreaByUnidade($idUnidade){
+        $areas = $this->serviceLocator->get('Area')->getAreaUnidade($idUnidade);
+        $areas = $this->prepareForDropDown($areas, array('id', 'nome'));
+
+        //Setando valores
+        $areas = $this->get('area')->setAttribute('options', $areas);
+        return $areas;
+    }
+
     public function setUnidadeByEmpresa($idEmpresa, $todos = false){
         //buscar unidades
         $unidades = $this->serviceLocator->get('Unidade')->getRecords($idEmpresa, 'empresa', array('*'), 'nome');

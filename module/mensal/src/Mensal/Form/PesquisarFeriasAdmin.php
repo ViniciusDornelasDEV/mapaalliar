@@ -2,9 +2,9 @@
 
  namespace Mensal\Form;
  
-use Application\Form\PesquisaAdmin as AdminForm;
+ use Application\Form\Base as BaseForm;
  
- class PesquisarFeriasAdmin extends AdminForm
+ class PesquisarFeriasAdmin extends BaseForm
  {
      
     /**
@@ -19,18 +19,24 @@ use Application\Form\PesquisaAdmin as AdminForm;
         if($serviceLocator)
            $this->setServiceLocator($serviceLocator);
 
-        parent::__construct($name, $serviceLocator);  
+        parent::__construct($name);  
+
         //matricula
         $this->genericTextInput('matricula', 'Matrícula:', false, 'Númeroda matrícula');
+        
+        //empresa
+        $empresas = $this->serviceLocator->get('Empresa')->getRecordsFromArray(array(), 'nome');
+        $empresas = $this->prepareForDropDown($empresas, array('id', 'nome'));
+        $this->_addDropdown('empresa', 'Empresa:', false, $empresas, 'carregarUnidade(this.value, "C");');
+
+        //unidade
+        $this->_addDropdown('unidade', 'Unidade:', false, array('' => 'Selecione uma empresa'), 'carregarArea(this.value, "P");');
 
         //area    
-        $areas = $this->serviceLocator->get('Area')->getRecordsFromArray(array(), 'nome');
-        
-        $areas = $this->prepareForDropDown($areas, array('id', 'nome'));
-        $this->_addDropdown('area', 'Área:', false, $areas, 'carregarSetor(this.value, "C");');
+        $this->_addDropdown('area', 'Área:', false, array('' => 'Selecione uma unidade'), 'carregarSetor(this.value, "P");');
 
         //setor
-        $this->_addDropdown('setor', 'Setor:', false, array('' => 'Selecione uma área'), 'carregarFuncao(this.value, "C");');
+        $this->_addDropdown('setor', 'Setor:', false, array('' => 'Selecione uma área'), 'carregarFuncao(this.value, "P");');
 
         //funcao
         $this->_addDropdown('funcao', 'Função:', false, array('' => 'Selecione um setor'), 'carregarFuncionario(this.value);');

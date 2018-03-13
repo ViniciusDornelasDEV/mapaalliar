@@ -148,6 +148,7 @@ class IndexController extends BaseController
             ->get('Ajuda')
             ->getAjudas(array('inicio' => $dataInicio, 'fim' => $dataFim), $usuario['funcionario']);
         
+        
         return new ViewModel(array(
                 'ausencias' =>  $ausencias,
                 'ferias'    =>  $ferias,

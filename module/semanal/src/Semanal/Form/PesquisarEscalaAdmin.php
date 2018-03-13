@@ -28,13 +28,9 @@ use Application\Form\Base as BaseForm;
         $this->_addDropdown('empresa', '* Empresa:', true, $empresas, 'carregarUnidade(this.value, "C");');
 
         //unidade
-        $this->_addDropdown('unidade', '* Unidade:', true, array('' => 'Selecione uma empresa'));
+        $this->_addDropdown('unidade', '* Unidade:', true, array('' => 'Selecione uma empresa'), 'carregarArea(this.value, "C");');
 
-        //area    
-        $areas = $this->serviceLocator->get('Area')->getRecordsFromArray(array(), 'nome');
-        
-        $areas = $this->prepareForDropDown($areas, array('id', 'nome'));
-        $this->_addDropdown('area', '* Área:', true, $areas, 'carregarSetor(this.value, "P");');
+        $this->_addDropdown('area', '* Área:', true, array('' => 'Selecione uma unidade'), 'carregarSetor(this.value, "C");');
 
         //setor
         $this->_addDropdown('setor', '* Setor:', true, array('' => 'Selecione uma área'));

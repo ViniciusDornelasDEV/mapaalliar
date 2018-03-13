@@ -13,7 +13,7 @@
      * @param array $fields
      * @return void
      */
-   public function __construct($name, $serviceLocator)
+   public function __construct($name, $serviceLocator, $idUnidade)
     {
         if($serviceLocator)
            $this->setServiceLocator($serviceLocator);
@@ -27,7 +27,7 @@
         $this->genericTextInput('nome', 'Nome:', false, 'Nome do funcionário');
 
         //area    
-        $areas = $this->serviceLocator->get('Area')->getRecordsFromArray(array(), 'nome');
+        $areas = $this->serviceLocator->get('Area')->getAreaUnidade($idUnidade);
         
         $areas = $this->prepareForDropDown($areas, array('id', 'nome'));
         $this->_addDropdown('area', 'Área:', false, $areas, 'carregarSetor(this.value, "C");');

@@ -244,6 +244,16 @@ return array(
                     ),
                 ),
             ),
+            'carregarArea' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/area/carregar',
+                    'defaults' => array(
+                        'controller' => 'Cadastros\Controller\Funcionario',
+                        'action'     => 'carregararea',
+                    ),
+                ),
+            ),
             'carregarUnidade' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(

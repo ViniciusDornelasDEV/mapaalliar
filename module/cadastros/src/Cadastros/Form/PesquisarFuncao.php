@@ -40,7 +40,7 @@
 
     public function setSetorByArea($idArea, $todos = 'N'){
         //buscar setores
-        $setores = $this->serviceLocator->get('Setor')->getSetores(array('area' => $idArea));
+        $setores = $this->serviceLocator->get('Setor')->getSetores(array('area' => $idArea), true);
 
         $preparedArray = array('' => '-- selecione --');
         if($todos == 'S'){

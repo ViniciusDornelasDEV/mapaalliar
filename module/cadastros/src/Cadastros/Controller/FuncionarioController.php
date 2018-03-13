@@ -227,6 +227,23 @@ class FuncionarioController extends BaseController
         return $view;
     }
 
+    public function carregarareaAction(){
+        $params = $this->getRequest()->getPost();
+        //instanciar form
+        if($params->tipo == 'C'){
+            $formFuncionario = new formFuncionario('frmFuncionario', $this->getServiceLocator());
+        }else{
+            $formFuncionario = new formPesquisa('frmFuncionario', $this->getServiceLocator());
+        }
+
+        $area = $formFuncionario->setAreaByUnidade($params->idUnidade);
+        
+        $view = new ViewModel();
+        $view->setTerminal(true);
+        $view->setVariables(array('area' => $area));
+        return $view;
+    }
+
     public function carregarliderAction(){
         $params = $this->getRequest()->getPost();
         //instanciar form

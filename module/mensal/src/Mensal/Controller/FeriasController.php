@@ -30,7 +30,8 @@ class FeriasController extends BaseController
         $serviceFerias = $this->getServiceLocator()->get('Ferias');
         
         $usuario = $this->getServiceLocator()->get('session')->read();
-        $formPesquisa = new formPesquisa('frmFerias', $this->getServiceLocator());
+        $funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($usuario['funcionario']);
+        $formPesquisa = new formPesquisa('frmFerias', $this->getServiceLocator(), $funcionario['unidade']);
 
         $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
     	$formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);

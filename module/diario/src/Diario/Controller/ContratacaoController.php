@@ -44,14 +44,15 @@ class ContratacaoController extends BaseController
         $this->layout('layout/gestor');
         $serviceFuncionario = $this->getServiceLocator()->get('Funcionario');
         
-        $formPesquisa = new formPesquisa('frmFuncionario', $this->getServiceLocator());
+        $usuario = $this->getServiceLocator()->get('session')->read();
+        $funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($usuario['funcionario']);
+        $formPesquisa = new formPesquisa('frmFuncionario', $this->getServiceLocator(), $funcionario['unidade']);
 
         $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
 
         
         $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
         
-        $usuario = $this->getServiceLocator()->get('session')->read();
         
         if(!$this->sessao->parametros){
             $this->sessao->parametros = array();

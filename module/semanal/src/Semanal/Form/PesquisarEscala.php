@@ -14,7 +14,7 @@ use Application\Form\Base as BaseForm;
      * @param array $fields
      * @return void
      */
-   public function __construct($name, $serviceLocator)
+   public function __construct($name, $serviceLocator, $idUnidade)
     {
         if($serviceLocator)
            $this->setServiceLocator($serviceLocator);
@@ -22,7 +22,7 @@ use Application\Form\Base as BaseForm;
         parent::__construct($name);  
 
         //area    
-        $areas = $this->serviceLocator->get('Area')->getRecordsFromArray(array(), 'nome');
+        $areas = $this->serviceLocator->get('Area')->getAreaUnidade($idUnidade);
         
         $areas = $this->prepareForDropDown($areas, array('id', 'nome'));
         $this->_addDropdown('area', '* Área:', true, $areas, 'carregarSetor(this.value, "P");');

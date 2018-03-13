@@ -121,11 +121,12 @@ class AvaliacaoController extends BaseController
         $this->layout('layout/gestor');
         $serviceAvaliacoes = $this->getServiceLocator()->get('Avaliacao');
         
-        $formPesquisa = new formPesquisaAvaliacao('frmPesquisa', $this->getServiceLocator());
+        $usuario = $this->getServiceLocator()->get('session')->read();
+        $funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($usuario['funcionario']);
+        $formPesquisa = new formPesquisaAvaliacao('frmPesquisa', $this->getServiceLocator(), $funcionario['unidade']);
         
         $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
         $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
-        $usuario = $this->getServiceLocator()->get('session')->read();
         $avaliacoes = $serviceAvaliacoes->getAvaliacoes($this->sessao->parametros[$rota], $usuario['funcionario'])->toArray();
         
         $paginator = new Paginator(new ArrayAdapter($avaliacoes));
