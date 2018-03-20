@@ -35,7 +35,7 @@ class Module
                 },
                 'Unidade' => function($sm) {
                     $tableGateway = new TableGateway('tb_empresa_unidade', $sm->get('db_adapter_main'));
-                    $updates = new BaseTable($tableGateway);
+                     $updates = new Model\Unidade($tableGateway);
                     $updates->setServiceLocator($sm);
                     return $updates;
                 },

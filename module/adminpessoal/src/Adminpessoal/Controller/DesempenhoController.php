@@ -68,7 +68,8 @@ class DesempenhoController extends BaseController
     public function novoAction(){
         $this->layout('layout/gestor');
         $usuario = $this->getServiceLocator()->get('session')->read();
-        $formDesempenho = new formDesempenho('frmDesempenho', $this->getServiceLocator(), $usuario);
+        $funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($usuario['funcionario']);
+        $formDesempenho = new formDesempenho('frmDesempenho', $this->getServiceLocator(), $funcionario);
 
         if($this->getRequest()->isPost()){
             $formDesempenho->setData($this->getRequest()->getPost());

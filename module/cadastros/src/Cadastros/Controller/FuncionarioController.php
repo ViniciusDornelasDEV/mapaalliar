@@ -16,6 +16,9 @@ use Cadastros\Form\AlterarFuncionario as formAlterarFuncionario;
 use Cadastros\Form\ImportarFuncionario as formImportacao;
 use Cadastros\Form\MudarGestor as formMudarGestor;
 
+use Cadastros\Form\PesquisarFuncionarioTi as formPesquisaTi;
+use Cadastros\Form\FuncionarioTi as formFuncionarioTi;
+
 class FuncionarioController extends BaseController
 {
     private $campos = array(
@@ -202,7 +205,8 @@ class FuncionarioController extends BaseController
         }else{
             $formFuncionario = new formPesquisa('frmFuncionario', $this->getServiceLocator());
         }
-        $funcao = $formFuncionario->setFuncaoBySetor($params->setor);
+        
+        $funcao = $formFuncionario->setFuncaoBySetor($params->setor, $params->unidade);
         
         $view = new ViewModel();
         $view->setTerminal(true);
@@ -287,6 +291,191 @@ class FuncionarioController extends BaseController
         }
 
         return new ViewModel(array('form' => $formImportacao));
+    }
+
+
+    //Perfil de TI
+    public function indextiAction(){
+        $this->layout('layout/layoutti');
+        $serviceFuncionario = $this->getServiceLocator()->get('Funcionario');
+        
+        $usuario = $this->getServiceLocator()->get('session')->read();
+        $formPesquisa = new formPesquisaTi('frmFuncionario', $this->getServiceLocator(), $usuario);
+
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+        
+        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+        $funcionarios = $serviceFuncionario->getFuncionariosTi($this->sessao->parametros[$rota], $usuario)->toArray();
+        
+        foreach ($funcionarios as $key => $funcionario) {
+            $funcionarios[$key]['data_inicio'] = $formPesquisa->converterData($funcionario['data_inicio']);
+            $funcionarios[$key]['data_nascimento'] = $formPesquisa->converterData($funcionario['data_nascimento']);
+            $funcionarios[$key]['data_saida'] = $formPesquisa->converterData($funcionario['data_saida']);
+            $funcionarios[$key]['lider'] = $formPesquisa->simNao($funcionario['lider']);
+        }
+
+        if($this->getRequest()->isPost()){
+            $dados = $this->getRequest()->getPost();
+            if(isset($dados->exportar)){
+                parent::gerarExcel($this->campos, $funcionarios, 'Funcionários');
+            }
+        }
+        
+        $paginator = new Paginator(new ArrayAdapter($funcionarios));
+        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setItemCountPerPage(10);
+        $paginator->setPageRange(5);
+        
+        return new ViewModel(array(
+                                'funcionarios'      => $paginator,
+                                'formPesquisa'  => $formPesquisa
+                            ));
+    }
+
+    public function novotiAction(){
+        $this->layout('layout/layoutti');
+        $usuario = $this->getServiceLocator()->get('session')->read();
+        $formFuncionario = new formFuncionarioTi('frmFuncionario', $this->getServiceLocator(), $usuario);
+
+        if($this->getRequest()->isPost()){
+            $formFuncionario->setData($this->getRequest()->getPost());
+            if($formFuncionario->isValid()){
+                $dados = $formFuncionario->getData();
+
+                //verificar se a unidade informada pertence ao funcionário de TI
+                $unidade = $this->getServiceLocator()
+                    ->get('UsuarioUnidade')
+                    ->getRecordFromArray(array('usuario' => $usuario['id'], 'unidade' => $dados['unidade']));
+
+                if(!$unidade){
+                    $this->flashMessenger()->addWarningMessage('Unidade informada é inválida!');
+                    return $this->redirect()->toRoute('novoFuncionarioTi');
+                }
+                $idFuncionario = $this->getServiceLocator()->get('Funcionario')->insert($dados);
+                $this->flashMessenger()->addSuccessMessage('Funcionário incluído com sucesso!');
+                return $this->redirect()->toRoute('alterarFuncionarioTi', array('id' => $idFuncionario));
+            }
+        }
+        return new ViewModel(array('formFuncionario' => $formFuncionario));
+    }
+
+    public function alterartiAction(){
+        $this->layout('layout/layoutti');
+        $idFuncionario = $this->params()->fromRoute('id');
+        $serviceFuncionario = $this->getServiceLocator()->get('Funcionario');
+        $funcionario = $serviceFuncionario->getFuncionario($idFuncionario);
+
+        if(!$funcionario){
+            $this->flashMessenger()->addWarningMessage('Funcionário não encontrado!');
+            return $this->redirect()->toRoute('listarFuncionarioTi');
+        }
+
+        //verificar se funcionário é da empresa do tecnico de TI
+        $usuario = $this->getServiceLocator()->get('session')->read();
+        $serviceFuncionarioUnidade = $this->getServiceLocator()
+                    ->get('UsuarioUnidade');
+        $unidade = $serviceFuncionarioUnidade
+            ->getRecordFromArray(array('usuario' => $usuario['id'], 'unidade' => $funcionario['unidade']));
+
+        if(!$unidade){
+            $this->flashMessenger()->addWarningMessage('Funcionário não encontrado!');
+            return $this->redirect()->toRoute('listarFuncionarioTi');
+        }
+
+
+        $formFuncionario = new formFuncionarioTi('frmFuncionario', $this->getServiceLocator(), $usuario);
+
+        $formFuncionario->setData($funcionario);
+        $serviceGestor = $this->getServiceLocator()->get('FuncionarioGestor');
+        $formGestor = new formGestor('frmGestor', $this->getServiceLocator(), $funcionario);
+
+        if($this->getRequest()->isPost()){
+            $dados = $this->getRequest()->getPost();
+            if(isset($dados['gestor'])){
+                //salvar gestor
+                $formGestor->setData($dados);
+                if($formGestor->isValid()){
+                    $dados = $formGestor->getData();
+                    $dados['funcionario'] = $idFuncionario;
+                    $serviceGestor->insert($dados);
+                    $this->flashMessenger()->addSuccessMessage('Gestor vinculado com sucesso!');   
+                }
+            }else{
+                //alterar funcionario
+                $formFuncionario->setData($dados);
+                if($formFuncionario->isValid()){
+                    $unidade = $serviceFuncionarioUnidade
+                    ->getRecordFromArray(array('usuario' => $usuario['id'], 'unidade' => $dados['unidade']));
+
+                    if(!$unidade){
+                        $this->flashMessenger()->addWarningMessage('Unidade informada é inválida!');
+                        return $this->redirect()->toRoute('listarFuncionarioTi');
+                    }
+                    $serviceFuncionario->update($formFuncionario->getData(), array('id' => $idFuncionario));
+                    $this->flashMessenger()->addSuccessMessage('Funcionário alterado com sucesso!');
+                }
+            }
+            return $this->redirect()->toRoute('alterarFuncionarioTi', array('id' => $idFuncionario));
+        }
+
+        //pesquisar gestores vinculados
+        $gestores = $serviceGestor->getGestoresByFuncionario($idFuncionario);
+        
+        $usuario = false;
+        if($funcionario['lider'] == 'S'){
+            //pesquisar usuário
+            $usuario = $this->getServiceLocator()->get('Usuario')->getRecord($funcionario['id'], 'funcionario');
+            if(!$usuario){
+                $usuario = 'I';
+            }
+        }
+
+        return new ViewModel(array(
+            'formFuncionario'   => $formFuncionario,
+            'formGestor'        => $formGestor,
+            'gestores'          => $gestores,
+            'funcionario'       => $funcionario,
+            'usuario'           => $usuario
+            ));
+    }
+
+    public function deletargestortiAction(){
+        $idGestor = $this->params()->fromRoute('idGestor');
+        $idFuncionario = $this->params()->fromRoute('idFuncionario');
+        $funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($idFuncionario);
+        $usuario = $this->getServiceLocator()->get('session')->read();
+        $unidade = $this->getServiceLocator()
+                    ->get('UsuarioUnidade')
+                    ->getRecordFromArray(array('usuario' => $usuario['id'], 'unidade' => $funcionario['unidade']));
+        if(!$unidade){
+            $this->flashMessenger()->addWarningMessage('Funcionário não encontrado!');
+            return $this->redirect()->toRoute('listarFuncionarioTi');
+        }
+
+        if($this->getServiceLocator()->get('FuncionarioGestor')->delete(array('id' => $idGestor))){
+            $this->flashMessenger()->addSuccessMessage('Gestor desvinculado com sucesso!');
+        }else{
+            $this->flashMessenger()->addErrorMessage('Ocorreu algum erro ao desvincular gestor, por favor tente novamente!');
+        }
+        return $this->redirect()->toRoute('alterarFuncionarioTi', array('id' => $idFuncionario));
+    }
+
+    public function carregarunidadetiAction(){
+        $params = $this->getRequest()->getPost();
+        $usuario = $this->getServiceLocator()->get('session')->read();
+        //instanciar form
+        if($params->tipo == 'C'){
+            $formFuncionario = new formFuncionarioTi('frmFuncionario', $this->getServiceLocator());
+        }else{
+            $formFuncionario = new formPesquisaTi('frmFuncionario', $this->getServiceLocator(), $usuario);
+        }
+
+        $unidade = $formFuncionario->setUnidadeByEmpresaTi($params->empresa, $usuario);
+        
+        $view = new ViewModel();
+        $view->setTerminal(true);
+        $view->setVariables(array('unidade' => $unidade));
+        return $view;
     }
 
 

@@ -1,6 +1,11 @@
-function carregarSetor(area, tipo, todos = "N"){
+function carregarSetor(area, tipo, todos = "N", funcionarios = false){
+    unidade = funcionarios;
+    if(funcionarios && $.isNumeric(funcionarios) == false){
+        unidade = $('#unidade').val();
+    }
+
     $('#area').attr('disabled', 'disabled');
-    var data = {area: area, tipo: tipo, todos: todos};
+    var data = {area: area, tipo: tipo, todos: todos, unidade: unidade};
     $.ajax({
         type: "POST",
         url: "/setor/carregar",
@@ -12,9 +17,14 @@ function carregarSetor(area, tipo, todos = "N"){
     });
 }
 
-function carregarFuncao(setor, tipo){
+function carregarFuncao(setor, tipo, funcionarios = false){
+    unidade = funcionarios;
+    if(funcionarios && $.isNumeric(funcionarios) == false){
+        unidade = $('#unidade').val();
+    }
+    
     $('#setor').attr('disabled', 'disabled');
-    var data = {setor: setor, tipo: tipo};
+    var data = {setor: setor, tipo: tipo, unidade: unidade};
     $.ajax({
         type: "POST",
         url: "/funcao/carregar",
@@ -168,6 +178,20 @@ function CarregaRecursos(modulo){
     });
 }
 
+function carregarUnidadeTI(empresa, tipo){
+    $('#empresa').attr('disabled', 'disabled');
+    var data = {empresa: empresa, tipo: tipo};
+    $.ajax({
+        type: "POST",
+        url: "/unidade/ti/carregar",
+        data: data,
+        success: function(html) {
+            $('#unidade').html(html);
+            $('#empresa').removeAttr('disabled');       
+        }
+    });
+}
+
 //BUSCAR A DESCRIÇÃO DE UM RECURSO
 function BuscaDescricaoRecurso(recurso){
     $('#recurso').attr('disabled', 'disabled');
@@ -298,4 +322,37 @@ function check(id){
     }
 }
 
+function eventoCalendario(date, tipo, unidade){
+    //pesquisar o texto pela data e tipo (ajax)
+    var value = '';
+    var data = {data: date, tipo: tipo, unidade: unidade};
+    $.ajax({
+        type: "POST",
+        url: "/comentario/calendario",
+        data: data,
+        success: function(html) {
+            bootbox.prompt({
+                title: "Observações do dia: "+date,
+                inputType: 'textarea',
+                value: html,
+                callback: function (result) {
+                    //salvar o texto ou alterar pela data e tipo (ajax)
+                    salvarTextoCalendario(date, tipo, result, unidade);
+                }
+            });       
+        }
+    });
+    
+}
 
+function salvarTextoCalendario(date, tipo, texto, unidade){
+    var data = {data: date, tipo: tipo, texto: texto, unidade: unidade};
+    $.ajax({
+        type: "POST",
+        url: "/comentario/calendario",
+        data: data,
+        success: function(html) {
+                  
+        }
+    });
+}

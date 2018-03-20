@@ -62,7 +62,9 @@ class FeriasController extends BaseController
     public function novoAction(){
         $this->layout('layout/gestor');
         $usuario = $this->getServiceLocator()->get('session')->read();
-        $formFerias = new formFerias('frmFerias', $this->getServiceLocator(), $usuario);
+        $funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($usuario['funcionario']);
+
+        $formFerias = new formFerias('frmFerias', $this->getServiceLocator(), $funcionario);
 
         if($this->getRequest()->isPost()){
             $formFerias->setData($this->getRequest()->getPost());

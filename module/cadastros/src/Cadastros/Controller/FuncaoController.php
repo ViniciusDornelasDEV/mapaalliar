@@ -101,9 +101,9 @@ class FuncaoController extends BaseController
         }
 
         if(isset($params->todos) && $params->todos == 'S'){
-            $setor = $formFuncao->setSetorByArea($params->area, 'S');
+            $setor = $formFuncao->setSetorByArea($params->area, 'S', $params->unidade);
         }else{
-            $setor = $formFuncao->setSetorByArea($params->area);
+            $setor = $formFuncao->setSetorByArea($params->area, 'N', $params->unidade);
         }
         
         $view = new ViewModel();

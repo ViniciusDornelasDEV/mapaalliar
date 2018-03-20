@@ -14,7 +14,7 @@ use Application\Form\Base as BaseForm;
      * @param array $fields
      * @return void
      */
-   public function __construct($name, $serviceLocator, $usuario = false)
+   public function __construct($name, $serviceLocator, $funcionario = false)
     {
         if($serviceLocator)
            $this->setServiceLocator($serviceLocator);
@@ -22,19 +22,19 @@ use Application\Form\Base as BaseForm;
         parent::__construct($name);  
 
         //area    
-        $areas = $this->serviceLocator->get('Area')->getRecordsFromArray(array(), 'nome');
+        $areas = $this->serviceLocator->get('Area')->getAreaUnidade($funcionario['unidade']);
         
         $areas = $this->prepareForDropDown($areas, array('id', 'nome'));
-        $this->_addDropdown('area', 'Área:', false, $areas, 'carregarSetor(this.value, "C");');
+        $this->_addDropdown('area', 'Área:', false, $areas, 'carregarSetor(this.value, "C", "N", '.$funcionario['unidade'].');');
 
         //setor
-        $this->_addDropdown('setor', 'Setor:', false, array('' => 'Selecione uma área'), 'carregarFuncao(this.value, "C");');
+        $this->_addDropdown('setor', 'Setor:', false, array('' => 'Selecione uma área'), 'carregarFuncao(this.value, "C", '.$funcionario['unidade'].');');
 
         //funcao
         $this->_addDropdown('funcao', 'Função:', false, array('' => 'Selecione um setor'), 'carregarFuncionario(this.value);');
 
         //funcionário
-        $funcionarios = $this->serviceLocator->get('Funcionario')->getFuncionarios(array('lider_imediato' => $usuario['funcionario'], 'ativo' => 'S'));
+        $funcionarios = $this->serviceLocator->get('Funcionario')->getFuncionarios(array('lider_imediato' => $funcionario['id'], 'ativo' => 'S'));
         
         $funcionarios = $this->prepareForDropDown($funcionarios, array('id', 'nome'));
         $this->_addDropdown('funcionario', '* Funcionário:', true, $funcionarios);        

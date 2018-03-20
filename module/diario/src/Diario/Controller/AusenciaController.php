@@ -64,7 +64,8 @@ class AusenciaController extends BaseController
     public function novoAction(){
         $this->layout('layout/gestor');
         $usuario = $this->getServiceLocator()->get('session')->read();
-        $formAusencia = new formAusencia('frmAusencia', $this->getServiceLocator(), $usuario);
+        $funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($usuario['funcionario']);
+        $formAusencia = new formAusencia('frmAusencia', $this->getServiceLocator(), $funcionario);
 
         if($this->getRequest()->isPost()){
             $files = $this->getRequest()->getfiles()->toArray();

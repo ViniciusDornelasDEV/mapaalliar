@@ -157,6 +157,12 @@ class Module
                     $updates->setServiceLocator($sm);
                     return $updates;
                 },
+                'AnotacoesDashboard' => function($sm) {
+                    $tableGateway = new TableGateway('tb_anotacoes_dashboard', $sm->get('db_adapter_main'));
+                    $updates = new BaseTable($tableGateway);
+                    $updates->setServiceLocator($sm);
+                    return $updates;
+                },
                 
             ),
         );

@@ -73,7 +73,8 @@ class AcoesController extends BaseController
     public function novoAction(){
         $this->layout('layout/gestor');
         $usuario = $this->getServiceLocator()->get('session')->read();
-        $formAcao = new formAcao('frmAcao', $this->getServiceLocator(), $usuario);
+        $funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($usuario['funcionario']);
+        $formAcao = new formAcao('frmAcao', $this->getServiceLocator(), $funcionario);
 
         if($this->getRequest()->isPost()){
             $formAcao->setData($this->getRequest()->getPost());

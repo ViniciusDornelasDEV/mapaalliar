@@ -4,31 +4,26 @@
  
  use Application\Form\Base as BaseForm; 
 
- class Funcionario extends BaseForm {
+ class FuncionarioTi extends BaseForm {
      
-    /**
-     * Sets up generic form.
-     * 
-     * @access public
-     * @param array $fields
-     * @return void
-     */
-   public function __construct($name, $serviceLocator, $cadastro = false)
+   private $usuario;
+   public function __construct($name, $serviceLocator, $usuario)
     {
         if($serviceLocator)
            $this->setServiceLocator($serviceLocator);
 
         parent::__construct($name);      
 
+        $this->usuario = $usuario;
         //matricula
         $this->genericTextInput('matricula', '* Matrícula:', true, 'Número da matrícula');
 
         //nome
         $this->genericTextInput('nome', '* Nome:', true, 'Nome do funcionário');
         //empresa
-        $empresas = $this->serviceLocator->get('Empresa')->getRecordsFromArray(array(), 'nome');
-        $empresas = $this->prepareForDropDown($empresas, array('id', 'nome'));
-        $this->_addDropdown('empresa', '* Empresa:', true, $empresas, 'carregarUnidade(this.value, "C");');
+        $empresas = $this->serviceLocator->get('UsuarioUnidade')->getEmpresasTi($usuario['id']);
+        $empresas = $this->prepareForDropDown($empresas, array('id_empresa', 'nome_empresa'));
+        $this->_addDropdown('empresa', '* Empresa:', true, $empresas, 'carregarUnidadeTI(this.value, "C");');
 
         //unidade
         $this->_addDropdown('unidade', '* Unidade:', true, array('' => 'Selecione uma empresa'), 'carregarLider(this.value);');
@@ -116,54 +111,16 @@
         
     }
 
-    public function setFuncaoBySetor($idSetor, $idUnidade){
-        $params = array('setor' => $idSetor);
-        if($idUnidade != 'false'){
-            $params['unidade'] = $idUnidade;
-        }
-
-        //buscar funcoes
-        $funcoes = $this->serviceLocator->get('Funcao')->getFuncoes($params);
-        $funcoes = $this->prepareForDropDown($funcoes, array('id', 'nome'));
-
-        //Setando valores
-        $funcoes = $this->get('funcao')->setAttribute('options', $funcoes);
-        return $funcoes;
-    }
-
-    public function setAreaByUnidade($idUnidade){
-        $areas = $this->serviceLocator->get('Area')->getAreaUnidade($idUnidade);
-        $areas = $this->prepareForDropDown($areas, array('id', 'nome'));
-
-        //Setando valores
-        $areas = $this->get('area')->setAttribute('options', $areas);
-        return $areas;
-    }
-
-    public function setUnidadeByEmpresa($idEmpresa, $todos = false){
+    public function setUnidadeByEmpresaTi($idEmpresa, $usuario){
         //buscar unidades
-        $unidades = $this->serviceLocator->get('Unidade')->getRecords($idEmpresa, 'empresa', array('*'), 'nome');
-        
-        $preparedArray = array('' => '-- selecione --');
-        if($todos == 'T'){
-            $preparedArray['T'] = 'Todos';
-        }
-        $unidades = $this->prepareForDropDown($unidades, array('id', 'nome'), $preparedArray);
+        $unidades = $this->serviceLocator->get('UsuarioUnidade')->getUnidadesTi($usuario['id'], $idEmpresa);
+        $unidades = $this->prepareForDropDown($unidades, array('id_unidade', 'nome_unidade'));
 
         //Setando valores
         $unidades = $this->get('unidade')->setAttribute('options', $unidades);
         return $unidades;
     }
-
-    public function setLiderByUnidade($idUnidade){
-        //buscar funcionarios
-        $funcionarios = $this->serviceLocator->get('Funcionario')->getFuncionarios(array('lider' => 'S', 'unidade' => $idUnidade));
-        $funcionarios = $this->prepareForDropDown($funcionarios, array('id', 'nome'));
-
-        //Setando valores
-        $funcionarios = $this->get('lider_imediato')->setAttribute('options', $funcionarios);
-        return $funcionarios;
-    }
+   
 
     public function setData($dados){
         $dados['data_inicio'] = parent::converterData($dados['data_inicio']);
@@ -187,8 +144,8 @@
         }
 
         if(isset($dados['empresa']) && !empty($dados['empresa'])){
-            $unidades = $this->serviceLocator->get('Unidade')->getRecords($dados['empresa'], 'empresa', array('*'), 'nome');
-            $unidades = $this->prepareForDropDown($unidades, array('id', 'nome'));
+            $unidades =$this->serviceLocator->get('UsuarioUnidade')->getUnidadesTi($this->usuario['id'], $dados['empresa']);
+            $unidades = $this->prepareForDropDown($unidades, array('id_unidade', 'nome_unidade'));
 
             //Setando valores
             $this->get('unidade')->setAttribute('options', $unidades);

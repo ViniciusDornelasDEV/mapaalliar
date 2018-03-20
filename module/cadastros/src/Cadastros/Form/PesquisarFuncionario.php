@@ -35,10 +35,10 @@
         $this->_addDropdown('unidade', 'Unidade:', false, array('' => 'Selecione uma empresa'), 'carregarArea(this.value, "P");');
 
         //area    
-        $this->_addDropdown('area', 'Área:', false, array('' => 'Selecione uma unidade'), 'carregarSetor(this.value, "P");');
+        $this->_addDropdown('area', 'Área:', false, array('' => 'Selecione uma unidade'), 'carregarSetor(this.value, "P", "N", true);');
 
         //setor
-        $this->_addDropdown('setor', 'Setor:', false, array('' => 'Selecione uma área'), 'carregarFuncao(this.value, "P");');
+        $this->_addDropdown('setor', 'Setor:', false, array('' => 'Selecione uma área'), 'carregarFuncao(this.value, "P", true);');
 
         //funcao
         $this->_addDropdown('funcao', 'Função:', false, array('' => 'Selecione um setor'));
@@ -60,9 +60,13 @@
 
 
 
-    public function setFuncaoBySetor($idSetor){
+    public function setFuncaoBySetor($idSetor, $idUnidade){
+        $params = array('setor' => $idSetor);
+        if($idUnidade != 'false'){
+            $params['unidade'] = $idUnidade;
+        }
         //buscar funcoes
-        $funcoes = $this->serviceLocator->get('Funcao')->getFuncoes(array('setor' => $idSetor), true);
+        $funcoes = $this->serviceLocator->get('Funcao')->getFuncoes($params, true);
         $funcoes = $this->prepareForDropDown($funcoes, array('id', 'nome'));
 
         //Setando valores
@@ -130,6 +134,14 @@
 
             //Setando valores
             $this->get('unidade')->setAttribute('options', $unidades);
+        }
+
+        if(isset($dados['unidade']) && !empty($dados['unidade'])){
+            $areas = $this->serviceLocator->get('Area')->getAreaUnidade($dados['unidade']);
+            $areas = $this->prepareForDropDown($areas, array('id', 'nome'));
+
+            //Setando valores
+            $this->get('area')->setAttribute('options', $areas);
         }
 
         return parent::setData($dados);

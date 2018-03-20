@@ -264,6 +264,16 @@ return array(
                     ),
                 ),
             ),
+            'carregarUnidadeTi' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/unidade/ti/carregar',
+                    'defaults' => array(
+                        'controller' => 'Cadastros\Controller\Funcionario',
+                        'action'     => 'carregarunidadeti',
+                    ),
+                ),
+            ),
             'carregarLider' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
@@ -297,6 +307,58 @@ return array(
                 ),
             ),
 
+
+            //TI
+             'listarFuncionarioTi' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/funcionarios/ti[/:page]',
+                    'constraints' => array(
+                        'page'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Cadastros\Controller\Funcionario',
+                        'action'     => 'indexti',
+                    ),
+                ),
+            ),
+            'novoFuncionarioTi' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/funcionario/novo/ti',
+                    'defaults' => array(
+                        'controller' => 'Cadastros\Controller\Funcionario',
+                        'action'     => 'novoti',
+                    ),
+                ),
+            ),
+            'alterarFuncionarioTi' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/funcionario/alterar/ti[/:id]',
+                    'constraints' => array(
+                        'id'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Cadastros\Controller\Funcionario',
+                        'action'     => 'alterarti',
+                    ),
+                ),
+            ),
+            'deletarGestorTi' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/funcionario/gestor/deletar/ti[/:idGestor][/:idFuncionario]',
+                    'constraints' => array(
+                        'idGestor'     => '[0-9]+',
+                        'idFuncionario'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Cadastros\Controller\Funcionario',
+                        'action'     => 'deletargestorti',
+                    ),
+                ),
+            ),
 
 
         ),

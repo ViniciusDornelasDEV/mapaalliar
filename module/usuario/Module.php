@@ -55,6 +55,12 @@ class Module
                     $updates->setServiceLocator($sm);
                     return $updates;
                 },
+                'UsuarioUnidade' => function($sm) {
+                    $tableGateway = new TableGateway('tb_usuarioti_unidade', $sm->get('db_adapter_main'));
+                    $updates = new Model\UsuarioUnidade($tableGateway);
+                    $updates->setServiceLocator($sm);
+                    return $updates;
+                },
             ),
             'invokables' => array(
                 'ImageService' => 'Imagine\Gd\Imagine',

@@ -412,6 +412,117 @@ class Funcionario Extends BaseTable {
         return false;
     }
 
+     public function getFuncionariosTi($params = false, $usuario = false){
+        return $this->getTableGateway()->select(function($select) use ($params, $usuario) {
+            $select->join(
+                    array('u' => 'tb_empresa_unidade'),
+                    'unidade = u.id',
+                    array('nome_unidade' => 'nome', 'id_unidade' => 'id')
+                );
+
+            $select->join(
+                    array('e' => 'tb_empresa'),
+                    'e.id = u.empresa',
+                    array('nome_empresa' => 'nome')
+                );
+
+            $select->join(
+                    array('f' => 'tb_funcao'),
+                    'f.id = funcao',
+                    array('nome_funcao' => 'nome')
+                );
+
+            $select->join(
+                    array('s' => 'tb_setor'),
+                    's.id = f.setor',
+                    array('nome_setor' => 'nome')
+                );
+
+            $select->join(
+                    array('a' => 'tb_area'),
+                    's.area = a.id',
+                    array('nome_area' => 'nome')
+                );
+
+            $select->join(
+                    array('l' => 'tb_funcionario'),
+                    'l.id = tb_funcionario.lider_imediato',
+                    array('nome_lider' => 'nome'),
+                    'LEFT'
+                );
+
+            $select->join(
+                    array('fg' => 'tb_funcionario_gestor'),
+                    'fg.funcionario = tb_funcionario.id',
+                    array(),
+                    'LEFT'
+                );
+
+        
+            $select->join(
+                    array('ti' => 'tb_usuarioti_unidade'),
+                    'ti.unidade = u.id',
+                    array(),
+                    'INNER'
+                );            
+            $select->where(array('ti.usuario' => $usuario['id']));
+            
+
+
+            if($params){
+                if(!empty($params['matricula'])){
+                    $select->where->like('tb_funcionario.matricula', '%'.$params['matricula'].'%');
+                }
+
+                if(!empty($params['nome'])){
+                    $select->where->like('tb_funcionario.nome', '%'.$params['nome'].'%');
+                }
+
+                if(!empty($params['empresa'])){
+                    $select->where(array('e.id' => $params['empresa']));
+                }
+
+                if(!empty($params['unidade'])){
+                    $select->where(array('u.id' => $params['unidade']));
+                }
+
+                if(!empty($params['area'])){
+                    $select->where(array('a.id' => $params['area']));
+                }
+
+                if(!empty($params['setor'])){
+                    $select->where(array('s.id' => $params['setor']));
+                }
+
+                if(!empty($params['funcao'])){
+                    $select->where(array('f.id' => $params['funcao']));
+                }
+
+                if(!empty($params['lider'])){
+                    $select->where(array('tb_funcionario.lider' => $params['lider']));
+                }
+
+                if(!empty($params['lider_imediato'])){
+                    $select->where(array('tb_funcionario.lider_imediato' => $params['lider_imediato']));
+                }
+
+                //não exibir este funcionario
+                if(!empty($params['funcionario'])){
+                    $select->where->notEqualTo('tb_funcionario.id', $params['funcionario']);
+                }
+
+                if(!empty($params['ativo'])){
+                    $select->where(array('tb_funcionario.ativo' => $params['ativo']));
+                }
+
+            }
+            
+            $select->order('e.nome, u.nome, tb_funcionario.nome');
+
+            $select->group('tb_funcionario.id');
+        }); 
+    }
+
     private function ConverteData($Data){
         @$TipoData = stristr($Data, "/");
         if($TipoData != false){

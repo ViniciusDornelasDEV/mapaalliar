@@ -179,7 +179,7 @@ abstract class BaseController extends AbstractActionController {
         $sessao = new Container();
         $sessao->arquivo = $fileName;
 
-        return $this->redirect()->toRoute('download');
+        return $this->redirect()->toRoute('downloadByContainer');
 
     }
 

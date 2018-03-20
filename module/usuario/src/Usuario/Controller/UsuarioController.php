@@ -22,6 +22,7 @@ use Usuario\Form\PesquisaUsuario as pesquisaForm;
 use Usuario\Form\AlterarSenha as alterarSenhaForm;
 use Usuario\Form\RecuperarSenha as novaSenhaForm;
 use Usuario\Form\Registrese as formRegistro;
+use Usuario\Form\VincularEmpresa as formEmpresa;
 
 use Zend\Paginator\Paginator;
 use Zend\Paginator\Adapter\ArrayAdapter;
@@ -90,6 +91,11 @@ class UsuarioController extends BaseController
                     //Create acl config
                     $sessao = new Container();
                     $sessao->acl = $this->criarAutorizacao();
+                    
+                    if($user['id_usuario_tipo'] == 3){
+                        return $this->redirect()->toRoute('listarFuncionarioTi');
+                    }
+
                     if($user['id_usuario_tipo'] == 2){
                         if(empty($user['funcionario'])){
                             $session->clear();
@@ -277,7 +283,7 @@ class UsuarioController extends BaseController
                 return $this->redirect()->toRoute('usuario');
             }
         }
-        $formUsuario = new usuarioForm('frmUsuario', $this->getServiceLocator());
+        $formUsuario = new usuarioForm('frmUsuario', $this->getServiceLocator(), $idFuncionario);
         //caso venha um post salvar
         if($this->getRequest()->isPost()){
             //salvar e enviar para  edit
@@ -327,27 +333,63 @@ class UsuarioController extends BaseController
         unset($usuario['senha']);
         $formUsuario->setData($usuario);
         
+        //se for ti, form de empresa
+        $formEmpresa = false;
+        $unidades = false;
+        if($usuario['id_usuario_tipo'] == 3){
+            $formEmpresa = new formEmpresa('frmEmpresa', $this->getServiceLocator());
+            $serviceUsuarioEmpresa = $this->getServiceLocator()->get('UsuarioUnidade');
+            $unidades = $serviceUsuarioEmpresa->getUnidadesByUsuario($usuario['id']);
+        }
+
         if($this->getRequest()->isPost()){
             $dados = $this->getRequest()->getPost()->toArray();
-            $formUsuario->setData($dados);
-            
-            if($formUsuario->isValid()){
-                if((empty($dados['senha']))){
-                    unset($dados['senha']);
-                }else{
-                    $bcrypt = new Bcrypt();
-                    $dados['senha'] = $bcrypt->create($dados['senha']);
+
+            if(isset($dados['empresa'])){
+                $formEmpresa->setData($dados);
+                if($formEmpresa->isValid()){
+                    $dados = $formEmpresa->getData();
+                    $dados['usuario'] = $usuario->id;
+                    if($serviceUsuarioEmpresa->insert($dados)){
+                        $this->flashMessenger()->addSuccessMessage('Unidade vinculada com sucesso!');
+                        return $this->redirect()->toRoute('usuarioAlterar', array('id' => $usuario->id));
+                    }
                 }
-                $serviceUsuario->update($dados, array('id'  =>  $usuario->id));
-                $this->flashMessenger()->addSuccessMessage('Usuario alterado com sucesso!'); 
-                return $this->redirect()->toRoute('usuarioAlterar', array('id' => $usuario->id));
+            }else{
+                $formUsuario->setData($dados);
+                if($formUsuario->isValid()){
+                    if((empty($dados['senha']))){
+                        unset($dados['senha']);
+                    }else{
+                        $bcrypt = new Bcrypt();
+                        $dados['senha'] = $bcrypt->create($dados['senha']);
+                    }
+                    $serviceUsuario->update($dados, array('id'  =>  $usuario->id));
+                    $this->flashMessenger()->addSuccessMessage('Usuario alterado com sucesso!'); 
+                    return $this->redirect()->toRoute('usuarioAlterar', array('id' => $usuario->id));
+                }
+                
             }
+
         }
 
         return new ViewModel(array(
                                 'formUsuario' => $formUsuario,
+                                'formEmpresa' => $formEmpresa,
+                                'unidades'    => $unidades,
+                                'usuario'     => $usuario
                                 )
                             );
+    }
+
+    public function deletarunidadeAction(){
+        $serviceUsuarioEmpresa = $this->getServiceLocator()->get('UsuarioUnidade');
+        if($serviceUsuarioEmpresa->delete(array('id' => $this->params()->fromRoute('id')))){
+            $this->flashMessenger()->addSuccessMessage('Unidade desvinculada com sucesso!');
+        }else{
+            $this->flashMessenger()->addErrorMessage('Erro ao desvincular unidade');
+        }
+        return $this->redirect()->toRoute('usuarioAlterar', array('id' => $this->params()->fromRoute('usuario')));
     }
 
     public function deletarusuarioAction(){

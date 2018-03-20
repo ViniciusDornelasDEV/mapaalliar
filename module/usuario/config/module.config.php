@@ -63,6 +63,21 @@ return array(
                     ),
                 ),
             ),
+            //deletar unidade
+            'usuarioUnidadeDeletar' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/usuario/deletarunidade[/:id][/:usuario]',
+                    'constraints' => array(
+                        'id'     => '[0-9]+',
+                        'unidade'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Usuario\Controller\Usuario',
+                        'action'     => 'deletarunidade',
+                    ),
+                ),
+            ),
             //Deletar usuario
             'usuarioDeletar' => array(
                 'type' => 'Zend\Mvc\Router\Http\Segment',

@@ -26,7 +26,7 @@ use Application\Form\Base as BaseForm;
 
         //Tipo de usuário
         $serviceTipoUsuario = $this->serviceLocator->get('UsuarioTipo');
-        $tipos = $serviceTipoUsuario->fetchAll(array('id', 'perfil'));
+        $tipos = $serviceTipoUsuario->getRecords('S', 'ativo');
 
         if(!$tipos){
             $tipos = array();

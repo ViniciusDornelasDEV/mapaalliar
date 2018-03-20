@@ -69,7 +69,8 @@ class SubstituicaoController extends BaseController
     public function novoAction(){
         $this->layout('layout/gestor');
         $usuario = $this->getServiceLocator()->get('session')->read();
-        $formSubstituicao = new formSubstituicao('frmSubstituicao', $this->getServiceLocator(), $usuario);
+        $funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($usuario['funcionario']);
+        $formSubstituicao = new formSubstituicao('frmSubstituicao', $this->getServiceLocator(), $funcionario);
 
         if($this->getRequest()->isPost()){
             $formSubstituicao->setData($this->getRequest()->getPost());

@@ -30,10 +30,10 @@
         $areas = $this->serviceLocator->get('Area')->getAreaUnidade($idUnidade);
         
         $areas = $this->prepareForDropDown($areas, array('id', 'nome'));
-        $this->_addDropdown('area', 'Área:', false, $areas, 'carregarSetor(this.value, "C");');
+        $this->_addDropdown('area', 'Área:', false, $areas, 'carregarSetor(this.value, "C", "N", '.$idUnidade.');');
 
         //setor
-        $this->_addDropdown('setor', 'Setor:', false, array('' => 'Selecione uma área'), 'carregarFuncao(this.value, "C");');
+        $this->_addDropdown('setor', 'Setor:', false, array('' => 'Selecione uma área'), 'carregarFuncao(this.value, "C", '.$idUnidade.');');
 
         //funcao
         $this->_addDropdown('funcao', 'Função:', false, array('' => 'Selecione um setor'));

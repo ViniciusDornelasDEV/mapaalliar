@@ -1,0 +1,126 @@
+<?php echo $this->doctype(); ?>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <?php echo $this->headTitle('Mapa Alliar')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+
+<?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+                ->prependStylesheet($this->basePath() . '/css/bootstrap.css')
+                ->prependStylesheet($this->basePath() . '/css/jquery-ui.css')
+                ->prependStylesheet($this->basePath() . '/css/backgrounds.css')
+                ->prependStylesheet($this->basePath() . '/css/layout.css')
+                ->prependStylesheet($this->basePath() . '/css/menu.css')
+                ->prependStylesheet($this->basePath() . '/css/fullcalendar.css'); ?>
+
+
+                <?php echo $this->headScript()
+            ->prependFile($this->basePath() . '/js/ui.datepicker-pt-BR.js')
+            ->prependFile($this->basePath() . '/js/jquery-ui.min.js')
+            ->prependFile($this->basePath() . '/js/fullcalendar/pt-br.js')
+            ->prependFile($this->basePath() . '/js/fullcalendar.js')
+            ->prependFile($this->basePath() . '/js/moment.js')
+            ->prependFile($this->basePath() . '/js/bootbox.min.js')
+            ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+            ->prependFile($this->basePath() . '/js/jquery.maskedinput.min.js')
+            ->prependFile($this->basePath() . '/js/funcoes.js')
+            ->prependFile($this->basePath() . '/js/jquery.js'); 
+
+
+    $rota = explode("\\", $this->getHelperPluginManager()->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getParam('controller'));
+
+    $action = explode("\\", $this->getHelperPluginManager()->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getParam('action'));
+
+    $usuario = $this->getHelperPluginManager()->getServiceLocator()->get('session')->read();
+?>
+
+    </head>
+    <body class="ng-scope">
+        <div id="sb-site">
+            <div id="page-wrapper">
+                <div id="page-header" class="bg-gradient-9">
+                    <div id="header-logo" class="logo-bg">
+                        <img src="<?= $this->basePath('img/logo.png'); ?>" style="margin-top:5px;">
+                    </div>
+                    <div id="header-nav-left">
+                        <div id="page-title" style="position:absolute;margin-top:10px;margin-left:20px;">
+                            <h2 style="color:#fff">MAPA</h2>
+                            <p style="color:#fff">METODOLOGIA ADMINISTRAÇÃO DE PESSOAL ALLIAR</p>
+                        </div>                        
+                    </div>
+                    <div id="header-nav-right">
+                        <p style="color:#fff">
+                            <img src="<?= $this->basePath('img/usuario.png'); ?>"> 
+                            <?= $usuario['nome'] ?>
+                        </p>
+                    </div>
+                </div>                
+
+                <div id="page-sidebar">
+                    <div class="scroll-sidebar">
+
+
+                        <nav class="navbar navbar-default sidebar" role="navigation">
+                            <div class="container-fluid">
+                            <div class="navbar-header">
+                              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                              </button>      
+                            </div>
+                            <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+                              <ul class="nav navbar-nav" style="width:100%;">
+                                
+
+                                
+
+
+                                <li class="active" style="background-color:#DEB887;"><a href="<?= $this->url('listarFuncionarioTi'); ?>">Funcionários<span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a></li>                
+                                <li><a href="<?= $this->url('logout'); ?>">Sair<span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a></li> 
+                              </ul>
+                            </div>
+                          </div>
+                        </nav>
+
+
+                    </div>
+                </div>
+
+        <div id="page-content-wrapper">
+                <div class="container theme-showcase" role="main" style="margin-top:100px;padding: 0px;">
+                    <?= $this->flashMessenger()->render('error', array('alert', 'alert-danger')) ?>   
+
+                    <?= $this->flashMessenger()->render('warning', array('alert',  'alert-warning')) ?>
+                    
+                    <?= $this->flashMessenger()->render('success', array('alert',  'alert-success')) ?>
+                </div>
+        
+        <?php echo $this->content; ?>
+
+
+      
+        </div>
+
+
+    <?php echo $this->inlineScript() ?>
+
+
+
+</div>
+</div>
+
+<script type="text/javascript">
+
+    $('#bs-sidebar-navbar-collapse-1').on('hide.bs.dropdown', function () {
+        return false;
+    });
+</script>
+
+</body>
+</html>

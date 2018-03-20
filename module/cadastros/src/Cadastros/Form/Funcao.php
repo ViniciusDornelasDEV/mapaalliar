@@ -41,9 +41,14 @@
         
     }
 
-    public function setSetorByArea($idArea, $todos = 'N'){
+    public function setSetorByArea($idArea, $todos = 'N', $idUnidade = false){
         //buscar setores
-        $setores = $this->serviceLocator->get('Setor')->getSetores(array('area' => $idArea));
+        $params = array('area' => $idArea);
+        if($idUnidade != 'false'){
+            $params['unidade'] = $idUnidade;
+        }
+        
+        $setores = $this->serviceLocator->get('Setor')->getSetores($params);
         
         $preparedArray = array('' => '-- selecione --');
         if($todos == 'S'){

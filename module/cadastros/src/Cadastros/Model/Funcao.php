@@ -6,7 +6,7 @@ use Application\Model\BaseTable;
 
 class Funcao Extends BaseTable {
 
-    public function getFuncoes($params = false, $funcionarios = false){
+    public function getFuncoes($params = false){
         return $this->getTableGateway()->select(function($select) use ($params) {
             $select->join(
                     array('s' => 'tb_setor'),
@@ -34,13 +34,15 @@ class Funcao Extends BaseTable {
                 }
             }
 
-            if($funcionarios){
+            if(isset($params['unidade'])){
                 //join com funcionarios
                 $select->join(
                     array('fu' => 'tb_funcionario'),
                     'fu.funcao = tb_funcao.id',
                     array()
                 );
+
+                $select->where(array('fu.unidade' => $params['unidade']));
             }
             
             $select->order('a.nome, s.nome, tb_funcao.nome');

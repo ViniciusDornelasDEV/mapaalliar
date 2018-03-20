@@ -1,9 +1,70 @@
 <?php echo $this->partial('form/pesquisa', array('form'=> $formPesquisa, 'route'=> '', 'notExcel' => '')) ?>
 
+<div class="container theme-showcase" role="main" style="margin-bottom: 10px;"> 
+  <div class="row">
+    <div class="col-sm-3">
+      <img src="<?= $this->basePath('img/vermelho.png'); ?>"> <b><?= $ausencias->count(); ?></b> ausências no período
+    </div>
+
+    <div class="col-sm-3">
+      <img src="<?= $this->basePath('img/cinza.png'); ?>"> <b><?= $ferias->count(); ?></b> férias no período
+    </div>
+
+    <div class="col-sm-3">
+      <img src="<?= $this->basePath('img/amarelo.png'); ?>"> <b><?= $acoes->count(); ?></b> ação disciplinar no período
+    </div>
+
+    <div class="col-sm-3">
+      <img src="<?= $this->basePath('img/verde.png'); ?>"> <b><?= $ajudas->count() ?></b> ajudas no período
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="container theme-showcase" role="main">
+      <div class="row">
+          <div class="col-sm-6">
+
+          </div>
+
+          <div class="col-sm-6">
+            <form name="frmRelatorio" action="" method="POST">
+            <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Relatório diário</h3>
+              </div>
+              <div class="panel-body">
+                  <div class="form-group">
+
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-4">
+                        <?= $this->formElement($formRelatorio->get('data_referencia')); ?>
+                    </div>
+
+                    <div class="col-sm-4">
+                      <button type="submit" class="btn btn-success" style="float: right;margin-right: 10px;">
+                        <img src="<?php echo $this->basePath('img/excel.png') ?>" alt="Salvar">
+                        Gerar relatório
+                      </button>
+                    </div>
+
+              </div>
+            </div>
+          </div>
+        </form>
+        </div>
+    </div>
+    </div>
+
+
+
 <div class="container theme-showcase" role="main" style="">  
   <div class="row">
     <div class="col-sm-6">
-      <div class="panel panel-default">
+      <div class="panel panel-danger">
         <div class="panel-heading">
           <h3 class="panel-title">Ausências do mês (De <?= $this->converterData($inicio); ?> até <?= $this->converterData($fim); ?>)</h3>
         </div>
@@ -30,7 +91,7 @@
   
   <div class="row">
     <div class="col-sm-6">
-      <div class="panel panel-default">
+      <div class="panel panel-warning">
         <div class="panel-heading">
           <h3 class="panel-title">Ações disciplinares (De <?= $this->converterData($inicio); ?> até <?= $this->converterData($fim); ?>)</h3>
         </div>
@@ -42,7 +103,7 @@
       </div>
     </div>
     <div class="col-sm-6">
-      <div class="panel panel-default">
+      <div class="panel panel-success">
         <div class="panel-heading">
           <h3 class="panel-title">Ajudas (De <?= $this->converterData($inicio); ?> até <?= $this->converterData($fim); ?>)</h3>
         </div>
@@ -75,7 +136,10 @@
             start: '<?= $ausencia["data"] ?>'
           },
         <?php endforeach; ?>
-      ]
+      ],
+      dayClick: function(date, jsEvent, view) {
+        eventoCalendario(date.format(), 1, <?= $funcionario['unidade'] ?>);
+      }
     });
     $('#ausencias').fullCalendar('gotoDate', '<?= $inicio ?>');
 
@@ -96,7 +160,10 @@
             end:   '<?php echo date("Y-m-d", strtotime("+1 days",strtotime($feria["data_fim"]))); ?>'
           },
         <?php endforeach; ?>
-      ]
+      ],
+      dayClick: function(date, jsEvent, view) {
+        eventoCalendario(date.format(), 2, <?= $funcionario['unidade'] ?>);
+      }
     });
     $('#ferias').fullCalendar('gotoDate', '<?= $inicio ?>');
 
@@ -116,7 +183,10 @@
             start: '<?= $acao["data"] ?>'
           },
         <?php endforeach; ?>
-      ]
+      ],
+      dayClick: function(date, jsEvent, view) {
+        eventoCalendario(date.format(), 3, <?= $funcionario['unidade'] ?>);
+      }
     });
     $('#acoes').fullCalendar('gotoDate', '<?= $inicio ?>');
 
@@ -137,7 +207,10 @@
             end:   '<?php echo date("Y-m-d", strtotime("+1 days",strtotime($ajuda["data_fim"]))); ?>'
           },
         <?php endforeach; ?>
-      ]
+      ],
+      dayClick: function(date, jsEvent, view) {
+        eventoCalendario(date.format(), 4, <?= $funcionario['unidade'] ?>);
+      }
     });
     $('#ajudas').fullCalendar('gotoDate', '<?= $inicio ?>');
   });
@@ -147,7 +220,9 @@
       $(document).ready(function() {
         $("#inicio").mask("99/99/9999");        
         $("#fim").mask("99/99/9999");
+        $("#data_referencia").mask("99/99/9999");
         $("#inicio").datepicker();
         $("#fim").datepicker();
+        $("#data_referencia").datepicker();
       });
     </script>
