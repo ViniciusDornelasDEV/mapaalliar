@@ -21,3 +21,5 @@ LICENSE.txt
 config/autoload/aws.local.php
 data/baseDadosDefault.sql
 public/arquivos/
+public/log/20-03-2018/tb_area/insert.txt
+public/log/

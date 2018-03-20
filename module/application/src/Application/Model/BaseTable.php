@@ -265,7 +265,9 @@ class BaseTable {
      * @return int
      */
     public function update($data, array $where) {
-        $data = $this->sanitizeObjectForEntry($data);       
+        $data = $this->sanitizeObjectForEntry($data);
+        $preparedArray = array_merge($data, $where);
+        $this->logSistema($preparedArray, 'update');     
         $res = $this->getTableGateway()->update($data, $where);               
         return $res;
         
@@ -347,6 +349,7 @@ class BaseTable {
         $data = $this->sanitizeObjectForEntry($record);
 
         if (count($data)) {
+            $this->logSistema($data, 'insert');
             $this->getTableGateway()->insert($data);
             return $this->getTableGateway()->getLastInsertValue();
         }
@@ -360,7 +363,8 @@ class BaseTable {
      * @return void
      */
     public function delete(array $whereArray = array()) {
-       return $this->getTableGateway()->delete($whereArray);
+        $this->logSistema($whereArray, 'delete');
+        return $this->getTableGateway()->delete($whereArray);
     }
 
     public function sanitizeObjectForEntry($object) {
@@ -392,5 +396,48 @@ class BaseTable {
 
         return $row;
     }
+
+    public function logSistema($data, $operacao, $user = true){
+        //verificar se existe pasta para a data corrente
+        $caminho = 'public/log/'.date('d-m-Y');
+        if(!file_exists($caminho)){
+            mkdir($caminho);
+        }
+
+        $caminho .= '/'.$this->tableGateway->getTable();
+        if(!file_exists($caminho)){
+            mkdir($caminho);
+        }
+
+        //verifica se existe arquivo para a operacao
+        $nomeArquivo = $caminho.'/'.$operacao.'.txt';
+        $arquivo = fopen($nomeArquivo, 'a');
+        //tratart vetor para texto
+        $string = $this->vetorToString($data, $user);
+
+        fwrite($arquivo, $string);
+        fclose($arquivo);
+    }
+
+    public function vetorToString($data, $user = true){
+        $string = '';
+        if($user){
+            $usuario = $this->getIdentity();
+            $string = 'usuario: '.$usuario['id'].' - '.$usuario['login']."\r\n";
+        }
+        $string .= 'Data/Hora da transação: '.date('d-m-Y H:i:s')."\r\n";
+        $string .= 'Informações: ';
+
+        foreach ($data as $indice => $informacao) {
+            if(!empty($informacao)){
+                $string .= $indice.' => '.$informacao."\r\n";
+            }
+        }
+
+        $string .= '------------------------------------------------------'."\r\n"."\r\n";
+        return $string."";
+    }
+
+
 
 }

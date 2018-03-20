@@ -92,6 +92,7 @@ class UsuarioController extends BaseController
                     $sessao = new Container();
                     $sessao->acl = $this->criarAutorizacao();
                     
+                    $this->getServiceLocator()->get('Usuario')->logSistema($user, 'login', false);
                     if($user['id_usuario_tipo'] == 3){
                         return $this->redirect()->toRoute('listarFuncionarioTi');
                     }
