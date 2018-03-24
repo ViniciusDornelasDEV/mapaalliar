@@ -126,6 +126,13 @@
         center: 'title',
         right: 'month,agendaWeek,agendaDay'
       },
+      dayRender: function (date, cell) {
+        <?php foreach ($anotacoesAusencias as $ausencia) : ?>
+          if (date.format("YYYY-MM-DD") == "<?= $ausencia['data'] ?>") {
+            cell.css("background-color", "#FFDEAD");
+          }
+        <?php endforeach; ?>
+      },
       defaultDate: '<?= date("Y-m-d") ?>',
       defaultView: 'month',
       editable: true,
@@ -138,7 +145,7 @@
         <?php endforeach; ?>
       ],
       dayClick: function(date, jsEvent, view) {
-        eventoCalendario(date.format(), 1, <?= $funcionario['unidade'] ?>);
+        eventoCalendario(date.format(), 1, <?= $funcionario['unidade'] ?>, this);
       }
     });
     $('#ausencias').fullCalendar('gotoDate', '<?= $inicio ?>');
@@ -148,6 +155,13 @@
         left: '',
         center: 'title',
         right: 'month,agendaWeek,agendaDay'
+      },
+      dayRender: function (date, cell) {
+        <?php foreach ($anotacoesFerias as $dia) : ?>
+          if (date.format("YYYY-MM-DD") == "<?= $dia['data'] ?>") {
+            cell.css("background-color", "#FFDEAD");
+          }
+        <?php endforeach; ?>
       },
       defaultDate: '<?= date("Y-m-d") ?>',
       defaultView: 'month',
@@ -162,7 +176,7 @@
         <?php endforeach; ?>
       ],
       dayClick: function(date, jsEvent, view) {
-        eventoCalendario(date.format(), 2, <?= $funcionario['unidade'] ?>);
+        eventoCalendario(date.format(), 2, <?= $funcionario['unidade'] ?>, this);
       }
     });
     $('#ferias').fullCalendar('gotoDate', '<?= $inicio ?>');
@@ -172,6 +186,13 @@
         left: '',
         center: 'title',
         right: 'month,agendaWeek,agendaDay'
+      },
+      dayRender: function (date, cell) {
+        <?php foreach ($anotacoesAcoes as $dia) : ?>
+          if (date.format("YYYY-MM-DD") == "<?= $dia['data'] ?>") {
+            cell.css("background-color", "#FFDEAD");
+          }
+        <?php endforeach; ?>
       },
       defaultDate: '<?= date("Y-m-d") ?>',
       defaultView: 'month',
@@ -185,7 +206,7 @@
         <?php endforeach; ?>
       ],
       dayClick: function(date, jsEvent, view) {
-        eventoCalendario(date.format(), 3, <?= $funcionario['unidade'] ?>);
+        eventoCalendario(date.format(), 3, <?= $funcionario['unidade'] ?>, this);
       }
     });
     $('#acoes').fullCalendar('gotoDate', '<?= $inicio ?>');
@@ -195,6 +216,13 @@
         left: '',
         center: 'title',
         right: 'month,agendaWeek,agendaDay'
+      },
+      dayRender: function (date, cell) {
+        <?php foreach ($anotacoesAjudas as $dia) : ?>
+          if (date.format("YYYY-MM-DD") == "<?= $dia['data'] ?>") {
+            cell.css("background-color", "#FFDEAD");
+          }
+        <?php endforeach; ?>
       },
       defaultDate: '<?= date("Y-m-d") ?>',
       defaultView: 'month',
@@ -209,7 +237,7 @@
         <?php endforeach; ?>
       ],
       dayClick: function(date, jsEvent, view) {
-        eventoCalendario(date.format(), 4, <?= $funcionario['unidade'] ?>);
+        eventoCalendario(date.format(), 4, <?= $funcionario['unidade'] ?>, this);
       }
     });
     $('#ajudas').fullCalendar('gotoDate', '<?= $inicio ?>');

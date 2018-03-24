@@ -15,4 +15,9 @@ return array(
         'username'      => 'mapa_alliar',
         'password'      => 'sqlyt4da51241'
     ),*/
+    /*'db'   => array(
+        'dsn' => 'mysql:dbname=timesistemamap;host=timesistemamap.mysql.dbaas.com.br',
+        'username'      => 'timesistemamap',
+        'password'      => 'sqlyt4da51241'
+    ),*/
 );

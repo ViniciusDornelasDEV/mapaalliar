@@ -322,7 +322,7 @@ function check(id){
     }
 }
 
-function eventoCalendario(date, tipo, unidade){
+function eventoCalendario(date, tipo, unidade, calendario){
     //pesquisar o texto pela data e tipo (ajax)
     var value = '';
     var data = {data: date, tipo: tipo, unidade: unidade};
@@ -338,6 +338,7 @@ function eventoCalendario(date, tipo, unidade){
                 callback: function (result) {
                     //salvar o texto ou alterar pela data e tipo (ajax)
                     salvarTextoCalendario(date, tipo, result, unidade);
+                    $(calendario).css('background-color', '#FFDEAD');
                 }
             });       
         }

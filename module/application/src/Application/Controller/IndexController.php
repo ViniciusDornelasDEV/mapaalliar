@@ -59,6 +59,12 @@ class IndexController extends BaseController
         $formRelatorio = new formRelatorio('frmRelatorio');
         $formRelatorio->setData(array('data_referencia' => date('d/m/Y')));
 
+        $anotacoesAusencias = false;
+        $anotacoesFerias = false;
+        $anotacoesAcoes = false;
+        $anotacoesAjudas = false;
+
+
         if($this->getRequest()->isPost()){
             $dados = $this->getRequest()->getPost();
 
@@ -108,6 +114,12 @@ class IndexController extends BaseController
                 
             }
 
+            $serviceAnotacoes = $this->getServiceLocator()->get('AnotacoesDashboard');
+            $anotacoesAusencias = $serviceAnotacoes->getAnotacoes($dataInicio, $dataFim, 1)->toArray();
+            $anotacoesFerias = $serviceAnotacoes->getAnotacoes($dataInicio, $dataFim, 2)->toArray();
+            $anotacoesAcoes = $serviceAnotacoes->getAnotacoes($dataInicio, $dataFim, 3)->toArray();
+            $anotacoesAjudas = $serviceAnotacoes->getAnotacoes($dataInicio, $dataFim, 4)->toArray();
+
 
         }
 
@@ -120,7 +132,11 @@ class IndexController extends BaseController
                 'empresa'       =>  $empresa,
                 'unidade'       =>  $unidade,
                 'dataInicio'    =>  $dataInicio,
-                'formRelatorio' =>  $formRelatorio
+                'formRelatorio' =>  $formRelatorio,
+                'anotacoesAusencias'    =>  $anotacoesAusencias,
+                'anotacoesFerias'       =>  $anotacoesFerias,
+                'anotacoesAcoes'        =>  $anotacoesAcoes,
+                'anotacoesAjudas'       =>  $anotacoesAjudas
             ));
     }
 
@@ -177,6 +193,13 @@ class IndexController extends BaseController
             ->get('Ajuda')
             ->getAjudas(array('inicio' => $dataInicio, 'fim' => $dataFim), $usuario['funcionario']);
 
+
+        $serviceAnotacoes = $this->getServiceLocator()->get('AnotacoesDashboard');
+        $anotacoesAusencias = $serviceAnotacoes->getAnotacoes($dataInicio, $dataFim, 1)->toArray();
+        $anotacoesFerias = $serviceAnotacoes->getAnotacoes($dataInicio, $dataFim, 2)->toArray();
+        $anotacoesAcoes = $serviceAnotacoes->getAnotacoes($dataInicio, $dataFim, 3)->toArray();
+        $anotacoesAjudas = $serviceAnotacoes->getAnotacoes($dataInicio, $dataFim, 4)->toArray();
+
         return new ViewModel(array(
                 'ausencias' =>  $ausencias,
                 'ferias'    =>  $ferias,
@@ -186,7 +209,11 @@ class IndexController extends BaseController
                 'fim'       =>  $dataFim,
                 'formPesquisa'  =>  $formPesquisa,
                 'funcionario'   =>  $funcionario,
-                'formRelatorio' =>  $formRelatorio 
+                'formRelatorio' =>  $formRelatorio,
+                'anotacoesAusencias'    =>  $anotacoesAusencias,
+                'anotacoesFerias'       =>  $anotacoesFerias,
+                'anotacoesAcoes'        =>  $anotacoesAcoes,
+                'anotacoesAjudas'       =>  $anotacoesAjudas
             ));
     }
 

@@ -10,25 +10,39 @@
         ?>
 
 <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
-                ->prependStylesheet($this->basePath() . '/css/bootstrap.css')
-                ->prependStylesheet($this->basePath() . '/css/jquery-ui.css')
-                ->prependStylesheet($this->basePath() . '/css/backgrounds.css')
-                ->prependStylesheet($this->basePath() . '/css/layout.css')
-                ->prependStylesheet($this->basePath() . '/css/menu.css')
-                ->prependStylesheet($this->basePath() . '/css/fullcalendar.css'); ?>
 
+
+                ->prependStylesheet($this->basePath() . '/css/fullcalendar.css')
+                ->prependStylesheet($this->basePath() . '/vendor/font-awesome/css/font-awesome.min.css')
+                ->prependStylesheet($this->basePath() . '/vendor/morrisjs/morris.css')
+                ->prependStylesheet($this->basePath() . '/dist/css/sb-admin-2.css')
+                ->prependStylesheet($this->basePath() . '/vendor/metisMenu/metisMenu.min.css')
+                ->prependStylesheet($this->basePath() . '/vendor/bootstrap/css/bootstrap.css'); ?>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
                 <?php echo $this->headScript()
             ->prependFile($this->basePath() . '/js/ui.datepicker-pt-BR.js')
-            ->prependFile($this->basePath() . '/js/jquery-ui.min.js')
             ->prependFile($this->basePath() . '/js/fullcalendar/pt-br.js')
             ->prependFile($this->basePath() . '/js/fullcalendar.js')
             ->prependFile($this->basePath() . '/js/moment.js')
             ->prependFile($this->basePath() . '/js/bootbox.min.js')
-            ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+            
+
             ->prependFile($this->basePath() . '/js/jquery.maskedinput.min.js')
             ->prependFile($this->basePath() . '/js/funcoes.js')
-            ->prependFile($this->basePath() . '/js/jquery.js'); 
+            ->prependFile($this->basePath() . '/dist/js/sb-admin-2.js')
+            ->prependFile($this->basePath() . '/vendor/morrisjs/morris.min.js')
+            ->prependFile($this->basePath() . '/vendor/raphael/raphael.min.js')
+            ->prependFile($this->basePath() . '/vendor/metisMenu/metisMenu.min.js')
+            ->prependFile($this->basePath() . '/vendor/bootstrap/js/bootstrap.min.js')
+            ->prependFile($this->basePath() . '/vendor/jquery/jquery.min.js'); 
 
 
     $rota = explode("\\", $this->getHelperPluginManager()->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getParam('controller'));
@@ -39,162 +53,141 @@
 ?>
 
     </head>
-    <body class="ng-scope">
-        <div id="sb-site">
-            <div id="page-wrapper">
-                <div id="page-header" class="bg-gradient-9">
-                    <div id="header-logo" class="logo-bg">
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background: linear-gradient(154deg, #008fe2 0, #00b29c 100%);">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
                         <img src="<?= $this->basePath('img/logo.png'); ?>" style="margin-top:5px;">
-                    </div>
-                    <div id="header-nav-left">
-                        <div id="page-title" style="position:absolute;margin-top:10px;margin-left:20px;">
-                            <h2 style="color:#fff">MAPA</h2>
-                            <p style="color:#fff">METODOLOGIA ADMINISTRAÇÃO DE PESSOAL ALLIAR</p>
-                        </div>                        
-                    </div>
-                    <div id="header-nav-right">
-                        <p style="color:#fff">
+                
+                            
+                <!-- <a class="navbar-brand" href="index.html">SB Admin v2.0</a> -->
+            </div>
+                <div class="row">
+                    <div class="col-sm-10">
+                        <div style="margin-left: 248px;margin-bottom:10px;">
+                            <h2 style="color:#fff;margin-bottom:0px">MAPA</h2>
+                            <span style="color:#fff">METODOLOGIA ADMINISTRAÇÃO DE PESSOAL ALLIAR</span>
+                        </div>
+
+                        <div style="float: right;margin-top:-50px;color:#fff;">
                             <img src="<?= $this->basePath('img/usuario.png'); ?>"> 
-                            <?= $usuario['nome'] ?>
-                        </p>
+                                <?= $usuario['nome'] ?>
+                        </div>
                     </div>
-                </div>                
 
-                <div id="page-sidebar">
-                    <div class="scroll-sidebar">
+                    
+                </div>
+                <!--
 
+                    <span style="color:#fff">
+                        </span>
+                </div>
+            <!-- /.navbar-header -->
 
-                        <nav class="navbar navbar-default sidebar" role="navigation">
-                            <div class="container-fluid">
-                            <div class="navbar-header">
-                              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                              </button>      
-                            </div>
-                            <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-                              <ul class="nav navbar-nav" style="width:100%;">
-                                <li class="<?= $rota[0] == 'Application' ? 'active' : ''; ?>"><a href="<?= $this->url('home'); ?>">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a></li>
-                                <li class="dropdown <?= $rota[0] == 'Cadastros' ? 'open' : ''; ?>">
-                                    <a href="#" style="background-color:#DEB887;" class="dropdown-toggle" data-toggle="dropdown">Cadastros 
-                                        <span class="caret"></span>
-                                        <span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span>
-                                    </a>
-                                    <ul style="background-color:#DEB887;" class="dropdown-menu forAnimate" role="menu">
-                                        <li class="<?= $rota[2] == 'Empresa' ? 'active' : ''; ?>"><a href="<?= $this->url('listarEmpresa'); ?>">Empresa</a></li>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" style="margin-top:0px;" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a class="<?= $rota[0] == 'Application' ? 'active' : ''; ?>" href="<?= $this->url('home'); ?>"> Home</a>
+                        </li>
+                        <li>
+                            <a href="#" style="background-color:#DEB887;"> Cadastros</a>
+                            <ul class="nav nav-second-level">
+                                <li class="<?= $rota[2] == 'Empresa' ? 'active' : ''; ?>"><a href="<?= $this->url('listarEmpresa'); ?>">Empresa</a></li>
                                         <li class="<?= $rota[2] == 'Area' ? 'active' : ''; ?>"><a href="<?= $this->url('listarArea'); ?>">Área</a></li>
                                         <li class="<?= $rota[2] == 'Setor' ? 'active' : ''; ?>"><a href="<?= $this->url('listarSetor') ?>">Setor</a></li>
                                         <li class="<?= $rota[2] == 'Funcao' ? 'active' : ''; ?>"><a href="<?= $this->url('listarFuncao'); ?>">Função</a></li>
                                         <li class="<?= $rota[2] == 'Funcionario' ? 'active' : ''; ?>"><a href="<?= $this->url('listarFuncionario'); ?>">Funcionário</a></li>
-                                    </ul>
-                                </li>
-
-
-                                <li class="dropdown <?= $rota[0] == 'Mensal' ? 'open' : ''; ?>">
-                                    <a href="#" style="background-color:#f2dede;" class="dropdown-toggle" data-toggle="dropdown">Mensal 
-                                        <span class="caret"></span>
-                                        <span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span>
-                                    </a>
-                                    <ul class="dropdown-menu forAnimate" role="menu" style="background-color:#f2dede;">
-                                        <li class=""><a href="<?= $this->url('menuPremissasAdmin'); ?>">Premissas</a></li>
-                                        <li class=""><a href="" onclick="alert('A fazer');">Simulador</a></li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#" style="background-color:#f2dede;"> Mensal</a>
+                            <ul class="nav nav-second-level">
+                                 <li><a href="<?= $this->url('menuPremissasAdmin'); ?>">Premissas</a></li>
+                                        <li><a href="" onclick="alert('A fazer');">Simulador</a></li>
                                         <li class="<?= $rota[2] == 'Ferias' ? 'active' : ''; ?>"><a href="<?= $this->url('listarFeriasAdmin'); ?>">Férias</a></li>
-                                    </ul>
-                                </li> 
-
-                                <li class="dropdown <?= $rota[0] == 'Semanal' ? 'open' : ''; ?>">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color:#d9edf7;">Semanal 
-                                        <span class="caret"></span>
-                                        <span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span>
-                                    </a>
-                                    <ul class="dropdown-menu forAnimate" role="menu" style="background-color:#d9edf7;">
-                                        <li class="<?= $rota[2] == 'Organizacaoequipes' ? 'active' : ''; ?>"><a href="<?= $this->url('pesquisarEquipesAdmin'); ?>">Organização de equipes</a></li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#" style="background-color:#d9edf7;"> Semanal</a>
+                            <ul class="nav nav-second-level">
+                                 <li class="<?= $rota[2] == 'Organizacaoequipes' ? 'active' : ''; ?>"><a href="<?= $this->url('pesquisarEquipesAdmin'); ?>">Organização de equipes</a></li>
                                         <li class="<?= $rota[2] == 'Escala' ? 'active' : ''; ?>"><a href="<?= $this->url('listarEscalasAdmin'); ?>">Escalas</a></li>
-                                    </ul>
-                                </li> 
-
-                                <li class="dropdown <?= $rota[0] == 'Adminpessoal' ? 'open' : ''; ?>">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color:#dff0d8;">Diário - Admin. pessoal 
-                                        <span class="caret"></span>
-                                        <span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span>
-                                    </a>
-                                    <ul class="dropdown-menu forAnimate" role="menu" style="background-color:#dff0d8;">
-                                        <li class="<?= $rota[2] == 'Acoes' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAcoesDisciplinaresAdmin'); ?>">Ações disciplinares</a></li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#" style="background-color:#dff0d8;"> Diário - Admin. pessoal</a>
+                            <ul class="nav nav-second-level">
+                                  <li class="<?= $rota[2] == 'Acoes' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAcoesDisciplinaresAdmin'); ?>">Ações disciplinares</a></li>
                                         <li class="<?= $rota[2] == 'Desempenho' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAvaliacoesDesempenhoAdmin'); ?>">Feedback</a></li>
-                                    </ul>
-                                </li>  
-
-                                <li class="dropdown <?= $rota[0] == 'Diario' ? 'open' : ''; ?>">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color:#fcf8e3;">Diário - Controle de operação 
-                                        <span class="caret"></span>
-                                        <span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span>
-                                    </a>
-                                    <ul class="dropdown-menu forAnimate" role="menu" style="background-color:#fcf8e3;">
-                                        <li class="<?= $rota[2] == 'Ausencia' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAusenciaAdmin'); ?>">Controle de ausência</a></li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#" style="background-color:#fcf8e3;"> Diário - Controle de operação</a>
+                            <ul class="nav nav-second-level">
+                                  <li class="<?= $rota[2] == 'Ausencia' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAusenciaAdmin'); ?>">Controle de ausência</a></li>
                                         <li class="<?= $rota[2] == 'Ajuda' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAjudaAdmin'); ?>">Ajudas</a></li>
                                         <li class="<?= $rota[2] == 'Substituicao' ? 'active' : ''; ?>"><a href="<?= $this->url('listarSubstituicaoAdmin'); ?>">Substituição programada</a></li>
                                         <li class="<?= $rota[2] == 'Banco' ? 'active' : ''; ?>"><a href="<?= $this->url('listarBancoHorasAdmin'); ?>">Banco de horas</a></li>
-                                    </ul>
-                                </li>  
-
-                                <li class="dropdown <?= $rota[0] == 'Avaliacoes' ? 'open' : ''; ?>">
-                                    <a href="#" style="background-color:#FFE1FF;" class="dropdown-toggle" data-toggle="dropdown">Avaliações de desempenho 
-                                        <span class="caret"></span>
-                                        <span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span>
-                                    </a>
-                                    <ul style="background-color:#FFE1FF;" class="dropdown-menu forAnimate" role="menu">
-                                        <li class="<?= $action[0] == 'indexavaliacaoresponder' || $action[0] == 'novoavaliacao' ? 'active' : ''; ?>"><a href="<?= $this->url('listarPeriodo'); ?>">Períodos de avaliação</a></li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#" style="background-color:#FFE1FF;"> Avaliações de desempenho</a>
+                            <ul class="nav nav-second-level">
+                                  <li class="<?= $action[0] == 'indexavaliacaoresponder' || $action[0] == 'novoavaliacao' ? 'active' : ''; ?>"><a href="<?= $this->url('listarPeriodo'); ?>">Períodos de avaliação</a></li>
                                         <li class="<?= $action[0] == 'indexavaliacaorespondida' || $action[0] == 'visualizaravaliacao' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAvaliacoesRespondidasAdmin'); ?>">Visualizar avaliações</a></li>
-                                    </ul>
-                                </li>
-
-                                
-
-
-                                <li class="<?= $rota[0] == 'Usuario' ? 'active' : ''; ?>" style="background-color:#fcf8e3;"><a href="<?= $this->url('usuario'); ?>">Usuários<span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a></li>         
-                                
-                                <li><a href="<?= $this->url('logout'); ?>">Sair<span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a></li>         
-                                
-                              </ul>
-                            </div>
-                          </div>
-                        </nav>
-
-
-                    </div>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a class="<?= $rota[0] == 'Usuario' ? 'active' : ''; ?>" style="background-color:#fcf8e3;" href="<?= $this->url('usuario'); ?>"> Usuários</a>
+                        </li>
+                        <li>
+                            <a href="<?= $this->url('logout'); ?>"> Sair</a>
+                        </li>
+                       
+                       
+                    </ul>
                 </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
 
-        <div id="page-content-wrapper">
-                <div class="container theme-showcase" role="main" style="margin-top:100px;padding: 0px;">
-                    <?= $this->flashMessenger()->render('error', array('alert', 'alert-danger')) ?>   
+        <div id="page-wrapper" style="margin-top: 50px;">
+            
+        <?= $this->flashMessenger()->render('error', array('alert', 'alert-danger')) ?>   
 
-                    <?= $this->flashMessenger()->render('warning', array('alert',  'alert-warning')) ?>
-                    
-                    <?= $this->flashMessenger()->render('success', array('alert',  'alert-success')) ?>
-                </div>
+        <?= $this->flashMessenger()->render('warning', array('alert',  'alert-warning')) ?>
         
+        <?= $this->flashMessenger()->render('success', array('alert',  'alert-success')) ?>
+
+
         <?php echo $this->content; ?>
 
-
-      
         </div>
+        <!-- /#page-wrapper -->
 
+    </div>
+    <!-- /#wrapper -->
 
-    <?php echo $this->inlineScript() ?>
-
-
-
-</div>
-</div>
-
-<script type="text/javascript">
-
-    $('#bs-sidebar-navbar-collapse-1').on('hide.bs.dropdown', function () {
-        return false;
-    });
-</script>
+    <!-- jQuery -->
 
 </body>
 </html>
