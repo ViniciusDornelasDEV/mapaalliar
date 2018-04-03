@@ -23,6 +23,7 @@
             </div>
             <div class="panel-body">
               <?php if($funcionarios->count() > 0): ?>
+              <div class="table-responsive">
                 <table class="table">
                   <tr>
                     <th style="text-align: center">Filial</th>
@@ -56,6 +57,7 @@
                 </tr>
                 <?php endforeach; ?>
               </table>
+            </div>
             <?php else: ?>
               <div class="alert alert-info">Nenhum funcionário encontrado!</div>
             <?php endif; ?>

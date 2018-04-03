@@ -221,8 +221,9 @@ class Funcionario Extends BaseTable {
                         ->equalTo('av.enviado', 'N')
                     ->unnest;
 
-            //$select->where('av.id IS NULL');
+            $select->group('tb_funcionario.id');
             $select->where(array('f.setor' => $periodo['setor'], 'tb_funcionario.ativo = "S"'));
+            $select->order('av.data_hora_resposta DESC, tb_funcionario.nome');
 
         });
     }

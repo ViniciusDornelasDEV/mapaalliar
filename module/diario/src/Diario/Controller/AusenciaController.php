@@ -203,6 +203,7 @@ class AusenciaController extends BaseController
             $formAusencia->setData($this->getRequest()->getPost());
             if($formAusencia->isValid()){
                 $dados = $formAusencia->getData();
+                $files = $this->getRequest()->getfiles()->toArray();
                 unset($dados['funcionario']);
                 unset($dados['atestado']);
 
@@ -210,8 +211,6 @@ class AusenciaController extends BaseController
                     $dir = 'public/arquivos/ausencias';
                     $dados = $this->uploadImagem($files, $dir, $dados);
                 }
-
-                $files = $this->getRequest()->getfiles()->toArray();
 
                 $serviceAusencia->update($dados, array('id' => $idAusencia));
                 $this->flashMessenger()->addSuccessMessage('Ausência alterada com sucesso!');

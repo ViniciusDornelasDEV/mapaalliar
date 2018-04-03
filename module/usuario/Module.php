@@ -29,7 +29,9 @@ class Module
                 /* My Tables  */
                 'Usuario' => function($sm) {
                     $tableGateway = new TableGateway('tb_usuario', $sm->get('db_adapter_main'));
-                    return new Model\Usuario($tableGateway);
+                    $updates = new Model\Usuario($tableGateway);
+                    $updates->setServiceLocator($sm);
+                    return $updates;
                 },
                 'UsuarioTipo' => function($sm) {
                     $tableGateway = new TableGateway('tb_usuario_tipo', $sm->get('db_adapter_main'));

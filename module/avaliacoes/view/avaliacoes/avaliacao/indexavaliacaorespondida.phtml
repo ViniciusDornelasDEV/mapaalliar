@@ -8,6 +8,7 @@
             </div>
             <div class="panel-body">
               <?php if($avaliacoes->count() > 0): ?>
+              <div class="table-responsive">
                 <table class="table">
                   <tr>
                     <th style="text-align: center">Matrícula</th>
@@ -42,6 +43,7 @@
                 </tr>
                 <?php endforeach; ?>
               </table>
+            </div>
             <?php else: ?>
               <div class="alert alert-info">Nenhuma avaliação em aberto!</div>
             <?php endif; ?>

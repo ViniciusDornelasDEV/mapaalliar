@@ -13,6 +13,7 @@
 
 
                 ->prependStylesheet($this->basePath() . '/css/fullcalendar.css')
+                ->prependStylesheet($this->basePath() . '/css/jquery-ui.css')
                 ->prependStylesheet($this->basePath() . '/vendor/font-awesome/css/font-awesome.min.css')
                 ->prependStylesheet($this->basePath() . '/vendor/morrisjs/morris.css')
                 ->prependStylesheet($this->basePath() . '/dist/css/sb-admin-2.css')
@@ -29,6 +30,7 @@
 
                 <?php echo $this->headScript()
             ->prependFile($this->basePath() . '/js/ui.datepicker-pt-BR.js')
+            ->prependFile($this->basePath() . '/js/jquery-ui.min.js')
             ->prependFile($this->basePath() . '/js/fullcalendar/pt-br.js')
             ->prependFile($this->basePath() . '/js/fullcalendar.js')
             ->prependFile($this->basePath() . '/js/moment.js')
@@ -71,7 +73,7 @@
                             
                 <!-- <a class="navbar-brand" href="index.html">SB Admin v2.0</a> -->
             </div>
-                <div class="row">
+                <div class="row" style="margin-right: 0px;">
                     <div class="col-sm-10">
                         <div style="margin-left: 248px;margin-bottom:10px;">
                             <h2 style="color:#fff;margin-bottom:0px">MAPA</h2>

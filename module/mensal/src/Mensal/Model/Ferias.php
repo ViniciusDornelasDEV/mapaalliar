@@ -100,6 +100,7 @@ class Ferias Extends BaseTable {
             }
             
             $select->order('tb_ferias.data_inicio DESC, f.nome');
+            $select->group('f.id');
         }); 
     }
 

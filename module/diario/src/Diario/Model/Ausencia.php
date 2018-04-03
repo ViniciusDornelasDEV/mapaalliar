@@ -86,8 +86,8 @@ class Ausencia Extends BaseTable {
                 }
 
             }
-            
-            $select->order('data DESC');
+            $select->group('f.id');
+            $select->order('data DESC, f.nome');
         }); 
     }
 

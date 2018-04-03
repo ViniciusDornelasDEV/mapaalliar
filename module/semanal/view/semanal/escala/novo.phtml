@@ -1,4 +1,3 @@
-<div class="container theme-showcase" role="main" style="width:80%;margin-left: 15%;">
 <?php
 	$diasSemana = array('D', 'S', 'T', 'Q', 'Q', 'S', 'S');
 	$ultimoDia = date("t", mktime(0,0,0,$escala['mes'],'01',$escala['ano']));	
@@ -15,6 +14,7 @@
               <div class="alert alert-info">NÃO EXISTE FUNCIONÁRIO VINCULADO PARA ESTE GESTOR!</div>
             <?php else: ?>
             <form name="frmEscala" action="" method="POST">
+              <div class="table-responsive">
             <table class="table">
                   <tr>
                     <th style="text-align: center;background-color:#333f4f;color:#ffffff;" colspan="<?php echo 5 + $ultimoDia; ?>"><?= $escala['mes'].'/'.$escala['ano'] ?></th>
@@ -96,7 +96,6 @@
             </table>
           </div>
 
-          <div class="container theme-showcase" role="main" style="width:80%;margin-left: 15%;">
             <table style="border:none;">
               <tr style="border:none;">
                 <td style="border:none;width:30px;background-color:#dff0d8;"></td>
@@ -128,9 +127,6 @@
             </form>
 
             <br>
-            </div>
-
-            <div class="container theme-showcase" role="main" style="width:80%;margin-left: 15%;margin-top:10px;">            
             <div class="panel panel-default">
               <div class="panel-heading">
                   <h3 class="panel-title">Vincular arquivo</h3>
@@ -152,7 +148,7 @@
               </div>
             </div>
             <?php endif; ?>
-         </div>
+         
 
     
 <style type="text/css">

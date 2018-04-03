@@ -91,6 +91,7 @@ class Ajuda Extends BaseTable {
             }
             
             $select->order('data_inicio DESC');
+            $select->group('f.id');
         }); 
     }
 

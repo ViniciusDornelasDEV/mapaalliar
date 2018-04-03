@@ -271,6 +271,11 @@ class UsuarioController extends BaseController
     }
 
     public function novoAction(){
+        $usuario = $this->getServiceLocator()->get('session')->read();
+        if($usuario['id_usuario_tipo'] == 3){
+            $this->layout('layout/layoutti');
+        }
+
         $idFuncionario = $this->params()->fromRoute('funcionario');
         if($idFuncionario){
             $funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($idFuncionario);
@@ -297,7 +302,6 @@ class UsuarioController extends BaseController
                 $bcrypt = new Bcrypt();
                 $dados = $formUsuario->getData();
                 $dados['senha'] = $bcrypt->create($dados['senha']);
-                $dados['id_usuario_tipo'] = 1;
                 if($idFuncionario){
                     $dados['id_usuario_tipo'] = 2;
                     $dados['funcionario'] = $idFuncionario;
@@ -317,20 +321,25 @@ class UsuarioController extends BaseController
 
         }
 
-        return new ViewModel(array('formUsuario' => $formUsuario));
+        return new ViewModel(array('formUsuario' => $formUsuario, 'usuario' => $usuario));
     }
 
 
     public function alterarAction(){
+        $usuarioLogado = $this->getServiceLocator()->get('session')->read();
+        if($usuarioLogado['id_usuario_tipo'] == 3){
+            $this->layout('layout/layoutti');
+        }
         //Pesquisar cliente
         $idUsuario = $this->params()->fromRoute('id');
         $serviceUsuario = $this->getServiceLocator()->get('Usuario');
         $usuario = $serviceUsuario->getRecordFromArray(array('id' => $idUsuario));
 
         //Popular form
-        $formUsuario = new alterarUsuarioForm('frmUsuario', $this->getServiceLocator());
+        $formUsuario = new alterarUsuarioForm('frmUsuario', $this->getServiceLocator(), $usuario);
         //$formUsuario->remove('senha');
         //$formUsuario->remove('confirma_senha');
+
         unset($usuario['senha']);
         $formUsuario->setData($usuario);
         
@@ -378,7 +387,8 @@ class UsuarioController extends BaseController
                                 'formUsuario' => $formUsuario,
                                 'formEmpresa' => $formEmpresa,
                                 'unidades'    => $unidades,
-                                'usuario'     => $usuario
+                                'usuario'     => $usuario,
+                                'usuarioLogado' =>  $usuarioLogado
                                 )
                             );
     }

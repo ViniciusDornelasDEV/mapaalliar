@@ -90,7 +90,7 @@ class FeriasController extends BaseController
             $this->flashMessenger()->addWarningMessage('Férias não encontrada!');
             return $this->redirect()->toRoute('listarFerias');
         }
-
+        
         $formFerias->setData($ferias);
         
         if($this->getRequest()->isPost()){

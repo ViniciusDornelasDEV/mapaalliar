@@ -315,11 +315,11 @@ function canvasToPng(nomeImagem){
 }
 
 function check(id){    
-    if($(id).is(':checked')){
+    /*if($(id).is(':checked')){
         $(id).prop('checked', false);
     }else{
         $(id).prop('checked', true);
-    }
+    }*/
 }
 
 function eventoCalendario(date, tipo, unidade, calendario){

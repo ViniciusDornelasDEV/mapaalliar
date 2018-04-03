@@ -172,9 +172,10 @@ class AvaliacaoController extends BaseController
 
             $formAvaliacao->setData($avaliacao);
         }
-
+        $alerta = false;
         if($this->getRequest()->isPost()){
             $dados2 = $this->getRequest()->getPost();
+            
             $formAvaliacao->setData($dados2);
             if($formAvaliacao->isValid()){
                 $dados = $formAvaliacao->getData();
@@ -195,13 +196,16 @@ class AvaliacaoController extends BaseController
                     $serviceAvaliacao->insert($dados);
                 }
                 return $this->redirect()->toRoute('listarAvaliacoesResponder');
+            }else{
+                $alerta = true;
             }
         }
-
         return new ViewModel(array(
                 'formAvaliacao'     =>  $formAvaliacao,
                 'funcionario'       =>  $funcionario,
-                'referencia'        =>  $referencia
+                'referencia'        =>  $referencia,
+                'alerta'            =>  $alerta,
+                'avaliacao'         =>  $avaliacao
             ));
     }
 

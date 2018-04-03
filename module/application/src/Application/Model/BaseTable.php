@@ -70,7 +70,6 @@ class BaseTable {
     
     public function getIdentity($property = null) {
         $storage = $this->getServiceLocator()->get('session');
-        
         if (!$storage) {
             return false;
         }
@@ -403,7 +402,6 @@ class BaseTable {
         if(!file_exists($caminho)){
             mkdir($caminho);
         }
-
         $caminho .= '/'.$this->tableGateway->getTable();
         if(!file_exists($caminho)){
             mkdir($caminho);
@@ -414,7 +412,6 @@ class BaseTable {
         $arquivo = fopen($nomeArquivo, 'a');
         //tratart vetor para texto
         $string = $this->vetorToString($data, $user);
-
         fwrite($arquivo, $string);
         fclose($arquivo);
     }

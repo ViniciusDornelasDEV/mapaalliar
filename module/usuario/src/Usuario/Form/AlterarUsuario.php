@@ -14,7 +14,7 @@ use Application\Form\Base as BaseForm;
      * @param array $fields
      * @return void
      */
-   public function __construct($name, $serviceLocator)
+   public function __construct($name, $serviceLocator, $usuario)
     {
         if($serviceLocator)
            $this->setServiceLocator($serviceLocator);
@@ -28,11 +28,13 @@ use Application\Form\Base as BaseForm;
         $serviceTipoUsuario = $this->serviceLocator->get('UsuarioTipo');
         $tipos = $serviceTipoUsuario->getRecords('S', 'ativo');
 
-        if(!$tipos){
-            $tipos = array();
+        if($usuario['id_usuario_tipo'] != 2){
+            if(!$tipos){
+                $tipos = array();
+            }
+            $tipos = $this->prepareForDropDown($tipos, array('id', 'perfil'));
+            $this->_addDropdown('id_usuario_tipo', '* Tipo de usuário: ', true, $tipos);
         }
-        $tipos = $this->prepareForDropDown($tipos, array('id', 'perfil'));
-        $this->_addDropdown('id_usuario_tipo', '* Tipo de usuário: ', true, $tipos);
 
         $this->genericTextInput('senha', 'Alterar senha: ', false, 'Nova senha');
 

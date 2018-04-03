@@ -17,6 +17,7 @@
                 <?php if(count($andares) == 0): ?>
                   <div class="alert alert-info">Nenhum TMA encontrado!</div>
                 <?php else: ?>
+                <div class="table-responsive">
                   <table class="table">
                       <tr>
                         <th style="text-align: center;color:#ffffff;background-color:#305496;" colspan="2">QUADRO NECESSÁRIO PARA MANTER O NÍVEL DE SERVIÇO</th>
@@ -36,6 +37,7 @@
                         <th style="text-align: center;color:#ffffff;background-color:#00b0f0;"><?= $andares[0]['hc_geral'] ?></th>
                       </tr>
                   </table>
+                </div>
                 <?php endif; ?>
           </div>
       </div>

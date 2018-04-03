@@ -1,31 +1,25 @@
 <?php echo $this->partial('form/pesquisa', array('form'=> $formPesquisa, 'route'=> '', 'notExcel' => '')) ?>
 
-<div class="container theme-showcase" role="main" style="margin-bottom: 10px;"> 
-  <div class="row">
-    <div class="col-sm-3">
-      <img src="<?= $this->basePath('img/vermelho.png'); ?>"> <b><?= $ausencias->count(); ?></b> ausências no período
-    </div>
-
-    <div class="col-sm-3">
-      <img src="<?= $this->basePath('img/cinza.png'); ?>"> <b><?= $ferias->count(); ?></b> férias no período
-    </div>
-
-    <div class="col-sm-3">
-      <img src="<?= $this->basePath('img/amarelo.png'); ?>"> <b><?= $acoes->count(); ?></b> ação disciplinar no período
-    </div>
-
-    <div class="col-sm-3">
-      <img src="<?= $this->basePath('img/verde.png'); ?>"> <b><?= $ajudas->count() ?></b> ajudas no período
-    </div>
-  </div>
-</div>
-
-
-
     <div class="container theme-showcase" role="main">
       <div class="row">
           <div class="col-sm-6">
+            <div class="row">
+              <div class="col-sm-3">
+                <img src="<?= $this->basePath('img/vermelho.png'); ?>"> <b><?= $ausencias->count(); ?></b> ausências no período
+              </div>
 
+              <div class="col-sm-3">
+                <img src="<?= $this->basePath('img/cinza.png'); ?>"> <b><?= $ferias->count(); ?></b> férias no período
+              </div>
+
+              <div class="col-sm-3">
+                <img src="<?= $this->basePath('img/amarelo.png'); ?>"> <b><?= $acoes->count(); ?></b> ação disciplinar no período
+              </div>
+
+              <div class="col-sm-3">
+                <img src="<?= $this->basePath('img/verde.png'); ?>"> <b><?= $ajudas->count() ?></b> ajudas no período
+              </div>
+            </div>
           </div>
 
           <div class="col-sm-6">

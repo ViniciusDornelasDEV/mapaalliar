@@ -15,6 +15,7 @@
             </div>
             <div class="panel-body">
               <?php if($tme->count() > 0): ?>
+              <div class="table-responsive">
                 <table class="table">
                   <tr>
                     <th style="text-align: center">Empresa</th>
@@ -34,6 +35,7 @@
                 </tr>
                 <?php endforeach; ?>
               </table>
+            </div>
             <?php else: ?>
               <div class="alert alert-info">Nenhum TME encontrado!</div>
             <?php endif; ?>

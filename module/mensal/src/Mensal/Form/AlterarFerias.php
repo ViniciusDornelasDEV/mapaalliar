@@ -24,9 +24,10 @@ use Application\Form\Base as BaseForm;
         //funcionário
         $params = false;
         if($usuario){
-            $params = array('lider_imediato' => $usuario['funcionario']);
+            $params = $usuario['funcionario'];
         }
-        $funcionarios = $this->serviceLocator->get('Funcionario')->getFuncionarios($params);
+
+        $funcionarios = $this->serviceLocator->get('Funcionario')->getFuncionarios(array(), $params);
         
         $funcionarios = $this->prepareForDropDown($funcionarios, array('id', 'nome'));
         $this->_addDropdown('funcionario', '* Funcionário:', false, $funcionarios);        
