@@ -1,0 +1,9 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 15:36:12
+Informações: data => 2018-03-14
+apontamento => asas
+orientacao_acao => asas
+planejamento => sasa
+id => 37
+------------------------------------------------------
+

@@ -55,7 +55,7 @@ class DesempenhoController extends BaseController
             }
         }
         $paginator = new Paginator(new ArrayAdapter($avaliacoes));
-        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setCurrentPageNumber($this->sessao->page[$rota]);
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(5);
         
@@ -138,7 +138,7 @@ class DesempenhoController extends BaseController
         }
         
         $paginator = new Paginator(new ArrayAdapter($avaliacoes));
-        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setCurrentPageNumber($this->sessao->page[$rota]);
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(5);
         

@@ -1,0 +1,8 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 15:33:35
+Informações: unidade => 1
+hc_liquido => 6
+hc_geral => 8
+id => 2
+------------------------------------------------------
+

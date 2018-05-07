@@ -11,8 +11,13 @@ use Zend\Paginator\Adapter\ArrayAdapter;
 use Mensal\Form\PesquisarPremissas as formPesquisa;
 use Mensal\Form\Nps as formNps;
 use Mensal\Form\NpsAlterar as formNpsAlterar;
+
 use Mensal\Form\Evolucao as formEvolucao;
 use Mensal\Form\EvolucaoAlterar as formEvolucaoAlterar;
+
+use Mensal\Form\EvolucaoOna as formEvolucaoOna;
+use Mensal\Form\EvolucaoOnaAlterar as formEvolucaoOnaAlterar;
+
 use Mensal\Form\Tme as formTme;
 use Mensal\Form\TmeAlterar as formTmeAlterar;
 use Mensal\Form\Qmatic as formQmatic;
@@ -34,11 +39,8 @@ class PremissasController extends BaseController
         $funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($usuario['funcionario']);
         $qmatic = $this->getServiceLocator()->get('Qmatic')->getRecord($funcionario['unidade'], 'unidade');
 
-        $evolucao = $this->getServiceLocator()->get('Evolucao')->getRecord($funcionario['unidade'], 'unidade');
-
         return new ViewModel(array(
-                'qmatic'    => $qmatic,
-                'evolucao'  => $evolucao
+                'qmatic'    => $qmatic
             ));
     }
 
@@ -57,7 +59,7 @@ class PremissasController extends BaseController
         
         
         $paginator = new Paginator(new ArrayAdapter($nps));
-        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setCurrentPageNumber($this->sessao->page[$rota]);
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(5);
         
@@ -123,7 +125,7 @@ class PremissasController extends BaseController
         
         
         $paginator = new Paginator(new ArrayAdapter($tma));
-        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setCurrentPageNumber($this->sessao->page[$rota]);
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(5);
         
@@ -249,7 +251,7 @@ class PremissasController extends BaseController
         $evolucao = $serviceEvolucao->getDados($this->sessao->parametros[$rota])->toArray();
 
         $paginator = new Paginator(new ArrayAdapter($evolucao));
-        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setCurrentPageNumber($this->sessao->page[$rota]);
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(5);
         
@@ -304,6 +306,87 @@ class PremissasController extends BaseController
         return new ViewModel(array('evolucao' => $evolucao));
     }
 
+
+
+
+
+
+
+    public function listarevolucaoonaAction(){
+        $serviceEvolucao = $this->getServiceLocator()->get('Evolucaoona');
+            
+        $formPesquisa = new formPesquisa('frmPesquisa', $this->getServiceLocator());
+
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
+        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+        $evolucao = $serviceEvolucao->getDados($this->sessao->parametros[$rota])->toArray();
+
+        $paginator = new Paginator(new ArrayAdapter($evolucao));
+        $paginator->setCurrentPageNumber($this->sessao->page[$rota]);
+        $paginator->setItemCountPerPage(10);
+        $paginator->setPageRange(5);
+        
+        return new ViewModel(array(
+                                'evolucoes'           => $paginator,
+                                'formPesquisa'  => $formPesquisa
+                            ));
+    }
+
+    public function cadastrarevolucaoonaAction(){
+        $idEvolucao = $this->params()->fromRoute('id');
+        $serviceEvolucao = $this->getServiceLocator()->get('Evolucaoona');
+        if($idEvolucao){
+            $formEvolucao = new formEvolucaoOnaAlterar('frmEvolucao', $this->getServiceLocator());
+        }else{
+            $formEvolucao = new formEvolucaoOna('frmEvolucao', $this->getServiceLocator());   
+        }
+        $evolucao = false;
+        $operacao = 'Inserir';
+        if($idEvolucao){
+            $evolucao = $serviceEvolucao->getDado($idEvolucao);
+            $formEvolucao->setData($evolucao);
+            $operacao = 'Alterar';
+        }
+
+        if($this->getRequest()->isPost()){
+            $formEvolucao->setData($this->getRequest()->getPost());
+            if($formEvolucao->isValid()){
+                if($idEvolucao){
+                    //alterar
+                    $serviceEvolucao->update($formEvolucao->getData(), array('id' => $idEvolucao));
+                    $this->flashMessenger()->addSuccessMessage('Evolução ONA alterada com sucesso!');
+                    return $this->redirect()->toRoute('cadastrarEvolucaoOna', array('id' => $idEvolucao));
+                }else{
+                    //cadastrar
+                    $idEvolucao = $serviceEvolucao->insert($formEvolucao->getData());
+                    $this->flashMessenger()->addSuccessMessage('Evolução ONA inserida com sucesso!');
+                    return $this->redirect()->toRoute('listarEvolucaoOna');
+                }
+            }
+        }
+
+        return new ViewModel(array('form' => $formEvolucao, 'operacao' => $operacao));
+    }
+
+    public function visualizarevolucaoonaAction(){
+        $this->layout('layout/gestor');
+        $usuario = $this->getServiceLocator()->get('session')->read();
+        $funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($usuario['funcionario']);
+        $evolucao = $this->getServiceLocator()->get('Evolucaoona')->getRecord($funcionario['unidade'], 'unidade');
+
+        return new ViewModel(array('evolucao' => $evolucao));
+    }
+
+
+
+
+
+
+
+
+
+
+
     public function listartmeAction(){
         $serviceTme = $this->getServiceLocator()->get('Tme');
             
@@ -315,7 +398,7 @@ class PremissasController extends BaseController
         
         
         $paginator = new Paginator(new ArrayAdapter($tme));
-        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setCurrentPageNumber($this->sessao->page[$rota]);
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(5);
         
@@ -399,7 +482,7 @@ class PremissasController extends BaseController
         
         
         $paginator = new Paginator(new ArrayAdapter($qmatic));
-        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setCurrentPageNumber($this->sessao->page[$rota]);
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(5);
         
@@ -477,7 +560,7 @@ class PremissasController extends BaseController
         
         
         $paginator = new Paginator(new ArrayAdapter($equipes));
-        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setCurrentPageNumber($this->sessao->page[$rota]);
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(5);
         
@@ -539,7 +622,7 @@ class PremissasController extends BaseController
         
         
         $paginator = new Paginator(new ArrayAdapter($miras));
-        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setCurrentPageNumber($this->sessao->page[$rota]);
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(5);
         

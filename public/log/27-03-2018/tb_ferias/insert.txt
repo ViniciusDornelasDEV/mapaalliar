@@ -1,0 +1,7 @@
+usuario: 73 - alice.350
+Data/Hora da transação: 27-03-2018 15:46:00
+Informações: funcionario => 920
+data_inicio => 2018-03-12
+data_fim => 2018-03-27
+------------------------------------------------------
+

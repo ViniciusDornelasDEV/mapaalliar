@@ -1,0 +1,154 @@
+Data/Hora da transação: 24-03-2018 14:41:07
+Informações: id => 2
+nome => Diogo
+login => DIOGO
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 1
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 24-03-2018 15:17:03
+Informações: id => 13
+nome => MISLAINE ALVES ROSA
+login => m.rosa
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 2
+funcionario => 147
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 24-03-2018 16:05:50
+Informações: id => 2
+nome => Diogo
+login => DIOGO
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 1
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 24-03-2018 16:07:37
+Informações: id => 167
+nome => Reginaldo TI
+login => ti
+senha => $2y$10$JwWPttTSpuyVP5yvPd/QqOLCuk6OS4whGWzkVw0napAT0eWMe37jS
+id_usuario_tipo => 3
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 24-03-2018 16:09:55
+Informações: id => 13
+nome => MISLAINE ALVES ROSA
+login => m.rosa
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 2
+funcionario => 147
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 24-03-2018 16:11:58
+Informações: id => 13
+nome => MISLAINE ALVES ROSA
+login => m.rosa
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 2
+funcionario => 147
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 24-03-2018 16:33:38
+Informações: id => 13
+nome => MISLAINE ALVES ROSA
+login => m.rosa
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 2
+funcionario => 147
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 24-03-2018 17:06:14
+Informações: id => 2
+nome => Diogo
+login => DIOGO
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 1
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 24-03-2018 17:15:17
+Informações: id => 13
+nome => MISLAINE ALVES ROSA
+login => m.rosa
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 2
+funcionario => 147
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 24-03-2018 17:16:17
+Informações: id => 13
+nome => MISLAINE ALVES ROSA
+login => m.rosa
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 2
+funcionario => 147
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 24-03-2018 17:21:14
+Informações: id => 13
+nome => MISLAINE ALVES ROSA
+login => m.rosa
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 2
+funcionario => 147
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 24-03-2018 17:21:14
+Informações: id => 13
+nome => MISLAINE ALVES ROSA
+login => m.rosa
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 2
+funcionario => 147
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 24-03-2018 17:21:24
+Informações: id => 2
+nome => Diogo
+login => DIOGO
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 1
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 24-03-2018 18:41:32
+Informações: id => 13
+nome => MISLAINE ALVES ROSA
+login => m.rosa
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 2
+funcionario => 147
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 24-03-2018 18:42:11
+Informações: id => 2
+nome => Diogo
+login => DIOGO
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 1
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 24-03-2018 18:43:08
+Informações: id => 13
+nome => MISLAINE ALVES ROSA
+login => m.rosa
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 2
+funcionario => 147
+ativo => S
+------------------------------------------------------
+

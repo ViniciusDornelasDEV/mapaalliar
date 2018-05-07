@@ -1,0 +1,8 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 15:32:47
+Informações: setor => 42
+nome => ANALISTA ADMINISTRATIVO II
+ativo => S
+id => 78
+------------------------------------------------------
+

@@ -1,0 +1,11 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 15:36:42
+Informações: unidade_destino => 13
+data_inicio => 2018-03-28
+data_fim => 2018-03-28
+hora_inicio => 11:00
+hora_fim => 18:00
+setor => 6
+id => 23
+------------------------------------------------------
+

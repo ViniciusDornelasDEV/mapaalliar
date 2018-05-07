@@ -1,0 +1,49 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 15:32:58
+Informações: matricula => 541
+nome => Marcos Garagem
+unidade => 26
+funcao => 78
+tipo_contratacao => Interna
+tipo_contrato => Contrato
+data_inicio => 2018-01-01
+periodo_trabalho => Manhã
+inicio_turno => 08:00
+fim_turno => 18:00
+ccusto => 5454
+desc_ccusto => asas
+horario => asasas
+lider_imediato => 951
+lider => N
+numero_rp => saas
+ativo => S
+id => 1659
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 15:33:20
+Informações: matricula => 541
+nome => Marcos Garagem
+unidade => 26
+funcao => 78
+tipo_contratacao => Interna
+tipo_contrato => Contrato
+data_inicio => 2018-01-01
+periodo_trabalho => Manhã
+inicio_turno => 08:00
+fim_turno => 18:00
+ccusto => 5454
+desc_ccusto => asas
+horario => asasas
+lider_imediato => 951
+lider => N
+numero_rp => saas
+ativo => S
+id => 1659
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 16:22:05
+Informações: lider_imediato => 951
+------------------------------------------------------
+

@@ -1,0 +1,19 @@
+Data/Hora da transação: 20-03-2018 16:15:37
+Informações: id => 13
+nome => MISLAINE ALVES ROSA
+login => m.rosa
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 2
+funcionario => 147
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 20-03-2018 16:16:03
+Informações: id => 2
+nome => Diogo
+login => DIOGO
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 1
+ativo => S
+------------------------------------------------------
+

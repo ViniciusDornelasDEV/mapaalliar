@@ -1,0 +1,66 @@
+usuario: 73 - alice.350
+Data/Hora da transação: 26-03-2018 21:31:42
+Informações: organizacao_controle => A
+identificacao => A
+anotacao_controles => A
+organizacao_higiene => A
+ambiente_trabalho => A
+questionarios => A
+agilidade_qualidade => A
+epi => A
+pastas => A
+pontualidade => A
+assiduidade => A
+equipe => A
+empatia => A
+flexibilidade => A
+proatividade => A
+interpessoal => A
+atencao_foco => A
+interesse_tarefas => A
+unhas_cabelos => A
+cracha => A
+vestimenta => A
+uniforme => A
+simpatia_leveza => A
+simpatia_cordialidade => A
+agradece => A
+observacoes => teste
+funcionario => 873
+periodo => 64
+responsavel => 956
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 26-03-2018 21:32:51
+Informações: organizacao_controle => A
+obs_organizacao_controle => jdosdhsld
+identificacao => A
+anotacao_controles => A
+organizacao_higiene => A
+ambiente_trabalho => A
+questionarios => A
+agilidade_qualidade => A
+epi => A
+pastas => A
+pontualidade => A
+assiduidade => A
+equipe => A
+empatia => A
+flexibilidade => A
+proatividade => A
+interpessoal => A
+atencao_foco => A
+interesse_tarefas => A
+unhas_cabelos => A
+cracha => A
+vestimenta => A
+uniforme => A
+simpatia_leveza => A
+simpatia_cordialidade => A
+agradece => A
+funcionario => 866
+periodo => 66
+responsavel => 956
+------------------------------------------------------
+

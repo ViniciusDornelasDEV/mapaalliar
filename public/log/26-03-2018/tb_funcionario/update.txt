@@ -1,0 +1,20 @@
+usuario: 168 - titeste
+Data/Hora da transação: 26-03-2018 21:26:53
+Informações: matricula => 123456789
+nome => Diogo
+unidade => 9
+funcao => 78
+tipo_contratacao => Interna
+tipo_contrato => Contrato
+data_inicio => 2018-03-26
+periodo_trabalho => Manhã
+inicio_turno => 12:00
+fim_turno => 16:00
+ccusto => 1234
+desc_ccusto => teste
+horario => SEG A SAB - H553 - 44HS
+lider => N
+ativo => S
+id => 1660
+------------------------------------------------------
+

@@ -1,0 +1,16 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 24-03-2018 15:54:13
+Informações: nome => ALLIAR 
+responsavel => Eduardo Margara
+ativo => S
+id => 7
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 24-03-2018 15:55:33
+Informações: nome => ALLIAR 
+responsavel => Eduardo Margara
+ativo => S
+id => 7
+------------------------------------------------------
+

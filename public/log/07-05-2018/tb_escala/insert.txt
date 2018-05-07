@@ -1,0 +1,8 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 15:35:59
+Informações: unidade => 5
+setor => 4
+mes => 01
+ano => 2018
+------------------------------------------------------
+

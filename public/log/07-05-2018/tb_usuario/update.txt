@@ -1,0 +1,8 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 15:37:37
+Informações: nome => Alan Batista Costa
+login => alan.costa
+ativo => S
+id => 164
+------------------------------------------------------
+

@@ -15,11 +15,26 @@ use Zend\View\Model\ViewModel;
 use Zend\Session\Container;
 
 abstract class BaseController extends AbstractActionController {
-    protected $sessao = 'sessao';
+    public $sessao = 'sessao';
 
     public function verificarPesquisa($form, $rota){
-        
         $this->sessao = new Container();
+
+
+        $page = $this->params()->fromRoute('page');
+
+        if(!isset($this->sessao->page)){
+            $this->sessao->page = array();
+        }
+
+        if($page){
+            $this->sessao->page[$rota] = $page;
+        }
+
+        if(!isset($this->sessao->page[$rota]) && !isset($page)){
+            $this->sessao->page[$rota]['page'] = 1;   
+        }
+
         if($this->getRequest()->isPost()){
             $dados = $this->getRequest()->getPost();
             

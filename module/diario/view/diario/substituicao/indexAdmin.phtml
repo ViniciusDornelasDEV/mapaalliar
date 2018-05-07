@@ -15,7 +15,6 @@
             </div>
             <div class="panel-body">
               <?php if($substituicoes->count() > 0): ?>
-              <div class="table-responsive">
                 <table class="table">
                   <tr>
                     <th style="text-align: center">Status</th>
@@ -68,7 +67,6 @@
                 </tr>
                 <?php endforeach; ?>
               </table>
-            </div>
             <?php else: ?>
               <div class="alert alert-info">Nenhuma substituição programada encontrada!</div>
             <?php endif; ?>

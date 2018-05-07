@@ -1,0 +1,8 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 15:33:28
+Informações: unidade => 1
+promotores => 75
+defratores => 75
+id => 25
+------------------------------------------------------
+

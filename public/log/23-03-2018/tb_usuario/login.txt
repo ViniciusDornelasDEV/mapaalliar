@@ -1,0 +1,9 @@
+Data/Hora da transação: 23-03-2018 10:56:57
+Informações: id => 2
+nome => Diogo
+login => DIOGO
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 1
+ativo => S
+------------------------------------------------------
+

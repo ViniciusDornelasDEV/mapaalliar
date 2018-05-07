@@ -30,7 +30,7 @@ class AvaliacaoController extends BaseController
         $periodos = $servicePilha->getAvaliacoes($this->sessao->parametros[$rota])->toArray();
         
         $paginator = new Paginator(new ArrayAdapter($periodos));
-        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setCurrentPageNumber($this->sessao->page[$rota]);
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(5);
         
@@ -130,7 +130,7 @@ class AvaliacaoController extends BaseController
         $avaliacoes = $serviceAvaliacoes->getAvaliacoes($this->sessao->parametros[$rota], $usuario['funcionario'])->toArray();
         
         $paginator = new Paginator(new ArrayAdapter($avaliacoes));
-        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setCurrentPageNumber($this->sessao->page[$rota]);
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(5);
         
@@ -250,7 +250,7 @@ class AvaliacaoController extends BaseController
         $avaliacoes = $serviceAvaliacoes->getAvaliacoes($this->sessao->parametros[$rota])->toArray();
         
         $paginator = new Paginator(new ArrayAdapter($avaliacoes));
-        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setCurrentPageNumber($this->sessao->page[$rota]);
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(5);
         

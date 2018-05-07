@@ -1,0 +1,116 @@
+usuario: 13 - m.rosa
+Data/Hora da transação: 24-03-2018 16:12:18
+Informações: data => 2018-03-02
+tipo => 1
+texto => Observações
+unidade => 10
+------------------------------------------------------
+
+usuario: 13 - m.rosa
+Data/Hora da transação: 24-03-2018 16:28:01
+Informações: data => 2018-02-28
+tipo => 1
+unidade => 10
+------------------------------------------------------
+
+usuario: 13 - m.rosa
+Data/Hora da transação: 24-03-2018 16:28:45
+Informações: data => 2018-02-28
+tipo => 1
+unidade => 10
+------------------------------------------------------
+
+usuario: 13 - m.rosa
+Data/Hora da transação: 24-03-2018 17:02:51
+Informações: data => 2018-03-08
+tipo => 1
+unidade => 10
+------------------------------------------------------
+
+usuario: 13 - m.rosa
+Data/Hora da transação: 24-03-2018 17:03:38
+Informações: data => 2018-03-01
+tipo => 1
+texto => Teste
+unidade => 10
+------------------------------------------------------
+
+usuario: 13 - m.rosa
+Data/Hora da transação: 24-03-2018 17:04:24
+Informações: data => 2018-03-01
+tipo => 2
+texto => adsaddas
+unidade => 10
+------------------------------------------------------
+
+usuario: 13 - m.rosa
+Data/Hora da transação: 24-03-2018 17:05:36
+Informações: data => 2018-03-01
+tipo => 3
+texto => asas
+unidade => 10
+------------------------------------------------------
+
+usuario: 13 - m.rosa
+Data/Hora da transação: 24-03-2018 17:06:02
+Informações: data => 2018-03-01
+tipo => 4
+texto => asas
+unidade => 10
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 24-03-2018 17:24:37
+Informações: data => 2018-03-02
+tipo => 4
+unidade => 10
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 24-03-2018 17:24:40
+Informações: data => 2018-03-02
+tipo => 4
+texto => asdasd
+unidade => 10
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 24-03-2018 17:25:23
+Informações: data => 2018-03-03
+tipo => 4
+texto => dsasd
+unidade => 10
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 24-03-2018 17:25:27
+Informações: data => 2018-03-02
+tipo => 3
+texto => asdad
+unidade => 10
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 24-03-2018 17:25:30
+Informações: data => 2018-03-02
+tipo => 1
+texto => asdad
+unidade => 10
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 24-03-2018 17:25:33
+Informações: data => 2018-03-02
+tipo => 2
+texto => asasd
+unidade => 10
+------------------------------------------------------
+
+usuario: 13 - m.rosa
+Data/Hora da transação: 24-03-2018 18:41:54
+Informações: data => 2018-03-03
+tipo => 1
+texto => teste
+unidade => 10
+------------------------------------------------------
+

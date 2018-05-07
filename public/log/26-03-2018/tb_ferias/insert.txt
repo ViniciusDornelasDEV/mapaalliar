@@ -1,0 +1,14 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 26-03-2018 21:46:14
+Informações: funcionario => 971
+data_inicio => 2018-03-25
+data_fim => 2018-03-31
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 26-03-2018 21:47:32
+Informações: funcionario => 972
+data_inicio => 2019-01-01
+data_fim => 2019-01-30
+------------------------------------------------------
+

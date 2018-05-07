@@ -1,0 +1,33 @@
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:03:42
+Informações: organizacao_controle => A
+identificacao => A
+anotacao_controles => A
+organizacao_higiene => A
+ambiente_trabalho => A
+questionarios => A
+agilidade_qualidade => A
+epi => A
+pastas => A
+pontualidade => A
+assiduidade => A
+equipe => A
+empatia => A
+flexibilidade => A
+proatividade => A
+interpessoal => A
+atencao_foco => A
+obs_atencao_foco => kkjkjkjk
+interesse_tarefas => A
+unhas_cabelos => A
+cracha => A
+vestimenta => A
+uniforme => A
+simpatia_leveza => A
+simpatia_cordialidade => A
+agradece => A
+funcionario => 1486
+periodo => 244
+responsavel => 956
+------------------------------------------------------
+

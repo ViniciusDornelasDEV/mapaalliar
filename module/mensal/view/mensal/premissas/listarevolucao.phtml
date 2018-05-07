@@ -3,7 +3,7 @@
     <div class="container theme-showcase" role="main" style="margin-bottom:10px;padding:0px;">
        <button type="button" class="btn btn-default" onclick="location.href='<?= $this->url('cadastrarEvolucao'); ?>'" style="float: right;">
       <img src="<?php echo $this->basePath('img/novo.png') ?>" alt="Novo">
-      Nova evolução</button>
+      Nova evolução SIGA</button>
 
       
     </div>
@@ -11,7 +11,7 @@
       <div class="row">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h3 class="panel-title">Listagem de evolução</h3>
+              <h3 class="panel-title">Listagem de evolução SIGA</h3>
             </div>
             <div class="panel-body">
               <?php if($evolucoes->count() > 0): ?>
@@ -20,7 +20,6 @@
                   <tr>
                     <th style="text-align: center">Empresa</th>
                     <th style="text-align: center">Unidade</th>
-                    <th style="text-align: center">Tipo</th>
                     <th style="text-align: center">Ouro</th>
                     <th style="text-align: center">Prata</th>
                     <th style="text-align: center">Bronze</th>
@@ -30,7 +29,6 @@
                 <tr>
                   <td style="text-align: center"><?= $evolucao['nome_empresa']; ?></td>
                   <td style="text-align: center"><?= $evolucao['nome_unidade']; ?></td>
-                  <td style="text-align: center"><?= $evolucao['tipo']; ?></td>
                   <td style="text-align: center"><?= $evolucao['ouro']; ?></td>
                   <td style="text-align: center"><?= $evolucao['prata']; ?></td>
                   <td style="text-align: center"><?= $evolucao['bronze']; ?></td>
@@ -45,7 +43,7 @@
               </table>
             </div>
             <?php else: ?>
-              <div class="alert alert-info">Nenhuma evolução encontrada!</div>
+              <div class="alert alert-info">Nenhuma evolução SIGA encontrada!</div>
             <?php endif; ?>
             </div>
           </div>

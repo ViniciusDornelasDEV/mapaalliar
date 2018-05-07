@@ -1,0 +1,138 @@
+Data/Hora da transação: 07-05-2018 14:36:29
+Informações: id => 1
+nome => Vinicius
+login => vinicius.s.dornelas@gmail.com
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 1
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 07-05-2018 15:27:06
+Informações: id => 1
+nome => Vinicius
+login => vinicius.s.dornelas@gmail.com
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 2
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 07-05-2018 15:30:42
+Informações: id => 1
+nome => Vinicius
+login => vinicius.s.dornelas@gmail.com
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 2
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 07-05-2018 15:31:53
+Informações: id => 2
+nome => Diogo
+login => DIOGO
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 1
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 07-05-2018 15:58:37
+Informações: id => 13
+nome => MISLAINE ALVES ROSA
+login => m.rosa
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 2
+funcionario => 147
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 07-05-2018 16:05:44
+Informações: id => 167
+nome => Reginaldo TI
+login => ti
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 3
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 07-05-2018 16:05:56
+Informações: id => 2
+nome => Diogo
+login => DIOGO
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 1
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 07-05-2018 16:19:03
+Informações: id => 2
+nome => Diogo
+login => DIOGO
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 1
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 07-05-2018 17:29:39
+Informações: id => 2
+nome => Diogo
+login => DIOGO
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 1
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 07-05-2018 17:44:07
+Informações: id => 2
+nome => Diogo
+login => DIOGO
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 1
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 07-05-2018 17:44:51
+Informações: id => 13
+nome => MISLAINE ALVES ROSA
+login => m.rosa
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 2
+funcionario => 147
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 07-05-2018 17:48:50
+Informações: id => 2
+nome => Diogo
+login => DIOGO
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 1
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 07-05-2018 17:51:44
+Informações: id => 13
+nome => MISLAINE ALVES ROSA
+login => m.rosa
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 2
+funcionario => 147
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 07-05-2018 17:53:09
+Informações: id => 1
+nome => Vinicius
+login => vinicius.s.dornelas@gmail.com
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 2
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 07-05-2018 17:53:12
+Informações: id => 2
+nome => Diogo
+login => DIOGO
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 1
+ativo => S
+------------------------------------------------------
+

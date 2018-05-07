@@ -1,0 +1,1420 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:43:20
+Informações: unidade => 26
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => O
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:29
+Informações: unidade => 1
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:29
+Informações: unidade => 2
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:29
+Informações: unidade => 3
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:29
+Informações: unidade => 4
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:29
+Informações: unidade => 5
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:29
+Informações: unidade => 6
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:29
+Informações: unidade => 7
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:29
+Informações: unidade => 8
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:29
+Informações: unidade => 9
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:30
+Informações: unidade => 10
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:30
+Informações: unidade => 11
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:30
+Informações: unidade => 12
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:30
+Informações: unidade => 13
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:30
+Informações: unidade => 14
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:30
+Informações: unidade => 15
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:30
+Informações: unidade => 16
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:30
+Informações: unidade => 17
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:30
+Informações: unidade => 18
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:30
+Informações: unidade => 19
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:30
+Informações: unidade => 20
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:30
+Informações: unidade => 21
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:30
+Informações: unidade => 22
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:30
+Informações: unidade => 23
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:30
+Informações: unidade => 24
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:30
+Informações: unidade => 25
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:30
+Informações: unidade => 26
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:30
+Informações: unidade => 27
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:30
+Informações: unidade => 28
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:30
+Informações: unidade => 29
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:30
+Informações: unidade => 30
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:31
+Informações: unidade => 31
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:31
+Informações: unidade => 32
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:31
+Informações: unidade => 33
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:31
+Informações: unidade => 34
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:31
+Informações: unidade => 35
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:31
+Informações: unidade => 36
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:31
+Informações: unidade => 37
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:31
+Informações: unidade => 38
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:31
+Informações: unidade => 39
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:31
+Informações: unidade => 40
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:31
+Informações: unidade => 41
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:31
+Informações: unidade => 42
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:31
+Informações: unidade => 43
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:31
+Informações: unidade => 44
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:31
+Informações: unidade => 45
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:31
+Informações: unidade => 46
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:31
+Informações: unidade => 47
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:31
+Informações: unidade => 48
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:31
+Informações: unidade => 49
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:31
+Informações: unidade => 50
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:31
+Informações: unidade => 51
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:32
+Informações: unidade => 52
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:32
+Informações: unidade => 53
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:32
+Informações: unidade => 54
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:32
+Informações: unidade => 55
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:32
+Informações: unidade => 56
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:32
+Informações: unidade => 57
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:32
+Informações: unidade => 58
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:32
+Informações: unidade => 59
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:32
+Informações: unidade => 60
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:32
+Informações: unidade => 61
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:32
+Informações: unidade => 62
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:32
+Informações: unidade => 63
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:32
+Informações: unidade => 64
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:32
+Informações: unidade => 65
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:32
+Informações: unidade => 66
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:32
+Informações: unidade => 67
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:32
+Informações: unidade => 68
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:32
+Informações: unidade => 69
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:32
+Informações: unidade => 70
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:32
+Informações: unidade => 71
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:32
+Informações: unidade => 72
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:33
+Informações: unidade => 73
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:33
+Informações: unidade => 74
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:33
+Informações: unidade => 75
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:33
+Informações: unidade => 76
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:33
+Informações: unidade => 77
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:33
+Informações: unidade => 78
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:33
+Informações: unidade => 79
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:33
+Informações: unidade => 80
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:33
+Informações: unidade => 81
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:33
+Informações: unidade => 82
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:44:33
+Informações: unidade => 83
+ouro => 10
+prata => 20
+bronze => 30
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:32
+Informações: unidade => 1
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:32
+Informações: unidade => 2
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:32
+Informações: unidade => 3
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:32
+Informações: unidade => 4
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:32
+Informações: unidade => 5
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:33
+Informações: unidade => 6
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:33
+Informações: unidade => 7
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:33
+Informações: unidade => 8
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:33
+Informações: unidade => 9
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:33
+Informações: unidade => 10
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:33
+Informações: unidade => 11
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:33
+Informações: unidade => 12
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:33
+Informações: unidade => 13
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:33
+Informações: unidade => 14
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:33
+Informações: unidade => 15
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:33
+Informações: unidade => 16
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:33
+Informações: unidade => 17
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:33
+Informações: unidade => 18
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:33
+Informações: unidade => 19
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:33
+Informações: unidade => 20
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:33
+Informações: unidade => 21
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:33
+Informações: unidade => 22
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:33
+Informações: unidade => 23
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:33
+Informações: unidade => 24
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:33
+Informações: unidade => 25
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:34
+Informações: unidade => 26
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:34
+Informações: unidade => 27
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:34
+Informações: unidade => 28
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:34
+Informações: unidade => 29
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:34
+Informações: unidade => 30
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:34
+Informações: unidade => 31
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:34
+Informações: unidade => 32
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:34
+Informações: unidade => 33
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:34
+Informações: unidade => 34
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:34
+Informações: unidade => 35
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:34
+Informações: unidade => 36
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:34
+Informações: unidade => 37
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:34
+Informações: unidade => 38
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:34
+Informações: unidade => 39
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:34
+Informações: unidade => 40
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:34
+Informações: unidade => 41
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:34
+Informações: unidade => 42
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:34
+Informações: unidade => 43
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:34
+Informações: unidade => 44
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:34
+Informações: unidade => 45
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:35
+Informações: unidade => 46
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:35
+Informações: unidade => 47
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:35
+Informações: unidade => 48
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:35
+Informações: unidade => 49
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:35
+Informações: unidade => 50
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:35
+Informações: unidade => 51
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:35
+Informações: unidade => 52
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:35
+Informações: unidade => 53
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:35
+Informações: unidade => 54
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:35
+Informações: unidade => 55
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:35
+Informações: unidade => 56
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:35
+Informações: unidade => 57
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:35
+Informações: unidade => 58
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:35
+Informações: unidade => 59
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:35
+Informações: unidade => 60
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:35
+Informações: unidade => 61
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:35
+Informações: unidade => 62
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:35
+Informações: unidade => 63
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:35
+Informações: unidade => 64
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:35
+Informações: unidade => 65
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:36
+Informações: unidade => 66
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:36
+Informações: unidade => 67
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:36
+Informações: unidade => 68
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:36
+Informações: unidade => 69
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:36
+Informações: unidade => 70
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:36
+Informações: unidade => 71
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:36
+Informações: unidade => 72
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:36
+Informações: unidade => 73
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:36
+Informações: unidade => 74
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:36
+Informações: unidade => 75
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:36
+Informações: unidade => 76
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:36
+Informações: unidade => 77
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:36
+Informações: unidade => 78
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:36
+Informações: unidade => 79
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:36
+Informações: unidade => 80
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:36
+Informações: unidade => 81
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:36
+Informações: unidade => 82
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:51:36
+Informações: unidade => 83
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => P
+------------------------------------------------------
+

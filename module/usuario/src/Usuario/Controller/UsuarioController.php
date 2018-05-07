@@ -249,18 +249,16 @@ class UsuarioController extends BaseController
     }
 
     public function indexAction(){
+        $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
         $formPesquisa = new pesquisaForm('frmPesquisa', $this->getServiceLocator());
-        $dados = false;
-        if($this->getRequest()->isPost()){
-            $dados = $this->getRequest()->getPost();
-            $formPesquisa->setData($dados);
-        }
-
+        $formPesquisa = $this->verificarPesquisa($formPesquisa, $rota);
+        
+        
         $serviceUsuario = $this->getServiceLocator()->get('Usuario');
-        $usuarios = $serviceUsuario->getUsuariosByParams($dados);
+        $usuarios = $serviceUsuario->getUsuariosByParams($this->sessao->parametros[$rota]);
 
         $Paginator = new Paginator(new ArrayAdapter($usuarios->toArray()));
-        $Paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $Paginator->setCurrentPageNumber($this->sessao->page[$rota]);
         $Paginator->setItemCountPerPage(10);
         $Paginator->setPageRange(5);
         

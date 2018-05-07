@@ -39,9 +39,6 @@ use Application\Form\Base as BaseForm;
         //bronze
         $this->genericTextInput('bronze', '* Bronze:', true);
 
-        //tipo
-        $this->_addDropdown('tipo', '* Tipo:', true, array('EVOLUÇÃO SIGA' => 'EVOLUÇÃO SIGA', 'ONA' => 'ONA'));
-
         //classificacao_atual
         $this->_addDropdown('classificacao_atual', '* Classificação atual:', true, array('O' => 'Ouro', 'P' => 'Prata', 'B' => 'Bronze'));
         

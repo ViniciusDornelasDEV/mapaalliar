@@ -1,0 +1,51 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 22-03-2018 21:24:34
+Informações: data => 2018-03-01
+tipo => 1
+unidade => 12
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 22-03-2018 21:24:34
+Informações: data => 2018-03-01
+tipo => 1
+unidade => 12
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 22-03-2018 21:24:39
+Informações: data => 2018-03-08
+tipo => 1
+unidade => 12
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 22-03-2018 21:24:43
+Informações: data => 2018-03-08
+tipo => 1
+texto => teste
+unidade => 12
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 22-03-2018 21:24:49
+Informações: data => 2018-03-22
+tipo => 1
+unidade => 12
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 22-03-2018 21:24:50
+Informações: data => 2018-03-22
+tipo => 1
+unidade => 12
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 22-03-2018 21:24:56
+Informações: data => 2018-03-15
+tipo => 1
+texto => teste2
+unidade => 12
+------------------------------------------------------
+

@@ -1,0 +1,2730 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:35
+Informações: setor => 1
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:36
+Informações: setor => 1
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:36
+Informações: setor => 1
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:36
+Informações: setor => 3
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:36
+Informações: setor => 3
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:36
+Informações: setor => 3
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:36
+Informações: setor => 4
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:36
+Informações: setor => 4
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:36
+Informações: setor => 4
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:37
+Informações: setor => 5
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:37
+Informações: setor => 5
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:37
+Informações: setor => 5
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:37
+Informações: setor => 6
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:37
+Informações: setor => 6
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:37
+Informações: setor => 6
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:38
+Informações: setor => 7
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:38
+Informações: setor => 7
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:38
+Informações: setor => 7
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:38
+Informações: setor => 8
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:38
+Informações: setor => 8
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:38
+Informações: setor => 8
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:38
+Informações: setor => 9
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:39
+Informações: setor => 9
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:39
+Informações: setor => 9
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:39
+Informações: setor => 10
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:39
+Informações: setor => 10
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:39
+Informações: setor => 10
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:39
+Informações: setor => 11
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:39
+Informações: setor => 11
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:40
+Informações: setor => 11
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:40
+Informações: setor => 12
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:40
+Informações: setor => 12
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:40
+Informações: setor => 12
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:40
+Informações: setor => 13
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:40
+Informações: setor => 13
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:41
+Informações: setor => 13
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:41
+Informações: setor => 14
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:41
+Informações: setor => 14
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:41
+Informações: setor => 14
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:41
+Informações: setor => 15
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:41
+Informações: setor => 15
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:41
+Informações: setor => 15
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:42
+Informações: setor => 16
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:42
+Informações: setor => 16
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:42
+Informações: setor => 16
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:42
+Informações: setor => 17
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:42
+Informações: setor => 17
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:42
+Informações: setor => 17
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:43
+Informações: setor => 19
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:43
+Informações: setor => 19
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:43
+Informações: setor => 19
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:43
+Informações: setor => 20
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:43
+Informações: setor => 20
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:43
+Informações: setor => 20
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:43
+Informações: setor => 21
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:44
+Informações: setor => 21
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:44
+Informações: setor => 21
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:44
+Informações: setor => 33
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:44
+Informações: setor => 33
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:44
+Informações: setor => 33
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:44
+Informações: setor => 34
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:45
+Informações: setor => 34
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:45
+Informações: setor => 34
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:45
+Informações: setor => 35
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:45
+Informações: setor => 35
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:45
+Informações: setor => 35
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:45
+Informações: setor => 39
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:46
+Informações: setor => 39
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:46
+Informações: setor => 39
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:46
+Informações: setor => 40
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:46
+Informações: setor => 40
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:46
+Informações: setor => 40
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:46
+Informações: setor => 41
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:46
+Informações: setor => 41
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:47
+Informações: setor => 41
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:47
+Informações: setor => 42
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:47
+Informações: setor => 42
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:47
+Informações: setor => 42
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:47
+Informações: setor => 43
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:47
+Informações: setor => 43
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:48
+Informações: setor => 43
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:48
+Informações: setor => 44
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:48
+Informações: setor => 44
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:48
+Informações: setor => 44
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:48
+Informações: setor => 45
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:48
+Informações: setor => 45
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:48
+Informações: setor => 45
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:48
+Informações: setor => 46
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:49
+Informações: setor => 46
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:49
+Informações: setor => 46
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:49
+Informações: setor => 63
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:49
+Informações: setor => 63
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:49
+Informações: setor => 63
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:49
+Informações: setor => 64
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:49
+Informações: setor => 64
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:50
+Informações: setor => 64
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:50
+Informações: setor => 65
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:50
+Informações: setor => 65
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:50
+Informações: setor => 65
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:50
+Informações: setor => 66
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:50
+Informações: setor => 66
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:51
+Informações: setor => 66
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:51
+Informações: setor => 67
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:51
+Informações: setor => 67
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:51
+Informações: setor => 67
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:51
+Informações: setor => 68
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:51
+Informações: setor => 68
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:51
+Informações: setor => 68
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:52
+Informações: setor => 69
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:52
+Informações: setor => 69
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:52
+Informações: setor => 69
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:52
+Informações: setor => 70
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:52
+Informações: setor => 70
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:52
+Informações: setor => 70
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:52
+Informações: setor => 71
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:52
+Informações: setor => 71
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:53
+Informações: setor => 71
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:53
+Informações: setor => 72
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:53
+Informações: setor => 72
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:53
+Informações: setor => 72
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:53
+Informações: setor => 73
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:53
+Informações: setor => 73
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:53
+Informações: setor => 73
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:54
+Informações: setor => 74
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:54
+Informações: setor => 74
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:54
+Informações: setor => 74
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:54
+Informações: setor => 75
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:54
+Informações: setor => 75
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:54
+Informações: setor => 75
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:55
+Informações: setor => 76
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:55
+Informações: setor => 76
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:55
+Informações: setor => 76
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:55
+Informações: setor => 77
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:55
+Informações: setor => 77
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:55
+Informações: setor => 77
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:56
+Informações: setor => 79
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:56
+Informações: setor => 79
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:56
+Informações: setor => 79
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:57
+Informações: setor => 81
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:57
+Informações: setor => 81
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:57
+Informações: setor => 81
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:57
+Informações: setor => 82
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:57
+Informações: setor => 82
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:57
+Informações: setor => 82
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:57
+Informações: setor => 83
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:57
+Informações: setor => 83
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:58
+Informações: setor => 83
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:58
+Informações: setor => 84
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:58
+Informações: setor => 84
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:58
+Informações: setor => 84
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:58
+Informações: setor => 85
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:58
+Informações: setor => 85
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:58
+Informações: setor => 85
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:59
+Informações: setor => 87
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:59
+Informações: setor => 87
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:59
+Informações: setor => 87
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:59
+Informações: setor => 89
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:59
+Informações: setor => 89
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:59
+Informações: setor => 89
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:01:59
+Informações: setor => 90
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:00
+Informações: setor => 90
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:00
+Informações: setor => 90
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:00
+Informações: setor => 91
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:00
+Informações: setor => 91
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:00
+Informações: setor => 91
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:00
+Informações: setor => 92
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:00
+Informações: setor => 92
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:01
+Informações: setor => 92
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:01
+Informações: setor => 94
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:01
+Informações: setor => 94
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:01
+Informações: setor => 94
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:01
+Informações: setor => 95
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:01
+Informações: setor => 95
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:01
+Informações: setor => 95
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:02
+Informações: setor => 96
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:02
+Informações: setor => 96
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:02
+Informações: setor => 96
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:02
+Informações: setor => 97
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:02
+Informações: setor => 97
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:02
+Informações: setor => 97
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:03
+Informações: setor => 102
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:03
+Informações: setor => 102
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:03
+Informações: setor => 102
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:03
+Informações: setor => 103
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:03
+Informações: setor => 103
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:03
+Informações: setor => 103
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:03
+Informações: setor => 104
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:04
+Informações: setor => 104
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:04
+Informações: setor => 104
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:04
+Informações: setor => 105
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:04
+Informações: setor => 105
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:04
+Informações: setor => 105
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:04
+Informações: setor => 106
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:04
+Informações: setor => 106
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:05
+Informações: setor => 106
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:05
+Informações: setor => 107
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:05
+Informações: setor => 107
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:05
+Informações: setor => 107
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:05
+Informações: setor => 108
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:05
+Informações: setor => 108
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:06
+Informações: setor => 108
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:06
+Informações: setor => 109
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:06
+Informações: setor => 109
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:06
+Informações: setor => 109
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:06
+Informações: setor => 110
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:06
+Informações: setor => 110
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:06
+Informações: setor => 110
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:07
+Informações: setor => 111
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:07
+Informações: setor => 111
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:07
+Informações: setor => 111
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:07
+Informações: setor => 112
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:07
+Informações: setor => 112
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:07
+Informações: setor => 112
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:07
+Informações: setor => 117
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:08
+Informações: setor => 117
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:08
+Informações: setor => 117
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:08
+Informações: setor => 118
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:08
+Informações: setor => 118
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:08
+Informações: setor => 118
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:08
+Informações: setor => 119
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:09
+Informações: setor => 119
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:09
+Informações: setor => 119
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:09
+Informações: setor => 121
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:09
+Informações: setor => 121
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:09
+Informações: setor => 121
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:09
+Informações: setor => 122
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:09
+Informações: setor => 122
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:10
+Informações: setor => 122
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:10
+Informações: setor => 123
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:10
+Informações: setor => 123
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:10
+Informações: setor => 123
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:10
+Informações: setor => 125
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:10
+Informações: setor => 125
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:10
+Informações: setor => 125
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:10
+Informações: setor => 126
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:11
+Informações: setor => 126
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:11
+Informações: setor => 126
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:11
+Informações: setor => 127
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:11
+Informações: setor => 127
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:11
+Informações: setor => 127
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:11
+Informações: setor => 128
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:12
+Informações: setor => 128
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:12
+Informações: setor => 128
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:12
+Informações: setor => 129
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:12
+Informações: setor => 129
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:12
+Informações: setor => 129
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:12
+Informações: setor => 130
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:12
+Informações: setor => 130
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:13
+Informações: setor => 130
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:13
+Informações: setor => 132
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:13
+Informações: setor => 132
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:13
+Informações: setor => 132
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:13
+Informações: setor => 133
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:13
+Informações: setor => 133
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:13
+Informações: setor => 133
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:13
+Informações: setor => 134
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:14
+Informações: setor => 134
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:14
+Informações: setor => 134
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:14
+Informações: setor => 135
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:14
+Informações: setor => 135
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:14
+Informações: setor => 135
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:14
+Informações: setor => 138
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:14
+Informações: setor => 138
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:14
+Informações: setor => 138
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:14
+Informações: setor => 139
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:15
+Informações: setor => 139
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:15
+Informações: setor => 139
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:15
+Informações: setor => 140
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:15
+Informações: setor => 140
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:15
+Informações: setor => 140
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:16
+Informações: setor => 141
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 1
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:16
+Informações: setor => 141
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 2
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:02:16
+Informações: setor => 141
+data_inicio => 2018-03-01
+data_fim => 2018-03-29
+referencia_inicio => 2018-03-01
+referencia_fim => 2018-03-31
+referencia => 3
+------------------------------------------------------
+

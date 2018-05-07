@@ -1,0 +1,8 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 26-03-2018 21:29:09
+Informações: data => 2018-03-14
+motivo => Doente
+atestado => public/arquivos/ausencias/arquivo20180326090929atestado.png
+id => 313
+------------------------------------------------------
+

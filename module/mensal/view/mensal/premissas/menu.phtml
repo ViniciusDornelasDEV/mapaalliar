@@ -38,12 +38,19 @@
               <div class="col-sm-6">
                   <button type="button" class="btn btn-default" onclick="location.href='<?= $this->url('visualizarEvolucao'); ?>'" style="width:100%;">
                   <img src="<?= $this->basePath('img/medalha.png'); ?>" alt="Salvar" style="width:32px;height:32px;">
-                  <?= $evolucao['tipo'] ?>
+                  EVOLUÇÃO SIGA
                 </button>
               </div>
         </div>
 
         <div class="row" style="margin-top:20px;">
+              <div class="col-sm-6">
+                  <button type="button" class="btn btn-default" onclick="location.href='<?= $this->url('visualizarEvolucaoOna'); ?>'" style="width:100%;">
+                  <img src="<?= $this->basePath('img/medalha.png'); ?>" alt="Salvar" style="width:32px;height:32px;">
+                  EVOLUÇÃO ONA
+                </button>
+              </div>
+
               <div class="col-sm-6">
                 
               <button type="button" style="width:100%;" onclick="location.href='<?= $this->url('visualizarTme'); ?>'" class="btn btn-default">
@@ -53,16 +60,16 @@
                                 
 
               </div>
+        </div>
 
+        <div class="row" style="margin-top:20px;">
               <div class="col-sm-6">
                   <button type="button" class="btn btn-default" onclick="location.href='<?= $this->url('listarAvaliacoesResponder'); ?>'" style="width:100%;">
                   <img src="<?= $this->basePath('img/alvo.png'); ?>" alt="Salvar" style="width:32px;height:32px;">
                   AVALIAÇÃO DE DESEMPENHO
                 </button>
               </div>
-        </div>
 
-        <div class="row" style="margin-top:20px;">
               <div class="col-sm-6">
                 
                 <a href="<?= $this->url('download', array('id' => $qmatic['id'], 'service' => 'Qmatic', 'campo' => 'caminho_arquivo')); ?>">
@@ -74,16 +81,15 @@
                                 
               </div>
 
-              <div class="col-sm-6">
-                
+        </div>
+
+        <div class="row" style="margin-top:20px;">
+            <div class="col-sm-6">
               <button type="button" style="width:100%;" onclick="location.href='<?= $this->url('visualizarMira'); ?>'" class="btn btn-default">
                   <img src="<?= $this->basePath('img/download32.png'); ?>" style="width:32px;height:32px;">
                   MIRA
               </button>
-                                
-
-              </div>
-
+            </div>
         </div>
 
 

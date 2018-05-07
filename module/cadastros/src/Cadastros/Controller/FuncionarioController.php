@@ -68,7 +68,7 @@ class FuncionarioController extends BaseController
         }
         
         $paginator = new Paginator(new ArrayAdapter($funcionarios));
-        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setCurrentPageNumber($this->sessao->page[$rota]);
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(5);
         
@@ -182,6 +182,32 @@ class FuncionarioController extends BaseController
 
         return new ViewModel(array(
                 'formGestor'    =>  $formGestor
+            ));
+    }
+
+    public function trocarliderAction(){
+        $formLider = new formMudarGestor('frmLider', $this->getServiceLocator());
+
+        if($this->getRequest()->isPost()){
+            $formLider->setData($this->getRequest()->getPost());
+            if($formLider->isValid()){
+                $dados = $formLider->getData();
+                if($this->getServiceLocator()->get('Funcionario')->update(
+                    array('lider_imediato' => $dados['novo_lider']),
+                    array('lider_imediato' => $dados['lider_imediato'])
+                    )){
+                    //sucesso!
+                    $this->flashMessenger()->addSuccessMessage('Líder imediato alterado com sucesso!');
+                }else{
+                    //erro!
+                    $this->flashMessenger()->addErrorMessage('Ocorreu algum erro ao alterar líder imediato!');
+                }
+                return $this->redirect()->toRoute('trocarLider');
+            }
+        }
+
+        return new ViewModel(array(
+                'formLider'    =>  $formLider
             ));
     }
 
@@ -322,7 +348,7 @@ class FuncionarioController extends BaseController
         }
         
         $paginator = new Paginator(new ArrayAdapter($funcionarios));
-        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setCurrentPageNumber($this->sessao->page[$rota]);
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(5);
         

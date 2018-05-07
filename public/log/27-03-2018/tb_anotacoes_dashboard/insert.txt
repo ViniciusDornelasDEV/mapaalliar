@@ -1,0 +1,23 @@
+usuario: 73 - alice.350
+Data/Hora da transação: 27-03-2018 15:36:47
+Informações: data => 2018-02-07
+tipo => 1
+texto => kjdskjdhsjkhkjdhkjshkshdkjhsd
+unidade => 12
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 27-03-2018 15:37:18
+Informações: data => 2018-02-19
+tipo => 1
+texto => ,kx,c,,hc,mhx,hc,xch
+unidade => 12
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 27-03-2018 15:37:27
+Informações: data => 2018-02-06
+tipo => 2
+unidade => 12
+------------------------------------------------------
+

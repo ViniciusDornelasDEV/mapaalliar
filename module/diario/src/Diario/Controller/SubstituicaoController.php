@@ -56,7 +56,7 @@ class SubstituicaoController extends BaseController
         }
         
         $paginator = new Paginator(new ArrayAdapter($substituicoes));
-        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setCurrentPageNumber($this->sessao->page[$rota]);
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(5);
         
@@ -143,7 +143,7 @@ class SubstituicaoController extends BaseController
         }
         
         $paginator = new Paginator(new ArrayAdapter($substituicoes));
-        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setCurrentPageNumber($this->sessao->page[$rota]);
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(5);
         

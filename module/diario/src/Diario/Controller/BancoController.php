@@ -25,7 +25,7 @@ class BancoController extends BaseController
         $bancos = $serviceBanco->getBancos($funcionario['unidade'])->toArray();
         
         $paginator = new Paginator(new ArrayAdapter($bancos));
-        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setCurrentPageNumber($this->sessao->page[$rota]);
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(5);
         
@@ -98,7 +98,7 @@ class BancoController extends BaseController
         $bancos = $serviceBanco->getBancos(false, $this->sessao->parametros[$rota])->toArray();
         
         $paginator = new Paginator(new ArrayAdapter($bancos));
-        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setCurrentPageNumber($this->sessao->page[$rota]);
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(5);
         

@@ -1,0 +1,8 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 15:32:17
+Informações: nome => CDB
+responsavel => Teste
+ativo => S
+id => 26
+------------------------------------------------------
+

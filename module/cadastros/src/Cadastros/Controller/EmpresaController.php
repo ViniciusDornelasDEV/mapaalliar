@@ -40,7 +40,7 @@ class EmpresaController extends BaseController
         }
         
         $paginator = new Paginator(new ArrayAdapter($empresas->toArray()));
-        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setCurrentPageNumber($this->sessao->page[$rota]);
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(5);
         

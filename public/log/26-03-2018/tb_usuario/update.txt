@@ -1,0 +1,9 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 26-03-2018 20:59:30
+Informações: nome => Reginaldo TI
+login => ti
+id_usuario_tipo => 3
+ativo => S
+id => 167
+------------------------------------------------------
+

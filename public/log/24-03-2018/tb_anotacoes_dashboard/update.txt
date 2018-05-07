@@ -1,0 +1,28 @@
+usuario: 13 - m.rosa
+Data/Hora da transação: 24-03-2018 16:30:27
+Informações: texto => Observações
+id => 13
+------------------------------------------------------
+
+usuario: 13 - m.rosa
+Data/Hora da transação: 24-03-2018 16:30:58
+Informações: texto => Observações
+id => 13
+------------------------------------------------------
+
+usuario: 13 - m.rosa
+Data/Hora da transação: 24-03-2018 16:33:47
+Informações: texto => Ausencias
+id => 6
+------------------------------------------------------
+
+usuario: 13 - m.rosa
+Data/Hora da transação: 24-03-2018 17:01:43
+Informações: id => 13
+------------------------------------------------------
+
+usuario: 13 - m.rosa
+Data/Hora da transação: 24-03-2018 17:03:09
+Informações: id => 6
+------------------------------------------------------
+

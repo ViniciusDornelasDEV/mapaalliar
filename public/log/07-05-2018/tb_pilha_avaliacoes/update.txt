@@ -1,0 +1,10 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 15:37:28
+Informações: data_inicio => 2018-03-02
+data_fim => 2018-03-16
+referencia_inicio => 2018-03-21
+referencia_fim => 2018-03-31
+referencia => 1
+id => 21
+------------------------------------------------------
+

@@ -44,6 +44,12 @@ class Module
                     $updates->setServiceLocator($sm);
                     return $updates;
                 },
+                'Evolucaoona' => function($sm) {
+                    $tableGateway = new TableGateway('tb_evolucao_ona', $sm->get('db_adapter_main'));
+                    $updates = new Model\EvolucaoOna($tableGateway);
+                    $updates->setServiceLocator($sm);
+                    return $updates;
+                },
                 'Tme' => function($sm) {
                     $tableGateway = new TableGateway('tb_tme', $sm->get('db_adapter_main'));
                     $updates = new Model\Tme($tableGateway);

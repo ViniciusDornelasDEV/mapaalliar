@@ -1,0 +1,33 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:24:45
+Informações: unidade => 12
+ouro => Maior ou igual a 90 pontos
+prata => 80 a 89 pontos
+bronze => 70 a 79 pontos
+tipo => EVOLUÇÃO SIGA
+classificacao_atual => O
+id => 15
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:25:22
+Informações: unidade => 12
+ouro => Maior ou igual a 90 pontos
+prata => 80 a 89 pontos
+bronze => 70 a 79 pontos
+tipo => ONA
+classificacao_atual => O
+id => 15
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:25:35
+Informações: unidade => 12
+ouro => Maior ou igual a 90 pontos
+prata => 80 a 89 pontos
+bronze => 70 a 79 pontos
+tipo => EVOLUÇÃO SIGA
+classificacao_atual => O
+id => 15
+------------------------------------------------------
+

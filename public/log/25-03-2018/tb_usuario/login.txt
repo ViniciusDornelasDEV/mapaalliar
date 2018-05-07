@@ -1,0 +1,19 @@
+Data/Hora da transação: 25-03-2018 21:54:57
+Informações: id => 2
+nome => Diogo
+login => DIOGO
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 1
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 25-03-2018 21:57:22
+Informações: id => 73
+nome => ALICE ALVES CASTRO
+login => alice.350
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 2
+funcionario => 956
+ativo => S
+------------------------------------------------------
+

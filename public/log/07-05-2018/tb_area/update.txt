@@ -1,0 +1,8 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 15:32:27
+Informações: nome => adads
+responsavel => asda
+ativo => S
+id => 46
+------------------------------------------------------
+

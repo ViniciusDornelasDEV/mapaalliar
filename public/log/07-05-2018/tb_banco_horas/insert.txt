@@ -1,0 +1,8 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 15:37:18
+Informações: unidade => 26
+inicio => 2018-05-01
+fim => 2018-05-31
+caminho => public/arquivos/bancoHoras/arquivo20180507031837caminho.jpg
+------------------------------------------------------
+

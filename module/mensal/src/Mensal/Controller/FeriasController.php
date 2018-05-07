@@ -49,7 +49,7 @@ class FeriasController extends BaseController
         }
         
         $paginator = new Paginator(new ArrayAdapter($ferias));
-        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setCurrentPageNumber($this->sessao->page[$rota]);
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(5);
         
@@ -166,7 +166,7 @@ class FeriasController extends BaseController
         }
         
         $paginator = new Paginator(new ArrayAdapter($ferias));
-        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setCurrentPageNumber($this->sessao->page[$rota]);
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(5);
         

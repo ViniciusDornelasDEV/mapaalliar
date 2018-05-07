@@ -1,0 +1,8 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 15:36:33
+Informações: data => 2018-03-25
+motivo => saúde
+cid => 13334
+id => 315
+------------------------------------------------------
+

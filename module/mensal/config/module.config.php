@@ -255,6 +255,43 @@ return array(
                         'action'     => 'visualizarevolucao',
                     ),
                 ),
+            ), 
+
+            'listarEvolucaoOna' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/premissas/evolucao/ona/listar[/:page]',
+                    'constraints' => array(
+                        'page'        => '[0-9]+'
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Mensal\Controller\Premissas',
+                        'action'     => 'listarevolucaoona',
+                    ),
+                ),
+            ),
+            'cadastrarEvolucaoOna' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/premissas/evolucao/ona/cadastrar[/:id]',
+                    'constraints' => array(
+                        'id'        => '[0-9]+'
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Mensal\Controller\Premissas',
+                        'action'     => 'cadastrarevolucaoona',
+                    ),
+                ),
+            ),
+            'visualizarEvolucaoOna' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/premissas/evolucao/ona/visualizar',
+                    'defaults' => array(
+                        'controller' => 'Mensal\Controller\Premissas',
+                        'action'     => 'visualizarevolucaoona',
+                    ),
+                ),
             ),  
 
             'listarTme' => array(

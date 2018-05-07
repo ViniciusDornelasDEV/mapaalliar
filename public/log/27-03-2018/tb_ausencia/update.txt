@@ -1,0 +1,18 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 27-03-2018 15:29:03
+Informações: data => 2018-03-06
+motivo => FOLGA BH
+cid => jjj345676
+atestado => public/arquivos/ausencias/arquivo20180327030229atestado.jpg
+id => 304
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 27-03-2018 15:39:40
+Informações: data => 2018-03-02
+motivo => Folga BH
+cid => xmnc,mxnc,ncx,ncx,x
+atestado => public/arquivos/ausencias/arquivo20180327034039atestado.jpg
+id => 296
+------------------------------------------------------
+

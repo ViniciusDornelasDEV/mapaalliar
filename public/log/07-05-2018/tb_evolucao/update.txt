@@ -1,0 +1,11 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 15:33:54
+Informações: unidade => 1
+ouro => Maior ou igual a 90 pontos
+prata => 80 a 89 pontos
+bronze => 70 a 79 pontos
+tipo => EVOLUÇÃO SIGA
+classificacao_atual => O
+id => 9
+------------------------------------------------------
+

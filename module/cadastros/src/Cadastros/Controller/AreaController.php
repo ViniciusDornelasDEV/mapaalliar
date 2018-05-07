@@ -36,7 +36,7 @@ class AreaController extends BaseController
         }
         
         $paginator = new Paginator(new ArrayAdapter($areas));
-        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setCurrentPageNumber($this->sessao->page[$rota]);
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(5);
         

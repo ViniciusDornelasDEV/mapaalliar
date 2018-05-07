@@ -1,0 +1,6 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 26-03-2018 21:21:32
+Informações: unidade => 9
+usuario => 168
+------------------------------------------------------
+

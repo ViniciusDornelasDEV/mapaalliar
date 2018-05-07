@@ -1,0 +1,9 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 15:36:48
+Informações: funcionario => 864
+data_desligamento => 2018-01-02
+vaga_rh => S
+encerrada => S
+id => 9
+------------------------------------------------------
+

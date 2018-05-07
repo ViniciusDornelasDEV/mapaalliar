@@ -234,6 +234,17 @@ return array(
                 ),
             ),
 
+            'trocarLider' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/funcionario/lider/mudar',
+                    'defaults' => array(
+                        'controller' => 'Cadastros\Controller\Funcionario',
+                        'action'     => 'trocarlider',
+                    ),
+                ),
+            ),
+
             'carregarFuncao' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(

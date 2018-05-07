@@ -63,6 +63,7 @@ class Evolucao Extends BaseTable {
                             'ouro'    => $dados['ouro'],
                             'prata'    => $dados['prata'],
                             'bronze'    => $dados['bronze'],
+                            'classificacao_atual' => $dados['classificacao_atual']
                         ));
                 }
             }else{
@@ -76,6 +77,7 @@ class Evolucao Extends BaseTable {
                             'ouro'    => $dados['ouro'],
                             'prata'    => $dados['prata'],
                             'bronze'    => $dados['bronze'],
+                            'classificacao_atual' => $dados['classificacao_atual']
                         ));
                     }
                 }else{

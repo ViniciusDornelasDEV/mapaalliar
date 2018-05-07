@@ -1,0 +1,20 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:43:39
+Informações: unidade => 26
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => O
+id => 17
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 17:48:59
+Informações: unidade => 1
+ouro => 10
+prata => 20
+bronze => 30
+classificacao_atual => O
+id => 18
+------------------------------------------------------
+

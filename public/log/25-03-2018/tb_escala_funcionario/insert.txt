@@ -1,0 +1,1953 @@
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:56
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-1
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:56
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-2
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:56
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-3
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:56
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-4
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:56
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-5
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:56
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-6
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:57
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-7
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:57
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-8
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:57
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-9
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:57
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-10
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:57
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-11
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:57
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-12
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:58
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-13
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:58
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-14
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:58
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-15
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:58
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-16
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:58
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-17
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:58
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-18
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:58
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-19
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:58
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-20
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:59
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-21
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:59
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-22
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:59
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-23
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:59
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-24
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:59
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-25
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:59
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-26
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:00
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-27
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:00
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-28
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:00
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-29
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:00
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-30
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:00
+Informações: escala => 186
+funcionario => 945
+data => 2017-12-31
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:00
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-1
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:00
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-2
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:00
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-3
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:01
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-4
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:01
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-5
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:01
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-6
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:01
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-7
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:01
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-8
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:01
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-9
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:02
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-10
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:02
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-11
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:02
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-12
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:02
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-13
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:02
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-14
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:02
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-15
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:03
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-16
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:03
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-17
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:03
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-18
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:03
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-19
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:03
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-20
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:03
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-21
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:03
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-22
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:03
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-23
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:04
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-24
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:04
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-25
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:04
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-26
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:04
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-27
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:04
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-28
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:04
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-29
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:04
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-30
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:05
+Informações: escala => 186
+funcionario => 917
+data => 2017-12-31
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:05
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-1
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:05
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-2
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:05
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-3
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:05
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-4
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:05
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-5
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:05
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-6
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:06
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-7
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:06
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-8
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:06
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-9
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:06
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-10
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:06
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-11
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:06
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-12
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:07
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-13
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:07
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-14
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:07
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-15
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:07
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-16
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:07
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-17
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:07
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-18
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:08
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-19
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:08
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-20
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:08
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-21
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:08
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-22
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:08
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-23
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:08
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-24
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:08
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-25
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:08
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-26
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:09
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-27
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:09
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-28
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:09
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-29
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:09
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-30
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:09
+Informações: escala => 186
+funcionario => 948
+data => 2017-12-31
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:09
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-1
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:09
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-2
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:10
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-3
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:10
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-4
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:10
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-5
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:10
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-6
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:10
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-7
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:10
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-8
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:10
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-9
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:10
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-10
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:11
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-11
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:11
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-12
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:11
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-13
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:11
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-14
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:11
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-15
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:11
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-16
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:11
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-17
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:12
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-18
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:12
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-19
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:12
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-20
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:12
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-21
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:12
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-22
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:12
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-23
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:12
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-24
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:13
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-25
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:13
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-26
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:13
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-27
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:13
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-28
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:13
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-29
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:14
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-30
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:14
+Informações: escala => 186
+funcionario => 902
+data => 2017-12-31
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:14
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-1
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:15
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-2
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:15
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-3
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:15
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-4
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:15
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-5
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:15
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-6
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:15
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-7
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:15
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-8
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:15
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-9
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:15
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-10
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:16
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-11
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:16
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-12
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:16
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-13
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:16
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-14
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:16
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-15
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:16
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-16
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:16
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-17
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:16
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-18
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:17
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-19
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:17
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-20
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:17
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-21
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:17
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-22
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:17
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-23
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:17
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-24
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:17
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-25
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:17
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-26
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:18
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-27
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:18
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-28
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:18
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-29
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:18
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-30
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:18
+Informações: escala => 186
+funcionario => 909
+data => 2017-12-31
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:18
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-1
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:19
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-2
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:19
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-3
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:19
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-4
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:19
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-5
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:19
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-6
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:19
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-7
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:19
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-8
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:19
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-9
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:20
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-10
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:20
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-11
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:20
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-12
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:20
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-13
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:20
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-14
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:20
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-15
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:20
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-16
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:21
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-17
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:21
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-18
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:21
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-19
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:21
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-20
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:21
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-21
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:21
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-22
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:21
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-23
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:22
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-24
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:22
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-25
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:22
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-26
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:22
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-27
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:22
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-28
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:22
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-29
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:22
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-30
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:22
+Informações: escala => 186
+funcionario => 856
+data => 2017-12-31
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:23
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-1
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:23
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-2
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:23
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-3
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:23
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-4
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:23
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-5
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:23
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-6
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:23
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-7
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:23
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-8
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:24
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-9
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:24
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-10
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:24
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-11
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:24
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-12
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:24
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-13
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:24
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-14
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:25
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-15
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:25
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-16
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:25
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-17
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:25
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-18
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:25
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-19
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:25
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-20
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:25
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-21
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:26
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-22
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:26
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-23
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:26
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-24
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:26
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-25
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:26
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-26
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:26
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-27
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:27
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-28
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:27
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-29
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:27
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-30
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:27
+Informações: escala => 186
+funcionario => 857
+data => 2017-12-31
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:27
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-1
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:27
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-2
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:27
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-3
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:27
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-4
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:28
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-5
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:28
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-6
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:28
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-7
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:28
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-8
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:28
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-9
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:28
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-10
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:28
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-11
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:29
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-12
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:29
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-13
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:29
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-14
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:29
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-15
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:29
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-16
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:29
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-17
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:29
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-18
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:30
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-19
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:30
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-20
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:30
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-21
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:30
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-22
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:30
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-23
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:30
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-24
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:30
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-25
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:31
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-26
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:31
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-27
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:31
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-28
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:31
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-29
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:31
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-30
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:31
+Informações: escala => 186
+funcionario => 906
+data => 2017-12-31
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:31
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-1
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:31
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-2
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:32
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-3
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:32
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-4
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:32
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-5
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:32
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-6
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:32
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-7
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:32
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-8
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:32
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-9
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:33
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-10
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:33
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-11
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:33
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-12
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:33
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-13
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:33
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-14
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:33
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-15
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:33
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-16
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:33
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-17
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:33
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-18
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:34
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-19
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:34
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-20
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:34
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-21
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:34
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-22
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:34
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-23
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:34
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-24
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:34
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-25
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:35
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-26
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:35
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-27
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:35
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-28
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:35
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-29
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:35
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-30
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:29:35
+Informações: escala => 186
+funcionario => 855
+data => 2017-12-31
+------------------------------------------------------
+

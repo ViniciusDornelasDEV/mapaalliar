@@ -1,0 +1,48 @@
+Data/Hora da transação: 27-03-2018 11:53:02
+Informações: id => 168
+nome => TI Teste
+login => titeste
+senha => $2y$10$hR445JKPjawaLz/EERYI2ePz8DTeVEvuBBS8WAmWZLnPq2vL5c0Qi
+id_usuario_tipo => 3
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 27-03-2018 11:55:06
+Informações: id => 73
+nome => ALICE ALVES CASTRO
+login => alice.350
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 2
+funcionario => 956
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 27-03-2018 14:54:53
+Informações: id => 169
+nome => Ti Teste2
+login => titeste2
+senha => $2y$10$XHTTNCi6BDdtlMCYWzhHbubfgDhY9mAXEiTZJmBBJ1/qrBiOAF8zW
+id_usuario_tipo => 3
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 27-03-2018 14:59:41
+Informações: id => 73
+nome => ALICE ALVES CASTRO
+login => alice.350
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 2
+funcionario => 956
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 27-03-2018 16:17:14
+Informações: id => 74
+nome => ALICE ALVES CASTRO
+login => alice.441
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 2
+funcionario => 1489
+ativo => S
+------------------------------------------------------
+

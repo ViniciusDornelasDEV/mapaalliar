@@ -1,0 +1,9 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 15:34:56
+Informações: unidade => 1
+nome => Contato
+email => contato@alliar.com
+imagem_1 => public/arquivos/mira/arquivo20180507035634imagem_1.jpg
+id => 348
+------------------------------------------------------
+

@@ -1,0 +1,11 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 15:36:24
+Informações: data => 2018-01-01
+data_proximo_feedback => 2018-01-15
+pontos_positivos => aasas
+pontos_desenvolver => asas
+plano_acao => asas
+feedback_realizado => S
+id => 8
+------------------------------------------------------
+

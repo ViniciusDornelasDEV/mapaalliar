@@ -398,7 +398,7 @@ class Funcionario Extends BaseTable {
         $connection->beginTransaction();
 
         try {
-            $this->update(array('lider_imediato' => $dados['novo_lider']), array('lider_imediato' => $dados['lider_imediato']));
+            //$this->update(array('lider_imediato' => $dados['novo_lider']), array('lider_imediato' => $dados['lider_imediato']));
 
             $tbGestor = new TableGateway('tb_funcionario_gestor', $adapter);
             $tbGestor->update(array('gestor' => $dados['novo_lider']), array('gestor' => $dados['lider_imediato']));
@@ -413,7 +413,7 @@ class Funcionario Extends BaseTable {
         return false;
     }
 
-     public function getFuncionariosTi($params = false, $usuario = false){
+    public function getFuncionariosTi($params = false, $usuario = false){
         return $this->getTableGateway()->select(function($select) use ($params, $usuario) {
             $select->join(
                     array('u' => 'tb_empresa_unidade'),

@@ -1,0 +1,27 @@
+Data/Hora da transação: 20-04-2018 19:30:08
+Informações: id => 2
+nome => Diogo
+login => DIOGO
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 1
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 20-04-2018 19:30:51
+Informações: id => 168
+nome => TI Teste
+login => titeste
+senha => $2y$10$hR445JKPjawaLz/EERYI2ePz8DTeVEvuBBS8WAmWZLnPq2vL5c0Qi
+id_usuario_tipo => 3
+ativo => S
+------------------------------------------------------
+
+Data/Hora da transação: 20-04-2018 19:31:37
+Informações: id => 2
+nome => Diogo
+login => DIOGO
+senha => $2y$10$dxHG/UmECo4uTONModVdAOt8Gn98KtmfuV41XjBTQOislzMyXrnie
+id_usuario_tipo => 1
+ativo => S
+------------------------------------------------------
+

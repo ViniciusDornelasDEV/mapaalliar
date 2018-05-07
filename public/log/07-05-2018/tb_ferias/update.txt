@@ -1,0 +1,7 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 07-05-2018 15:35:07
+Informações: data_inicio => 2019-03-01
+data_fim => 2019-03-30
+id => 94
+------------------------------------------------------
+

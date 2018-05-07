@@ -1,0 +1,32 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:15:37
+Informações: unidade => 12
+setor => 14
+mes => 11
+ano => 2017
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:17:10
+Informações: setor => 14
+unidade => 12
+mes => 11
+ano => 2018
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:07
+Informações: setor => 6
+unidade => 12
+mes => 12
+ano => 2018
+------------------------------------------------------
+
+usuario: 73 - alice.350
+Data/Hora da transação: 25-03-2018 22:28:25
+Informações: setor => 6
+unidade => 12
+mes => 12
+ano => 2017
+------------------------------------------------------
+

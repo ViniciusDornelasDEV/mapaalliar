@@ -51,7 +51,7 @@ class AusenciaController extends BaseController
         }
         
         $paginator = new Paginator(new ArrayAdapter($ausencias));
-        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setCurrentPageNumber($this->sessao->page[$rota]);
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(5);
         
@@ -151,7 +151,7 @@ class AusenciaController extends BaseController
         }
 
         $paginator = new Paginator(new ArrayAdapter($ausencias));
-        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setCurrentPageNumber($this->sessao->page[$rota]);
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(5);
         

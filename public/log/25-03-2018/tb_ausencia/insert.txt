@@ -1,0 +1,18 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:08:32
+Informações: funcionario => 956
+data => 2018-03-25
+motivo => Saúde
+cid => 1345
+atestado => public/arquivos/ausencias/arquivo20180325103208atestado.png
+------------------------------------------------------
+
+usuario: 2 - DIOGO
+Data/Hora da transação: 25-03-2018 22:11:53
+Informações: funcionario => 944
+data => 2018-03-25
+motivo => saúde
+cid => 13334
+atestado => public/arquivos/ausencias/arquivo20180325105311atestado.55
+------------------------------------------------------
+

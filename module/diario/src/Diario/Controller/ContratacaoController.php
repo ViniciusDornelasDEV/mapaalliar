@@ -75,7 +75,7 @@ class ContratacaoController extends BaseController
         }
         
         $paginator = new Paginator(new ArrayAdapter($funcionarios));
-        $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setCurrentPageNumber($this->sessao->page[$rota]);
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(5);
         

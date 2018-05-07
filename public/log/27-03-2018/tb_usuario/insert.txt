@@ -1,0 +1,8 @@
+usuario: 2 - DIOGO
+Data/Hora da transação: 27-03-2018 14:53:33
+Informações: nome => Ti Teste2
+login => titeste2
+id_usuario_tipo => 3
+senha => $2y$10$XHTTNCi6BDdtlMCYWzhHbubfgDhY9mAXEiTZJmBBJ1/qrBiOAF8zW
+------------------------------------------------------
+
