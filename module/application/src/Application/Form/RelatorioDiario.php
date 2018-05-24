@@ -18,7 +18,9 @@ use Application\Form\Base as BaseForm;
     {
         parent::__construct($name);  
 
-        $this->genericTextInput('data_referencia', '* Data:', true);
+        $this->genericTextInput('inicio_referencia', '* Início:', true);
+
+        $this->genericTextInput('fim_referencia', 'Fim:', false);
 
         $this->setAttributes(array(
             'role'   => 'form'
@@ -28,7 +30,8 @@ use Application\Form\Base as BaseForm;
 
     public function getData($flag = 17){
         $dados = parent::getData();
-        $dados['data_referencia'] = parent::converterData($dados['data_referencia']);
+        $dados['inicio_referencia'] = parent::converterData($dados['inicio_referencia']);
+        $dados['fim_referencia'] = parent::converterData($dados['fim_referencia']);
 
         return $dados;
     }

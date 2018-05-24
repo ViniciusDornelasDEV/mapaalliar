@@ -32,7 +32,10 @@ use Application\Form\Base as BaseForm;
         $this->_addDropdown('funcionario', '* Funcionário:', false, $funcionarios);        
 
         //data_inicio
-        $this->genericTextInput('data', '* Data:', true);
+        $this->genericTextInput('data', '* Início:', true);
+
+        //data_fim
+        $this->genericTextInput('data_fim', '* Fim:', true);
         
         //motivo
         $this->genericTextInput('motivo', 'Motivo da ausência:', false);
@@ -51,6 +54,7 @@ use Application\Form\Base as BaseForm;
 
     public function setData($dados){
         $dados['data'] = parent::converterData($dados['data']);
+        $dados['data_fim'] = parent::converterData($dados['data_fim']);
         
         parent::setData($dados);
     }

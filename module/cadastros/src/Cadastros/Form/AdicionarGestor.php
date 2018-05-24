@@ -1,10 +1,10 @@
 <?php
 
- namespace Usuario\Form;
+ namespace Cadastros\Form;
  
  use Application\Form\Base as BaseForm; 
 
- class VincularEmpresa extends BaseForm {
+ class AdicionarGestor extends BaseForm {
      
     /**
      * Sets up generic form.
@@ -22,12 +22,15 @@
 
         //empresa
         $empresas = $this->serviceLocator->get('Empresa')->getRecordsFromArray(array(), 'nome');
-        $empresas = $this->prepareForDropDown($empresas, array('id', 'nome'), array('' => '-- selecione --', 'T' => 'Todos'));
-        $this->_addDropdown('empresa', '* Empresa:', true, $empresas, 'carregarUnidade(this.value, "C", "T");');
+        $empresas = $this->prepareForDropDown($empresas, array('id', 'nome'));
+        $this->_addDropdown('empresa', '* Empresa:', true, $empresas, 'carregarUnidade(this.value, "C");');
 
         //unidade
         $this->_addDropdown('unidade', '* Unidade:', true, array('' => 'Selecione uma empresa'), 'carregarLider(this.value);');
-        
+
+        //lider_atual
+        $this->_addDropdown('lider_imediato', '* Gestor:', true, array('' => 'Selecione uma unidade'));
+
         $this->setAttributes(array(
             'class'  => 'form-inline'
         ));

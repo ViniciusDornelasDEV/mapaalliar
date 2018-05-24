@@ -5,7 +5,8 @@
           <div class="col-sm-6">
             <div class="row">
               <div class="col-sm-3">
-                <img src="<?= $this->basePath('img/vermelho.png'); ?>"> <b><?= $ausencias->count(); ?></b> ausências no período
+                <img src="<?= $this->basePath('img/vermelho.png'); ?>"> <b><?= $ausencias->count(); ?></b> ausências no período<br>
+                <b><?= $ausenciasAtestado->count() ?></b> ausências com atestado
               </div>
 
               <div class="col-sm-3">
@@ -32,17 +33,28 @@
                   <div class="form-group">
 
                     <div class="col-sm-4">
+                      <div class="form-group">
+                        <label for="Início" style="width:139px;">* Início:</label>
+                        <?= $this->formElement($formRelatorio->get('inicio_referencia')); ?>
+                      </div>
 
                     </div>
                     <div class="col-sm-4">
-                        <?= $this->formElement($formRelatorio->get('data_referencia')); ?>
+
+                      <div class="form-group">
+                        <label for="Fim" style="width:139px;">* Fim:</label>
+                        <?= $this->formElement($formRelatorio->get('fim_referencia')); ?>
+                      </div>
                     </div>
 
                     <div class="col-sm-4">
-                      <button type="submit" class="btn btn-success" style="float: right;margin-right: 10px;">
-                        <img src="<?php echo $this->basePath('img/excel.png') ?>" alt="Salvar">
-                        Gerar relatório
-                      </button>
+                      <br>
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-success" style="float: right;margin-right: 10px;">
+                          <img src="<?php echo $this->basePath('img/excel.png') ?>" alt="Salvar">
+                          Gerar relatório
+                        </button>
+                      </div>
                     </div>
 
               </div>
@@ -134,7 +146,8 @@
         <?php foreach ($ausencias as $ausencia) : ?>
           {
             title: '<?= $ausencia["nome_funcionario"] ?>',
-            start: '<?= $ausencia["data"] ?>'
+            start: '<?= $ausencia["data"] ?>',
+            end:   '<?php echo date("Y-m-d", strtotime("+1 days",strtotime($ausencia["data_fim"]))); ?>'
           },
         <?php endforeach; ?>
       ],
@@ -242,9 +255,13 @@
       $(document).ready(function() {
         $("#inicio").mask("99/99/9999");        
         $("#fim").mask("99/99/9999");
-        $("#data_referencia").mask("99/99/9999");
         $("#inicio").datepicker();
         $("#fim").datepicker();
-        $("#data_referencia").datepicker();
+        
+        $("#inicio_referencia").mask("99/99/9999");
+        $("#inicio_referencia").datepicker();
+
+        $("#fim_referencia").mask("99/99/9999");
+        $("#fim_referencia").datepicker();
       });
     </script>

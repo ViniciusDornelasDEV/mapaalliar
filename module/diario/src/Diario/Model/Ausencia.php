@@ -85,6 +85,10 @@ class Ausencia Extends BaseTable {
                     $select->where(array('u.id' => $params['unidade']));
                 }
 
+                if(!empty($params['atestado'])){
+                    $select->where->isNotNull('atestado');
+                }
+
             }
             $select->group('f.id');
             $select->order('data DESC, f.nome');

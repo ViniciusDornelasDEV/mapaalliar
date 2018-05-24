@@ -13,7 +13,7 @@ class Ferias Extends BaseTable {
             $select->join(
                     array('f' => 'tb_funcionario'),
                     'f.id = funcionario',
-                    array('nome_funcionario' => 'nome')
+                    array('nome_funcionario' => 'nome', 'periodo_trabalho', 'matricula')
                 );
 
             $select->join(
@@ -53,6 +53,13 @@ class Ferias Extends BaseTable {
                     's.area = a.id',
                     array('nome_area' => 'nome')
                 );
+
+            $select->join(
+                    array('li' => 'tb_funcionario'),
+                    'li.id = f.lider_imediato',
+                    array('nome_lider_imediato' => 'nome'),
+                    'LEFT'
+            );
 
 
             if($idGestor){

@@ -233,6 +233,16 @@ return array(
                     ),
                 ),
             ),
+            'adicionarGestor' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/funcionario/gestor/adicionar',
+                    'defaults' => array(
+                        'controller' => 'Cadastros\Controller\Funcionario',
+                        'action'     => 'adicionargestor',
+                    ),
+                ),
+            ),
 
             'trocarLider' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',

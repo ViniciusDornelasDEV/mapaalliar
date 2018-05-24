@@ -33,31 +33,23 @@ class IndexController extends BaseController
 
     public function indexAction()
     {   
-       /*$serviceFuncionario = $this->getServiceLocator()->get('FuncionarioGestor');
-        $funcionarios = $serviceFuncionario->getRecordsFromArray(array('lider' => 'S'));
-
-        foreach ($funcionarios as $funcionario) {
-            //selecionar usuários que são do gestor mais de unidade diferente
-            
-            $matricula = $this->retirarZero($funcionario['matricula']);
-            echo 'UPDATE tb_funcionario SET matricula = "'.$matricula.'" WHERE id = '.$funcionario['id'].';<br>';
-        }
-        die('retirei 0 a esquerda!'); */
 
         $formPesquisa = new formPesquisa('frmPesquisa', $this->getServiceLocator());
         $ausencias = false;
+        $ausenciasAtestado = false;
         $ferias = false;
         $acoes = false;
         $ajudas = false;
         $empresa = false;
         $unidade = false;
         $dataInicio = false;
+        $dataFim = false;
 
         $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
         $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
 
         $formRelatorio = new formRelatorio('frmRelatorio');
-        $formRelatorio->setData(array('data_referencia' => date('d/m/Y')));
+        $formRelatorio->setData(array('inicio_referencia' => date('d/m/Y'), 'fim_referencia' => date('d/m/Y')));
 
         $anotacoesAusencias = false;
         $anotacoesFerias = false;
@@ -68,7 +60,7 @@ class IndexController extends BaseController
         if($this->getRequest()->isPost()){
             $dados = $this->getRequest()->getPost();
 
-            if(isset($dados['data_referencia'])){
+            if(isset($dados['inicio_referencia'])){
                 $formRelatorio->setData($dados);
                 if($formRelatorio->isValid()){
                     $this->relatorioDiario($formRelatorio->getData(), $dados['unidade']);
@@ -96,6 +88,10 @@ class IndexController extends BaseController
                         ->get('Ausencia')
                         ->getAusencias(array('inicio' => $dataInicio, 'fim'    => $dataFim, 'unidade' => $unidade['id']));
                     
+                    $ausenciasAtestado = $this->getServiceLocator()
+                        ->get('Ausencia')
+                        ->getAusencias(array('inicio' => $dataInicio, 'fim'    => $dataFim, 'unidade' => $unidade['id'], 'atestado' => 'S'));
+
                     //pesquisar funcionários de férias
                     $ferias = $this->getServiceLocator()
                         ->get('Ferias')
@@ -125,6 +121,7 @@ class IndexController extends BaseController
 
         return new ViewModel(array(
                 'ausencias'     =>  $ausencias,
+                'ausenciasAtestado' => $ausenciasAtestado,
                 'ferias'        =>  $ferias,
                 'acoes'         =>  $acoes,
                 'ajudas'        =>  $ajudas,
@@ -154,11 +151,11 @@ class IndexController extends BaseController
 
         //form de relatorio diario
         $formRelatorio = new formRelatorio('frmRelatorio');
-        $formRelatorio->setData(array('data_referencia' => date('d/m/Y')));
+        $formRelatorio->setData(array('inicio_referencia' => date('d/m/Y'), 'fim_referencia' => date('d/m/Y')));
 
         if($this->getRequest()->isPost()){
             $dados = $this->getRequest()->getPost();
-            if(isset($dados['data_referencia'])){
+            if(isset($dados['inicio_referencia'])){
                 $formRelatorio->setData($dados);
                 if($formRelatorio->isValid()){
                     $this->relatorioDiario($formRelatorio->getData(), false, $usuario['funcionario']);
@@ -178,6 +175,10 @@ class IndexController extends BaseController
             ->get('Ausencia')
             ->getAusencias(array('inicio' => $dataInicio, 'fim'    => $dataFim), $usuario['funcionario']);
         
+        $ausenciasAtestado = $this->getServiceLocator()
+            ->get('Ausencia')
+            ->getAusencias(array('inicio' => $dataInicio, 'fim'    => $dataFim, 'atestado' => 'S'), $usuario['funcionario']);
+
         //pesquisar funcionários de férias
         $ferias = $this->getServiceLocator()
             ->get('Ferias')
@@ -202,6 +203,7 @@ class IndexController extends BaseController
 
         return new ViewModel(array(
                 'ausencias' =>  $ausencias,
+                'ausenciasAtestado' => $ausenciasAtestado,
                 'ferias'    =>  $ferias,
                 'acoes'     =>  $acoes ,
                 'ajudas'    =>  $ajudas,
@@ -218,10 +220,15 @@ class IndexController extends BaseController
     }
 
     private function relatorioDiario($data, $unidade = false, $gestor = false){
-        $data = $data['data_referencia'];
-        $formRelatorio = new formRelatorio('frmRelatorio');
-        $dataBR = $formRelatorio->converterData($data);
+        $data_inicio = $data['inicio_referencia'];
+        $data_fim = $data_inicio;
+        if(!empty($data['fim_referencia'])){
+            $data_fim = $data['fim_referencia'];
+        }
         
+        $formRelatorio = new formRelatorio('frmRelatorio');
+        $inicioBR = $formRelatorio->converterData($data_inicio);
+        $fimBR = $formRelatorio->converterData($data_fim);
         $objPHPExcel = new \PHPExcel();
         
         $objPHPExcel->getProperties()->setCreator('Time Sistemas');
@@ -253,15 +260,15 @@ class IndexController extends BaseController
         if($unidade){
             $ausencias = $this->getServiceLocator()
                 ->get('Ausencia')
-                ->getAusencias(array('inicio' => $data, 'fim'    => $data, 'unidade' => $unidade));
+                ->getAusencias(array('inicio' => $data_inicio, 'fim'    => $data_fim, 'unidade' => $unidade));
         }else{
             $ausencias = $this->getServiceLocator()
                 ->get('Ausencia')
-                ->getAusencias(array('inicio' => $data, 'fim'    => $data), $gestor);
+                ->getAusencias(array('inicio' => $data_inicio, 'fim'    => $data_fim), $gestor);
         }
         //percorrer ausencias
         foreach ($ausencias as $ausencia) {
-            $objPHPExcel->getActiveSheet()->SetCellValue('A'.$linha, $dataBR);
+            $objPHPExcel->getActiveSheet()->SetCellValue('A'.$linha, $inicioBR.' a '.$fimBR);
             $objPHPExcel->getActiveSheet()->SetCellValue('B'.$linha, 'Ausência');
             $objPHPExcel->getActiveSheet()->SetCellValue('C'.$linha, $ausencia->nome_empresa);
             $objPHPExcel->getActiveSheet()->SetCellValue('D'.$linha, $ausencia->nome_unidade);
@@ -282,15 +289,15 @@ class IndexController extends BaseController
         if($unidade){
             $ferias = $this->getServiceLocator()
                 ->get('Ferias')
-                ->getFerias(array('inicio_inicio' => $data, 'inicio_fim'    => $data, 'unidade' => $unidade));
+                ->getFerias(array('inicio_inicio' => $data_inicio, 'inicio_fim'    => $data_fim, 'unidade' => $unidade));
         }else{
             $ferias = $this->getServiceLocator()
                 ->get('Ferias')
-                ->getFerias(array('inicio_inicio' => $data, 'inicio_fim'    => $data), $gestor);
+                ->getFerias(array('inicio_inicio' => $data_inicio, 'inicio_fim'    => $data_fim), $gestor);
         }
         //percorrer férias
         foreach ($ferias as $feria) {
-            $objPHPExcel->getActiveSheet()->SetCellValue('A'.$linha, $dataBR);
+            $objPHPExcel->getActiveSheet()->SetCellValue('A'.$linha, $inicioBR.' a '.$fimBR);
             $objPHPExcel->getActiveSheet()->SetCellValue('B'.$linha, 'Férias');
             $objPHPExcel->getActiveSheet()->SetCellValue('C'.$linha, $feria->nome_empresa);
             $objPHPExcel->getActiveSheet()->SetCellValue('D'.$linha, $feria->nome_unidade);
@@ -301,16 +308,16 @@ class IndexController extends BaseController
         if($unidade){
             $acoes = $this->getServiceLocator()
                 ->get('AcaoDisciplinar')
-                ->getAcoes(array('inicio' => $data, 'fim'    => $data, 'unidade' => $unidade));
+                ->getAcoes(array('inicio' => $data_inicio, 'fim'    => $data_fim, 'unidade' => $unidade));
         }else{
             $acoes = $this->getServiceLocator()
                 ->get('AcaoDisciplinar')
-                ->getAcoes(array('inicio' => $data, 'fim'    => $data), $gestor);
+                ->getAcoes(array('inicio' => $data_inicio, 'fim'    => $data_fim), $gestor);
             
         }
         //percorrer acoes disciplinares
         foreach ($acoes as $acao) {
-            $objPHPExcel->getActiveSheet()->SetCellValue('A'.$linha, $dataBR);
+            $objPHPExcel->getActiveSheet()->SetCellValue('A'.$linha, $inicioBR.' a '.$fimBR);
             $objPHPExcel->getActiveSheet()->SetCellValue('B'.$linha, 'Ação disciplinar');
             $objPHPExcel->getActiveSheet()->SetCellValue('C'.$linha, $acao->nome_empresa);
             $objPHPExcel->getActiveSheet()->SetCellValue('D'.$linha, $acao->nome_unidade);
@@ -331,16 +338,16 @@ class IndexController extends BaseController
         if($unidade){
             $ajudas = $this->getServiceLocator()
                 ->get('Ajuda')
-                ->getAjudas(array('inicio' => $data, 'fim' => $data, 'unidade' => $unidade));
+                ->getAjudas(array('inicio' => $data_inicio, 'fim' => $data_fim, 'unidade' => $unidade));
         }else{
             $ajudas = $this->getServiceLocator()
                 ->get('Ajuda')
-                ->getAjudas(array('inicio' => $data, 'fim' => $data), $gestor);
+                ->getAjudas(array('inicio' => $data_inicio, 'fim' => $data_fim), $gestor);
         }
 
         //percorrer ajudas
         foreach ($ajudas as $ajuda) {
-            $objPHPExcel->getActiveSheet()->SetCellValue('A'.$linha, $dataBR);
+            $objPHPExcel->getActiveSheet()->SetCellValue('A'.$linha, $inicioBR.' a '.$fimBR);
             $objPHPExcel->getActiveSheet()->SetCellValue('B'.$linha, 'Ajuda');
             $objPHPExcel->getActiveSheet()->SetCellValue('C'.$linha, $ajuda->nome_empresa);
             $objPHPExcel->getActiveSheet()->SetCellValue('D'.$linha, $ajuda->nome_unidade);

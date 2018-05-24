@@ -15,6 +15,7 @@ use Cadastros\Form\VincularGestor as formGestor;
 use Cadastros\Form\AlterarFuncionario as formAlterarFuncionario;
 use Cadastros\Form\ImportarFuncionario as formImportacao;
 use Cadastros\Form\MudarGestor as formMudarGestor;
+use Cadastros\Form\AdicionarGestor as formAdicionarGestor;
 
 use Cadastros\Form\PesquisarFuncionarioTi as formPesquisaTi;
 use Cadastros\Form\FuncionarioTi as formFuncionarioTi;
@@ -50,7 +51,7 @@ class FuncionarioController extends BaseController
 
         $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
         
-        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
+        $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota, array('ativo' => 'S'));
         $funcionarios = $serviceFuncionario->getFuncionarios($this->sessao->parametros[$rota])->toArray();
         
         foreach ($funcionarios as $key => $funcionario) {
@@ -183,6 +184,26 @@ class FuncionarioController extends BaseController
         return new ViewModel(array(
                 'formGestor'    =>  $formGestor
             ));
+    }
+
+    public function adicionargestorAction(){
+        $formGestor = new formAdicionarGestor('frmGestor', $this->getServiceLocator());
+
+        if($this->getRequest()->isPost()){
+            $formGestor->setData($this->getRequest()->getPost());
+            if($formGestor->isValid()){
+                if($this->getServiceLocator()->get('Funcionario')->adicionarGestor($formGestor->getData())){
+                    //sucesso!
+                    $this->flashMessenger()->addSuccessMessage('Gestor adicionado com sucesso!');
+                }else{
+                    //erro!
+                    $this->flashMessenger()->addErrorMessage('Ocorreu algum erro ao adicionar gestor!');
+                }
+                return $this->redirect()->toRoute('adicionarGestor');
+            }
+        }
+
+        return new ViewModel(array('formGestor' => $formGestor));
     }
 
     public function trocarliderAction(){

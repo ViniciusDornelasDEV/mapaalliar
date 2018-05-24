@@ -413,6 +413,30 @@ class Funcionario Extends BaseTable {
         return false;
     }
 
+    public function adicionarGestor($dados){
+        $adapter = $this->getTableGateway()->getAdapter();
+        $connection = $adapter->getDriver()->getConnection();
+        $connection->beginTransaction();
+
+        try {
+            //pesquisar todos os funcionários da unidade selecionada (que não são lideres)
+            $funcionarios = $this->getRecordsFromArray(array('unidade' => $dados['unidade'], 'lider' => 'N'));
+            $tbGestor = new TableGateway('tb_funcionario_gestor', $adapter);
+
+            //inserir o gestor selecionado
+            foreach ($funcionarios as $funcionario) {
+                $tbGestor->insert(array('funcionario' => $funcionario['id'], 'gestor' => $dados['lider_imediato']));
+            }
+            $connection->commit();
+            return true;
+        } catch (Exception $e) {
+            $connection->rollback();
+            return false;
+        }
+        $connection->rollback();
+        return false;
+    }
+
     public function getFuncionariosTi($params = false, $usuario = false){
         return $this->getTableGateway()->select(function($select) use ($params, $usuario) {
             $select->join(

@@ -17,10 +17,13 @@ use Mensal\Form\FeriasAdmin as formFeriasAdmin;
 class FeriasController extends BaseController
 {
     private $campos = array(
+            'Matrícula'             => 'matricula',
             'Nome da área'          => 'nome_area',
             'Nome do setor'         => 'nome_setor',
             'Nome da função'        => 'nome_funcao',
             'Nome do funcionário'   => 'nome_funcionario',
+            'Período de trabalho'   => 'periodo_trabalho',
+            'Líder imediato'        => 'nome_lider_imediato',
             'Início'                => 'data_inicio',
             'Fim'                   => 'data_fim'
         );
@@ -36,6 +39,7 @@ class FeriasController extends BaseController
         $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
     	$formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
         $ferias = $serviceFerias->getFerias($this->sessao->parametros[$rota], $usuario['funcionario'])->toArray();
+
         foreach ($ferias as $key => $feria) {
             $ferias[$key]['data_inicio'] = $formPesquisa->converterData($feria['data_inicio']);
             $ferias[$key]['data_fim'] = $formPesquisa->converterData($feria['data_fim']);
@@ -153,6 +157,7 @@ class FeriasController extends BaseController
         $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
         $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
         $ferias = $serviceFerias->getFerias($this->sessao->parametros[$rota])->toArray();
+
         foreach ($ferias as $key => $feria) {
             $ferias[$key]['data_inicio'] = $formPesquisa->converterData($feria['data_inicio']);
             $ferias[$key]['data_fim'] = $formPesquisa->converterData($feria['data_fim']);

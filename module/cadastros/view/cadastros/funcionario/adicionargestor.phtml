@@ -1,17 +1,18 @@
  <div class="container theme-showcase" role="main" style="margin-bottom:10px;padding:0px;">
-      <button type="button" class="btn btn-success" onclick="location.href='<?= $this->url('adicionarGestor'); ?>'" style="float: right;margin-right:5px;">
+    <button type="button" class="btn btn-success" disabled style="float: right;margin-right:5px;">
       <img src="<?php echo $this->basePath('img/novo.png') ?>" alt="Incluir">
-      Adicionar gestor</button>
+      Adicionar gestor
+    </button>
 
-      <button type="button" class="btn btn-warning" disabled style="float: right;margin-right:5px;">
+    <button type="button" class="btn btn-warning" onclick="location.href='<?= $this->url('trocarGestor'); ?>'" style="float: right;margin-right:5px;">
       <img src="<?php echo $this->basePath('img/redirecionar.png') ?>" alt="Trocar gestor">
-      Alterar getor</button>
-
+      Alterar getor
+    </button>
 
     <ol class="breadcrumb" style="margin-bottom: 0px;">
       <li><a href="<?= $this->url('home'); ?>">Home</a></li>
       <li><a href="<?= $this->url('listarFuncionario'); ?>">Funcionários</a></li>
-      <li class="active">Alterar gestor</li>
+      <li class="active">Adicionar gestor</li>
     </ol>
   </div>
 
@@ -19,7 +20,7 @@
       <div class="row">
           <div class="panel panel-default">
           <div class="panel-heading">
-              <h3 class="panel-title">Alterar gestor</h3>
+              <h3 class="panel-title">Adicionar gestor</h3>
             </div>
             <div class="panel-body">
                 <div class="form-group">

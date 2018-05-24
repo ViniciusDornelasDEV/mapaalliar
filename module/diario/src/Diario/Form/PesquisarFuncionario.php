@@ -39,7 +39,7 @@
         $this->_addDropdown('funcao', 'Função:', false, array('' => 'Selecione um setor'));
 
         //ativo
-        $this->_addDropdown('ativo', 'Ativo:', false, array('' => '--', 'S' => 'Ativo', 'N' => 'Inativo'));
+        $this->_addDropdown('ativo', 'Ativo:', false, array('S' => 'Ativo', 'N' => 'Inativo'));
 
         $this->setAttributes(array(
             'class'  => 'form-inline'
