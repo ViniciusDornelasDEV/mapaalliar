@@ -150,5 +150,77 @@ class Avaliacao Extends BaseTable {
         })->current(); 
     }
 
+    public function atualizar($dados, $idAvaliacao){
+        $adapter = $this->getTableGateway()->getAdapter();
+        $connection = $adapter->getDriver()->getConnection();
+        $connection->beginTransaction();
+
+        try {
+            parent::update($dados, array('id' => $idAvaliacao));
+            unset($dados['periodo']);
+            parent::update($dados, array('avaliacao_pai' => $idAvaliacao));
+
+            $connection->commit();
+            return true;
+        } catch (Exception $e) {
+            $connection->rollback();
+            return false;
+        }
+        $connection->rollback();
+        return false;
+    }
+
+    public function inserir($dados, $referencia){
+        $adapter = $this->getTableGateway()->getAdapter();
+        $connection = $adapter->getDriver()->getConnection();
+        $connection->beginTransaction();
+        try {
+            $idPai = parent::insert($dados);
+            $tbReferencia = new TableGateway('tb_pilha_avaliacoes', $adapter);
+            $dadosPesquisa = array(
+                'referencia_inicio' => $referencia['referencia_inicio'],
+                'referencia_fim'    => $referencia['referencia_fim'],
+                'setor'             => $referencia['setor']
+            );
+            $dadosReplicar = $dados;
+            $dadosReplicar['avaliacao_pai'] = $idPai;
+            if($referencia['referencia'] == 1){
+                //pesquisar 2 e 3
+                $dadosPesquisa['referencia'] = 2;
+                $referencia2 = $tbReferencia->select($dadosPesquisa)->current();
+                if($referencia2){
+                    $dadosReplicar['periodo'] = $referencia2['id'];
+                    parent::insert($dadosReplicar);
+                }
+
+                $dadosPesquisa['referencia'] = 3;
+                $referencia3 = $tbReferencia->select($dadosPesquisa)->current();
+                if($referencia3){
+                    $dadosReplicar['periodo'] = $referencia3['id'];
+                    parent::insert($dadosReplicar);
+                }
+
+            }else{
+                if($referencia['referencia'] == 2){
+                    //pesquisar 3
+                    $dadosPesquisa['referencia'] = 3;
+                    $referencia3 = $tbReferencia->select($dadosPesquisa)->current();
+                    if($referencia3){
+                        $dadosReplicar['periodo'] = $referencia3['id'];
+                        parent::insert($dadosReplicar);
+                    }
+                }
+            }
+
+            $connection->commit();
+            return $idPai;
+        } catch (Exception $e) {
+            $connection->rollback();
+            return false;
+        }
+        $connection->rollback();
+        return false;
+    }
+
 
 }

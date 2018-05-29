@@ -190,10 +190,10 @@ class AvaliacaoController extends BaseController
                 
                 if($avaliacao){
                     $this->flashMessenger()->addSuccessMessage('Avaliação alterada com sucesso!');
-                    $serviceAvaliacao->update($dados, array('id' => $avaliacao['id']));
+                    $serviceAvaliacao->atualizar($dados, $avaliacao['id']);
                 }else{    
                     $this->flashMessenger()->addSuccessMessage('Avaliação inserida com sucesso!');
-                    $serviceAvaliacao->insert($dados);
+                    $serviceAvaliacao->inserir($dados, $referencia);
                 }
                 return $this->redirect()->toRoute('listarAvaliacoesResponder');
             }else{

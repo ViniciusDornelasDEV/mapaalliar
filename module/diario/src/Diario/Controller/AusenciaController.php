@@ -19,11 +19,15 @@ use Diario\Form\AusenciasAdmin as formAusenciaAdmin;
 class AusenciaController extends BaseController
 {
     private $campos = array(
+            'Matrícula'                 => 'matricula',
+            'Nome do funcionário'       => 'nome_funcionario',
             'Nome da área'              => 'nome_area',
             'Nome do setor'             => 'nome_setor',
             'Nome da função'            => 'nome_funcao',
-            'Nome do funcionário'       => 'nome_funcionario',
-            'Data da ausência'          => 'data'
+            'Data da ausência'          => 'data',
+            'Fim da ausência'           => 'data_fim',
+            'Motivo da ausência'        => 'motivo',
+            'CID'                       => 'cid'
         );
 
     
@@ -41,6 +45,7 @@ class AusenciaController extends BaseController
         
         foreach ($ausencias as $key => $ausencia) {
             $ausencias[$key]['data'] = $formPesquisa->converterData($ausencia['data']);
+            $ausencias[$key]['data_fim'] = $formPesquisa->converterData($ausencia['data_fim']);
         }
 
         if($this->getRequest()->isPost()){
@@ -141,6 +146,7 @@ class AusenciaController extends BaseController
         
         foreach ($ausencias as $key => $ausencia) {
             $ausencias[$key]['data'] = $formPesquisa->converterData($ausencia['data']);
+            $ausencias[$key]['data_fim'] = $formPesquisa->converterData($ausencia['data_fim']);
         }
 
         if($this->getRequest()->isPost()){
