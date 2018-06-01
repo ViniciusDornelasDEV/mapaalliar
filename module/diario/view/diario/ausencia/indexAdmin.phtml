@@ -25,6 +25,7 @@
                     <th style="text-align: center">Matrícula</th>
                     <th style="text-align: center">Funcionário</th>
                     <th style="text-align: center">Data</th>
+                    <th style="text-align: center">Data fim</th>
                     <th style="text-align: center">Ações</th>
                 </tr>
                 <?php foreach($ausencias as $ausencia): ?>
@@ -37,6 +38,7 @@
                   <td style="text-align: center"><?= $ausencia['matricula']; ?></td>
                   <td style="text-align: center"><?= $ausencia['nome_funcionario']; ?></td>
                   <td style="text-align: center"><?= $ausencia['data']; ?></td>
+                  <td style="text-align: center"><?= $ausencia['data_fim']; ?></td>
                   <td style="text-align: center;">
                       <?php if(!empty($ausencia['atestado'])): ?>
                         <img src="<?= $this->basePath('img/download.png') ?>" title="Download" onclick="location.href='<?= $this->url('download', array('id' => $ausencia['id'], 'service' => 'Ausencia', 'campo' => 'atestado')); ?>'" style="cursor: pointer;">
