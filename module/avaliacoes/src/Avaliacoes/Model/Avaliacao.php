@@ -69,6 +69,7 @@ class Avaliacao Extends BaseTable {
             }
 
             $select->where(array('enviado' => 'S'));
+            $select->where('avaliacao_pai IS NULL');
 
             $select->order('pa.referencia_inicio DESC');
 

@@ -30,7 +30,7 @@ use Application\Form\Base as BaseForm;
         $funcionario = $this->serviceLocator->get('Funcionario')->getFuncionario($usuario['funcionario']);
         $unidades = $this->serviceLocator->get('Unidade')->getRecordsFromArray(array('empresa' => $funcionario['id_empresa']), 'nome');
         $unidades = $this->prepareForDropDown($unidades, array('id', 'nome'));
-        $this->_addDropdown('unidade', 'Unidade de origem:', false, $unidades);
+        $this->_addDropdown('unidade', 'Unidade solicitante:', false, $unidades);
 
         //data
         $this->genericTextInput('inicio', 'Data de início, de:', false);

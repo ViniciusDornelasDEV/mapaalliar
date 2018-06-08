@@ -66,6 +66,19 @@ return array(
                     ),
                 ),
             ),
+            'aceitarAjuda' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/ajudas/aceitar[/:id][/:acao]',
+                    'constraints' => array(
+                        'id'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Diario\Controller\Ajuda',
+                        'action'     => 'aceitarajuda',
+                    ),
+                ),
+            ),
             'novoAjuda' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(

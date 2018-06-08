@@ -6,9 +6,9 @@
       Nova ajuda</button>
 
        <div style="float:left;">
-        <span><img src="<?= $this->basePath('img/verde.png'); ?>"> Ajuda realizada</span>
-        <span style="margin-left:5px;"><img src="<?= $this->basePath('img/amarelo.png'); ?>"> Realizando ajuda</span>
-        <span style="margin-left:5px;"><img src="<?= $this->basePath('img/vermelho.png'); ?>"> Ajuda a realizar</span>
+        <span><img src="<?= $this->basePath('img/verde.png'); ?>"> Ajuda aceita</span>
+        <span style="margin-left:5px;"><img src="<?= $this->basePath('img/amarelo.png'); ?>"> Avaliando</span>
+        <span style="margin-left:5px;"><img src="<?= $this->basePath('img/vermelho.png'); ?>"> Ajuda recusada</span>
       </div>
     </div>
     <div class="container theme-showcase" role="main">
@@ -23,10 +23,10 @@
                   <tr>
                     <th style="text-align: center">Status</th>
                     <th style="text-align: center">Empresa</th>
-                    <th style="text-align: center">Unidade de destino</th>
+                    <th style="text-align: center">Unidade de apoio</th>
                     <th style="text-align: center">Matrícula</th>
                     <th style="text-align: center">Funcionário</th>
-                    <th style="text-align: center">Unidade de origem</th>
+                    <th style="text-align: center">Unidade solicitante</th>
                     <th style="text-align: center">Área/setor de destino</th>
                     <th style="text-align: center">Início</th>
                     <th style="text-align: center">Término</th>
@@ -36,7 +36,7 @@
                 <?php foreach($ajudas as $ajuda): ?>
                 <tr>
                   <?php 
-                    $cor = $this->farol($this->converterData($ajuda['data_inicio']), $this->converterData($ajuda['data_fim']));
+                    $cor = $this->farol(false, false, $ajuda['aceita']);
                   ?>
                   <td style="text-align: center"><img src="<?= $this->basePath($cor); ?>"></td>
                   <td style="text-align: center"><?= $ajuda['nome_empresa']; ?></td>

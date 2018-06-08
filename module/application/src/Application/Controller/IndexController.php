@@ -108,15 +108,12 @@ class IndexController extends BaseController
                         ->getAjudas(array('inicio' => $dataInicio, 'fim' => $dataFim, 'unidade' => $unidade['id']));
                 }
                 
+                $serviceAnotacoes = $this->getServiceLocator()->get('AnotacoesDashboard');
+                $anotacoesAusencias = $serviceAnotacoes->getAnotacoes($dataInicio, $dataFim, 1, $unidade['id'])->toArray();
+                $anotacoesFerias = $serviceAnotacoes->getAnotacoes($dataInicio, $dataFim, 2, $unidade['id'])->toArray();
+                $anotacoesAcoes = $serviceAnotacoes->getAnotacoes($dataInicio, $dataFim, 3, $unidade['id'])->toArray();
+                $anotacoesAjudas = $serviceAnotacoes->getAnotacoes($dataInicio, $dataFim, 4, $unidade['id'])->toArray();
             }
-
-            $serviceAnotacoes = $this->getServiceLocator()->get('AnotacoesDashboard');
-            $anotacoesAusencias = $serviceAnotacoes->getAnotacoes($dataInicio, $dataFim, 1)->toArray();
-            $anotacoesFerias = $serviceAnotacoes->getAnotacoes($dataInicio, $dataFim, 2)->toArray();
-            $anotacoesAcoes = $serviceAnotacoes->getAnotacoes($dataInicio, $dataFim, 3)->toArray();
-            $anotacoesAjudas = $serviceAnotacoes->getAnotacoes($dataInicio, $dataFim, 4)->toArray();
-
-
         }
 
         return new ViewModel(array(
@@ -158,7 +155,7 @@ class IndexController extends BaseController
             if(isset($dados['inicio_referencia'])){
                 $formRelatorio->setData($dados);
                 if($formRelatorio->isValid()){
-                    $this->relatorioDiario($formRelatorio->getData(), false, $usuario['funcionario']);
+                    $this->relatorioDiario($formRelatorio->getData(), false, $funcionario);
                 }
             }else{
                 $formPesquisa->setData($dados);
@@ -190,23 +187,29 @@ class IndexController extends BaseController
             ->getAcoes(array('inicio' => $dataInicio, 'fim'    => $dataFim), $usuario['funcionario']);
 
         //pesquisar ajudas
-        $ajudas = $this->getServiceLocator()
-            ->get('Ajuda')
-            ->getAjudas(array('inicio' => $dataInicio, 'fim' => $dataFim), $usuario['funcionario']);
+        $serviceAjuda = $this->getServiceLocator()->get('Ajuda');
+        $ajudasRecebidas = $serviceAjuda->getAjudas(
+            array('inicio' => $dataInicio, 'fim' => $dataFim), 
+            $usuario['funcionario']);
+
+        $ajudasSolicitadas = $serviceAjuda->getAjudas(
+            array('inicio' => $dataInicio, 'fim' => $dataFim, 'unidade_destino' => $funcionario['unidade'])
+        );
 
 
         $serviceAnotacoes = $this->getServiceLocator()->get('AnotacoesDashboard');
-        $anotacoesAusencias = $serviceAnotacoes->getAnotacoes($dataInicio, $dataFim, 1)->toArray();
-        $anotacoesFerias = $serviceAnotacoes->getAnotacoes($dataInicio, $dataFim, 2)->toArray();
-        $anotacoesAcoes = $serviceAnotacoes->getAnotacoes($dataInicio, $dataFim, 3)->toArray();
-        $anotacoesAjudas = $serviceAnotacoes->getAnotacoes($dataInicio, $dataFim, 4)->toArray();
+        $anotacoesAusencias = $serviceAnotacoes->getAnotacoes($dataInicio, $dataFim, 1, $funcionario['unidade'])->toArray();
+        $anotacoesFerias = $serviceAnotacoes->getAnotacoes($dataInicio, $dataFim, 2, $funcionario['unidade'])->toArray();
+        $anotacoesAcoes = $serviceAnotacoes->getAnotacoes($dataInicio, $dataFim, 3, $funcionario['unidade'])->toArray();
+        $anotacoesAjudas = $serviceAnotacoes->getAnotacoes($dataInicio, $dataFim, 4, $funcionario['unidade'])->toArray();
 
         return new ViewModel(array(
                 'ausencias' =>  $ausencias,
                 'ausenciasAtestado' => $ausenciasAtestado,
                 'ferias'    =>  $ferias,
                 'acoes'     =>  $acoes ,
-                'ajudas'    =>  $ajudas,
+                'ajudasRecebidas'    =>  $ajudasRecebidas,
+                'ajudasSolicitadas'     => $ajudasSolicitadas,
                 'inicio'    =>  $dataInicio,
                 'fim'       =>  $dataFim,
                 'formPesquisa'  =>  $formPesquisa,
@@ -241,8 +244,9 @@ class IndexController extends BaseController
         $objPHPExcel->getActiveSheet()->SetCellValue('C1', 'Empresa');
         $objPHPExcel->getActiveSheet()->SetCellValue('D1', 'Unidade');
         $objPHPExcel->getActiveSheet()->SetCellValue('E1', 'Funcionário');
+        $objPHPExcel->getActiveSheet()->SetCellValue('F1', 'Anotação');
         
-         $objPHPExcel->getActiveSheet()->getStyle('A1:E1')->applyFromArray(
+         $objPHPExcel->getActiveSheet()->getStyle('A1:F1')->applyFromArray(
             array(
                 'fill' => array(
                     'type' => \PHPExcel_Style_Fill::FILL_SOLID,
@@ -256,15 +260,20 @@ class IndexController extends BaseController
         );
 
         $linha = 2;
+        $serviceAnotacoes = $this->getServiceLocator()->get('AnotacoesDashboard');
+        
+
         //pesquisar ausencias do mês
         if($unidade){
             $ausencias = $this->getServiceLocator()
                 ->get('Ausencia')
                 ->getAusencias(array('inicio' => $data_inicio, 'fim'    => $data_fim, 'unidade' => $unidade));
+            $anotacoesAusencias = $serviceAnotacoes->getAnotacoes($data_inicio, $data_fim, 1, $unidade);
         }else{
             $ausencias = $this->getServiceLocator()
                 ->get('Ausencia')
-                ->getAusencias(array('inicio' => $data_inicio, 'fim'    => $data_fim), $gestor);
+                ->getAusencias(array('inicio' => $data_inicio, 'fim'    => $data_fim), $gestor['id']);
+            $anotacoesAusencias = $serviceAnotacoes->getAnotacoes($data_inicio, $data_fim, 1, $gestor['unidade']);
         }
         //percorrer ausencias
         foreach ($ausencias as $ausencia) {
@@ -273,8 +282,29 @@ class IndexController extends BaseController
             $objPHPExcel->getActiveSheet()->SetCellValue('C'.$linha, $ausencia->nome_empresa);
             $objPHPExcel->getActiveSheet()->SetCellValue('D'.$linha, $ausencia->nome_unidade);
             $objPHPExcel->getActiveSheet()->SetCellValue('E'.$linha, $ausencia->nome_funcionario);
+            $objPHPExcel->getActiveSheet()->SetCellValue('F'.$linha, '-');
+
+            $objPHPExcel->getActiveSheet()->getStyle('A'.$linha.':'.'F'.$linha)->applyFromArray(
+                array(
+                    'fill' => array(
+                        'type' => \PHPExcel_Style_Fill::FILL_SOLID,
+                        'color' => array('rgb' => 'ebccd1'),
+                    ),
+                )
+            );
             
-            $objPHPExcel->getActiveSheet()->getStyle('A'.$linha.':'.'E'.$linha)->applyFromArray(
+            $linha++;
+        }
+
+        foreach ($anotacoesAusencias as $anotacao) {
+            $objPHPExcel->getActiveSheet()->SetCellValue('A'.$linha,  $formRelatorio->converterData($anotacao->data));
+            $objPHPExcel->getActiveSheet()->SetCellValue('B'.$linha, 'Anotação de ausência');
+            $objPHPExcel->getActiveSheet()->SetCellValue('C'.$linha, $anotacao->nome_empresa);
+            $objPHPExcel->getActiveSheet()->SetCellValue('D'.$linha, $anotacao->nome_unidade);
+            $objPHPExcel->getActiveSheet()->SetCellValue('E'.$linha, '-');
+            $objPHPExcel->getActiveSheet()->SetCellValue('F'.$linha, $anotacao->texto);
+            
+            $objPHPExcel->getActiveSheet()->getStyle('A'.$linha.':'.'F'.$linha)->applyFromArray(
                 array(
                     'fill' => array(
                         'type' => \PHPExcel_Style_Fill::FILL_SOLID,
@@ -290,10 +320,12 @@ class IndexController extends BaseController
             $ferias = $this->getServiceLocator()
                 ->get('Ferias')
                 ->getFerias(array('inicio_inicio' => $data_inicio, 'inicio_fim'    => $data_fim, 'unidade' => $unidade));
+            $anotacoesFerias = $serviceAnotacoes->getAnotacoes($data_inicio, $data_fim, 2, $unidade);
         }else{
             $ferias = $this->getServiceLocator()
                 ->get('Ferias')
-                ->getFerias(array('inicio_inicio' => $data_inicio, 'inicio_fim'    => $data_fim), $gestor);
+                ->getFerias(array('inicio_inicio' => $data_inicio, 'inicio_fim'    => $data_fim), $gestor['id']);
+                $anotacoesFerias = $serviceAnotacoes->getAnotacoes($data_inicio, $data_fim, 2, $gestor['unidade']);
         }
         //percorrer férias
         foreach ($ferias as $feria) {
@@ -302,17 +334,32 @@ class IndexController extends BaseController
             $objPHPExcel->getActiveSheet()->SetCellValue('C'.$linha, $feria->nome_empresa);
             $objPHPExcel->getActiveSheet()->SetCellValue('D'.$linha, $feria->nome_unidade);
             $objPHPExcel->getActiveSheet()->SetCellValue('E'.$linha, $feria->nome_funcionario);
+            $objPHPExcel->getActiveSheet()->SetCellValue('F'.$linha, '-');
             $linha++;
         }
+
+        foreach ($anotacoesFerias as $anotacao) {
+            $objPHPExcel->getActiveSheet()->SetCellValue('A'.$linha,  $formRelatorio->converterData($anotacao->data));
+            $objPHPExcel->getActiveSheet()->SetCellValue('B'.$linha, 'Anotação de férias');
+            $objPHPExcel->getActiveSheet()->SetCellValue('C'.$linha, $anotacao->nome_empresa);
+            $objPHPExcel->getActiveSheet()->SetCellValue('D'.$linha, $anotacao->nome_unidade);
+            $objPHPExcel->getActiveSheet()->SetCellValue('E'.$linha, '-');
+            $objPHPExcel->getActiveSheet()->SetCellValue('F'.$linha, $anotacao->texto);
+        
+            $linha++;
+        }
+
 
         if($unidade){
             $acoes = $this->getServiceLocator()
                 ->get('AcaoDisciplinar')
                 ->getAcoes(array('inicio' => $data_inicio, 'fim'    => $data_fim, 'unidade' => $unidade));
+            $anotacoesAcoes = $serviceAnotacoes->getAnotacoes($data_inicio, $data_fim, 3, $unidade);
         }else{
             $acoes = $this->getServiceLocator()
                 ->get('AcaoDisciplinar')
-                ->getAcoes(array('inicio' => $data_inicio, 'fim'    => $data_fim), $gestor);
+                ->getAcoes(array('inicio' => $data_inicio, 'fim'    => $data_fim), $gestor['id']);
+            $anotacoesAcoes = $serviceAnotacoes->getAnotacoes($data_inicio, $data_fim, 3, $gestor['unidade']);
             
         }
         //percorrer acoes disciplinares
@@ -322,8 +369,9 @@ class IndexController extends BaseController
             $objPHPExcel->getActiveSheet()->SetCellValue('C'.$linha, $acao->nome_empresa);
             $objPHPExcel->getActiveSheet()->SetCellValue('D'.$linha, $acao->nome_unidade);
             $objPHPExcel->getActiveSheet()->SetCellValue('E'.$linha, $acao->nome_funcionario);
+            $objPHPExcel->getActiveSheet()->SetCellValue('F'.$linha, '-');
 
-            $objPHPExcel->getActiveSheet()->getStyle('A'.$linha.':'.'E'.$linha)->applyFromArray(
+            $objPHPExcel->getActiveSheet()->getStyle('A'.$linha.':'.'F'.$linha)->applyFromArray(
                 array(
                     'fill' => array(
                         'type' => \PHPExcel_Style_Fill::FILL_SOLID,
@@ -335,14 +383,38 @@ class IndexController extends BaseController
             $linha++;
         }
 
+        foreach ($anotacoesAcoes as $anotacao) {
+            $objPHPExcel->getActiveSheet()->SetCellValue('A'.$linha,  $formRelatorio->converterData($anotacao->data));
+            $objPHPExcel->getActiveSheet()->SetCellValue('B'.$linha, 'Anotação de ação disciplinar');
+            $objPHPExcel->getActiveSheet()->SetCellValue('C'.$linha, $anotacao->nome_empresa);
+            $objPHPExcel->getActiveSheet()->SetCellValue('D'.$linha, $anotacao->nome_unidade);
+            $objPHPExcel->getActiveSheet()->SetCellValue('E'.$linha, '-');
+            $objPHPExcel->getActiveSheet()->SetCellValue('F'.$linha, $anotacao->texto);
+            
+            $objPHPExcel->getActiveSheet()->getStyle('A'.$linha.':'.'F'.$linha)->applyFromArray(
+                array(
+                    'fill' => array(
+                        'type' => \PHPExcel_Style_Fill::FILL_SOLID,
+                        'color' => array('rgb' => 'faebcc'),
+                    ),
+                )
+            );
+            
+            $linha++;
+        }
+
+
+
         if($unidade){
             $ajudas = $this->getServiceLocator()
                 ->get('Ajuda')
                 ->getAjudas(array('inicio' => $data_inicio, 'fim' => $data_fim, 'unidade' => $unidade));
+             $anotacoesAjudas = $serviceAnotacoes->getAnotacoes($data_inicio, $data_fim, 4, $unidade);
         }else{
             $ajudas = $this->getServiceLocator()
                 ->get('Ajuda')
-                ->getAjudas(array('inicio' => $data_inicio, 'fim' => $data_fim), $gestor);
+                ->getAjudas(array('inicio' => $data_inicio, 'fim' => $data_fim), $gestor['id']);
+             $anotacoesAjudas = $serviceAnotacoes->getAnotacoes($data_inicio, $data_fim, 4, $gestor['unidade']);
         }
 
         //percorrer ajudas
@@ -352,8 +424,9 @@ class IndexController extends BaseController
             $objPHPExcel->getActiveSheet()->SetCellValue('C'.$linha, $ajuda->nome_empresa);
             $objPHPExcel->getActiveSheet()->SetCellValue('D'.$linha, $ajuda->nome_unidade);
             $objPHPExcel->getActiveSheet()->SetCellValue('E'.$linha, $ajuda->nome_funcionario);
+            $objPHPExcel->getActiveSheet()->SetCellValue('F'.$linha, '-');
 
-            $objPHPExcel->getActiveSheet()->getStyle('A'.$linha.':'.'E'.$linha)->applyFromArray(
+            $objPHPExcel->getActiveSheet()->getStyle('A'.$linha.':'.'F'.$linha)->applyFromArray(
                 array(
                     'fill' => array(
                         'type' => \PHPExcel_Style_Fill::FILL_SOLID,
@@ -365,16 +438,37 @@ class IndexController extends BaseController
             $linha++;
         }
 
+        foreach ($anotacoesAjudas as $anotacao) {
+            $objPHPExcel->getActiveSheet()->SetCellValue('A'.$linha,  $formRelatorio->converterData($anotacao->data));
+            $objPHPExcel->getActiveSheet()->SetCellValue('B'.$linha, 'Anotação de ajuda');
+            $objPHPExcel->getActiveSheet()->SetCellValue('C'.$linha, $anotacao->nome_empresa);
+            $objPHPExcel->getActiveSheet()->SetCellValue('D'.$linha, $anotacao->nome_unidade);
+            $objPHPExcel->getActiveSheet()->SetCellValue('E'.$linha, '-');
+            $objPHPExcel->getActiveSheet()->SetCellValue('F'.$linha, $anotacao->texto);
+            
+            $objPHPExcel->getActiveSheet()->getStyle('A'.$linha.':'.'F'.$linha)->applyFromArray(
+                array(
+                    'fill' => array(
+                        'type' => \PHPExcel_Style_Fill::FILL_SOLID,
+                        'color' => array('rgb' => 'd6e9c6'),
+                    ),
+                )
+            );
+            
+            $linha++;
+        }
+
+
         //centralizar        
         $style = array(
             'alignment' => array(
                 'horizontal' => \PHPExcel_Style_Alignment::HORIZONTAL_CENTER,
             )
         );
-        $objPHPExcel->getActiveSheet()->getStyle('A1:'.'E'.$linha)->applyFromArray($style);
+        $objPHPExcel->getActiveSheet()->getStyle('A1:'.'F'.$linha)->applyFromArray($style);
 
         //largura
-        foreach(range('A','E') as $columnID) {
+        foreach(range('A','F') as $columnID) {
             $objPHPExcel->getActiveSheet()->getColumnDimension($columnID)->setAutoSize(true);
         }
 

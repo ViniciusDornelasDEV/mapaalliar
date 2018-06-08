@@ -88,6 +88,10 @@ class Ajuda Extends BaseTable {
                     $select->where(array('unidade_destino' => $params['unidade_destino']));
                 }
 
+                if(isset($params['id']) && !empty($params['id'])){
+                    $select->where(array('tb_ajuda.id' => $params['id']));
+                }
+
             }
             
             $select->order('data_inicio DESC');

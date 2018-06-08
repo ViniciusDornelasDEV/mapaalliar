@@ -15,6 +15,7 @@ use Cadastros\Form\VincularGestor as formGestor;
 use Cadastros\Form\AlterarFuncionario as formAlterarFuncionario;
 use Cadastros\Form\ImportarFuncionario as formImportacao;
 use Cadastros\Form\MudarGestor as formMudarGestor;
+use Cadastros\Form\MudarLider as formMudarLider;
 use Cadastros\Form\AdicionarGestor as formAdicionarGestor;
 
 use Cadastros\Form\PesquisarFuncionarioTi as formPesquisaTi;
@@ -207,7 +208,7 @@ class FuncionarioController extends BaseController
     }
 
     public function trocarliderAction(){
-        $formLider = new formMudarGestor('frmLider', $this->getServiceLocator());
+        $formLider = new formMudarLider('frmLider', $this->getServiceLocator());
 
         if($this->getRequest()->isPost()){
             $formLider->setData($this->getRequest()->getPost());

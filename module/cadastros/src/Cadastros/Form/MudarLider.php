@@ -4,7 +4,7 @@
  
  use Application\Form\Base as BaseForm; 
 
- class MudarGestor extends BaseForm {
+ class MudarLider extends BaseForm {
      
     /**
      * Sets up generic form.
@@ -29,10 +29,10 @@
         $this->_addDropdown('unidade', '* Unidade:', true, array('' => 'Selecione uma empresa'), 'carregarLider(this.value);');
 
         //lider_atual
-        $this->_addDropdown('lider_imediato', '* Gestor atual:', true, array('' => 'Selecione uma unidade'), 'trocarLider(this.value);');
+        $this->_addDropdown('lider_imediato', '* Líder atual:', true, array('' => 'Selecione uma unidade'), 'trocarLider(this.value);');
 
         //novo_lider
-        $this->_addDropdown('novo_lider', '* Novo Gestor:', true, array('' => 'Selecione o gestor atual'));
+        $this->_addDropdown('novo_lider', '* Novo líder:', true, array('' => 'Selecione o líder atual'));
         
         $this->setAttributes(array(
             'class'  => 'form-inline'

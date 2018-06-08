@@ -106,6 +106,29 @@ class AjudaController extends BaseController
                             ));
     }
 
+    public function aceitarajudaAction(){
+        $idAjuda = $this->params()->fromRoute('id');
+        $acao = $this->params()->fromRoute('acao');
+
+        $serviceAjuda = $this->getServiceLocator()->get('Ajuda');
+
+        //verificar se ajuda é realmente para a empresa deste gestor
+        $usuario = $this->getServiceLocator()->get('session')->read();
+        $ajuda = $serviceAjuda->getAjudas(array('id' => $idAjuda), $usuario['funcionario'])->current();
+        if(!$ajuda){
+            $this->flashMessenger()->addWarningMessage('Ajuda não encontrada!');
+            return $this->redirect()->toRoute('ajudaRecebida');
+        }
+
+        //alterar status da ajuda
+        if($acao == 'S' || $acao == 'N'){
+            $serviceAjuda->update(array('aceita' => $acao), array('id' => $idAjuda));
+            $this->flashMessenger()->addSuccessMessage('Status alterado com sucesso!');
+            return $this->redirect()->toRoute('ajudaRecebida');
+        }
+        return $this->redirect()->toRoute('ajudaRecebida');
+    }
+
     public function novoAction(){
         $this->layout('layout/gestor');
         $usuario = $this->getServiceLocator()->get('session')->read();

@@ -9,7 +9,7 @@
 <div class="row form-group">
     <div class="col-sm-12">
         <div class="input-group">
-            <label><?= $form->get('organizacao_controle')->getLabel(); ?></label>
+            <label><?= $form->get('rotinas')->getLabel(); ?></label>
 
         </div>
     </div>
@@ -17,11 +17,11 @@
 <div class="row form-group">
     <div class="col-sm-12">
         <div class="input-group">
-            <?= $this->formElement($form->get('organizacao_controle')); ?>
-            <?= $this->formElementErrors($form->get('organizacao_controle'), array('class' => 'alert alert-danger')); ?>
+            <?= $this->formElement($form->get('rotinas')); ?>
+            <?= $this->formElementErrors($form->get('rotinas'), array('class' => 'alert alert-danger')); ?>
             
-            <?= $this->formElement($form->get('obs_organizacao_controle')); ?>
-            <?= $this->formElementErrors($form->get('obs_organizacao_controle'), array('class' => 'alert alert-danger')); ?>
+            <?= $this->formElement($form->get('obs_rotinas')); ?>
+            <?= $this->formElementErrors($form->get('obs_rotinas'), array('class' => 'alert alert-danger')); ?>
         </div>
     </div>
 </div>
@@ -31,7 +31,7 @@
 <div class="row form-group">
     <div class="col-sm-12">
         <div class="input-group">
-            <label><?= $form->get('identificacao')->getLabel(); ?></label>
+            <label><?= $form->get('aprendizado')->getLabel(); ?></label>
 
         </div>
     </div>
@@ -39,11 +39,33 @@
 <div class="row form-group">
     <div class="col-sm-12">
         <div class="input-group">
-            <?= $this->formElement($form->get('identificacao')); ?>
-            <?= $this->formElementErrors($form->get('identificacao'), array('class' => 'alert alert-danger')); ?>
+            <?= $this->formElement($form->get('aprendizado')); ?>
+            <?= $this->formElementErrors($form->get('aprendizado'), array('class' => 'alert alert-danger')); ?>
             
-            <?= $this->formElement($form->get('obs_identificacao')); ?>
-            <?= $this->formElementErrors($form->get('obs_identificacao'), array('class' => 'alert alert-danger')); ?>
+            <?= $this->formElement($form->get('obs_aprendizado')); ?>
+            <?= $this->formElementErrors($form->get('obs_aprendizado'), array('class' => 'alert alert-danger')); ?>
+        </div>
+    </div>
+</div>
+<hr>
+
+
+<div class="row form-group">
+    <div class="col-sm-12">
+        <div class="input-group">
+            <label><?= $form->get('apresentacao')->getLabel(); ?></label>
+
+        </div>
+    </div>
+</div>
+<div class="row form-group">
+    <div class="col-sm-12">
+        <div class="input-group">
+            <?= $this->formElement($form->get('apresentacao')); ?>
+            <?= $this->formElementErrors($form->get('apresentacao'), array('class' => 'alert alert-danger')); ?>
+            
+            <?= $this->formElement($form->get('obs_apresentacao')); ?>
+            <?= $this->formElementErrors($form->get('obs_apresentacao'), array('class' => 'alert alert-danger')); ?>
         </div>
     </div>
 </div>
@@ -52,7 +74,7 @@
 <div class="row form-group">
     <div class="col-sm-12">
         <div class="input-group">
-            <label><?= $form->get('anotacao_controles')->getLabel(); ?></label>
+            <label><?= $form->get('organizacao')->getLabel(); ?></label>
 
         </div>
     </div>
@@ -60,11 +82,11 @@
 <div class="row form-group">
     <div class="col-sm-12">
         <div class="input-group">
-            <?= $this->formElement($form->get('anotacao_controles')); ?>
-            <?= $this->formElementErrors($form->get('anotacao_controles'), array('class' => 'alert alert-danger')); ?>
+            <?= $this->formElement($form->get('organizacao')); ?>
+            <?= $this->formElementErrors($form->get('organizacao'), array('class' => 'alert alert-danger')); ?>
             
-            <?= $this->formElement($form->get('obs_anotacao_controles')); ?>
-            <?= $this->formElementErrors($form->get('obs_anotacao_controles'), array('class' => 'alert alert-danger')); ?>
+            <?= $this->formElement($form->get('obs_organizacao')); ?>
+            <?= $this->formElementErrors($form->get('obs_organizacao'), array('class' => 'alert alert-danger')); ?>
         </div>
     </div>
 </div>
@@ -73,7 +95,7 @@
 <div class="row form-group">
     <div class="col-sm-12">
         <div class="input-group">
-            <label><?= $form->get('organizacao_higiene')->getLabel(); ?></label>
+            <label><?= $form->get('interesse')->getLabel(); ?></label>
 
         </div>
     </div>
@@ -81,131 +103,21 @@
 <div class="row form-group">
     <div class="col-sm-12">
         <div class="input-group">
-            <?= $this->formElement($form->get('organizacao_higiene')); ?>
-            <?= $this->formElementErrors($form->get('organizacao_higiene'), array('class' => 'alert alert-danger')); ?>
+            <?= $this->formElement($form->get('interesse')); ?>
+            <?= $this->formElementErrors($form->get('interesse'), array('class' => 'alert alert-danger')); ?>
             
-            <?= $this->formElement($form->get('obs_organizacao_higiene')); ?>
-            <?= $this->formElementErrors($form->get('obs_organizacao_higiene'), array('class' => 'alert alert-danger')); ?>
-        </div>
-    </div>
-</div>
-<hr>
-
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <label><?= $form->get('ambiente_trabalho')->getLabel(); ?></label>
-
-        </div>
-    </div>
-</div>
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <?= $this->formElement($form->get('ambiente_trabalho')); ?>
-            <?= $this->formElementErrors($form->get('ambiente_trabalho'), array('class' => 'alert alert-danger')); ?>
-            
-            <?= $this->formElement($form->get('obs_ambiente_trabalho')); ?>
-            <?= $this->formElementErrors($form->get('obs_ambiente_trabalho'), array('class' => 'alert alert-danger')); ?>
-        </div>
-    </div>
-</div>
-<hr>
-
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <label><?= $form->get('questionarios')->getLabel(); ?></label>
-
-        </div>
-    </div>
-</div>
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <?= $this->formElement($form->get('questionarios')); ?>
-            <?= $this->formElementErrors($form->get('questionarios'), array('class' => 'alert alert-danger')); ?>
-            
-            <?= $this->formElement($form->get('obs_questionarios')); ?>
-            <?= $this->formElementErrors($form->get('obs_questionarios'), array('class' => 'alert alert-danger')); ?>
-        </div>
-    </div>
-</div>
-<hr>
-
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <label><?= $form->get('agilidade_qualidade')->getLabel(); ?></label>
-
-        </div>
-    </div>
-</div>
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <?= $this->formElement($form->get('agilidade_qualidade')); ?>
-            <?= $this->formElementErrors($form->get('agilidade_qualidade'), array('class' => 'alert alert-danger')); ?>
-            
-            <?= $this->formElement($form->get('obs_agilidade_qualidade')); ?>
-            <?= $this->formElementErrors($form->get('obs_agilidade_qualidade'), array('class' => 'alert alert-danger')); ?>
-        </div>
-    </div>
-</div>
-<hr>
-
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <label><?= $form->get('epi')->getLabel(); ?></label>
-
-        </div>
-    </div>
-</div>
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <?= $this->formElement($form->get('epi')); ?>
-            <?= $this->formElementErrors($form->get('epi'), array('class' => 'alert alert-danger')); ?>
-            
-            <?= $this->formElement($form->get('obs_epi')); ?>
-            <?= $this->formElementErrors($form->get('obs_epi'), array('class' => 'alert alert-danger')); ?>
-        </div>
-    </div>
-</div>
-<hr>
-
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <label><?= $form->get('pastas')->getLabel(); ?></label>
-
-        </div>
-    </div>
-</div>
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <?= $this->formElement($form->get('pastas')); ?>
-            <?= $this->formElementErrors($form->get('pastas'), array('class' => 'alert alert-danger')); ?>
-            
-            <?= $this->formElement($form->get('obs_pastas')); ?>
-            <?= $this->formElementErrors($form->get('obs_pastas'), array('class' => 'alert alert-danger')); ?>
+            <?= $this->formElement($form->get('obs_interesse')); ?>
+            <?= $this->formElementErrors($form->get('obs_interesse'), array('class' => 'alert alert-danger')); ?>
         </div>
     </div>
 </div>
 <hr>
 
 
-
-
-
-
-<h3 style="" class="title-hero">Comportamental </h3>
 <div class="row form-group">
     <div class="col-sm-12">
         <div class="input-group">
-            <label><?= $form->get('pontualidade')->getLabel(); ?></label>
+            <label><?= $form->get('comunicacao')->getLabel(); ?></label>
 
         </div>
     </div>
@@ -213,15 +125,148 @@
 <div class="row form-group">
     <div class="col-sm-12">
         <div class="input-group">
-            <?= $this->formElement($form->get('pontualidade')); ?>
-            <?= $this->formElementErrors($form->get('pontualidade'), array('class' => 'alert alert-danger')); ?>
+            <?= $this->formElement($form->get('comunicacao')); ?>
+            <?= $this->formElementErrors($form->get('comunicacao'), array('class' => 'alert alert-danger')); ?>
             
-            <?= $this->formElement($form->get('obs_pontualidade')); ?>
-            <?= $this->formElementErrors($form->get('obs_pontualidade'), array('class' => 'alert alert-danger')); ?>
+            <?= $this->formElement($form->get('obs_comunicacao')); ?>
+            <?= $this->formElementErrors($form->get('obs_comunicacao'), array('class' => 'alert alert-danger')); ?>
         </div>
     </div>
 </div>
 <hr>
+
+
+<div class="row form-group">
+    <div class="col-sm-12">
+        <div class="input-group">
+            <label><?= $form->get('adaptacao')->getLabel(); ?></label>
+
+        </div>
+    </div>
+</div>
+<div class="row form-group">
+    <div class="col-sm-12">
+        <div class="input-group">
+            <?= $this->formElement($form->get('adaptacao')); ?>
+            <?= $this->formElementErrors($form->get('adaptacao'), array('class' => 'alert alert-danger')); ?>
+            
+            <?= $this->formElement($form->get('obs_adaptacao')); ?>
+            <?= $this->formElementErrors($form->get('obs_adaptacao'), array('class' => 'alert alert-danger')); ?>
+        </div>
+    </div>
+</div>
+<hr>
+
+
+<div class="row form-group">
+    <div class="col-sm-12">
+        <div class="input-group">
+            <label><?= $form->get('acatar')->getLabel(); ?></label>
+
+        </div>
+    </div>
+</div>
+<div class="row form-group">
+    <div class="col-sm-12">
+        <div class="input-group">
+            <?= $this->formElement($form->get('acatar')); ?>
+            <?= $this->formElementErrors($form->get('acatar'), array('class' => 'alert alert-danger')); ?>
+            
+            <?= $this->formElement($form->get('obs_acatar')); ?>
+            <?= $this->formElementErrors($form->get('obs_acatar'), array('class' => 'alert alert-danger')); ?>
+        </div>
+    </div>
+</div>
+<hr>
+
+
+<div class="row form-group">
+    <div class="col-sm-12">
+        <div class="input-group">
+            <label><?= $form->get('iniciativa')->getLabel(); ?></label>
+
+        </div>
+    </div>
+</div>
+<div class="row form-group">
+    <div class="col-sm-12">
+        <div class="input-group">
+            <?= $this->formElement($form->get('iniciativa')); ?>
+            <?= $this->formElementErrors($form->get('iniciativa'), array('class' => 'alert alert-danger')); ?>
+            
+            <?= $this->formElement($form->get('obs_iniciativa')); ?>
+            <?= $this->formElementErrors($form->get('obs_iniciativa'), array('class' => 'alert alert-danger')); ?>
+        </div>
+    </div>
+</div>
+<hr>
+
+
+<div class="row form-group">
+    <div class="col-sm-12">
+        <div class="input-group">
+            <label><?= $form->get('relacionamento')->getLabel(); ?></label>
+
+        </div>
+    </div>
+</div>
+<div class="row form-group">
+    <div class="col-sm-12">
+        <div class="input-group">
+            <?= $this->formElement($form->get('relacionamento')); ?>
+            <?= $this->formElementErrors($form->get('relacionamento'), array('class' => 'alert alert-danger')); ?>
+            
+            <?= $this->formElement($form->get('obs_relacionamento')); ?>
+            <?= $this->formElementErrors($form->get('obs_relacionamento'), array('class' => 'alert alert-danger')); ?>
+        </div>
+    </div>
+</div>
+<hr>
+
+
+<div class="row form-group">
+    <div class="col-sm-12">
+        <div class="input-group">
+            <label><?= $form->get('responsabilidade')->getLabel(); ?></label>
+
+        </div>
+    </div>
+</div>
+<div class="row form-group">
+    <div class="col-sm-12">
+        <div class="input-group">
+            <?= $this->formElement($form->get('responsabilidade')); ?>
+            <?= $this->formElementErrors($form->get('responsabilidade'), array('class' => 'alert alert-danger')); ?>
+            
+            <?= $this->formElement($form->get('obs_responsabilidade')); ?>
+            <?= $this->formElementErrors($form->get('obs_responsabilidade'), array('class' => 'alert alert-danger')); ?>
+        </div>
+    </div>
+</div>
+<hr>
+
+
+<div class="row form-group">
+    <div class="col-sm-12">
+        <div class="input-group">
+            <label><?= $form->get('motivacao')->getLabel(); ?></label>
+
+        </div>
+    </div>
+</div>
+<div class="row form-group">
+    <div class="col-sm-12">
+        <div class="input-group">
+            <?= $this->formElement($form->get('motivacao')); ?>
+            <?= $this->formElementErrors($form->get('motivacao'), array('class' => 'alert alert-danger')); ?>
+            
+            <?= $this->formElement($form->get('obs_motivacao')); ?>
+            <?= $this->formElementErrors($form->get('obs_motivacao'), array('class' => 'alert alert-danger')); ?>
+        </div>
+    </div>
+</div>
+<hr>
+
 
 <div class="row form-group">
     <div class="col-sm-12">
@@ -244,10 +289,11 @@
 </div>
 <hr>
 
+
 <div class="row form-group">
     <div class="col-sm-12">
         <div class="input-group">
-            <label><?= $form->get('equipe')->getLabel(); ?></label>
+            <label><?= $form->get('pontualidade')->getLabel(); ?></label>
 
         </div>
     </div>
@@ -255,11 +301,33 @@
 <div class="row form-group">
     <div class="col-sm-12">
         <div class="input-group">
-            <?= $this->formElement($form->get('equipe')); ?>
-            <?= $this->formElementErrors($form->get('equipe'), array('class' => 'alert alert-danger')); ?>
+            <?= $this->formElement($form->get('pontualidade')); ?>
+            <?= $this->formElementErrors($form->get('pontualidade'), array('class' => 'alert alert-danger')); ?>
             
-            <?= $this->formElement($form->get('obs_equipe')); ?>
-            <?= $this->formElementErrors($form->get('obs_equipe'), array('class' => 'alert alert-danger')); ?>
+            <?= $this->formElement($form->get('obs_pontualidade')); ?>
+            <?= $this->formElementErrors($form->get('obs_pontualidade'), array('class' => 'alert alert-danger')); ?>
+        </div>
+    </div>
+</div>
+<hr>
+
+
+<div class="row form-group">
+    <div class="col-sm-12">
+        <div class="input-group">
+            <label><?= $form->get('cuidado')->getLabel(); ?></label>
+
+        </div>
+    </div>
+</div>
+<div class="row form-group">
+    <div class="col-sm-12">
+        <div class="input-group">
+            <?= $this->formElement($form->get('cuidado')); ?>
+            <?= $this->formElementErrors($form->get('cuidado'), array('class' => 'alert alert-danger')); ?>
+            
+            <?= $this->formElement($form->get('obs_cuidado')); ?>
+            <?= $this->formElementErrors($form->get('obs_cuidado'), array('class' => 'alert alert-danger')); ?>
         </div>
     </div>
 </div>
@@ -267,299 +335,45 @@
 
 <div class="row form-group">
     <div class="col-sm-12">
-        <div class="input-group">
-            <label><?= $form->get('empatia')->getLabel(); ?></label>
-
-        </div>
-    </div>
-</div>
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <?= $this->formElement($form->get('empatia')); ?>
-            <?= $this->formElementErrors($form->get('empatia'), array('class' => 'alert alert-danger')); ?>
-            
-            <?= $this->formElement($form->get('obs_empatia')); ?>
-            <?= $this->formElementErrors($form->get('obs_empatia'), array('class' => 'alert alert-danger')); ?>
-        </div>
-    </div>
-</div>
-<hr>
-
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <label><?= $form->get('flexibilidade')->getLabel(); ?></label>
-
-        </div>
-    </div>
-</div>
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <?= $this->formElement($form->get('flexibilidade')); ?>
-            <?= $this->formElementErrors($form->get('flexibilidade'), array('class' => 'alert alert-danger')); ?>
-            
-            <?= $this->formElement($form->get('obs_flexibilidade')); ?>
-            <?= $this->formElementErrors($form->get('obs_flexibilidade'), array('class' => 'alert alert-danger')); ?>
-        </div>
-    </div>
-</div>
-<hr>
-
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <label><?= $form->get('proatividade')->getLabel(); ?></label>
-
-        </div>
-    </div>
-</div>
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <?= $this->formElement($form->get('proatividade')); ?>
-            <?= $this->formElementErrors($form->get('proatividade'), array('class' => 'alert alert-danger')); ?>
-            
-            <?= $this->formElement($form->get('obs_proatividade')); ?>
-            <?= $this->formElementErrors($form->get('obs_proatividade'), array('class' => 'alert alert-danger')); ?>
-        </div>
-    </div>
-</div>
-<hr>
-
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <label><?= $form->get('interpessoal')->getLabel(); ?></label>
-
-        </div>
-    </div>
-</div>
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <?= $this->formElement($form->get('interpessoal')); ?>
-            <?= $this->formElementErrors($form->get('interpessoal'), array('class' => 'alert alert-danger')); ?>
-            
-            <?= $this->formElement($form->get('obs_interpessoal')); ?>
-            <?= $this->formElementErrors($form->get('obs_interpessoal'), array('class' => 'alert alert-danger')); ?>
-        </div>
-    </div>
-</div>
-<hr>
-
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <label><?= $form->get('atencao_foco')->getLabel(); ?></label>
-
-        </div>
-    </div>
-</div>
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <?= $this->formElement($form->get('atencao_foco')); ?>
-            <?= $this->formElementErrors($form->get('atencao_foco'), array('class' => 'alert alert-danger')); ?>
-            
-            <?= $this->formElement($form->get('obs_atencao_foco')); ?>
-            <?= $this->formElementErrors($form->get('obs_atencao_foco'), array('class' => 'alert alert-danger')); ?>
-        </div>
-    </div>
-</div>
-<hr>
-
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <label><?= $form->get('interesse_tarefas')->getLabel(); ?></label>
-
-        </div>
-    </div>
-</div>
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <?= $this->formElement($form->get('interesse_tarefas')); ?>
-            <?= $this->formElementErrors($form->get('interesse_tarefas'), array('class' => 'alert alert-danger')); ?>
-            
-            <?= $this->formElement($form->get('obs_interesse_tarefas')); ?>
-            <?= $this->formElementErrors($form->get('obs_interesse_tarefas'), array('class' => 'alert alert-danger')); ?>
-        </div>
-    </div>
-</div>
-<hr>
-
-
-
-
-
-<h3 style="" class="title-hero">Apresentação Pessoal</h3>
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <label><?= $form->get('unhas_cabelos')->getLabel(); ?></label>
-
-        </div>
-    </div>
-</div>
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <?= $this->formElement($form->get('unhas_cabelos')); ?>
-            <?= $this->formElementErrors($form->get('unhas_cabelos'), array('class' => 'alert alert-danger')); ?>
-            
-            <?= $this->formElement($form->get('obs_unhas_cabelos')); ?>
-            <?= $this->formElementErrors($form->get('obs_unhas_cabelos'), array('class' => 'alert alert-danger')); ?>
-        </div>
-    </div>
-</div>
-<hr>
-
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <label><?= $form->get('cracha')->getLabel(); ?></label>
-
-        </div>
-    </div>
-</div>
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <?= $this->formElement($form->get('cracha')); ?>
-            <?= $this->formElementErrors($form->get('cracha'), array('class' => 'alert alert-danger')); ?>
-            
-            <?= $this->formElement($form->get('obs_cracha')); ?>
-            <?= $this->formElementErrors($form->get('obs_cracha'), array('class' => 'alert alert-danger')); ?>
-        </div>
-    </div>
-</div>
-<hr>
-
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <label><?= $form->get('vestimenta')->getLabel(); ?></label>
-
-        </div>
-    </div>
-</div>
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <?= $this->formElement($form->get('vestimenta')); ?>
-            <?= $this->formElementErrors($form->get('vestimenta'), array('class' => 'alert alert-danger')); ?>
-            
-            <?= $this->formElement($form->get('obs_vestimenta')); ?>
-            <?= $this->formElementErrors($form->get('obs_vestimenta'), array('class' => 'alert alert-danger')); ?>
-        </div>
-    </div>
-</div>
-<hr>
-
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <label><?= $form->get('uniforme')->getLabel(); ?></label>
-
-        </div>
-    </div>
-</div>
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <?= $this->formElement($form->get('uniforme')); ?>
-            <?= $this->formElementErrors($form->get('uniforme'), array('class' => 'alert alert-danger')); ?>
-            
-            <?= $this->formElement($form->get('obs_uniforme')); ?>
-            <?= $this->formElementErrors($form->get('obs_uniforme'), array('class' => 'alert alert-danger')); ?>
-        </div>
-    </div>
-</div>
-<hr>
-
-
-
-
-<h3 style="" class="title-hero">Execução das Ações do Projeto Encantar</h3>
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <label><?= $form->get('simpatia_leveza')->getLabel(); ?></label>
-
-        </div>
-    </div>
-</div>
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <?= $this->formElement($form->get('simpatia_leveza')); ?>
-            <?= $this->formElementErrors($form->get('simpatia_leveza'), array('class' => 'alert alert-danger')); ?>
-            
-            <?= $this->formElement($form->get('obs_simpatia_leveza')); ?>
-            <?= $this->formElementErrors($form->get('obs_simpatia_leveza'), array('class' => 'alert alert-danger')); ?>
-        </div>
-    </div>
-</div>
-<hr>
-
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <label><?= $form->get('simpatia_cordialidade')->getLabel(); ?></label>
-
-        </div>
-    </div>
-</div>
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <?= $this->formElement($form->get('simpatia_cordialidade')); ?>
-            <?= $this->formElementErrors($form->get('simpatia_cordialidade'), array('class' => 'alert alert-danger')); ?>
-            
-            <?= $this->formElement($form->get('obs_simpatia_cordialidade')); ?>
-            <?= $this->formElementErrors($form->get('obs_simpatia_cordialidade'), array('class' => 'alert alert-danger')); ?>
-        </div>
-    </div>
-</div>
-<hr>
-
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <label><?= $form->get('agradece')->getLabel(); ?></label>
-
-        </div>
-    </div>
-</div>
-<div class="row form-group">
-    <div class="col-sm-12">
-        <div class="input-group">
-            <?= $this->formElement($form->get('agradece')); ?>
-            <?= $this->formElementErrors($form->get('agradece'), array('class' => 'alert alert-danger')); ?>
-            
-            <?= $this->formElement($form->get('obs_agradece')); ?>
-            <?= $this->formElementErrors($form->get('obs_agradece'), array('class' => 'alert alert-danger')); ?>
-        </div>
-    </div>
-</div>
-<hr>
-
-
-<h3 style="" class="title-hero">
-    PONTOS POSITIVOS
-</h3>
-
-<div class="row form-group">
-    <div class="col-sm-12">
-            <?= $this->formElement($form->get('observacoes')); ?>
-            <?= $this->formElementErrors($form->get('observacoes'), array('class' => 'alert alert-danger')); ?>
+            <label><?= $form->get('comentarios')->getLabel(); ?></label>
+            <?= $this->formElement($form->get('comentarios')); ?>
+            <?= $this->formElementErrors($form->get('comentarios'), array('class' => 'alert alert-danger')); ?>
         
     </div>
 </div>
 <hr>
+
+
+<div class="row form-group">
+    <div class="col-sm-12">
+        <div class="input-group">
+            <label><?= $form->get('parecer_coordenador')->getLabel(); ?></label>
+
+        </div>
+    </div>
+</div>
+
+<div class="row form-group">
+    <div class="col-sm-12">
+        <div class="input-group">
+            <?= $this->formElement($form->get('parecer_coordenador')); ?>
+            <?= $this->formElementErrors($form->get('parecer_coordenador'), array('class' => 'alert alert-danger')); ?>
+        </div>
+    </div>
+</div>
+<hr>
+
+<div class="row form-group">
+    <div class="col-sm-12">
+        <div class="input-group">
+            <label><?= $form->get('parecer_rh')->getLabel(); ?></label>
+            <?= $this->formElement($form->get('parecer_rh')); ?>
+            <?= $this->formElementErrors($form->get('parecer_rh'), array('class' => 'alert alert-danger')); ?>
+        </div>
+    </div>
+</div>
+<hr>
+
 <?php if($nova === true): ?>
 <div class="row form-group">
     <div class="col-sm-6">

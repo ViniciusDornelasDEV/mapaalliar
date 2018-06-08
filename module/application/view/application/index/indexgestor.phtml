@@ -18,7 +18,13 @@
               </div>
 
               <div class="col-sm-3">
-                <img src="<?= $this->basePath('img/verde.png'); ?>"> <b><?= $ajudas->count() ?></b> ajudas no período
+                Ajudas: 
+                <img src="<?= $this->basePath('img/verde.png'); ?>" title="Ajudas requisitadas"> 
+                <b><?= $ajudasSolicitadas->count() ?></b> 
+                
+                <img src="<?= $this->basePath('img/azul.png'); ?>" title="Ajudas enviadas"> 
+                <b><?= $ajudasRecebidas->count() ?></b>  
+                 
               </div>
             </div>
           </div>
@@ -235,14 +241,29 @@
       defaultView: 'month',
       editable: true,
       events: [
-        <?php foreach ($ajudas as $ajuda) : ?>
+        <?php foreach ($ajudasRecebidas as $ajuda) : ?>
           {
             title: '<?= $ajuda["nome_funcionario"] ?>',
             start: '<?= $ajuda["data_inicio"] ?>',
-            end:   '<?php echo date("Y-m-d", strtotime("+1 days",strtotime($ajuda["data_fim"]))); ?>'
+            end:   '<?php echo date("Y-m-d", strtotime("+1 days",strtotime($ajuda["data_fim"]))); ?>',
+            color: '#5cb85c'
           },
         <?php endforeach; ?>
+        <?php foreach ($ajudasSolicitadas as $ajuda) : ?>
+          {
+            title: '<?= $ajuda["nome_funcionario"] ?>',
+            start: '<?= $ajuda["data_inicio"] ?>',
+            end:   '<?php echo date("Y-m-d", strtotime("+1 days",strtotime($ajuda["data_fim"]))); ?>',
+            color: '#31b0d5'
+          },
+        <?php endforeach; ?>
+
       ],
+      eventRender: function (event, element, view) {
+        if (event.color) {
+          element.css('background-color', event.color)
+        }
+      },
       dayClick: function(date, jsEvent, view) {
         eventoCalendario(date.format(), 4, <?= $funcionario['unidade'] ?>, this);
       }
