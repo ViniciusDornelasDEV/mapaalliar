@@ -782,12 +782,13 @@ abstract class Base extends Form {
 
     public function desabilitarCampos($campos = false){
         if($campos){
-
+            foreach ($campos as $campo) {
+                $this->get($campo)->setAttribute('disabled', 'disabled');
+            }
         }else{
             foreach ($this->getElements() as $element) {
                 $element->setAttribute('disabled', 'disabled');
             }
-            //$this->get('dias_meta')->setAttribute('disabled', 'disabled');*/
         }
     }
 

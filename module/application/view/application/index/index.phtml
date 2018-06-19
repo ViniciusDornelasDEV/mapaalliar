@@ -20,7 +20,18 @@
               </div>
 
               <div class="col-sm-3">
-                <img src="<?= $this->basePath('img/verde.png'); ?>"> <b><?= $ajudas->count() ?></b> ajudas no período
+                <div class="row">
+                  <img src="<?= $this->basePath('img/verde.png'); ?>" title="Ajudas requisitadas"> 
+                  <b><?= $ajudasSolicitadas->count() ?></b> 
+                  Ajudas requisitadas 
+                </div>
+
+                <div class="row">
+                  <img src="<?= $this->basePath('img/azul.png'); ?>" style="width:19px; height: 19px" title="Ajudas enviadas"> 
+                  <b><?= $ajudasRecebidas->count() ?></b>  
+                  Ajudas enviadas
+                </div>
+                
               </div>
             </div>
           </div>
@@ -237,11 +248,20 @@
       defaultView: 'month',
       editable: true,
       events: [
-        <?php foreach ($ajudas as $ajuda) : ?>
+        <?php foreach ($ajudasRecebidas as $ajuda) : ?>
           {
-            title: '<?= $ajuda["nome_funcionario"] ?>',
+            title: '<?= $ajuda["anotacoes"] ?>',
             start: '<?= $ajuda["data_inicio"] ?>',
-            end:   '<?php echo date("Y-m-d", strtotime("+1 days",strtotime($ajuda["data_fim"]))); ?>'
+            end:   '<?php echo date("Y-m-d", strtotime("+1 days",strtotime($ajuda["data_fim"]))); ?>',
+            color: '#31b0d5'
+          },
+        <?php endforeach; ?>
+        <?php foreach ($ajudasSolicitadas as $ajuda) : ?>
+          {
+            title: '<?= $ajuda["anotacoes"] ?>',
+            start: '<?= $ajuda["data_inicio"] ?>',
+            end:   '<?php echo date("Y-m-d", strtotime("+1 days",strtotime($ajuda["data_fim"]))); ?>',
+            color: '#5cb85c'
           },
         <?php endforeach; ?>
       ],

@@ -20,12 +20,7 @@ use Application\Form\PesquisaAdmin as AdminForm;
            $this->setServiceLocator($serviceLocator);
 
         parent::__construct($name, $serviceLocator);  
-        //matricula
-        $this->genericTextInput('matricula', 'Matrícula:', false, 'Númeroda matrícula');
-
-        //funcionario
-        $this->genericTextInput('nome_funcionario', 'Funcionário:', false, 'Nome do funcionário');
-
+        
         //unidade de origem
         $empresas = $this->serviceLocator->get('Empresa')->getRecordsFromArray(array(), 'nome');
         $empresas = $this->prepareForDropDown($empresas, array('id', 'nome'));

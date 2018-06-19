@@ -34,12 +34,38 @@ class IndexController extends BaseController
     public function indexAction()
     {   
 
+        /*//IMPORTAR AREAS SETOREES E FUNCOES
+        $inputFileType = \PHPExcel_IOFactory::identify('public/setores.xlsx');
+        $objReader = \PHPExcel_IOFactory::createReader($inputFileType);
+        $objPHPExcel = $objReader->load('public/setores.xlsx');
+        $objExcel = $objPHPExcel->getSheet(0); 
+        $highestRow = $objExcel->getHighestRow(); 
+
+        $setorAnterior = '';
+        $funcaoAnterior = '';
+        $serviceFuncao = $this->getServicelocator()->get('Funcao');
+        for ($i=2; $i <= $highestRow; $i++) { 
+            $rowData = $objExcel->rangeToArray('A'.$i.':'.'D'.$i,
+                                                NULL,
+                                                true,
+                                                true,
+                                                false);
+           
+            $funcao = $serviceFuncao->getRecord($rowData[0][3], 'nome');
+            if(!$funcao){
+                echo 'UPDATE tb_funcao SET nome = "'.$rowData[0][3].'" WHERE nome = "'.$rowData[0][2].'";<br>';
+            }
+        }*/
+
+
+
         $formPesquisa = new formPesquisa('frmPesquisa', $this->getServiceLocator());
         $ausencias = false;
         $ausenciasAtestado = false;
         $ferias = false;
         $acoes = false;
-        $ajudas = false;
+        $ajudasRecebidas = false;
+        $ajudasSolicitadas = false;
         $empresa = false;
         $unidade = false;
         $dataInicio = false;
@@ -103,9 +129,14 @@ class IndexController extends BaseController
                         ->getAcoes(array('inicio' => $dataInicio, 'fim'    => $dataFim, 'unidade' => $unidade['id']));
 
                     //pesquisar ajudas
-                    $ajudas = $this->getServiceLocator()
-                        ->get('Ajuda')
-                        ->getAjudas(array('inicio' => $dataInicio, 'fim' => $dataFim, 'unidade' => $unidade['id']));
+                    $serviceAjuda = $this->getServiceLocator()->get('Ajuda');
+                    $ajudasRecebidas = $serviceAjuda->getAjudas(
+                        array('inicio' => $dataInicio, 'fim' => $dataFim, 'unidade_destino' => $unidade['id']));
+
+                    $ajudasSolicitadas = $serviceAjuda->getAjudas(
+                        array('inicio' => $dataInicio, 'fim' => $dataFim, 'unidade' => $unidade['id'])
+                    );
+
                 }
                 
                 $serviceAnotacoes = $this->getServiceLocator()->get('AnotacoesDashboard');
@@ -121,7 +152,8 @@ class IndexController extends BaseController
                 'ausenciasAtestado' => $ausenciasAtestado,
                 'ferias'        =>  $ferias,
                 'acoes'         =>  $acoes,
-                'ajudas'        =>  $ajudas,
+                'ajudasRecebidas'        =>  $ajudasRecebidas,
+                'ajudasSolicitadas'      => $ajudasSolicitadas,
                 'formPesquisa'  =>  $formPesquisa,
                 'empresa'       =>  $empresa,
                 'unidade'       =>  $unidade,
@@ -189,13 +221,11 @@ class IndexController extends BaseController
         //pesquisar ajudas
         $serviceAjuda = $this->getServiceLocator()->get('Ajuda');
         $ajudasRecebidas = $serviceAjuda->getAjudas(
-            array('inicio' => $dataInicio, 'fim' => $dataFim), 
-            $usuario['funcionario']);
+            array('inicio' => $dataInicio, 'fim' => $dataFim, 'unidade_destino' => $funcionario['unidade']));
 
         $ajudasSolicitadas = $serviceAjuda->getAjudas(
-            array('inicio' => $dataInicio, 'fim' => $dataFim, 'unidade_destino' => $funcionario['unidade'])
+            array('inicio' => $dataInicio, 'fim' => $dataFim, 'unidade' => $funcionario['unidade'])
         );
-
 
         $serviceAnotacoes = $this->getServiceLocator()->get('AnotacoesDashboard');
         $anotacoesAusencias = $serviceAnotacoes->getAnotacoes($dataInicio, $dataFim, 1, $funcionario['unidade'])->toArray();

@@ -14,21 +14,21 @@ use Application\Form\Base as BaseForm;
      * @param array $fields
      * @return void
      */
-   public function __construct($name, $serviceLocator, $usuario)
+   public function __construct($name, $serviceLocator)
     {
         if($serviceLocator)
            $this->setServiceLocator($serviceLocator);
 
         parent::__construct($name);  
 
-        //unidade
-        $funcionario = $this->serviceLocator->get('Funcionario')->getFuncionario($usuario['funcionario']);
-        $unidades = $this->serviceLocator->get('Unidade')->getRecordsFromArray(array('empresa' => $funcionario['id_empresa'], 'ativo' => 'S'), 'nome');
-        $unidades = $this->prepareForDropDown($unidades, array('id', 'nome'));
-        $this->_addDropdown('unidade', '* Unidade solicitante:', true, $unidades, 'CarregarFuncionariosByUnidade(this.value);');
+        $empresas = $this->serviceLocator->get('Empresa')->getRecordsFromArray(array('ativo' => 'S'), 'nome');
+        $empresas = $this->prepareForDropDown($empresas, array('id', 'nome'));
 
-        //funcionario
-        $this->_addDropdown('funcionario', '* Funcionário:', true, array('' => 'Selecione uma unidade'));
+        //empresa apoio
+        $this->_addDropdown('empresa_apoio', '* Empresa de apoio:', true, $empresas, 'carregarUnidadeDestino(this.value, "C");');
+
+        //unidade de destino
+        $this->_addDropdown('unidade_destino', '* Unidade de apoio:', true, array('' => 'Selecione uma empresa'));
 
         //data_inicio
         $this->genericTextInput('data_inicio', '* Data de início:', true);
@@ -63,13 +63,13 @@ use Application\Form\Base as BaseForm;
         $dados['data_inicio'] = parent::converterData($dados['data_inicio']);
         $dados['data_fim'] = parent::converterData($dados['data_fim']);
 
-        if(isset($dados['unidade']) && !empty($dados['unidade'])){
-            //carregar funcionarios da unidade
-            $funcionarios = $this->serviceLocator->get('Funcionario')->getRecordsFromArray(array('ativo' => 'S', 'unidade' => $dados['unidade']));
-            $funcionarios = $this->prepareForDropDown($funcionarios, array('id', 'nome'));
+        if(isset($dados['empresa_apoio']) && !empty($dados['empresa_apoio'])){
+            //carregar unidades da empresa
+            $unidades = $this->serviceLocator->get('Unidade')->getRecords($dados['empresa_apoio'], 'empresa', array('*'), 'nome');
+            $unidades = $this->prepareForDropDown($unidades, array('id', 'nome'));
 
             //Setando valores
-            $funcionarios = $this->get('funcionario')->setAttribute('options', $funcionarios);
+            $this->get('unidade_destino')->setAttribute('options', $unidades);
         }
 
         if(isset($dados['area']) && !empty($dados['area'])){

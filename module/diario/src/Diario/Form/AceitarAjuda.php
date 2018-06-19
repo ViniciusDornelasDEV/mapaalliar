@@ -4,7 +4,7 @@
  
 use Application\Form\NovoAdmin as BaseForm;
  
- class AjudaAdmin extends BaseForm
+ class AceitarAjuda extends BaseForm
  {
      
     /**
@@ -24,38 +24,35 @@ use Application\Form\NovoAdmin as BaseForm;
         //empresa
         $empresas = $this->serviceLocator->get('Empresa')->getRecordsFromArray(array('ativo' => 'S'), 'nome');
         $empresas = $this->prepareForDropDown($empresas, array('id', 'nome'));
-        $this->_addDropdown('empresa', '* Empresa solicitante:', true, $empresas, 'carregarUnidade(this.value, "C");carregarUnidadeDestino(this.value, "C");');
+        $this->_addDropdown('empresa', '* Empresa solicitante:', false, $empresas, 'carregarUnidade(this.value, "C");carregarUnidadeDestino(this.value, "C");');
 
         //unidade
-        $this->_addDropdown('unidade', '* Unidade solicitante:', true, array('' => 'Selecione uma empresa'));
+        $this->_addDropdown('unidade', '* Unidade solicitante:', false, array('' => 'Selecione uma empresa'));
         
-        //empresa apoio
-        $this->_addDropdown('empresa_apoio', '* Empresa de apoio:', true, $empresas, 'carregarUnidadeDestino(this.value, "C");');
-
-        //unidade de destino
-        $this->_addDropdown('unidade_destino', '* Unidade de apoio:', true, array('' => 'Selecione uma empresa'));
         //data_inicio
-        $this->genericTextInput('data_inicio', '* Data de início:', true);
+        $this->genericTextInput('data_inicio', '* Data de início:', false);
 
         //data_fim
-        $this->genericTextInput('data_fim', '* Data de término:', true);
+        $this->genericTextInput('data_fim', '* Data de término:', false);
 
         //hora_inicio
-        $this->genericTextInput('hora_inicio', '* Hora de início:', true);
+        $this->genericTextInput('hora_inicio', '* Hora de início:', false);
 
         //hora_fim
-        $this->genericTextInput('hora_fim', '* Hora de término:', true);
+        $this->genericTextInput('hora_fim', '* Hora de término:', false);
 
         //area
         $areas = $this->serviceLocator->get('Area')->getRecordsFromArray(array('ativo' => 'S'), 'nome');
         
         $areas = $this->prepareForDropDown($areas, array('id', 'nome'));
-        $this->_addDropdown('area', '* Área de atuação:', true, $areas, 'carregarSetor(this.value, "C");');
+        $this->_addDropdown('area', '* Área de atuação:', false, $areas, 'carregarSetor(this.value, "C");');
 
         //setor
-        $this->_addDropdown('setor', '* Setor de atuação:', true, array('' => 'Selecione uma área'));
+        $this->_addDropdown('setor', '* Setor de atuação:', false, array('' => 'Selecione uma área'));
 
         $this->genericTextArea('anotacoes', 'Funcionários: ');
+
+        $this->_addDropdown('aceita', '* Aceitar ajuda:', true, array('--', 'S' => 'Aprovada', 'N' => 'Rejeitada'));
         
         $this->setAttributes(array(
             'role'   => 'form'
@@ -74,15 +71,6 @@ use Application\Form\NovoAdmin as BaseForm;
 
             //Setando valores
             $this->get('unidade')->setAttribute('options', $unidades);
-        }
-
-        if(isset($dados['empresa_apoio']) && !empty($dados['empresa_apoio'])){
-            //carregar unidades da empresa
-            $unidades = $this->serviceLocator->get('Unidade')->getRecords($dados['empresa_apoio'], 'empresa', array('*'), 'nome');
-            $unidades = $this->prepareForDropDown($unidades, array('id', 'nome'));
-
-            //Setando valores
-            $this->get('unidade_destino')->setAttribute('options', $unidades);
         }
 
         if(isset($dados['area']) && !empty($dados['area'])){

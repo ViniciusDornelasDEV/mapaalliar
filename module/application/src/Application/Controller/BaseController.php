@@ -172,7 +172,7 @@ abstract class BaseController extends AbstractActionController {
         //cabeçalho
         $contadorLetras = 1;
         foreach ($campos as $cabecalho => $coluna) {
-            $objPHPExcel->getActiveSheet()->SetCellValue($alfabeto[$contadorLetras].'1', $cabecalho);
+            $objPHPExcel->getActiveSheet()->SetCellValue($alfabeto[$contadorLetras].'1', strtoupper($cabecalho));
             $contadorLetras++;
         }
 
@@ -182,7 +182,7 @@ abstract class BaseController extends AbstractActionController {
             $linha++;
             $contadorLetras = 1;
             foreach ($campos as $campo) {
-                 $objPHPExcel->getActiveSheet()->SetCellValue($alfabeto[$contadorLetras].$linha, $dados[$campo]);
+                 $objPHPExcel->getActiveSheet()->SetCellValue($alfabeto[$contadorLetras].$linha, strtoupper($dados[$campo]));
                  $contadorLetras++;
             }
         }

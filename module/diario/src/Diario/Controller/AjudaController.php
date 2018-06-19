@@ -10,24 +10,30 @@ use Zend\Paginator\Adapter\ArrayAdapter;
 use Zend\Session\Container;
 
 use Diario\Form\PesquisarAjuda as formPesquisa;
+use Diario\Form\PesquisarAjudaEnviada as formPesquisaEnviada;
+
+
 use Diario\Form\Ajuda as formAjuda;
 
 use Diario\Form\PesquisarAjudaAdmin as formPesquisaAdmin;
 use Diario\Form\AjudaAdmin as formAjudaAdmin;
+use Diario\Form\AceitarAjuda as formAceitar;
 
 class AjudaController extends BaseController
 {
     private $campos = array(
-            'Matrícula'                 =>  'matricula',
-            'Nome do funcionário'       => 'nome_funcionario',
-            'Unidade de origem'         =>  'nome_unidade',
-            'Data e hora de início'     => 'data_inicio',
-            'Data e hora de término'    => 'data_fim',
-            'Horário de início'         => 'hora_inicio',
-            'Horário de término'        =>  'hora_fim',
-            'Área que irá atuar'        => 'nome_area',
-            'Setor que irá atuar'       =>  'nome_setor',
-            'Unidade de destino'        =>  'unidade_destino'
+            'Empresa solicitante' =>  'nome_empresa_solicitante',
+            'Unidade solicitante' => 'nome_unidade_solicitante',
+            'Empresa de apoio'    =>  'nome_empresa_apoio',
+            'Unidade de apoio'    => 'nome_unidade_apoio',
+            'Área'                => 'nome_area',
+            'Setor'               => 'nome_setor',
+            'Início'              => 'data_inicio',
+            'Término'             =>  'data_fim',
+            'Horário de início'   => 'hora_inicio',
+            'Horário fim'         => 'hora_fim',
+            'Funcionário'         =>  'anotacoes',
+            'Aprovada'            =>  'aceita'
         );
 
     
@@ -44,7 +50,7 @@ class AjudaController extends BaseController
     	$formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
 
         //pesquisar ajudas solicitadas pela unidade do gestor
-        $this->sessao->parametros[$rota]['unidade_destino'] = $funcionario['unidade'];
+        $this->sessao->parametros[$rota]['unidade'] = $funcionario['unidade'];
         $ajudas = $serviceAjuda->getAjudas($this->sessao->parametros[$rota])->toArray();
         
         foreach ($ajudas as $key => $ajuda) {
@@ -75,13 +81,15 @@ class AjudaController extends BaseController
         $serviceAjuda = $this->getServiceLocator()->get('Ajuda');
         
         $usuario = $this->getServiceLocator()->get('session')->read();
-        $formPesquisa = new formPesquisa('frmAjuda', $this->getServiceLocator(), $usuario);
+        $funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($usuario['funcionario']);
+        $formPesquisa = new formPesquisaEnviada('frmAjuda', $this->getServiceLocator(), $usuario);
 
         $rota = $this->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getMatchedRouteName();
         $formPesquisa = parent::verificarPesquisa($formPesquisa, $rota);
 
         //pesquisar ajudas solicitadas pela unidade do gestor
-        $ajudas = $serviceAjuda->getAjudas($this->sessao->parametros[$rota], $usuario['funcionario'])->toArray();
+        $this->sessao->parametros[$rota]['unidade_destino'] = $funcionario['unidade'];
+        $ajudas = $serviceAjuda->getAjudas($this->sessao->parametros[$rota])->toArray();
         
         foreach ($ajudas as $key => $ajuda) {
             $ajudas[$key]['data_inicio'] = $formPesquisa->converterData($ajuda['data_inicio']);
@@ -114,32 +122,45 @@ class AjudaController extends BaseController
 
         //verificar se ajuda é realmente para a empresa deste gestor
         $usuario = $this->getServiceLocator()->get('session')->read();
-        $ajuda = $serviceAjuda->getAjudas(array('id' => $idAjuda), $usuario['funcionario'])->current();
+        $funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($usuario['funcionario']);
+        $ajuda = $serviceAjuda->getAjuda(array('id' => $idAjuda, 'unidade_destino' => $funcionario['unidade']));
         if(!$ajuda){
             $this->flashMessenger()->addWarningMessage('Ajuda não encontrada!');
             return $this->redirect()->toRoute('ajudaRecebida');
         }
 
         //alterar status da ajuda
-        if($acao == 'S' || $acao == 'N'){
-            $serviceAjuda->update(array('aceita' => $acao), array('id' => $idAjuda));
-            $this->flashMessenger()->addSuccessMessage('Status alterado com sucesso!');
-            return $this->redirect()->toRoute('ajudaRecebida');
+        $formAjuda = new formAceitar('frmAjuda', $this->getServiceLocator());
+        $formAjuda->setData($ajuda);
+        $formAjuda->desabilitarCampos(array(
+            'empresa', 'unidade', 'data_inicio', 'data_fim', 'hora_inicio', 
+            'hora_fim', 'area', 'setor'
+        ));
+        if($this->getRequest()->isPost()){
+            $formAjuda->setData($this->getRequest()->getPost());
+            if($formAjuda->isValid()){
+                $dados = $formAjuda->getData();
+                $serviceAjuda->update(array('anotacoes' => $dados['anotacoes'], 'aceita' => $dados['aceita']), array('id'=>$idAjuda));
+                $this->flashMessenger()->addSuccessMessage('Ajuda alterada com sucesso!');
+                return $this->redirect()->toRoute('ajudaRecebida');
+            }
         }
-        return $this->redirect()->toRoute('ajudaRecebida');
+
+        return new ViewModel(array('formAjuda' => $formAjuda));
     }
 
     public function novoAction(){
         $this->layout('layout/gestor');
         $usuario = $this->getServiceLocator()->get('session')->read();
-        $formAjuda = new formAjuda('frmAjuda', $this->getServiceLocator(), $usuario);
+        $formAjuda = new formAjuda('frmAjuda', $this->getServiceLocator());
 
         if($this->getRequest()->isPost()){
             $formAjuda->setData($this->getRequest()->getPost());
             if($formAjuda->isValid()){
                 $dados = $formAjuda->getData();
+                
                 $funcionario = $this->serviceLocator->get('Funcionario')->getFuncionario($usuario['funcionario']);
-                $dados['unidade_destino'] = $funcionario['unidade'];
+                $dados['unidade'] = $funcionario['unidade'];
                 $idAjuda = $this->getServiceLocator()->get('Ajuda')->insert($dados);
                 $this->flashMessenger()->addSuccessMessage('Ajuda inserida com sucesso!');
                 return $this->redirect()->toRoute('alterarAjuda', array('id' => $idAjuda));
@@ -154,7 +175,7 @@ class AjudaController extends BaseController
         $serviceAjuda = $this->getServiceLocator()->get('Ajuda');
 
         $usuario = $this->getServiceLocator()->get('session')->read();
-        $formAjuda = new formAjuda('frmAjuda', $this->getServiceLocator(), $usuario);
+        $formAjuda = new formAjuda('frmAjuda', $this->getServiceLocator());
 
         $ajuda = $serviceAjuda->getAjuda($idAjuda);
         if(!$ajuda){
@@ -164,7 +185,7 @@ class AjudaController extends BaseController
 
         //verificar se unidade destino é a mesma do gestor
         $funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($usuario['funcionario']);
-        if($ajuda->unidade_destino != $funcionario['unidade']){
+        if($ajuda->unidade != $funcionario['unidade']){
             $this->flashMessenger()->addWarningMessage('Não é possível alterar uma ajuda solicitada por outra unidade!');
             return $this->redirect()->toRoute('ajudaSolicitada');
         }

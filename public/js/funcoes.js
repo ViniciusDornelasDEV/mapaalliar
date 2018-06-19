@@ -65,7 +65,7 @@ function carregarUnidade(empresa, tipo, todos = "F"){
 }
 
 function carregarUnidadeDestino(empresa, tipo){
-    $('#empresa').attr('disabled', 'disabled');
+    $('#empresa_apoio').attr('disabled', 'disabled');
     var data = {empresa: empresa, tipo: tipo};
     $.ajax({
         type: "POST",
@@ -73,7 +73,7 @@ function carregarUnidadeDestino(empresa, tipo){
         data: data,
         success: function(html) {
             $('#unidade_destino').html(html);
-            $('#empresa').removeAttr('disabled');       
+            $('#empresa_apoio').removeAttr('disabled');       
         }
     });
 }

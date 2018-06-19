@@ -8,31 +8,32 @@ use Zend\Db\Sql\Predicate\Expression;
 
 class Ajuda Extends BaseTable {
 
-    public function getAjudas($params = false, $idGestor = false){
-        return $this->getTableGateway()->select(function($select) use ($params, $idGestor) {
-            $select->join(
-                    array('f' => 'tb_funcionario'),
-                    'f.id = funcionario',
-                    array('nome_funcionario' => 'nome', 'matricula', 'unidade')
-                );
-            
-            $select->join(
-                    array('fg' => 'tb_funcionario_gestor'),
-                    'fg.funcionario = f.id',
-                    array(),
-                    'LEFT'
-                );
+    public function getAjudas($params = false){
+        
+        return $this->getTableGateway()->select(function($select) use ($params) {
 
             $select->join(
                     array('u' => 'tb_empresa_unidade'),
-                    'f.unidade = u.id',
-                    array('nome_unidade' => 'nome')
+                    'tb_ajuda.unidade = u.id',
+                    array('nome_unidade_solicitante' => 'nome')
                 );
 
             $select->join(
                     array('e' => 'tb_empresa'),
                     'e.id = u.empresa',
-                    array('nome_empresa' => 'nome')
+                    array('nome_empresa_solicitante' => 'nome')
+                );
+
+            $select->join(
+                    array('ud' => 'tb_empresa_unidade'),
+                    'tb_ajuda.unidade_destino = ud.id',
+                    array('nome_unidade_apoio' => 'nome')
+                );
+
+            $select->join(
+                    array('ed' => 'tb_empresa'),
+                    'ed.id = ud.empresa',
+                    array('nome_empresa_apoio' => 'nome')
                 );
 
             $select->join(
@@ -47,38 +48,20 @@ class Ajuda Extends BaseTable {
                     array('nome_area' => 'nome')
                 );
 
-            $select->join(
-                    array('ud' => 'tb_empresa_unidade'),
-                    'ud.id = unidade_destino',
-                    array('unidade_destino' => 'nome')
-                );
-
-            if($idGestor){
-                $select->where
-                        ->nest
-                            ->equalTo('f.lider_imediato', $idGestor)
-                            ->or
-                            ->equalTo('fg.gestor', $idGestor)
-                        ->unnest;
-            }
 
 
             if($params){
-            	if(!empty($params['matricula'])){
-                    $select->where->like('f.matricula', '%'.$params['matricula'].'%');
-                }
-
-                if(!empty($params['nome_funcionario'])){
-                    $select->where->like('f.nome', '%'.$params['nome_funcionario'].'%');
+                if(isset($params['unidade']) && !empty($params['unidade'])){
+                    $select->where(array('tb_ajuda.unidade' => $params['unidade']));
                 }
 
                 if(!empty($params['empresa'])){
                     $select->where(array('e.id' => $params['empresa']));
-                }
+                }    
 
-                if(!empty($params['unidade'])){
-                    $select->where(array('unidade' => $params['unidade']));
-                }                
+                if(!empty($params['empresa_apoio'])){
+                    $select->where(array('ed.id' => $params['empresa_apoio']));
+                }      
 
                 if(!empty($params['inicio']) && !empty($params['fim'])){
                     $select->where->between('tb_ajuda.data_inicio', $params['inicio'], $params['fim']);
@@ -95,24 +78,24 @@ class Ajuda Extends BaseTable {
             }
             
             $select->order('data_inicio DESC');
-            $select->group('f.id');
         }); 
     }
 
 
 
-    public function getAjuda($idAjuda){
-        return $this->getTableGateway()->select(function($select) use ($idAjuda) {
-            $select->join(
-                    array('f' => 'tb_funcionario'),
-                    'f.id = funcionario',
-                    array('nome_funcionario' => 'nome', 'matricula', 'unidade')
-                );
-
+    public function getAjuda($idAjuda, $params = false){
+        return $this->getTableGateway()->select(function($select) use ($idAjuda, $params) {
             $select->join(
                     array('u' => 'tb_empresa_unidade'),
-                    'f.unidade = u.id',
+                    'tb_ajuda.unidade = u.id',
                     array('nome_unidade' => 'nome', 'empresa')
+                );
+
+            //destino
+            $select->join(
+                    array('ua' => 'tb_empresa_unidade'),
+                    'tb_ajuda.unidade_destino = ua.id',
+                    array('nome_unidade_destino' => 'nome', 'empresa_apoio' => 'empresa')
                 );
 
             $select->join(
@@ -127,6 +110,16 @@ class Ajuda Extends BaseTable {
                     array('nome_area' => 'nome')
                 );
 
+            if($params){
+                if(!empty($params['empresa_apoio'])){
+                    $select->where(array('ed.id' => $params['empresa_apoio']));
+                }      
+
+
+                if(isset($params['unidade_destino']) && !empty($params['unidade_destino'])){
+                    $select->where(array('unidade_destino' => $params['unidade_destino']));
+                }
+            }
 
             $select->where(array('tb_ajuda.id' => $idAjuda));
         })->current(); 

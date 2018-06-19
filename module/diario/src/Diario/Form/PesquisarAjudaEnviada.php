@@ -4,7 +4,7 @@
  
 use Application\Form\Base as BaseForm;
  
- class PesquisarAjuda extends BaseForm
+ class PesquisarAjudaEnviada extends BaseForm
  {
      
     /**
@@ -24,10 +24,10 @@ use Application\Form\Base as BaseForm;
         //unidade de origem
         $empresas = $this->serviceLocator->get('Empresa')->getRecordsFromArray(array(), 'nome');
         $empresas = $this->prepareForDropDown($empresas, array('id', 'nome'));
-        $this->_addDropdown('empresa_apoio', 'Empresa de apoio:', false, $empresas, 'carregarUnidadeDestino(this.value, "C");');
+        $this->_addDropdown('empresa', 'Empresa solicitante:', false, $empresas, 'carregarUnidade(this.value, "C");');
 
         //unidade
-        $this->_addDropdown('unidade_destino', 'Unidade de apoio:', false, array('' => 'Selecione uma empresa'));
+        $this->_addDropdown('unidade', 'Unidade solicitante:', false, array('' => 'Selecione uma empresa'));
         
         //data
         $this->genericTextInput('inicio', 'Data de início, de:', false);
@@ -43,13 +43,13 @@ use Application\Form\Base as BaseForm;
     public function setData($dados){
         //$dados['inicio'] = parent::converterData($dados['inicio']);
         //$dados['fim'] = parent::converterData($dados['fim']);
-        if(isset($dados['empresa_apoio']) && !empty($dados['empresa_apoio'])){
+        if(isset($dados['empresa']) && !empty($dados['empresa'])){
             //carregar unidades da empresa
-            $unidades = $this->serviceLocator->get('Unidade')->getRecords($dados['empresa_apoio'], 'empresa', array('*'), 'nome');
+            $unidades = $this->serviceLocator->get('Unidade')->getRecords($dados['empresa'], 'empresa', array('*'), 'nome');
             $unidades = $this->prepareForDropDown($unidades, array('id', 'nome'));
 
             //Setando valores
-            $this->get('unidade_destino')->setAttribute('options', $unidades);
+            $this->get('unidade')->setAttribute('options', $unidades);
         }
         parent::setData($dados);
     }

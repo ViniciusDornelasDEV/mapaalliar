@@ -6,9 +6,9 @@
       Nova ajuda</button>
 
        <div style="float:left;">
-        <span><img src="<?= $this->basePath('img/verde.png'); ?>"> Ajuda aceita</span>
-        <span style="margin-left:5px;"><img src="<?= $this->basePath('img/amarelo.png'); ?>"> Avaliando</span>
-        <span style="margin-left:5px;"><img src="<?= $this->basePath('img/vermelho.png'); ?>"> Ajuda recusada</span>
+        <span><img src="<?= $this->basePath('img/verde.png'); ?>"> Ajuda aprovada</span>
+        <span style="margin-left:5px;"><img src="<?= $this->basePath('img/amarelo.png'); ?>"> Ajuda em aprovação</span>
+        <span style="margin-left:5px;"><img src="<?= $this->basePath('img/vermelho.png'); ?>"> Ajuda rejeitada</span>
       </div>
     </div>
     <div class="container theme-showcase" role="main">
@@ -22,15 +22,15 @@
                 <table class="table">
                   <tr>
                     <th style="text-align: center">Status</th>
-                    <th style="text-align: center">Empresa</th>
-                    <th style="text-align: center">Unidade de apoio</th>
-                    <th style="text-align: center">Matrícula</th>
-                    <th style="text-align: center">Funcionário</th>
+                    <th style="text-align: center">Empresa solicitante</th>
                     <th style="text-align: center">Unidade solicitante</th>
+                    <th style="text-align: center">Empresa de apoio</th> 
+                    <th style="text-align: center">Unidade de apoio</th>
                     <th style="text-align: center">Área/setor de destino</th>
                     <th style="text-align: center">Início</th>
                     <th style="text-align: center">Término</th>
                     <th style="text-align: center">Horário</th>
+                    <th style="text-align: center">Funcionário</th>
                     <th style="text-align: center">Ações</th>
                 </tr>
                 <?php foreach($ajudas as $ajuda): ?>
@@ -39,16 +39,15 @@
                     $cor = $this->farol(false, false, $ajuda['aceita']);
                   ?>
                   <td style="text-align: center"><img src="<?= $this->basePath($cor); ?>"></td>
-                  <td style="text-align: center"><?= $ajuda['nome_empresa']; ?></td>
-                  <td style="text-align: center"><?= $ajuda['unidade_destino']; ?></td>
-                  <td style="text-align: center"><?= $ajuda['matricula']; ?></td>
-                  <td style="text-align: center"><?= $ajuda['nome_funcionario']; ?></td>
-                  <td style="text-align: center"><?= $ajuda['nome_unidade']; ?></td>
+                  <td style="text-align: center"><?= $ajuda['nome_empresa_solicitante']; ?></td>
+                  <td style="text-align: center"><?= $ajuda['nome_unidade_solicitante']; ?></td>
+                  <td style="text-align: center"><?= $ajuda['nome_empresa_apoio']; ?></td>
+                  <td style="text-align: center"><?= $ajuda['nome_unidade_apoio']; ?></td>
                   <td style="text-align: center"><?= $ajuda['nome_area'].'/'.$ajuda['nome_setor']; ?></td>
                   <td style="text-align: center"><?= $ajuda['data_inicio']; ?></td>
                   <td style="text-align: center"><?= $ajuda['data_fim']; ?></td>
                   <td style="text-align: center"><?= $ajuda['hora_inicio'].' - '.$ajuda['hora_fim']; ?></td>
-                  
+                  <td style="text-align: center"><?= $ajuda['anotacoes']; ?></td>
                   <td style="text-align: center;">
                     <img src="<?= $this->basePath('img/editar.png'); ?>" title="Editar" 
                     onclick="location.href='<?= $this->url('alterarAjudaAdmin', array('id' => $ajuda['id'])); ?>'" style="cursor: pointer;">

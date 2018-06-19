@@ -52,7 +52,6 @@
     $action = explode("\\", $this->getHelperPluginManager()->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getParam('action'));
 
     $usuario = $this->getHelperPluginManager()->getServiceLocator()->get('session')->read();
-
 ?>
 
     </head>
@@ -114,7 +113,6 @@
                             <a href="#" style="background-color:#f2dede;"> Mensal</a>
                             <ul class="nav nav-second-level">
                                 <li><a href="<?= $this->url('menuPremissasAdmin'); ?>">Premissas</a></li>
-                                <li><a href="" onclick="alert('A fazer');">Simulador</a></li>
                                 <li class="<?= $rota[2] == 'Ferias' ? 'active' : ''; ?>"><a href="<?= $this->url('listarFeriasAdmin'); ?>">Férias</a></li>
                             </ul>
                             <!-- /.nav-second-level -->
