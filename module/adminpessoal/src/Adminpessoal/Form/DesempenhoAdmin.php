@@ -24,7 +24,7 @@ use Application\Form\NovoAdmin as BaseForm;
         
 
         //funcionário        
-        $this->_addDropdown('funcionario', '* Funcionário:', true, array('' => 'Selecione uma unidade'));        
+        $this->_addDropdown('funcionario', '* Funcionário:', true, array('' => '-- Selecione --'));        
 
         //data_inicio
         $this->genericTextInput('data', '* Data:', true);

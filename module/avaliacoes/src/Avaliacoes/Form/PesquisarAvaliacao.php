@@ -35,7 +35,7 @@ use Application\Form\Base as BaseForm;
         $this->_addDropdown('area', 'Área:', false, $areas, 'carregarSetor(this.value, "A");');
 
         //setor
-        $this->_addDropdown('setor', 'Setor:', false, array('' => 'Selecione uma área'));
+        $this->_addDropdown('setor', 'Setor:', false, array('' => '-- Selecione --'));
 
         //matricula
         $this->genericTextInput('matricula', 'Nº matrícula:', false);

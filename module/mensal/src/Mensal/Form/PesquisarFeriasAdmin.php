@@ -30,16 +30,16 @@
         $this->_addDropdown('empresa', 'Empresa:', false, $empresas, 'carregarUnidade(this.value, "C");');
 
         //unidade
-        $this->_addDropdown('unidade', 'Unidade:', false, array('' => 'Selecione uma empresa'), 'carregarArea(this.value, "P");');
+        $this->_addDropdown('unidade', 'Unidade:', false, array('' => '-- Selecione --'), 'carregarArea(this.value, "P");');
 
         //area    
-        $this->_addDropdown('area', 'Área:', false, array('' => 'Selecione uma unidade'), 'carregarSetor(this.value, "P", "N", true);');
+        $this->_addDropdown('area', 'Área:', false, array('' => '-- Selecione --'), 'carregarSetor(this.value, "P", "N", true);');
 
         //setor
-        $this->_addDropdown('setor', 'Setor:', false, array('' => 'Selecione uma área'), 'carregarFuncao(this.value, "P", true);');
+        $this->_addDropdown('setor', 'Setor:', false, array('' => '-- Selecione --'), 'carregarFuncao(this.value, "P", true);');
 
         //funcao
-        $this->_addDropdown('funcao', 'Função:', false, array('' => 'Selecione um setor'));
+        $this->_addDropdown('funcao', 'Função:', false, array('' => '-- Selecione --'));
 
         //data_inicio
         $this->genericTextInput('inicio_inicio', 'Data de início, de:', false);

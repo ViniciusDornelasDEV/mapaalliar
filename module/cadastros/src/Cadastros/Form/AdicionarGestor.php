@@ -26,10 +26,10 @@
         $this->_addDropdown('empresa', '* Empresa:', true, $empresas, 'carregarUnidade(this.value, "C");');
 
         //unidade
-        $this->_addDropdown('unidade', '* Unidade:', true, array('' => 'Selecione uma empresa'), 'carregarLider(this.value);');
+        $this->_addDropdown('unidade', '* Unidade:', true, array('' => '-- Selecione --'), 'carregarLider(this.value);');
 
         //lider_atual
-        $this->_addDropdown('lider_imediato', '* Gestor:', true, array('' => 'Selecione uma unidade'));
+        $this->_addDropdown('lider_imediato', '* Gestor:', true, array('' => '-- Selecione --'));
 
         $this->setAttributes(array(
             'class'  => 'form-inline'

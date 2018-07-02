@@ -28,7 +28,7 @@ use Application\Form\Base as BaseForm;
         $this->_addDropdown('empresa_apoio', '* Empresa de apoio:', true, $empresas, 'carregarUnidadeDestino(this.value, "C");');
 
         //unidade de destino
-        $this->_addDropdown('unidade_destino', '* Unidade de apoio:', true, array('' => 'Selecione uma empresa'));
+        $this->_addDropdown('unidade_destino', '* Unidade de apoio:', true, array('' => '-- Selecione --'));
 
         //data_inicio
         $this->genericTextInput('data_inicio', '* Data de início:', true);
@@ -49,7 +49,7 @@ use Application\Form\Base as BaseForm;
         $this->_addDropdown('area', '* Área de atuação:', true, $areas, 'carregarSetor(this.value, "C");');
 
         //setor
-        $this->_addDropdown('setor', '* Setor de atuação:', true, array('' => 'Selecione uma área'));
+        $this->_addDropdown('setor', '* Setor de atuação:', true, array('' => '-- Selecione --'));
 
         $this->genericTextArea('anotacoes', 'Outros funcionários: ');
 

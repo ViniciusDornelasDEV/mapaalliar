@@ -24,7 +24,7 @@ use Application\Form\NovoAdmin as BaseForm;
         
 
         //funcionário
-        $this->_addDropdown('funcionario', '* Funcionário:', true, array('' => 'Selecione uma unidade'));        
+        $this->_addDropdown('funcionario', '* Funcionário:', true, array('' => '-- Selecione --'));        
 
         //tipo
         $tipos = $this->serviceLocator->get('AcaoDisciplinarTipo')->getRecordsFromArray(array());

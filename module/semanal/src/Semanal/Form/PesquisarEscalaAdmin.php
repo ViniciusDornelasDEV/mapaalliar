@@ -28,12 +28,12 @@ use Application\Form\Base as BaseForm;
         $this->_addDropdown('empresa', '* Empresa:', true, $empresas, 'carregarUnidade(this.value, "C");');
 
         //unidade
-        $this->_addDropdown('unidade', '* Unidade:', true, array('' => 'Selecione uma empresa'), 'carregarArea(this.value, "C");');
+        $this->_addDropdown('unidade', '* Unidade:', true, array('' => '-- Selecione --'), 'carregarArea(this.value, "C");');
 
-        $this->_addDropdown('area', '* Área:', true, array('' => 'Selecione uma unidade'), 'carregarSetor(this.value, "C", "N", true);');
+        $this->_addDropdown('area', '* Área:', true, array('' => '-- Selecione --'), 'carregarSetor(this.value, "C", "N", true);');
 
         //setor
-        $this->_addDropdown('setor', '* Setor:', true, array('' => 'Selecione uma área'));
+        $this->_addDropdown('setor', '* Setor:', true, array('' => '-- Selecione --'));
 
         //mes e ano
         $this->genericTextInput('mes_ano', '* Mês/ano:', true);

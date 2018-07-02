@@ -26,7 +26,7 @@
         $this->_addDropdown('empresa', '* Empresa:', true, $empresas, 'carregarUnidade(this.value, "C");');
 
         //unidade
-        $this->_addDropdown('unidade', '* Unidade:', true, array('' => 'Selecione uma empresa'), 'carregarLider(this.value);');
+        $this->_addDropdown('unidade', '* Unidade:', true, array('' => '-- Selecione --'), 'carregarLider(this.value);');
 
         //area    
         $areas = $this->serviceLocator->get('Area')->getRecordsFromArray(array(), 'nome');
@@ -35,7 +35,7 @@
         $this->_addDropdown('area', '* Área:', true, $areas, 'carregarSetor(this.value, "C");');
 
         //setor
-        $this->_addDropdown('setor', '* Setor:', true, array('' => 'Selecione uma área'));
+        $this->_addDropdown('setor', '* Setor:', true, array('' => '-- Selecione --'));
 
         //manha
         $this->genericTextInput('manha', '* Manhã:', true);

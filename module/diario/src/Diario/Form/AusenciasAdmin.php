@@ -22,7 +22,7 @@ use Application\Form\NovoAdmin as BaseForm;
         parent::__construct($name, $serviceLocator);  
 
         //funcionário
-        $this->_addDropdown('funcionario', '* Funcionário:', true, array('' => 'Selecione uma unidade'));        
+        $this->_addDropdown('funcionario', '* Funcionário:', true, array('' => '-- Selecione --'));        
 
         //data_inicio
         $this->genericTextInput('data', '* Início:', true);

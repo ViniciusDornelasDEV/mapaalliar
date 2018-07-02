@@ -30,10 +30,10 @@ use Application\Form\Base as BaseForm;
         $this->_addDropdown('area', 'Área:', false, $areas, 'carregarSetor(this.value, "C", "N", '.$idUnidade.');');
 
         //setor
-        $this->_addDropdown('setor', 'Setor:', false, array('' => 'Selecione uma área'), 'carregarFuncao(this.value, "C", '.$idUnidade.');');
+        $this->_addDropdown('setor', 'Setor:', false, array('' => '-- Selecione --'), 'carregarFuncao(this.value, "C", '.$idUnidade.');');
 
         //funcao
-        $this->_addDropdown('funcao', 'Função:', false, array('' => 'Selecione um setor'), 'carregarFuncionario(this.value);');
+        $this->_addDropdown('funcao', 'Função:', false, array('' => '-- Selecione --'), 'carregarFuncionario(this.value);');
 
         //data_inicio
         $this->genericTextInput('inicio_inicio', 'Data de início, de:', false);

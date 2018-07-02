@@ -27,7 +27,7 @@
         $this->_addDropdown('area', 'Área:', false, $areas, 'carregarSetor(this.value, "P");');
 
         //setor
-        $this->_addDropdown('setor', 'Setor:', false, array('' => 'Selecione uma área'));
+        $this->_addDropdown('setor', 'Setor:', false, array('' => '-- Selecione --'));
 
         //nome
         $this->genericTextInput('nome', 'Função:', false, 'Nome da função');

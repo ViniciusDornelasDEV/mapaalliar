@@ -27,7 +27,7 @@
         $this->_addDropdown('empresa', '* Empresa:', true, $empresas, 'carregarUnidade(this.value, "C");');
 
         //unidade
-        $this->_addDropdown('unidade', '* Unidade:', true, array('' => 'Selecione uma empresa'));
+        $this->_addDropdown('unidade', '* Unidade:', true, array('' => '-- Selecione --'));
 
         $this->genericTextInput('inicio', 'Data de:', false);
         $this->genericTextInput('fim', 'Até:', false);

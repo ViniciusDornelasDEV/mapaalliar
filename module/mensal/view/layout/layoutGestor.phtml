@@ -52,10 +52,11 @@
     $action = explode("\\", $this->getHelperPluginManager()->getServiceLocator()->get('Application')->getMvcEvent()->getRouteMatch()->getParam('action'));
 
     $usuario = $this->getHelperPluginManager()->getServiceLocator()->get('session')->read();
+
 ?>
 
     </head>
-<body>
+<body style="text-transform: uppercase;">
 
     <div id="wrapper">
 
@@ -96,7 +97,7 @@
                         <li>
                             <a class="<?= $rota[0] == 'Application' ? 'active' : ''; ?>" href="<?= $this->url('homeGestor'); ?>"> Home</a>
                         </li>
-                        <li>
+                        <li class="<?= $rota[0] == 'Mensal' ? 'active' : ''; ?>">
                             <a href="#" style="background-color:#f2dede;"> Mensal</a>
                             <ul class="nav nav-second-level">
                                  <li class=""><a href="<?= $this->url('menuPremissas'); ?>">Premissas</a></li>
@@ -104,7 +105,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
+                        <li class="<?= $rota[0] == 'Semanal' ? 'active' : ''; ?>">
                             <a href="#" style="background-color:#d9edf7;"> Semanal</a>
                             <ul class="nav nav-second-level">
                                  <li class="<?= $rota[2] == 'Organizacaoequipes' ? 'active' : ''; ?>"><a href="<?= $this->url('pesquisarEquipes'); ?>">Organização de equipes</a></li>
@@ -112,7 +113,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
+                        <li class="<?= $rota[0] == 'Adminpessoal' ? 'active' : ''; ?>">
                             <a href="#" style="background-color:#dff0d8;"> Diário - Admin. pessoal</a>
                             <ul class="nav nav-second-level">
                                   <li class="<?= $rota[2] == 'Acoes' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAcoesDisciplinares'); ?>">Ações disciplinares</a></li>
@@ -120,7 +121,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
+                        <li class="<?= $rota[0] == 'Diario' ? 'active' : ''; ?>">
                             <a href="#" style="background-color:#fcf8e3;"> Diário - Controle de operação</a>
                             <ul class="nav nav-second-level">
                                   <li class="<?= $rota[2] == 'Ausencia' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAusencia'); ?>">Controle de ausência</a></li>
@@ -132,7 +133,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
+                        <li class="<?= $rota[0] == 'Avaliacoes' ? 'active' : ''; ?>">
                             <a href="#" style="background-color:#FFE1FF;"> Avaliações de desempenho</a>
                             <ul class="nav nav-second-level">
                                  <li class="<?= $action[0] == 'indexavaliacaoresponder' || $action[0] == 'novoavaliacao' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAvaliacoesResponder'); ?>">Responder avaliações</a></li>

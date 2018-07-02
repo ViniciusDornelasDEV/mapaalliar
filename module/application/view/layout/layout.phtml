@@ -55,7 +55,7 @@
 ?>
 
     </head>
-<body>
+<body style="text-transform: uppercase;">
 
     <div id="wrapper">
 
@@ -98,7 +98,7 @@
                         <li>
                             <a class="<?= $rota[0] == 'Application' ? 'active' : ''; ?>" href="<?= $this->url('home'); ?>"> Home</a>
                         </li>
-                        <li>
+                        <li class="<?= $rota[0] == 'Cadastros' ? 'active' : ''; ?>">
                             <a href="#" style="background-color:#DEB887;"> Cadastros</a>
                             <ul class="nav nav-second-level">
                                 <li class="<?= $rota[2] == 'Empresa' ? 'active' : ''; ?>"><a href="<?= $this->url('listarEmpresa'); ?>">Empresa</a></li>
@@ -109,7 +109,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
+                        <li class="<?= $rota[0] == 'Mensal' ? 'active' : ''; ?>">
                             <a href="#" style="background-color:#f2dede;"> Mensal</a>
                             <ul class="nav nav-second-level">
                                 <li><a href="<?= $this->url('menuPremissasAdmin'); ?>">Premissas</a></li>
@@ -117,7 +117,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
+                        <li class="<?= $rota[0] == 'Semanal' ? 'active' : ''; ?>">
                             <a href="#" style="background-color:#d9edf7;"> Semanal</a>
                             <ul class="nav nav-second-level">
                                  <li class="<?= $rota[2] == 'Organizacaoequipes' ? 'active' : ''; ?>"><a href="<?= $this->url('pesquisarEquipesAdmin'); ?>">Organização de equipes</a></li>
@@ -125,7 +125,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
+                        <li class="<?= $rota[0] == 'Adminpessoal' ? 'active' : ''; ?>">
                             <a href="#" style="background-color:#dff0d8;"> Diário - Admin. pessoal</a>
                             <ul class="nav nav-second-level">
                                   <li class="<?= $rota[2] == 'Acoes' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAcoesDisciplinaresAdmin'); ?>">Ações disciplinares</a></li>
@@ -133,7 +133,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
+                        <li class="<?= $rota[0] == 'Diario' ? 'active' : ''; ?>">
                             <a href="#" style="background-color:#fcf8e3;"> Diário - Controle de operação</a>
                             <ul class="nav nav-second-level">
                                   <li class="<?= $rota[2] == 'Ausencia' ? 'active' : ''; ?>"><a href="<?= $this->url('listarAusenciaAdmin'); ?>">Controle de ausência</a></li>
@@ -143,7 +143,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
+                        <li class="<?= $rota[0] == 'Avaliacoes' ? 'active' : ''; ?>">
                             <a href="#" style="background-color:#FFE1FF;"> Avaliações de desempenho</a>
                             <ul class="nav nav-second-level">
                                   <li class="<?= $action[0] == 'indexavaliacaoresponder' || $action[0] == 'novoavaliacao' ? 'active' : ''; ?>"><a href="<?= $this->url('listarPeriodo'); ?>">Períodos de avaliação</a></li>

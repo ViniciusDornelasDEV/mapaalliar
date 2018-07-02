@@ -34,16 +34,16 @@
         $this->_addDropdown('empresa', 'Empresa:', false, $empresas, 'carregarUnidadeTI(this.value, "P");');
 
         //unidade
-        $this->_addDropdown('unidade', 'Unidade:', false, array('' => 'Selecione uma empresa'), 'carregarArea(this.value, "P");');
+        $this->_addDropdown('unidade', 'Unidade:', false, array('' => '-- Selecione --'), 'carregarArea(this.value, "P");');
 
         //area    
-        $this->_addDropdown('area', 'Área:', false, array('' => 'Selecione uma unidade'), 'carregarSetor(this.value, "P", "N", true);');
+        $this->_addDropdown('area', 'Área:', false, array('' => '-- Selecione --'), 'carregarSetor(this.value, "P", "N", true);');
 
         //setor
-        $this->_addDropdown('setor', 'Setor:', false, array('' => 'Selecione uma área'), 'carregarFuncao(this.value, "P", true);');
+        $this->_addDropdown('setor', 'Setor:', false, array('' => '-- Selecione --'), 'carregarFuncao(this.value, "P", true);');
 
         //funcao
-        $this->_addDropdown('funcao', 'Função:', false, array('' => 'Selecione um setor'));
+        $this->_addDropdown('funcao', 'Função:', false, array('' => '-- Selecione --'));
 
         $this->_addDropdown('ativo', 'Ativo:', false, array('' => '--', 'S' => 'Ativo', 'N' => 'Inativo'));
     

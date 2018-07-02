@@ -27,10 +27,10 @@ use Application\Form\Base as BaseForm;
         $areas = $this->prepareForDropDown($areas, array('id', 'nome'));
         $this->_addDropdown('area', 'Área:', false, $areas, 'carregarSetor(this.value, "C", "N", '.$funcionario['unidade'].');');
         //setor
-        $this->_addDropdown('setor', 'Setor:', false, array('' => 'Selecione uma área'), 'carregarFuncao(this.value, "C", '.$funcionario['unidade'].');');
+        $this->_addDropdown('setor', 'Setor:', false, array('' => '-- Selecione --'), 'carregarFuncao(this.value, "C", '.$funcionario['unidade'].');');
 
         //funcao
-        $this->_addDropdown('funcao', 'Função:', false, array('' => 'Selecione um setor'), 'carregarFuncionario(this.value);');
+        $this->_addDropdown('funcao', 'Função:', false, array('' => '-- Selecione --'), 'carregarFuncionario(this.value);');
 
         //funcionário
         $funcionarios = $this->serviceLocator->get('Funcionario')->getFuncionarios(array('ativo' => 'S'), $funcionario['id']);

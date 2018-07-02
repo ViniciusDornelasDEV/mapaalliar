@@ -27,7 +27,7 @@ use Application\Form\Base as BaseForm;
         $this->_addDropdown('empresa', '* Empresa:', true, $empresas, 'carregarUnidade(this.value, "C");');
 
         //unidade
-        $this->_addDropdown('unidade', '* Unidade:', true, array('' => 'Selecione uma empresa'));
+        $this->_addDropdown('unidade', '* Unidade:', true, array('' => '-- Selecione --'));
         
         //mes e ano
         $this->genericTextInput('mes_ano', 'Mês/ano:', false);

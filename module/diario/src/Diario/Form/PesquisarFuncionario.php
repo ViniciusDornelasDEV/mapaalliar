@@ -33,10 +33,10 @@
         $this->_addDropdown('area', 'Área:', false, $areas, 'carregarSetor(this.value, "C", "N", '.$idUnidade.');');
 
         //setor
-        $this->_addDropdown('setor', 'Setor:', false, array('' => 'Selecione uma área'), 'carregarFuncao(this.value, "C", '.$idUnidade.');');
+        $this->_addDropdown('setor', 'Setor:', false, array('' => '-- Selecione --'), 'carregarFuncao(this.value, "C", '.$idUnidade.');');
 
         //funcao
-        $this->_addDropdown('funcao', 'Função:', false, array('' => 'Selecione um setor'));
+        $this->_addDropdown('funcao', 'Função:', false, array('' => '-- Selecione --'));
 
         //ativo
         $this->_addDropdown('ativo', 'Ativo:', false, array('S' => 'Ativo', 'N' => 'Inativo'));

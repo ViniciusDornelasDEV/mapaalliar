@@ -26,7 +26,7 @@
         $this->_addDropdown('empresa', '* Empresa:', true, $empresas, 'carregarUnidadeTI(this.value, "C");');
 
         //unidade
-        $this->_addDropdown('unidade', '* Unidade:', true, array('' => 'Selecione uma empresa'), 'carregarLider(this.value);');
+        $this->_addDropdown('unidade', '* Unidade:', true, array('' => '-- Selecione --'), 'carregarLider(this.value);');
 
         //area    
         $areas = $this->serviceLocator->get('Area')->getRecordsFromArray(array(), 'nome');
@@ -35,10 +35,10 @@
         $this->_addDropdown('area', '* Área:', true, $areas, 'carregarSetor(this.value, "C");');
 
         //setor
-        $this->_addDropdown('setor', '* Setor:', true, array('' => 'Selecione uma área'), 'carregarFuncao(this.value, "C");');
+        $this->_addDropdown('setor', '* Setor:', true, array('' => '-- Selecione --'), 'carregarFuncao(this.value, "C");');
 
         //funcao
-        $this->_addDropdown('funcao', '* Função:', true, array('' => 'Selecione um setor'));
+        $this->_addDropdown('funcao', '* Função:', true, array('' => '-- Selecione --'));
 
         //tipo_contratacao
         $tiposContratacao = array('' => '-- Selecione --', 'Interna' => 'Interna', 'Externa' => 'Externa');
@@ -71,7 +71,7 @@
         $this->genericTextInput('horario', '* Horário:', true);
         
         //lider_imediato
-        $this->_addDropdown('lider_imediato', 'Líder imediato:', false, array('' => 'Selecione uma unidade'));
+        $this->_addDropdown('lider_imediato', 'Líder imediato:', false, array('' => '-- Selecione --'));
 
         //lider
         $this->_addDropdown('lider', '* líder:', true, array('' => '--', 'S' => 'Sim', 'N' => 'Não'));

@@ -41,8 +41,7 @@ class IndexController extends BaseController
         $objExcel = $objPHPExcel->getSheet(0); 
         $highestRow = $objExcel->getHighestRow(); 
 
-        $setorAnterior = '';
-        $funcaoAnterior = '';
+        $serviceSetor = $this->getServicelocator()->get('Setor');
         $serviceFuncao = $this->getServicelocator()->get('Funcao');
         for ($i=2; $i <= $highestRow; $i++) { 
             $rowData = $objExcel->rangeToArray('A'.$i.':'.'D'.$i,
@@ -51,14 +50,22 @@ class IndexController extends BaseController
                                                 true,
                                                 false);
            
-            $funcao = $serviceFuncao->getRecord($rowData[0][3], 'nome');
-            if(!$funcao){
-                echo 'UPDATE tb_funcao SET nome = "'.$rowData[0][3].'" WHERE nome = "'.$rowData[0][2].'";<br>';
+
+            $setores = $serviceSetor->getRecords($rowData[0][1], 'nome');
+            if(!$setores){
+                die('NAO ACHEI O SETOR '.$i);
             }
-        }*/
 
+            foreach ($setores as $setor) {
+                $funcao = $serviceFuncao->getRecordFromArray(array('setor' => $setor['id'], 'nome' => $rowData[0][2]));
+                if($funcao){
+                    echo 'UPDATE tb_funcao SET nome="'.$rowData[0][3].'" WHERE id = '.$funcao['id'].';<br>';
+                }
+            }
 
+        }
 
+        die();*/
         $formPesquisa = new formPesquisa('frmPesquisa', $this->getServiceLocator());
         $ausencias = false;
         $ausenciasAtestado = false;
@@ -177,7 +184,6 @@ class IndexController extends BaseController
         //pegar usuario logado
         $usuario = $this->getServiceLocator()->get('session')->read();
         $funcionario = $this->getServiceLocator()->get('Funcionario')->getRecord($usuario['funcionario']);
-
         //form de relatorio diario
         $formRelatorio = new formRelatorio('frmRelatorio');
         $formRelatorio->setData(array('inicio_referencia' => date('d/m/Y'), 'fim_referencia' => date('d/m/Y')));
@@ -207,6 +213,7 @@ class IndexController extends BaseController
         $ausenciasAtestado = $this->getServiceLocator()
             ->get('Ausencia')
             ->getAusencias(array('inicio' => $dataInicio, 'fim'    => $dataFim, 'atestado' => 'S'), $usuario['funcionario']);
+        
 
         //pesquisar funcionários de férias
         $ferias = $this->getServiceLocator()

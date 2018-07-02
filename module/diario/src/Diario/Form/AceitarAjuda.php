@@ -27,7 +27,7 @@ use Application\Form\NovoAdmin as BaseForm;
         $this->_addDropdown('empresa', '* Empresa solicitante:', false, $empresas, 'carregarUnidade(this.value, "C");carregarUnidadeDestino(this.value, "C");');
 
         //unidade
-        $this->_addDropdown('unidade', '* Unidade solicitante:', false, array('' => 'Selecione uma empresa'));
+        $this->_addDropdown('unidade', '* Unidade solicitante:', false, array('' => '-- Selecione --'));
         
         //data_inicio
         $this->genericTextInput('data_inicio', '* Data de início:', false);
@@ -48,7 +48,7 @@ use Application\Form\NovoAdmin as BaseForm;
         $this->_addDropdown('area', '* Área de atuação:', false, $areas, 'carregarSetor(this.value, "C");');
 
         //setor
-        $this->_addDropdown('setor', '* Setor de atuação:', false, array('' => 'Selecione uma área'));
+        $this->_addDropdown('setor', '* Setor de atuação:', false, array('' => '-- Selecione --'));
 
         $this->genericTextArea('anotacoes', 'Funcionários: ');
 

@@ -27,7 +27,7 @@
         $this->_addDropdown('empresa', '* Empresa:', true, $empresas, 'carregarUnidade(this.value, "P", "T");');
 
         //unidade
-        $this->_addDropdown('unidade', 'Unidade:', false, array('' => 'Selecione uma empresa'));
+        $this->_addDropdown('unidade', 'Unidade:', false, array('' => '-- Selecione --'));
         
         $this->addFileInput('caminho_arquivo', '* Imagem:', true);
         

@@ -27,7 +27,7 @@
         $this->_addDropdown('area', '* Área:', true, $areas, 'carregarSetor(this.value, "C");');
 
         //setor
-        $setores = array('' => 'Selecione uma área');
+        $setores = array('' => '-- Selecione --');
         $this->_addDropdown('setor', '* Setor:', true, $setores);
 
         //nome

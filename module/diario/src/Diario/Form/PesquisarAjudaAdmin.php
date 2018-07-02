@@ -27,7 +27,7 @@ use Application\Form\PesquisaAdmin as AdminForm;
         $this->_addDropdown('empresa', 'Empresa:', false, $empresas, 'carregarUnidade(this.value, "C");');
 
         //unidade
-        $this->_addDropdown('unidade', 'Unidade solicitante:', false, array('' => 'Selecione uma empresa'));
+        $this->_addDropdown('unidade', 'Unidade solicitante:', false, array('' => '-- Selecione --'));
         
 
         //data
