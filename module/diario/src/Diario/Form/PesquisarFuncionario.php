@@ -36,7 +36,7 @@
         $this->_addDropdown('setor', 'Setor:', false, array('' => '-- Selecione --'), 'carregarFuncao(this.value, "C", '.$idUnidade.');');
 
         //funcao
-        $this->_addDropdown('funcao', 'Função:', false, array('' => '-- Selecione --'));
+        $this->_addDropdown('funcao', 'Cargo:', false, array('' => '-- Selecione --'));
 
         //ativo
         $this->_addDropdown('ativo', 'Ativo:', false, array('S' => 'Ativo', 'N' => 'Inativo'));

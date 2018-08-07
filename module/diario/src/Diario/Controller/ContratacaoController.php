@@ -23,7 +23,7 @@ class ContratacaoController extends BaseController
             'Unidade'               => 'nome_unidade',
             'Área'                  => 'nome_area',
             'Setor'                 => 'nome_setor',
-            'Função'                => 'nome_funcao',
+            'Cargo'                => 'nome_funcao',
             'Tipo de contratação'   => 'tipo_contratacao',
             'Tipo de contrato'      => 'tipo_contrato',
             'Data de início'        => 'data_inicio',

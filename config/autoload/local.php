@@ -6,7 +6,7 @@ defined('SITE_URL')
 
 return array(
     'db'   => array(
-        'dsn' => 'mysql:dbname=bd_mapa_producao;host=localhost',
+        'dsn' => 'mysql:dbname=bd_mapa_cdb;host=localhost',
         'username'      => 'root',
         'password'      => ''
     ),

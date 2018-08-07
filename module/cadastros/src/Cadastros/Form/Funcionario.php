@@ -42,8 +42,11 @@
         //setor
         $this->_addDropdown('setor', '* Setor:', true, array('' => '-- Selecione --'), 'carregarFuncao(this.value, "C");');
 
+        //cargo
+        $this->_addDropdown('funcao', '* Cargo:', true, array('' => '-- Selecione --'));
+
         //funcao
-        $this->_addDropdown('funcao', '* Função:', true, array('' => '-- Selecione --'));
+        $this->genericTextInput('funcao2', '* Função:', true, 'Nome da função');
 
         //tipo_contratacao
         $tiposContratacao = array('' => '-- Selecione --', 'Interna' => 'Interna', 'Externa' => 'Externa');

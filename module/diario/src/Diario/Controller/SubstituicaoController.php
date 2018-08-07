@@ -20,7 +20,7 @@ class SubstituicaoController extends BaseController
     private $campos = array(
             'Nome da área'              => 'nome_area',
             'Nome do setor'             => 'nome_setor',
-            'Nome da função'            => 'nome_funcao',
+            'Nome do cargo'            => 'nome_funcao',
             'Nome do funcionário'       => 'nome_funcionario',
             'Data de desligamento'         => 'data_desligamento',
             'Vaga aberta RH'         => 'vaga_rh',

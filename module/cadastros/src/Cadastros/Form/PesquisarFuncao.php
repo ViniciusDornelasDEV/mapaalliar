@@ -30,7 +30,7 @@
         $this->_addDropdown('setor', 'Setor:', false, array('' => '-- Selecione --'));
 
         //nome
-        $this->genericTextInput('nome', 'Função:', false, 'Nome da função');
+        $this->genericTextInput('nome', 'Cargo:', false, 'Nome do cargo');
 
         $this->setAttributes(array(
             'class'  => 'form-inline'

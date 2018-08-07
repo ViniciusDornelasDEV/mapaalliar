@@ -17,7 +17,7 @@ class FuncaoController extends BaseController
     private $campos = array(
             'Nome da área'           => 'nome_area',
             'Nome do setor'          => 'nome_setor',
-            'Nome da função'         => 'nome'
+            'Nome do cargo'         => 'nome'
         );
 
     public function indexAction(){
@@ -32,7 +32,7 @@ class FuncaoController extends BaseController
         if($this->getRequest()->isPost()){
             $dados = $this->getRequest()->getPost();
             if(isset($dados->exportar)){
-                parent::gerarExcel($this->campos, $funcoes, 'Funções');
+                parent::gerarExcel($this->campos, $funcoes, 'Cargos');
             }
         }
         
@@ -54,7 +54,7 @@ class FuncaoController extends BaseController
             $formFuncao->setData($this->getRequest()->getPost());
             if($formFuncao->isValid()){
                 $idFuncao = $this->getServiceLocator()->get('Funcao')->insert($formFuncao->getData());
-                $this->flashMessenger()->addSuccessMessage('Função incluída com sucesso!');
+                $this->flashMessenger()->addSuccessMessage('Cargo incluído com sucesso!');
                 return $this->redirect()->toRoute('alterarFuncao', array('id' => $idFuncao));
             }
         }
@@ -67,7 +67,7 @@ class FuncaoController extends BaseController
         $funcao = $serviceFuncao->getFuncao($idFuncao);
 
         if(!$funcao){
-            $this->flashMessenger()->addWarningMessage('Função não encontrada!');
+            $this->flashMessenger()->addWarningMessage('Cargo não encontrado!');
             return $this->redirect()->toRoute('listarFuncao');
         }
 
@@ -80,7 +80,7 @@ class FuncaoController extends BaseController
             $formFuncao->setData($dados);
             if($formFuncao->isValid()){
                 $serviceFuncao->update($formFuncao->getData(), array('id' => $idFuncao));
-                $this->flashMessenger()->addSuccessMessage('Função alterada com sucesso!');
+                $this->flashMessenger()->addSuccessMessage('Cargo alterado com sucesso!');
                 return $this->redirect()->toRoute('alterarFuncao', array('id' => $idFuncao));
             }
         }

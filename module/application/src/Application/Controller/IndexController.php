@@ -34,24 +34,35 @@ class IndexController extends BaseController
     public function indexAction()
     {   
 
-        /*//IMPORTAR AREAS SETOREES E FUNCOES
-        $inputFileType = \PHPExcel_IOFactory::identify('public/setores.xlsx');
+        //IMPORTAR AREAS SETOREES E FUNCOES
+        /*$inputFileType = \PHPExcel_IOFactory::identify('public/setores.xls');
         $objReader = \PHPExcel_IOFactory::createReader($inputFileType);
-        $objPHPExcel = $objReader->load('public/setores.xlsx');
+        $objPHPExcel = $objReader->load('public/setores.xls');
         $objExcel = $objPHPExcel->getSheet(0); 
         $highestRow = $objExcel->getHighestRow(); 
 
         $serviceSetor = $this->getServicelocator()->get('Setor');
         $serviceFuncao = $this->getServicelocator()->get('Funcao');
+        $serviceArea = $this->getServicelocator()->get('Area');
+        $areaAtual = ''; 
         for ($i=2; $i <= $highestRow; $i++) { 
-            $rowData = $objExcel->rangeToArray('A'.$i.':'.'D'.$i,
+            $rowData = $objExcel->rangeToArray('A'.$i.':'.'C'.$i,
                                                 NULL,
                                                 true,
                                                 true,
                                                 false);
-           
+            
 
-            $setores = $serviceSetor->getRecords($rowData[0][1], 'nome');
+            if(!empty($rowData[0][0])){
+                $area = $serviceArea->getRecord($rowData[0][0], 'nome');
+            }
+
+            if(!empty($rowData[0][1])){
+                $setor = $serviceSetor->getRecordFromArray(array('nome' => $rowData[0][1], 'area' => $area->id));
+            }
+            
+            echo 'INSERT INTO tb_funcao (nome, setor) VALUES ("'.utf8_decode($rowData[0][2]).'", '.$setor->id.');<br>';
+            /*$setores = $serviceSetor->getRecords($rowData[0][1], 'nome');
             if(!$setores){
                 die('NAO ACHEI O SETOR '.$i);
             }
@@ -63,9 +74,10 @@ class IndexController extends BaseController
                 }
             }
 
-        }
+        }*/
 
-        die();*/
+
+
         $formPesquisa = new formPesquisa('frmPesquisa', $this->getServiceLocator());
         $ausencias = false;
         $ausenciasAtestado = false;

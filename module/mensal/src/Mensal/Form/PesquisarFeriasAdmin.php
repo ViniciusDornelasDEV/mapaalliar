@@ -39,7 +39,7 @@
         $this->_addDropdown('setor', 'Setor:', false, array('' => '-- Selecione --'), 'carregarFuncao(this.value, "P", true);');
 
         //funcao
-        $this->_addDropdown('funcao', 'Função:', false, array('' => '-- Selecione --'));
+        $this->_addDropdown('funcao', 'Cargo:', false, array('' => '-- Selecione --'));
 
         //data_inicio
         $this->genericTextInput('inicio_inicio', 'Data de início, de:', false);

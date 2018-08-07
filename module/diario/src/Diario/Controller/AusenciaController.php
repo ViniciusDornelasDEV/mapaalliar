@@ -23,7 +23,7 @@ class AusenciaController extends BaseController
             'Nome do funcionário'       => 'nome_funcionario',
             'Nome da área'              => 'nome_area',
             'Nome do setor'             => 'nome_setor',
-            'Nome da função'            => 'nome_funcao',
+            'Nome do cargo'            => 'nome_funcao',
             'Data da ausência'          => 'data',
             'Fim da ausência'           => 'data_fim',
             'Motivo da ausência'        => 'motivo',

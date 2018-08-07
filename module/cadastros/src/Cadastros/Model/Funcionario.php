@@ -297,29 +297,29 @@ class Funcionario Extends BaseTable {
                 if(empty($rowData[2])){
                     continue;
                 }
-                
+
                 //pesquisar área
-                $area = $tbArea->select(array('nome' => $rowData[16]))->current();
+                $area = $tbArea->select(array('nome' => $rowData[5]))->current();
                 
                 if(!$area){
-                    $tbArea->insert(array('nome' => $rowData[16], 'responsavel' => 'N/A'));
+                    $tbArea->insert(array('nome' => $rowData[5], 'responsavel' => 'N/A'));
                     $idArea = $tbArea->getLastInsertValue();
                 }else{
                     $idArea = $area['id'];
                 }
                 //pesquisar setor
-                $setor = $tbSetor->select(array('nome' => $rowData[17]))->current();
+                $setor = $tbSetor->select(array('nome' => $rowData[6]))->current();
                 if(!$setor){
-                    $tbSetor->insert(array('nome' => $rowData[17], 'area' => $idArea));
+                    $tbSetor->insert(array('nome' => $rowData[6], 'area' => $idArea));
                     $idSetor = $tbSetor->getLastInsertValue();
                 }else{
                     $idSetor = $setor['id'];
                 }
 
                 //pesquisar funcao
-                $funcao = $tbFuncao->select(array('nome' => $rowData[4]))->current();
+                $funcao = $tbFuncao->select(array('nome' => $rowData[7]))->current();
                 if(!$funcao){
-                    $tbFuncao->insert(array('nome' => $rowData[4], 'setor' => $idSetor));
+                    $tbFuncao->insert(array('nome' => $rowData[7], 'setor' => $idSetor));
                     $idFuncao = $tbFuncao->getLastInsertValue();
                 }else{
                     $idFuncao = $funcao['id'];
@@ -335,22 +335,28 @@ class Funcionario Extends BaseTable {
                 $rowData[1] = $this->retirarZero($rowData[1]);
                 $rowData[1] = str_replace(' ', '', $rowData[1]);
                 
+                $tipoContratacao = 'Externa';
+                if(strtoupper($rowData[21]) == 'SIM'){
+                    $tipoContratacao = 'Interna';
+                }
+
                 $dadosFuncionario = array(
                         'matricula'         => $rowData[1],
                         'nome'              => $rowData[2],
                         'unidade'           => $dados['unidade'],
                         'funcao'            => $idFuncao,
-                        'tipo_contratacao'  => 'Interna',
-                        'tipo_contrato'     => str_replace(' ', '', $rowData[22]),
-                        'data_inicio'       => $this->ConverteData($rowData[5]),
-                        'periodo_trabalho'  => $rowData[19],
-                        'inicio_turno'      => $rowData[20],
-                        'fim_turno'         => $rowData[21],
+                        'funcao2'           => $rowData[8],
+                        'tipo_contratacao'  => $tipoContratacao,
+                        'tipo_contrato'     => str_replace(' ', '', $rowData[20]),
+                        'data_inicio'       => $this->ConverteData($rowData[4]),
+                        'periodo_trabalho'  => $rowData[17],
+                        'inicio_turno'      => $rowData[18],
+                        'fim_turno'         => $rowData[19],
                         'lider_imediato'    => $idLider,
                         'lider'             => 'N',
-                        'ccusto'            => $rowData[6],
-                        'desc_ccusto'       => $rowData[7],
-                        'horario'           => $rowData[14]
+                        'ccusto'            => $rowData[11],
+                        'desc_ccusto'       => $rowData[12],
+                        'horario'           => $rowData[16]
                     );
 
                 
@@ -366,7 +372,7 @@ class Funcionario Extends BaseTable {
                 }
 
                 //pesquisar e inserir gerente
-                $gerente = $this->getRecordFromArray(array('nome' => $rowData[13], 'unidade' => $dados['unidade']));
+                $gerente = $this->getRecordFromArray(array('nome' => $rowData[14], 'unidade' => $dados['unidade']));
                 $idGerente = '';
                 if($gerente){
                     $idGerente = $gerente['id'];

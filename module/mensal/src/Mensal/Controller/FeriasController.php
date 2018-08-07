@@ -20,7 +20,7 @@ class FeriasController extends BaseController
             'Matrícula'             => 'matricula',
             'Nome da área'          => 'nome_area',
             'Nome do setor'         => 'nome_setor',
-            'Nome da função'        => 'nome_funcao',
+            'Nome do cargo'        => 'nome_funcao',
             'Nome do funcionário'   => 'nome_funcionario',
             'Período de trabalho'   => 'periodo_trabalho',
             'Líder imediato'        => 'nome_lider_imediato',

@@ -21,7 +21,7 @@ class DesempenhoController extends BaseController
     private $campos = array(
             'Nome da área'              => 'nome_area',
             'Nome do setor'             => 'nome_setor',
-            'Nome da função'            => 'nome_funcao',
+            'Nome do cargo'            => 'nome_funcao',
             'Nome do funcionário'       => 'nome_funcionario',
             'Data da avaliação'         => 'data',
             'Data do próximo feedback'         => 'data_proximo_feedback',

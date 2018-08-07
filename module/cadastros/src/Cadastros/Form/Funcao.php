@@ -31,7 +31,7 @@
         $this->_addDropdown('setor', '* Setor:', true, $setores);
 
         //nome
-        $this->genericTextInput('nome', '* Função:', true, 'Nome da função');
+        $this->genericTextInput('nome', '* Cargo:', true, 'Nome da função');
 
         $this->_addDropdown('ativo', 'Ativo:', false, array('' => '--', 'S' => 'Ativo', 'N' => 'Inativo'));
         
