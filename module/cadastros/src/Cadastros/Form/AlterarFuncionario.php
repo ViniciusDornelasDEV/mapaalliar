@@ -60,7 +60,7 @@
         $this->genericTextInput('data_inicio', '* Data de início:', true);
 
         //periodo_trabalho
-        $periodos = array('' => '-- Selecione --', 'Manhã' => 'Manhã', 'Tarde' => 'Tarde', 'Noite' => 'Noite');
+        $periodos = array('' => '-- Selecione --', 'MANHÃ' => 'MANHÃ', 'TARDE' => 'TARDE', 'NOITE' => 'NOITE', 'INTEGRAL' => 'INTEGRAL');
         $this->_addDropdown('periodo_trabalho', '* Período de trabalho:', true, $periodos);
 
         //inicio_turno

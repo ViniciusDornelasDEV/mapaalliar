@@ -334,10 +334,15 @@ class Funcionario Extends BaseTable {
                 //pesquisar funcionário da unidade por matricula
                 $rowData[1] = $this->retirarZero($rowData[1]);
                 $rowData[1] = str_replace(' ', '', $rowData[1]);
-                
+
+
                 $tipoContratacao = 'Externa';
                 if(strtoupper($rowData[21]) == 'SIM'){
                     $tipoContratacao = 'Interna';
+                }
+
+                if(!isset($rowData[24])){
+                    $rowData[24] = '';
                 }
 
                 $dadosFuncionario = array(
@@ -356,7 +361,12 @@ class Funcionario Extends BaseTable {
                         'lider'             => 'N',
                         'ccusto'            => $rowData[11],
                         'desc_ccusto'       => $rowData[12],
-                        'horario'           => $rowData[16]
+                        'horario'           => $rowData[16],
+                        'registro_profissional' => $rowData[9],
+                        'login_pleres'      => $rowData[22],
+                        'login_qmatic'      => $rowData[23],
+                        'login_afip'        => $rowData[24],
+                        'email'             => $rowData[10]
                     );
 
                 
