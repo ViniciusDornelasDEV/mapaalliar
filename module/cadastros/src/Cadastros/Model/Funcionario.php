@@ -369,7 +369,6 @@ class Funcionario Extends BaseTable {
                         'email'             => $rowData[10]
                     );
 
-                
                 $funcionario = $this->getRecord($rowData[1], 'matricula');
                 
                 if($funcionario){

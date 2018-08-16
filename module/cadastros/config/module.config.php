@@ -199,6 +199,46 @@ return array(
                     ),
                 ),
             ),
+            'vincularGestor' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/funcionario/gestor/vincularconta[/:id]',
+                    'constraints' => array(
+                        'id'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Cadastros\Controller\Funcionario',
+                        'action'     => 'vinculargestor',
+                    ),
+                ),
+            ),
+            'deletarContaVinculada' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/funcionario/gestor/vincularconta/deletar[/:id]',
+                    'constraints' => array(
+                        'id'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Cadastros\Controller\Funcionario',
+                        'action'     => 'deletarcontavinculada',
+                    ),
+                ),
+            ),
+            'trocarFuncionarioLogado' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/funcionario/gestor/trocarfuncionario[/:funcionario]',
+                    'constraints' => array(
+                        'funcionario'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Cadastros\Controller\Funcionario',
+                        'action'     => 'trocarfuncionariologado',
+                    ),
+                ),
+            ),
+
             'importarFuncionario' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(

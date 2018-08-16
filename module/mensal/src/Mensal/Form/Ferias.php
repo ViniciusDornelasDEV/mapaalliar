@@ -21,6 +21,9 @@ use Application\Form\Base as BaseForm;
 
         parent::__construct($name);  
 
+        if(!isset($funcionario['unidade'])){
+            $funcionario['unidade'] = false;
+        }
         //area    
         $areas = $this->serviceLocator->get('Area')->getAreaUnidade($funcionario['unidade']);
         
@@ -53,6 +56,7 @@ use Application\Form\Base as BaseForm;
 
     public function setFuncionarioByFuncao($idFuncao, $idLider){
         //buscar cargos
+
         $funcionarios = $this->serviceLocator
                             ->get('Funcionario')
                             ->getFuncionarios(array('funcao' => $idFuncao, 'ativo' => 'S'), $idLider);

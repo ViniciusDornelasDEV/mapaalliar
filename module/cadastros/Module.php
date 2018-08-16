@@ -69,6 +69,12 @@ class Module
                     $updates->setServiceLocator($sm);
                     return $updates;
                 },
+                'VincularConta' => function($sm) {
+                    $tableGateway = new TableGateway('tb_vincular_gestor', $sm->get('db_adapter_main'));
+                   $updates = new Model\VincularConta($tableGateway);
+                    $updates->setServiceLocator($sm);
+                    return $updates;
+                },
             ),
             'invokables' => array(
                 'ImageService' => 'Imagine\Gd\Imagine',

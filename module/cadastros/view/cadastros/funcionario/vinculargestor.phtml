@@ -1,0 +1,63 @@
+ <div class="container theme-showcase" role="main" style="margin-bottom:10px;padding:0px;">
+     
+    <ol class="breadcrumb" style="margin-bottom: 0px;">
+      <li><a href="<?= $this->url('home'); ?>">Home</a></li>
+      <li><a href="<?= $this->url('listarFuncionario'); ?>">Funcionários</a></li>
+      <li><a href="<?= $this->url('alterarFuncionario', array('id' => $idFuncionario)); ?>">Alterar funcionário</a></li>
+      <li class="active">Vincular outra conta</li>
+    </ol>
+  </div>
+
+ <div class="container theme-showcase" role="main">
+      <div class="row">
+          <div class="panel panel-info">
+          <div class="panel-heading">
+              <h3 class="panel-title">Vincular outra conta de gestor</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                  <?php echo $this->partial('form/generic', array('form'=> $formVincular, 'route'=> '')) ?>
+
+            </div>
+          </div>
+      </div>
+    </div>
+    </div>
+
+
+    <div class="container theme-showcase" role="main">
+      <div class="row">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Contas vinculadas a este gestor</h3>
+            </div>
+            <div class="panel-body">
+              <?php if($vinculados && $vinculados->count() > 0): ?>
+              <div class="table-responsive">
+                <table class="table">
+                  <tr>
+                    <th style="text-align: center">Empresa</th>
+                    <th style="text-align: center">Unidade</th>
+                    <th style="text-align: center">Conta</th>
+                    <th style="text-align: center">Ações</th>
+                </tr>
+                <?php foreach($vinculados as $vinculado): ?>
+                <tr>
+                  <td style="text-align: center"><?= $vinculado['nome_empresa']; ?></td>
+                  <td style="text-align: center"><?= $vinculado['nome_unidade']; ?></td>
+                  <td style="text-align: center"><?= $vinculado['nome_funcionario']; ?></td>
+                  <td style="text-align: center;">
+                    <img src="<?= $this->basePath('img/deletar.png'); ?>" title="Editar" 
+                    onclick="location.href='<?= $this->url('deletarContaVinculada', array('id' => $vinculado['id'])); ?>'" style="cursor: pointer;">
+                  </td>
+                </tr>
+                <?php endforeach; ?>
+              </table>
+            </div>
+            <?php else: ?>
+              <div class="alert alert-info">Nenhum outro gestor vinculado a este!</div>
+            <?php endif; ?>
+            </div>
+          </div>
+        </div>
+      </div>

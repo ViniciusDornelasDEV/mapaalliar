@@ -18,6 +18,11 @@
         <?php endif;  ?>
       <?php endif; ?>
 
+      <?php if($funcionario['lider'] == 'S'): ?>
+        <button type="button" class="btn btn-warning" onclick="location.href='<?= $this->url('vincularGestor', array('id' => $funcionario['id'])); ?>'" style="float: right;margin-right: 10px;">
+          <img src="<?php echo $this->basePath('img/depter.png') ?>" alt="Novo">
+          Vincular outra conta</button>
+      <?php endif; ?>
     <ol class="breadcrumb" style="margin-bottom: 0px;">
       <li><a href="<?= $this->url('home'); ?>">Home</a></li>
       <li><a href="<?= $this->url('listarFuncionario'); ?>">Funcionários</a></li>

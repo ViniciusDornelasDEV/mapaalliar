@@ -85,13 +85,18 @@ class UsuarioController extends BaseController
                         $defaultNamespace->rememberMe();
                     }            
                     
-                    $user = (array)$authAdapter->getResultRowObject();    
+                    $user = (array)$authAdapter->getResultRowObject();  
+                    $user['funcionario_original'] = $user['funcionario'];  
                     $session->write($user);                                       
 
                     //Create acl config
                     $sessao = new Container();
                     $sessao->acl = $this->criarAutorizacao();
                     
+                    if($user['primeiro_login'] == 'S' && $user['id_usuario_tipo'] != 1){
+                        return $this->redirect()->toRoute('alterarSenha');
+                    }
+
                     $this->getServiceLocator()->get('Usuario')->logSistema($user, 'login', false);
                     if($user['id_usuario_tipo'] == 3){
                         return $this->redirect()->toRoute('listarFuncionarioTi');
@@ -160,6 +165,7 @@ class UsuarioController extends BaseController
     }
 
     public function alterarsenhaAction() {
+        $this->layout('layout/login');
         $form = new alterarSenhaForm('frmUsuario');
         if($this->getRequest()->isPost()){
             $dados = $this->getRequest()->getPost();
@@ -176,6 +182,7 @@ class UsuarioController extends BaseController
                 }
                 //alterar senha
                 $usuario['senha'] = $bcrypt->create($dados['senha']);
+                $usuario['primeiro_login'] = 'N';
                 if($serviceUsuario->update($usuario, array('id' => $usuario['id']))){
                     $this->flashMessenger()->addSuccessMessage('Senha alterada com sucesso!');  
                     return $this->redirect()->toRoute('logout');

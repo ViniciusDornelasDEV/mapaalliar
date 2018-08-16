@@ -1,0 +1,36 @@
+    <div class="container theme-showcase" role="main">
+      <div class="row">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Contas vinculadas a este gestor</h3>
+            </div>
+            <div class="panel-body">
+              <?php if($vinculados && $vinculados->count() > 0): ?>
+              <div class="table-responsive">
+                <table class="table">
+                  <tr>
+                    <th style="text-align: center">Empresa</th>
+                    <th style="text-align: center">Unidade</th>
+                    <th style="text-align: center">Conta</th>
+                    <th style="text-align: center">Ações</th>
+                </tr>
+                <?php foreach($vinculados as $vinculado): ?>
+                <tr>
+                  <td style="text-align: center"><?= $vinculado['nome_empresa']; ?></td>
+                  <td style="text-align: center"><?= $vinculado['nome_unidade']; ?></td>
+                  <td style="text-align: center"><?= $vinculado['nome_funcionario']; ?></td>
+                  <td style="text-align: center;">
+                    <img src="<?= $this->basePath('img/status.png'); ?>" title="Editar" 
+                    onclick="location.href='<?= $this->url('trocarFuncionarioLogado', array('funcionario' => $vinculado['funcionario'])); ?>'" style="cursor: pointer;">
+                  </td>
+                </tr>
+                <?php endforeach; ?>
+              </table>
+            </div>
+            <?php else: ?>
+              <div class="alert alert-info">Nenhum outro gestor vinculado a este!</div>
+            <?php endif; ?>
+            </div>
+          </div>
+        </div>
+      </div>

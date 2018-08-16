@@ -17,7 +17,7 @@ use Cadastros\Form\ImportarFuncionario as formImportacao;
 use Cadastros\Form\MudarGestor as formMudarGestor;
 use Cadastros\Form\MudarLider as formMudarLider;
 use Cadastros\Form\AdicionarGestor as formAdicionarGestor;
-
+use Cadastros\Form\VincularFuncionario as formVincularFuncionario;
 use Cadastros\Form\PesquisarFuncionarioTi as formPesquisaTi;
 use Cadastros\Form\FuncionarioTi as formFuncionarioTi;
 
@@ -151,6 +151,62 @@ class FuncionarioController extends BaseController
             'funcionario'       => $funcionario,
             'usuario'           => $usuario
             ));
+    }
+
+    public function vinculargestorAction(){
+        $serviceVincular = $this->getServiceLocator()->get('VincularConta');
+        $formVincular = new formVincularFuncionario('frmVincular', $this->getServiceLocator());
+
+        $idFuncionario = $this->params()->fromRoute('id');
+
+        if($this->getRequest()->isPost()){
+            $formVincular->setData($this->getRequest()->getPost());
+            if($formVincular->isValid()){
+                $dados = $formVincular->getData();
+                $serviceVincular->insert(array('funcionario_principal' => $idFuncionario, 'funcionario' => $dados['lider_imediato']));
+                $this->flashMessenger()->addSuccessMessage('Conta vinculada com sucesso!');
+                return $this->redirect()->toRoute('vincularGestor', array('id' => $idFuncionario));
+            }
+        }
+        //pesquisar contas vinculadas
+        $vinculados = $serviceVincular->getVinculados($idFuncionario);
+
+        return new ViewModel(array(
+            'formVincular'      => $formVincular,
+            'vinculados'        => $vinculados,
+            'idFuncionario'     => $idFuncionario
+        ));
+    }
+
+    public function deletarcontavinculadaAction(){
+        $serviceVincular = $this->getServiceLocator()->get('VincularConta');
+        $idConta = $this->params()->fromRoute('id');
+
+        $conta = $serviceVincular->getRecord($idConta);
+
+        if($serviceVincular->delete(array('id' => $idConta))){
+            $this->flashMessenger()->addSuccessMessage('Conta desvinculada com sucesso!');
+        }else{
+            $this->flashMessenger()->addErrorMessage('Ocorreu algum erro, por favor tente novamente!');
+        }
+
+        return $this->redirect()->toRoute('vincularGestor', array('id' => $conta['funcionario_principal']));
+    }
+
+    public function trocarfuncionariologadoAction(){
+        $this->layout('layout/gestor');
+        $usuario = $this->getServiceLocator()->get('session')->read();
+        $vinculados = $this->getServiceLocator()->get('VincularConta')->getVinculados($usuario['funcionario_original']);
+        $idFuncionario = $this->params()->fromRoute('funcionario');
+
+        if($idFuncionario){
+            $usuario['funcionario'] = $idFuncionario;
+            $this->getServiceLocator()->get('session')->write($usuario);
+            $this->flashMessenger()->addSuccessMessage('Conta substituída com sucesso!');
+            return $this->redirect()->toRoute('trocarFuncionarioLogado');
+        }
+
+        return new ViewModel(array('vinculados' => $vinculados));
     }
 
     public function deletargestorAction(){

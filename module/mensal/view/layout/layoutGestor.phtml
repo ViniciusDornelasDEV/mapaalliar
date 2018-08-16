@@ -82,8 +82,10 @@
                         </div>
 
                         <div style="float: right;margin-top:-50px;color:#fff;">
-                            <img src="<?= $this->basePath('img/usuario.png'); ?>"> 
-                                <?= $usuario['nome'] ?>
+                            <a href="<?= $this->url('trocarFuncionarioLogado') ?>" style="color:#fff;">
+                                <img src="<?= $this->basePath('img/usuario.png'); ?>"> 
+                                    <?= $usuario['nome'] ?>
+                            </a>
                         </div>
                     </div>
 
